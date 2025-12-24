@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "figma-mcp": {
+      "httpUrl": "http://localhost:3845/mcp"
+    }
+  },
+  "$version": 2
+}
