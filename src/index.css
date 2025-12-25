@@ -11,3 +11,18 @@
 * {
   font-family: "Lexend Deca", sans-serif;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer-enter {
+  transform: translateX(-100%);
+}
+.drawer-enter-active {
+  transform: translateX(0);
+}
