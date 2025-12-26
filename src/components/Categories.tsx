@@ -1,18 +1,15 @@
 import arrowRight from "/icons/arrow-right.svg"
 import Button from "./Button"
+import TitleSection from "./TitleSection"
 
 export default function Categories() {
   return (
     <div className="flex flex-col gap-9">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-        <div className="relative text-[24px] md:text-[28px] lg:text-[32px] text-black font-extrabold leading-[140%] md:leading-[160%]">
-          <p className="mb-0 md:w-[70%] md:max-w-[500px] lg:max-w-[600px]">Explore High Quality Products by Categories</p>
-        </div>
-
+      <TitleSection title="Explore High Quality Products by Categories">
         <Button icon={arrowRight}>
           VIEW ALL
         </Button>
-      </div>
+      </TitleSection>
 
       <div className="categories">
         {(() => {
