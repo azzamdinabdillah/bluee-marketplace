@@ -24,61 +24,61 @@ export default function ProductCard({
   className = "",
 }: ProductCardProps) {
   return (
-    <div className={`flex flex-col w-[276px] rounded-[20px] ${className}`}>
+    <div className={`flex flex-col w-full md:w-[276px] rounded-[14px] md:rounded-[20px] ${className}`}>
       {/* Product Image */}
-      <div className="w-full h-[192px] relative">
+      <div className="w-full h-[150px] md:h-[192px] relative bg-[#F3F5F9] flex items-center justify-center">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover rounded-t-[20px]"
+          className="size-[90%] object-contain rounded-t-[14px] md:rounded-t-[20px]"
         />
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-6 p-5 border border-stroke-color border-t-0 rounded-b-[20px]">
+      <div className="flex flex-col gap-3 md:gap-6 p-3 md:p-5 border border-stroke-color border-t-0 rounded-b-[14px] md:rounded-b-[20px]">
 
         {/* Tag and Sold Count */}
-        <div className="flex items-center gap-3">
-          <div className="bg-primary-color/9 rounded px-2 py-2 flex items-center justify-center">
-            <span className="text-primary-color font-bold text-base leading-5">
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="bg-primary-color/9 rounded px-1.5 py-1 md:px-2 md:py-2 flex items-center justify-center">
+            <span className="text-primary-color font-bold text-xs md:text-base leading-4 md:leading-5">
               {tag}
             </span>
           </div>
-          <span className="text-[#FF133D] font-semibold text-base leading-5">
+          <span className="text-[#FF133D] font-semibold text-xs md:text-base leading-4 md:leading-5">
             {sold}
           </span>
         </div>
 
         {/* Title and Price */}
-        <div className="flex flex-col gap-1">
-          <h3 className="text-black-color font-bold text-xl leading-[1.25em] truncate">
+        <div className="flex flex-col gap-0.5 md:gap-1">
+          <h3 className="text-black-color font-bold text-base md:text-lg lg:text-xl leading-[1.25em] truncate">
             {title}
           </h3>
-          <p className="text-primary-color font-bold text-xl leading-[1.25em]">
+          <p className="text-primary-color font-bold text-base md:text-lg lg:text-xl leading-[1.25em]">
             {price}
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           {/* Wishlist Button */}
           <button
             onClick={onWishlist}
-            className="w-14 h-14 rounded-2xl bg-[#FF3056]/9 flex items-center justify-center cursor-pointer hover:bg-[#FF3056]/20 transition-colors"
+            className="w-10 h-10 md:w-14 md:h-14 rounded-[10px] md:rounded-2xl bg-[#FF3056]/9 flex items-center shrink-0 justify-center cursor-pointer hover:bg-[#FF3056] group transition-colors"
             aria-label="Add to wishlist"
           >
-            <HeartIcon className="text-[#FF3056] w-6 h-6" strokeWidth={2} />
+            <HeartIcon className="text-[#FF3056] group-hover:text-white w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
           </button>
 
           {/* Add to Cart Button */}
           <Button
             variant="lightBlue"
             onClick={onAddToCart}
-            className="flex-1 h-14 rounded-2xl"
+            className="flex-1 h-10 md:h-14 rounded-[10px] md:rounded-2xl px-0"
           >
-            <div className="flex items-center gap-1.5">
-              <CartIcon className="w-6 h-6" />
-              <span className="font-bold text-base leading-5">Add to Cart</span>
+            <div className="flex items-center gap-1 md:gap-1.5">
+              <CartIcon className="w-5 h-5 md:w-6 md:h-6" />
+              <span className="font-bold text-xs md:text-base leading-4 md:leading-5">Add to Cart</span>
             </div>
           </Button>
         </div>
