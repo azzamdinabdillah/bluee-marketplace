@@ -72,7 +72,7 @@ const PRODUCTS = [
 
 export default function ProductRecomendation() {
     return (
-        <div className="flex flex-col gap-9">
+        <div className="flex flex-col gap-6 md:gap-9">
             <TitleSection title="Shop Quality Picks from Top Sellers">
                 <Button icon={arrowRight}>VIEW ALL</Button>
             </TitleSection>
