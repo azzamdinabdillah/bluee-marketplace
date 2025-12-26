@@ -60,7 +60,7 @@ export default function Navbar() {
           <div className="relative grow hidden md:block">
             <input
               type="text"
-              className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full border border-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold"
+              className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full border border-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold focus:outline-none focus:border-primary-color transition-colors duration-200"
               placeholder="Search any products"
             />
             <img
@@ -94,7 +94,7 @@ export default function Navbar() {
         <div className="relative md:hidden">
           <input
             type="text"
-            className="py-3 px-4 pl-12 w-full border border-stroke-color rounded-[12px] placeholder:text-sm placeholder:text-sec-color placeholder:font-semibold"
+            className="py-3 px-4 pl-12 w-full border border-stroke-color rounded-[12px] placeholder:text-sm placeholder:text-sec-color placeholder:font-semibold focus:outline-none focus:border-primary-color transition-colors duration-200"
             placeholder="Search any products"
           />
           <img
@@ -124,9 +124,8 @@ export default function Navbar() {
       </ul>
 
       <div
-        className={`lg:hidden fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 select-none pointer-events-none"
-        }`}
+        className={`lg:hidden fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 select-none pointer-events-none"
+          }`}
         onClick={handleMenuToggle}
       >
         <div
