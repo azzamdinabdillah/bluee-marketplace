@@ -1,4 +1,5 @@
 import arrowRight from "/icons/arrow-right.svg"
+import Button from "./Button"
 
 export default function Categories() {
   return (
@@ -8,15 +9,9 @@ export default function Categories() {
           <p className="mb-0 md:w-[70%] md:max-w-[500px] lg:max-w-[600px]">Explore High Quality Products by Categories</p>
         </div>
 
-        <div className="flex items-center justify-center gap-2.5 px-5 py-3 md:px-6 md:py-4 bg-black-color rounded-[14px] md:rounded-[18px] relative">
-          <p className="text-[14px] md:text-[16px] text-white text-nowrap font-medium">
-            VIEW ALL
-          </p>
-
-          <div className="relative shrink-0 size-5 md:size-6">
-            <img src={arrowRight} alt="" className="block size-full max-w-none" />
-          </div>
-        </div>
+        <Button icon={arrowRight}>
+          VIEW ALL
+        </Button>
       </div>
 
       <div className="categories">
