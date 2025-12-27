@@ -37,7 +37,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className=" border-b border-stroke-color">
+    <div className="fixed top-0 left-0 w-full z-50 bg-white border-b border-stroke-color">
       <div className={`grid p-4 md:p-6 lg:p-8 transition-[grid-template-rows,gap] duration-100 delay-[0s,150ms] ${isCategoriesOpen ? "grid-rows-[2fr] gap-4 md:gap-6" : "grid-rows-[0fr] gap-0"
         }`}>
         <div className="flex flex-col gap-2 md:gap-4">
