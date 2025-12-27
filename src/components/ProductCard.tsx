@@ -64,10 +64,12 @@ export default function ProductCard({
           {/* Wishlist Button */}
           <button
             onClick={onWishlist}
-            className="w-10 h-10 md:w-14 md:h-14 rounded-[10px] md:rounded-2xl bg-[#FF3056]/9 flex items-center shrink-0 justify-center cursor-pointer hover:bg-[#FF3056] group transition-colors"
+            className="flex cursor-pointer h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] group md:h-14 md:w-14 md:rounded-2xl"
             aria-label="Add to wishlist"
           >
-            <HeartIcon className="text-[#FF3056] group-hover:text-white w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
+            <HeartIcon
+              className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover:fill-white group-hover:stroke-white md:h-6 md:w-6"
+            />
           </button>
 
           {/* Add to Cart Button */}

@@ -98,10 +98,12 @@ export default function SellerCard({
                 {/* Actions */}
                 <div className="flex items-stretch gap-2 md:gap-3 mt-1 md:mt-2">
                     <button
-                        className="flex items-center justify-center w-10 h-10 md:w-[56px] md:h-[56px] rounded-[10px] md:rounded-[16px] bg-[#FF3056]/10 text-[#FF3056] hover:bg-[#FF3056] transition-colors cursor-pointer shrink-0 group"
+                        className="flex cursor-pointer h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] group md:h-14 md:w-14 md:rounded-2xl"
                         aria-label="Add to wishlist"
                     >
-                        <HeartIcon className="w-5 h-5 md:w-6 md:h-6 text-[#FF3056] group-hover:text-white" strokeWidth={2} />
+                        <HeartIcon
+                            className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover:fill-white group-hover:stroke-white md:h-6 md:w-6"
+                        />
                     </button>
                     <Button
                         variant="lightBlue"
