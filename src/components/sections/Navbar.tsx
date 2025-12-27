@@ -16,9 +16,14 @@ import cs from "/icons/cs.svg";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
 
   const handleMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleCategoriesToggle = () => {
+    setIsCategoriesOpen(!isCategoriesOpen);
   };
 
   const navItems = [
@@ -33,7 +38,8 @@ export default function Navbar() {
 
   return (
     <div className=" border-b border-stroke-color">
-      <div className="flex flex-col gap-4 md:gap-6 p-4 md:p-6 lg:p-8">
+      <div className={`grid p-4 md:p-6 lg:p-8 transition-[grid-template-rows,gap] duration-100 delay-[0s,150ms] ${isCategoriesOpen ? "grid-rows-[2fr] gap-4 md:gap-6" : "grid-rows-[0fr] gap-0"
+        }`}>
         <div className="flex flex-col gap-2 md:gap-4">
           <div className="flex gap-4 md:gap-6">
             <button
@@ -48,13 +54,21 @@ export default function Navbar() {
               <p className="font-extrabold text-xl md:text-2xl font-montserrat!">BLUEE</p>
             </div>
 
-            <div className="hidden lg:flex gap-2 items-center">
+            <div
+              className="hidden lg:flex gap-2 items-center cursor-pointer select-none"
+              onClick={handleCategoriesToggle}
+            >
               <img src={menuSm} alt="" />
               <div className="flex items-center gap-1">
                 <p className="text-sec-color text-base font-semibold">
                   Categories
                 </p>
-                <img src={arrowDown} alt="" />
+                <img
+                  src={arrowDown}
+                  alt=""
+                  className={`transition-transform duration-300 ${isCategoriesOpen ? "" : "rotate-180"
+                    }`}
+                />
               </div>
             </div>
 
@@ -106,23 +120,30 @@ export default function Navbar() {
           </div>
         </div>
 
-        <ul className="flex items-center gap-6 md:gap-8 overflow-x-auto scrollbar-hide whitespace-nowrap">
-          {navItems.map((item, index) => (
-            <li key={index} className="flex gap-2 items-center group shrink-0">
-              <img
-                src={item.icon}
-                alt=""
-                className="w-5 h-5 md:w-auto md:h-auto group-hover:opacity-70 group-hover:scale-105 transition-all duration-200"
-              />
-              <a
-                href={item.href}
-                className={`text-sec-color inline-block text-sm md:text-base font-medium group-hover:text-primary-color transition-colors duration-200`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div
+          className={`hidden lg:grid transition-[grid-template-rows] duration-300 ease-in-out ${isCategoriesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            }`}
+        >
+          <div className="overflow-hidden">
+            <ul className="flex items-center gap-6 md:gap-8 overflow-x-auto scrollbar-hide whitespace-nowrap">
+              {navItems.map((item, index) => (
+                <li key={index} className="flex gap-2 items-center group shrink-0">
+                  <img
+                    src={item.icon}
+                    alt=""
+                    className="w-5 h-5 md:w-auto md:h-auto group-hover:opacity-70 transition-all duration-200"
+                  />
+                  <a
+                    href={item.href}
+                    className={`text-sec-color inline-block text-sm md:text-base font-medium group-hover:text-primary-color transition-colors duration-200`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div
           className={`lg:hidden fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 select-none pointer-events-none"
