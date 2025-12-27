@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "/icons/logo.svg";
 import menuSm from "/icons/menu-sm.svg";
 import arrowDown from "/icons/arrow-down.svg";
@@ -17,6 +17,31 @@ import cs from "/icons/cs.svg";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (isMobileMenuOpen) {
+        setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobileMenuOpen]);
 
   const handleMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -37,7 +62,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-white border-b border-stroke-color">
+    <div className={`fixed top-0 left-0 w-full z-50 bg-white border-b border-stroke-color transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
       <div className={`grid p-4 md:p-6 lg:p-8 transition-[grid-template-rows,gap] duration-100 delay-[0s,150ms] ${isCategoriesOpen ? "grid-rows-[2fr] gap-4 md:gap-6" : "grid-rows-[0fr] gap-0"
         }`}>
         <div className="flex flex-col gap-2 md:gap-4">
