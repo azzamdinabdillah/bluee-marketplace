@@ -18,15 +18,15 @@ export default function Button({
 }: ButtonProps) {
 
     const variants = {
-        black: "bg-black-color text-white hover:opacity-90",
-        lightBlue: "bg-light-blue-color text-primary-color hover:bg-primary-color hover:text-white",
-        blue: "bg-primary-color text-white hover:opacity-90",
-        gray: "bg-transparent border-[1.5px] border-stroke-color text-sec-color hover:border-black-color hover:text-black-color"
+        black: "bg-black-color text-white hover:bg-primary-color hover:text-white hover:-translate-y-0.5",
+        lightBlue: "bg-light-blue-color text-primary-color hover:bg-primary-color hover:text-white hover:shadow-md",
+        blue: "bg-primary-color text-white hover:bg-primary-color/90 hover:shadow-lg hover:-translate-y-0.5",
+        gray: "bg-transparent border-[1.5px] border-stroke-color text-sec-color hover:border-black-color hover:text-black-color hover:bg-gray-50"
     };
 
     return (
         <button
-            className={`flex items-center justify-center gap-2.5 px-5 py-3 md:px-6 md:py-4 rounded-[14px] md:rounded-[18px] relative cursor-pointer transition-all duration-200 font-medium text-[14px] md:text-[16px] text-nowrap ${variants[variant]} ${className}`}
+            className={`flex items-center justify-center gap-2.5 px-5 py-3 md:px-6 md:py-4 rounded-[14px] md:rounded-[18px] relative cursor-pointer transition-all duration-200 active:scale-95 font-medium text-[14px] md:text-[16px] text-nowrap ${variants[variant]} ${className}`}
             {...props}
         >
             <div>

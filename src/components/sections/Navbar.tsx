@@ -13,6 +13,8 @@ import { Note } from "../icons/Note";
 import { Group } from "../icons/Group";
 import { Buildings } from "../icons/Buildings";
 import { CustomerService } from "../icons/CustomerService";
+import SearchIcon from "../icons/SearchIcon";
+import Button from "../Button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -75,10 +77,10 @@ export default function Navbar() {
                 <img src={menuSm} alt="" />
               </button>
 
-              <div className="flex gap-2 md:gap-3 items-center">
+              <a href="" className="flex gap-2 md:gap-3 items-center">
                 <img src={logo} alt="" className="w-6 h-6 md:w-auto md:h-auto" />
                 <p className="font-extrabold text-xl md:text-2xl font-montserrat!">BLUEE</p>
-              </div>
+              </a>
 
               <div
                 className="hidden lg:flex gap-2 items-center cursor-pointer select-none"
@@ -101,26 +103,26 @@ export default function Navbar() {
               <div className="relative grow hidden md:block">
                 <input
                   type="text"
-                  className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full border border-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold focus:outline-none focus:border-primary-color transition-colors duration-200"
+                  className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full border border-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold focus:outline-none peer focus:border-primary-color transition-colors duration-200"
                   placeholder="Search any products"
                 />
-                <img
-                  src={searchNormal}
-                  alt=""
-                  className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-4 h-4 md:w-auto md:h-auto"
-                />
+                <SearchIcon className="absolute text-sec-color peer-focus:text-primary-color left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-auto md:h-auto transition-colors duration-200" />
               </div>
 
               <div className="flex items-center gap-2 md:gap-3 ml-auto">
-                <div className="p-2 md:p-4 rounded-full bg-[#F3F3F3] flex justify-center items-center group cursor-pointer hover:bg-primary-color/10 transition-colors duration-200">
-                  <Notification className="w-5 h-5 md:w-6 md:h-6 text-black-color group-hover:text-primary-color transition-colors duration-200" />
+                <div className="p-2 md:p-4 rounded-full bg-[#F3F3F3] flex justify-center items-center group cursor-pointer hover:bg-primary-color transition-colors duration-200">
+                  <Notification className="w-5 h-5 md:w-6 md:h-6 text-black-color group-hover:text-white transition-colors duration-200" />
                 </div>
-                <div className="p-2 md:p-4 rounded-full bg-[#F3F3F3] flex justify-center items-center group cursor-pointer hover:bg-primary-color/10 transition-colors duration-200">
-                  <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-black-color group-hover:text-primary-color transition-colors duration-200" />
+                <div className="p-2 md:p-4 rounded-full bg-[#F3F3F3] flex justify-center items-center group cursor-pointer hover:bg-primary-color transition-colors duration-200">
+                  <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-black-color group-hover:text-white transition-colors duration-200" />
                 </div>
-                <div className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden">
+                {/* <div className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden">
                   <img src={user} alt="" className="w-full h-full object-cover" />
-                </div>
+                </div> */}
+                {/* If user is not logged in, show Sign In/Register button */}
+                <Button variant="blue">
+                  Sign In/Register
+                </Button>
               </div>
             </div>
 
