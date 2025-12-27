@@ -3,6 +3,7 @@ import Navbar from "./components/sections/Navbar";
 import Categories from "./components/sections/Categories";
 import ProductRecomendation from "./components/sections/ProductRecomendation";
 import SellerRecomendation from "./components/sections/SellerRecomendation";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
         <ProductRecomendation />
         <SellerRecomendation />
       </div>
+
+      <Footer />
     </div>
   );
 }

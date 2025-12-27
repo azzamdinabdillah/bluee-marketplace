@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Montserrat:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme{
+  --font-lexend: "Lexend Deca", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
   --color-stroke-color: #E8E8E8;
   --color-black-color: #292D32;
   --color-sec-color: #6A7686;

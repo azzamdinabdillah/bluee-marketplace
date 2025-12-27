@@ -45,7 +45,7 @@ export default function Navbar() {
 
             <div className="flex gap-2 md:gap-3 items-center">
               <img src={logo} alt="" className="w-6 h-6 md:w-auto md:h-auto" />
-              <p className="font-extrabold text-xl md:text-2xl">BLUEE</p>
+              <p className="font-extrabold text-xl md:text-2xl font-montserrat!">BLUEE</p>
             </div>
 
             <div className="hidden lg:flex gap-2 items-center">
