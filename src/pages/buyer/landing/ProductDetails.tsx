@@ -2,6 +2,8 @@ import Breadcrumb from "@src/components/Breadcrumb";
 import store1 from "/images/store.png";
 import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
 import Footer from "@src/components/Footer";
+import promo1 from "/images/promo-1.png";
+import promo2 from "/images/promo-2.png";
 import ProductGallery from "@src/components/sections/buyer/landing/product-details/ProductGallery";
 import StoreCard from "@src/components/sections/buyer/landing/product-details/StoreCard";
 import ProductAbout from "@src/components/sections/buyer/landing/product-details/ProductAbout";
@@ -28,6 +30,7 @@ OS: macOS`;
                 <Breadcrumb items={[{ label: "Homepage", href: "/" }, { label: "Gadged", href: "/browse-category-product/gadged" }, { label: "Product Details" }]} />
 
                 <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[100px]">
+                    <div className="grid lg:grid-cols-2 gap-[20px]">
                     <div className="flex flex-col gap-8 md:gap-11 lg:gap-[52px]">
                         <ProductGallery />
 
@@ -39,6 +42,12 @@ OS: macOS`;
                         />
 
                         <ProductAbout content={productDescription} />
+
+                        <div className="grid grid-cols-2 gap-1.5 md:gap-[20px]">
+                            <img src={promo1} alt="Promo image 1" className="rounded-xl md:rounded-3xl" />
+                            <img src={promo2} alt="Promo image 2" className="rounded-xl md:rounded-3xl" />
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

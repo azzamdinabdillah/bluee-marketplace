@@ -15,11 +15,11 @@ const ProductAbout: React.FC<ProductAboutProps> = ({ content }) => {
   const shortContent = content.split('Key Specs:')[0].trim();
 
   return (
-    <div className="flex w-full max-w-[580px] flex-col gap-3">
-      <h2 className="font-lexend text-lg font-bold leading-[1.25em] text-black">
+    <div className="flex w-full flex-col gap-3">
+      <h2 className="text-sm md:text-base lg:text-lg font-bold leading-[1.25em] text-black">
         Product About
       </h2>
-      <div className="font-lexend text-sec-color flex flex-col gap-4 text-lg font-medium leading-[1.6em]">
+      <div className="text-sec-color flex flex-col gap-4 text-sm md:text-base lg:text-lg font-medium leading-[1.6em]">
         <div className="whitespace-pre-line">
           {isExpanded ? content : `${shortContent}...`}
         </div>
