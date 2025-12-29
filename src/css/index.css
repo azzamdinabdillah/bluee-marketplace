@@ -15,10 +15,21 @@
   font-family: "Lexend Deca", sans-serif;
 }
 
+.max-w-1176 {
+  max-width: 1176px;
+}
+
+@media (min-width: 1280px) {
+  .max-w-1176 {
+    margin-inline: auto;
+  }
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -26,6 +37,7 @@
 .drawer-enter {
   transform: translateX(-100%);
 }
+
 .drawer-enter-active {
   transform: translateX(0);
 }

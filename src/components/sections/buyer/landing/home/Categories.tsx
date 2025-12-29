@@ -1,6 +1,6 @@
 import arrowRight from "/icons/arrow-right.svg";
-import Button from "../../../Button";
-import TitleSection from "../../../TitleSection";
+import Button from "../../../../Button";
+import TitleSection from "../../../../TitleSection";
 import { Link } from "react-router-dom";
 
 export default function Categories() {

@@ -1,17 +1,7 @@
 import HeartIcon from "./icons/HeartIcon";
 import CartIcon from "./icons/CartIcon";
 import Button from "./Button";
-
-interface ProductCardProps {
-  image?: string;
-  title?: string;
-  price?: string;
-  sold?: string | number;
-  tag?: string;
-  onAddToCart?: () => void;
-  onWishlist?: () => void;
-  className?: string;
-}
+import type { ProductCardProps } from "../types/ProductType";
 
 export default function ProductCard({
   image = "https://placehold.co/276x192",

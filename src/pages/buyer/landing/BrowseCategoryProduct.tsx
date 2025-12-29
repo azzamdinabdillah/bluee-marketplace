@@ -1,8 +1,10 @@
 import Breadcrumb from "@src/components/Breadcrumb";
 import Footer from "@src/components/Footer";
-import Navbar from "@src/components/sections/buyer/landing/Navbar";
+import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
 import boxIcon from "/icons/box.svg";
 import verifyIcon from "/icons/verify.svg";
+import Popular from "../../../components/sections/buyer/landing/browse-category/Popular";
+import JustRelease from "../../../components/sections/buyer/landing/browse-category/JustRelease";
 
 export default function BrowseCategoryProduct() {
   return (
@@ -41,10 +43,9 @@ export default function BrowseCategoryProduct() {
           </div>
         </Breadcrumb>
 
-        <div className="mx-4 my-8 flex max-w-[1176px] flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-12 lg:my-18 lg:gap-[100px] xl:mx-auto">
-          <h3 className="text-black-color text-xl font-bold md:text-2xl lg:text-[32px]">
-            Sedang Popular 🔥{" "}
-          </h3>
+        <div className="mx-4 my-8 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-[52px] lg:my-18 lg:gap-[100px]">
+          <Popular />
+          <JustRelease />
         </div>
       </div>
 

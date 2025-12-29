@@ -1,6 +1,6 @@
-import Button from "../../../Button";
-import ProductCard from "../../../ProductCard";
-import TitleSection from "../../../TitleSection";
+import Button from "../../../../Button";
+import ProductCard from "../../../../ProductCard";
+import TitleSection from "../../../../TitleSection";
 import arrowRight from "/icons/arrow-right.svg";
 
 const PRODUCTS = [

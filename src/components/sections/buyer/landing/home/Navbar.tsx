@@ -2,22 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import logo from "/icons/logo.svg";
 import menuSm from "/icons/menu-sm.svg";
 import arrowDown from "/icons/arrow-down.svg";
-import ShoppingCart from "../../../icons/ShoppingCart";
-import Notification from "../../../icons/Notification";
+import ShoppingCart from "../../../../icons/ShoppingCart";
+import Notification from "../../../../icons/Notification";
 import user from "/images/user.png";
-import { Home } from "../../../icons/Home";
-import { Flash } from "../../../icons/Flash";
-import { BoxSearch } from "../../../icons/BoxSearch";
-import { Note } from "../../../icons/Note";
-import { Group } from "../../../icons/Group";
-import { Buildings } from "../../../icons/Buildings";
-import { CustomerService } from "../../../icons/CustomerService";
-import SearchIcon from "../../../icons/SearchIcon";
-import Button from "../../../Button";
+import { Home } from "../../../../icons/Home";
+import { Flash } from "../../../../icons/Flash";
+import { BoxSearch } from "../../../../icons/BoxSearch";
+import { Note } from "../../../../icons/Note";
+import { Group } from "../../../../icons/Group";
+import { Buildings } from "../../../../icons/Buildings";
+import { CustomerService } from "../../../../icons/CustomerService";
+import SearchIcon from "../../../../icons/SearchIcon";
+import Button from "../../../../Button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
