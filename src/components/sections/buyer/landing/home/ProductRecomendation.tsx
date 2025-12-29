@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../../../../Button";
 import ProductCard from "../../../../ProductCard";
 import TitleSection from "../../../../TitleSection";
@@ -80,6 +81,7 @@ export default function ProductRecomendation() {
       <div className="scrollbar-hide w-full overflow-x-auto pb-4">
         <div className="product-container grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6">
           {PRODUCTS.map((product) => (
+            <Link key={product.id} to={`/product-details/${product.id}`}> 
             <ProductCard
               key={product.id}
               image={product.image}
@@ -88,6 +90,7 @@ export default function ProductRecomendation() {
               sold={product.sold}
               tag={product.tag}
             />
+            </Link>
           ))}
         </div>
       </div>

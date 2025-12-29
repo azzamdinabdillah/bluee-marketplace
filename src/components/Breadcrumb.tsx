@@ -22,7 +22,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   return (
     <div className="bg-[#F3F5F9]">
       <div
-        className={`box-border flex w-full max-w-1176 flex-col gap-2 px-4 py-6 md:gap-[12px] md:px-8 md:py-[52px] lg:px-[52px] xl:px-0 ${className}`}
+        className={`box-border flex w-full max-w-1176 flex-col gap-2 px-4 py-3 md:py-6 md:gap-[12px] md:px-8 md:py-[${title && children ? '52px' : '24px'}] lg:px-[52px] xl:px-0 ${className}`}
       >
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb">
@@ -35,7 +35,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               return (
                 <React.Fragment key={index}>
                   <li
-                    className={`flex items-center text-sm leading-[1.25em] md:text-[18px] ${
+                    className={`flex items-center text-xs md:text-sm leading-[1.25em] md:text-[18px] ${
                       isActive
                         ? "text-primary-color font-semibold"
                         : "text-sec-color font-medium"

@@ -3,8 +3,8 @@ import Footer from "@src/components/Footer";
 import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
 import boxIcon from "/icons/box.svg";
 import verifyIcon from "/icons/verify.svg";
-import Popular from "../../../components/sections/buyer/landing/browse-category/Popular";
-import JustRelease from "../../../components/sections/buyer/landing/browse-category/JustRelease";
+import Popular from "@src/components/sections/buyer/landing/browse-category/Popular";
+import JustRelease from "@src/components/sections/buyer/landing/browse-category/JustRelease";
 
 export default function BrowseCategoryProduct() {
   return (

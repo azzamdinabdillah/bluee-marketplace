@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+
+interface ProductAboutProps {
+  content: string;
+}
+
+const ProductAbout: React.FC<ProductAboutProps> = ({ content }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Determine what to show
+  // For simplicity, we'll show the first paragraph and the "Key Specs" header if collapsed
+  // Or just truncate by character count.
+  // Given the design has "Read More" at the end, I'll simulate a truncation.
+
+  const shortContent = content.split('Key Specs:')[0].trim();
+
+  return (
+    <div className="flex w-full max-w-[580px] flex-col gap-3">
+      <h2 className="font-lexend text-lg font-bold leading-[1.25em] text-black">
+        Product About
+      </h2>
+      <div className="font-lexend text-sec-color flex flex-col gap-4 text-lg font-medium leading-[1.6em]">
+        <div className="whitespace-pre-line">
+          {isExpanded ? content : `${shortContent}...`}
+        </div>
+
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-primary-color w-fit font-medium hover:underline focus:outline-none"
+        >
+          {isExpanded ? "Show Less" : "Read More"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ProductAbout;
