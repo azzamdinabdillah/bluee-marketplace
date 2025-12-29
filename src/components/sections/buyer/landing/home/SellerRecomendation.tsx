@@ -15,7 +15,6 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "@src/css/SellerRecomendation.css";
 
 export default function SellerRecomendation() {
   return (
@@ -87,7 +86,6 @@ export default function SellerRecomendation() {
               coverBackgroundColor="#000000" // Light purple
             />
           </SwiperSlide>
-          {/* Add more slides if needed to demonstrate carousel */}
           <SwiperSlide>
             <SellerCard
               storeName="Xiaomi Store Indonesia"

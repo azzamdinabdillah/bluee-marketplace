@@ -7,6 +7,7 @@ import promo2 from "/images/promo-2.png";
 import ProductGallery from "@src/components/sections/buyer/landing/product-details/ProductGallery";
 import StoreCard from "@src/components/sections/buyer/landing/product-details/StoreCard";
 import ProductAbout from "@src/components/sections/buyer/landing/product-details/ProductAbout";
+import ProductTestimony from "@src/components/sections/buyer/landing/product-details/ProductTestimony";
 
 export default function ProductDetails() {
     const productDescription = `The MacBook Pro 13-inch with the M2 chip delivers incredible speed, long battery life, and a brilliant Retina display—all in a sleek, compact design.
@@ -22,6 +23,30 @@ Camera: 720p FaceTime HD
 Keyboard: Backlit with Touch ID
 OS: macOS`;
 
+    const testimonials = [
+        {
+            name: "Bryan Utami",
+            time: "3 Days Ago",
+            review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae.",
+            avatar: "https://placehold.co/64x64",
+            rating: 5
+        },
+        {
+            name: "Kintan Saff",
+            time: "3 Days Ago",
+            review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae.",
+            avatar: "https://placehold.co/64x64",
+            rating: 5
+        },
+        {
+            name: "Rudi Hermawan",
+            time: "5 Days Ago",
+            review: "Great product, really love the quality!",
+            avatar: "https://placehold.co/64x64",
+            rating: 4
+        }
+    ];
+
     return (
         <div>
             <Navbar />
@@ -31,23 +56,25 @@ OS: macOS`;
 
                 <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[100px]">
                     <div className="grid lg:grid-cols-2 gap-[20px]">
-                    <div className="flex flex-col gap-8 md:gap-11 lg:gap-[52px]">
-                        <ProductGallery />
+                        <div className="flex flex-col gap-8 md:gap-11 lg:gap-[52px]">
+                            <ProductGallery />
 
-                        <StoreCard
-                            name="Bimore Gadget Universe"
-                            logo={store1}
-                            productCount="1,294"
-                            href="#"
-                        />
+                            <StoreCard
+                                name="Bimore Gadget Universe"
+                                logo={store1}
+                                productCount="1,294"
+                                href="#"
+                            />
 
-                        <ProductAbout content={productDescription} />
+                            <ProductAbout content={productDescription} />
 
-                        <div className="grid grid-cols-2 gap-1.5 md:gap-[20px]">
-                            <img src={promo1} alt="Promo image 1" className="rounded-xl md:rounded-3xl" />
-                            <img src={promo2} alt="Promo image 2" className="rounded-xl md:rounded-3xl" />
+                            <div className="grid grid-cols-2 gap-1.5 md:gap-[20px]">
+                                <img src={promo1} alt="Promo image 1" className="rounded-xl md:rounded-3xl" />
+                                <img src={promo2} alt="Promo image 2" className="rounded-xl md:rounded-3xl" />
+                            </div>
+
+                            <ProductTestimony testimonials={testimonials} />
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
