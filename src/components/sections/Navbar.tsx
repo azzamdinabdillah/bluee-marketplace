@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import logo from "/icons/logo.svg";
 import menuSm from "/icons/menu-sm.svg";
 import arrowDown from "/icons/arrow-down.svg";
-import searchNormal from "/icons/search-normal.svg";
 import ShoppingCart from "../icons/ShoppingCart";
 import Notification from "../icons/Notification";
 import user from "/images/user.png";

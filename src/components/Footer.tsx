@@ -3,28 +3,10 @@ import logo from '/icons/logo.svg';
 import playstore from '/images/playstore.png';
 import appstore from '/images/appstore.png';
 
-// Design Tokens
-const COLORS = {
-    black: '#292D32',
-    secondary: '#6A7686',
-    stroke: '#E8E8E8',
-    primary: '#1053D5',
-};
-
-const FONTS = {
-    montserrat: 'Montserrat, sans-serif',
-    lexend: 'Lexend Deca, sans-serif',
-};
-
 // Types
 interface FooterLink {
     label: string;
     href: string;
-}
-
-interface FooterSection {
-    title: string;
-    links: FooterLink[];
 }
 
 // Data
