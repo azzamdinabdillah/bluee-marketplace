@@ -56,7 +56,7 @@ OS: macOS`;
 
                 <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[100px]">
                     <div className="grid lg:grid-cols-2 gap-[20px]">
-                        <div className="flex flex-col gap-8 md:gap-11 lg:gap-[52px]">
+                        <div className="flex flex-col gap-8 md:gap-11 lg:gap-[52px] min-w-0">
                             <ProductGallery />
 
                             <StoreCard

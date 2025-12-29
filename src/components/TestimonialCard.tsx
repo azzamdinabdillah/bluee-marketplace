@@ -16,7 +16,7 @@ export default function TestimonialCard({
   rating = 5,
 }: TestimonialCardProps) {
   return (
-    <div className="flex w-fit flex-col gap-3 rounded-[14px] border border-[#E8E8E8] p-3 md:gap-4 md:rounded-[20px] md:p-5">
+    <div className="flex flex-col gap-3 rounded-[14px] border border-[#E8E8E8] p-3 md:gap-4 md:rounded-[20px] md:p-5">
       {/* User Info */}
       <div className="flex items-center gap-3 md:gap-4">
         <img
