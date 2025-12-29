@@ -1,6 +1,6 @@
 import arrowRight from "/icons/arrow-right.svg"
-import Button from "../Button"
-import TitleSection from "../TitleSection"
+import Button from "../../../Button"
+import TitleSection from "../../../TitleSection"
 
 export default function Categories() {
   return (

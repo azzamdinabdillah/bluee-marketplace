@@ -1,7 +1,7 @@
-import TitleSection from "../TitleSection";
-import Button from "../Button";
+import TitleSection from "../../../TitleSection";
+import Button from "../../../Button";
 import arrowRight from "/icons/arrow-right.svg";
-import SellerCard from "../SellerCard";
+import SellerCard from "../../../SellerCard";
 import logo1 from "/images/logo-1.png";
 import logo2 from "/images/logo-2.png";
 import logo3 from "/images/logo-3.png";
@@ -15,7 +15,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "./SellerRecomendation.css"; // We might need some custom CSS for positioning
+import "@src/css/SellerRecomendation.css";
 
 export default function SellerRecomendation() {
   return (
