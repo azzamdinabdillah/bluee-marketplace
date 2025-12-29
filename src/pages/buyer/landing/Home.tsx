@@ -6,21 +6,21 @@ import ProductRecomendation from "../../../components/sections/buyer/landing/Pro
 import SellerRecomendation from "../../../components/sections/buyer/landing/SellerRecomendation";
 
 export default function Home() {
-    return (
-        <div>
-            <Navbar />
+  return (
+    <div>
+      <Navbar />
 
-            <div className="mt-[130px] md:mt-[105px] lg:mt-[121px]">
-                <Banner />
+      <div className="mt-[130px] md:mt-[105px] lg:mt-[121px]">
+        <Banner />
 
-                <div className="flex flex-col gap-6 mx-4 my-8 md:gap-10 md:mx-8 md:my-12 lg:gap-[100px] lg:my-18 max-w-[1176px] lg:mx-12 xl:mx-auto">
-                    <Categories />
-                    <ProductRecomendation />
-                    <SellerRecomendation />
-                </div>
-
-                <Footer />
-            </div>
+        <div className="mx-4 my-8 flex max-w-[1176px] flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-12 lg:my-18 lg:gap-[100px] xl:mx-auto">
+          <Categories />
+          <ProductRecomendation />
+          <SellerRecomendation />
         </div>
-    );
+
+        <Footer />
+      </div>
+    </div>
+  );
 }

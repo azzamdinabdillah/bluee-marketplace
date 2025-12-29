@@ -8,7 +8,7 @@ const banners = [banner1, banner2, banner1, banner2];
 
 export default function Banner() {
   return (
-    <div className="bg-[#F3F5F9] p-4 md:p-6 lg:p-8 px-0!">
+    <div className="bg-[#F3F5F9] p-4 px-0! md:p-6 lg:p-8">
       <Swiper
         modules={[Autoplay]}
         slidesPerView={1.1}
@@ -30,12 +30,12 @@ export default function Banner() {
         {banners.map((banner, index) => (
           <SwiperSlide
             key={index}
-            className="w-full h-full pl-4 md:pl-6 lg:pl-8 overflow-hidden"
+            className="h-full w-full overflow-hidden pl-4 md:pl-6 lg:pl-8"
           >
             <img
               src={banner}
               alt={`Banner ${index + 1}`}
-              className="w-full object-cover overflow-hidden"
+              className="w-full overflow-hidden object-cover"
             />
           </SwiperSlide>
         ))}

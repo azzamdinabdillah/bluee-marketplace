@@ -19,7 +19,7 @@ import "@src/css/SellerRecomendation.css";
 
 export default function SellerRecomendation() {
   return (
-    <div className="flex flex-col gap-6 md:gap-9 relative">
+    <div className="relative flex flex-col gap-6 md:gap-9">
       <TitleSection title="Trusted Sellers, Quality Guaranteed">
         <Button icon={arrowRight}>VIEW ALL</Button>
       </TitleSection>
@@ -102,12 +102,12 @@ export default function SellerRecomendation() {
         </Swiper>
       </div>
       {/* Custom Navigation and Pagination Container at the bottom */}
-      <div className="flex items-center justify-center gap-4 md:gap-6 relative">
-        <div className="swiper-button-prev-custom cursor-pointer size-11 md:size-14 flex items-center justify-center rounded-full border-[1.5px] border-stroke-color hover:bg-gray-200">
+      <div className="relative flex items-center justify-center gap-4 md:gap-6">
+        <div className="swiper-button-prev-custom border-stroke-color flex size-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] hover:bg-gray-200 md:size-14">
           <img src={arrowLeftBlack} alt="" className="" />
         </div>
         <div className="swiper-pagination-custom static! w-auto!"></div>
-        <div className="swiper-button-next-custom cursor-pointer size-11 md:size-14 flex items-center justify-center rounded-full border-[1.5px] border-stroke-color hover:bg-gray-200">
+        <div className="swiper-button-next-custom border-stroke-color flex size-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] hover:bg-gray-200 md:size-14">
           <img src={arrowLeftBlack} alt="" className="rotate-180" />
         </div>
       </div>
