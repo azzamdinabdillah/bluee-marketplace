@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                             </div>
                             {/* Description */}
                             <p className="font-lexend font-medium text-base text-sec-color leading-[1.6]">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                Bluee is your trusted digital marketplace for everyday essentials, exclusive deals, and seamless shopping—fast, secure, and built for everyone.
                             </p>
                         </div>
 

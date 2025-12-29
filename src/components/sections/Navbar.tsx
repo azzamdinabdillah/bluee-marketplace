@@ -103,7 +103,7 @@ export default function Navbar() {
               <div className="relative grow hidden md:block">
                 <input
                   type="text"
-                  className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full border border-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold focus:outline-none peer focus:border-primary-color transition-colors duration-200"
+                  className="py-3 md:py-4 px-4 md:px-6 pl-12 md:pl-14 w-full ring-[1.5px] ring-stroke-color rounded-[12px] md:rounded-[18px] placeholder:text-sm md:placeholder:text-base placeholder:text-sec-color placeholder:font-semibold focus:outline-none peer focus:ring-2 focus:ring-primary-color transition-all duration-200 text-base font-medium text-black-color"
                   placeholder="Search any products"
                 />
                 <SearchIcon className="absolute text-sec-color peer-focus:text-primary-color left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-auto md:h-auto transition-colors duration-200" />
@@ -121,7 +121,7 @@ export default function Navbar() {
                 </div> */}
                 {/* If user is not logged in, show Sign In/Register button */}
                 <Button variant="blue">
-                  Sign In/Register
+                  <span className="hidden lg:inline-block">Sign In/</span>Register
                 </Button>
               </div>
             </div>
@@ -129,14 +129,10 @@ export default function Navbar() {
             <div className="relative md:hidden">
               <input
                 type="text"
-                className="py-3 px-4 pl-12 w-full border border-stroke-color rounded-[12px] placeholder:text-sm placeholder:text-sec-color placeholder:font-semibold focus:outline-none focus:border-primary-color transition-colors duration-200"
-                placeholder="Search any products"
+                className="py-3 px-4 pl-12 w-full ring-[1.5px] ring-stroke-color rounded-[12px] placeholder:text-sm placeholder:text-sec-color placeholder:font-semibold focus:outline-none peer focus:ring-2 focus:ring-primary-color transition-all duration-200 text-sm font-medium text-black-color"
+                placeholder="Search any product"
               />
-              <img
-                src={searchNormal}
-                alt=""
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4"
-              />
+              <SearchIcon className="absolute text-sec-color peer-focus:text-primary-color left-4 top-1/2 -translate-y-1/2 size-5 md:w-auto md:h-auto transition-colors duration-200" />
             </div>
           </div>
 

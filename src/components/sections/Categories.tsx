@@ -27,7 +27,7 @@ export default function Categories() {
               {items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-col items-center justify-center gap-6 px-6 py-8 border border-stroke-color rounded-[20px] hover:border-primary-color  transition-colors duration-200 hover:bg-[#1053d508] cursor-pointer"
+                  className="flex flex-col items-center justify-center gap-6 px-6 py-8 ring-1 ring-stroke-color rounded-[20px] hover:ring-2 hover:ring-primary-color transition-all duration-200 hover:bg-[#1053d508] cursor-pointer"
                 >
                   <div className="relative shrink-0 size-9 md:size-10">
                     <img src={item.icon} alt="" className="block size-full max-w-none" />
