@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function StarIcon({
   className = "w-5 h-5",
   fill = "#FFC107",

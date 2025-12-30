@@ -1,20 +1,11 @@
-import { useState, useEffect } from 'react';
-import lp1 from "/images/lp-2.png";
-import lp2 from "/images/lp-1-2.png";
-import lp3 from "/images/lp-1-3.png";
-import lp4 from "/images/lp-1-4.png";
+import { useState, useEffect } from "react";
 
-const ProductGallery = () => {
+interface ProductGalleryProps {
+  images: string[];
+}
+
+const ProductGallery = ({ images }: ProductGalleryProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  // Array of 4 items to represent the 4 thumbnails in the design
-  // Menggunakan string kosong untuk src gambar sesuai permintaan
-  const images = [
-    lp1,
-    lp2,
-    lp3,
-    lp4,
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,7 +18,7 @@ const ProductGallery = () => {
   return (
     <div className="flex w-full flex-col gap-3">
       {/* Main Image Container */}
-      <div className="flex w-full aspect-580/356 items-center justify-center overflow-hidden bg-[#F3F5F9] rounded-xl md:rounded-2xl">
+      <div className="flex aspect-580/356 w-full items-center justify-center overflow-hidden rounded-xl bg-[#F3F5F9] md:rounded-2xl">
         <img
           src={images[selectedIndex]}
           alt="Main Product"
@@ -41,8 +32,11 @@ const ProductGallery = () => {
           <div
             key={index}
             onClick={() => setSelectedIndex(index)}
-            className={`flex w-full aspect-136/124 cursor-pointer items-center justify-center bg-[#F3F5F9] transition-all rounded-xl md:rounded-2xl duration-200 ${selectedIndex === index ? 'ring-2 ring-[#1053D5]' : 'ring ring-transparent'
-              }`}
+            className={`flex aspect-136/124 w-full cursor-pointer items-center justify-center rounded-xl bg-[#F3F5F9] transition-all duration-200 md:rounded-2xl ${
+              selectedIndex === index
+                ? "ring-2 ring-[#1053D5]"
+                : "ring ring-transparent"
+            }`}
           >
             <img
               src={img}

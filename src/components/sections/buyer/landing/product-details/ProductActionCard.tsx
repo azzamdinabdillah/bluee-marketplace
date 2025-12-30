@@ -95,7 +95,7 @@ export default function ProductActionCard({
             </span>
           </div>
 
-          <div className="w-full h-[1px] bg-stroke-color" />
+          <div className="w-full h-px bg-stroke-color" />
 
           {/* Row 2: Weight */}
           <div className="flex items-center gap-1 w-full justify-between">
@@ -107,7 +107,7 @@ export default function ProductActionCard({
             </span>
           </div>
 
-          <div className="w-full h-[1px] bg-stroke-color" />
+          <div className="w-full h-px bg-stroke-color" />
 
           {/* Row 3: Warranty */}
           <div className="flex items-center gap-1 w-full justify-between">
@@ -119,7 +119,7 @@ export default function ProductActionCard({
             </span>
           </div>
 
-          <div className="w-full h-[1px] bg-stroke-color" />
+          <div className="w-full h-px bg-stroke-color" />
 
           {/* Row 4: Order Status */}
           <div className="flex items-center gap-1 w-full justify-between">
@@ -155,7 +155,7 @@ export default function ProductActionCard({
               <MinusIcon className="w-5 h-5" />
             </button>
 
-            <div className="w-[1px] h-[18px] bg-stroke-color" />
+            <div className="w-px h-[18px] bg-stroke-color" />
 
             <div className="w-[40px] md:w-[46px] flex justify-center">
               <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color">
@@ -163,7 +163,7 @@ export default function ProductActionCard({
               </span>
             </div>
 
-            <div className="w-[1px] h-[18px] bg-stroke-color" />
+            <div className="w-px h-[18px] bg-stroke-color" />
 
             <button
               onClick={handleIncrement}

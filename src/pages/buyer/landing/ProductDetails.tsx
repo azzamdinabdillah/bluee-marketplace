@@ -14,6 +14,10 @@ import ProductTestimony from "@src/components/sections/buyer/landing/product-det
 import ProductActionCard from "@src/components/sections/buyer/landing/product-details/ProductActionCard";
 import ProductRecomendation from "@src/components/sections/buyer/landing/home/ProductRecomendation";
 import type { ProductType } from "@src/types/ProductType";
+import lp1 from "/images/lp-2.png";
+import lp2 from "/images/lp-1-2.png";
+import lp3 from "/images/lp-1-3.png";
+import lp4 from "/images/lp-1-4.png";
 
 export default function ProductDetails() {
   const productDescription = `The MacBook Pro 13-inch with the M2 chip delivers incredible speed, long battery life, and a brilliant Retina display—all in a sleek, compact design.
@@ -120,7 +124,7 @@ OS: macOS`;
         <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[100px]">
           <div className="relative grid items-start gap-[20px] md:gap-14 lg:grid-cols-2 lg:gap-8 xl:gap-[72px]">
             <div className="flex min-w-0 flex-col gap-8 md:gap-11 lg:gap-[52px]">
-              <ProductGallery />
+              <ProductGallery images={[lp1, lp2, lp3, lp4]} />
 
               <div className="lg:hidden">
                 <ProductActionCard {...productDetails} />

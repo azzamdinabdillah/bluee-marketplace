@@ -5,17 +5,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import TestimonialCard from "@src/components/TestimonialCard";
 import arrowLeftBlack from "/icons/arrow-left-black.svg";
-
-interface Testimonial {
-    name: string;
-    time: string;
-    review: string;
-    avatar: string;
-    rating: number;
-}
+import type { TestimonyType } from "@src/types/TestimonyTypes";
 
 interface ProductTestimonyProps {
-    testimonials: Testimonial[];
+    testimonials: TestimonyType[];
 }
 
 export default function ProductTestimony({
