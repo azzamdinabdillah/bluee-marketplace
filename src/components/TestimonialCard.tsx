@@ -32,7 +32,7 @@ export default function TestimonialCard({
 
       {/* Review Text */}
       <p className="text-xs font-semibold leading-[1.5em] text-[#292D32] md:text-base md:leading-[2em]">
-        {review}
+        "{review}"
       </p>
 
       {/* Rating */}

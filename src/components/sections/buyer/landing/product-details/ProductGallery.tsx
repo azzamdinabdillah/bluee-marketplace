@@ -41,7 +41,7 @@ const ProductGallery = () => {
           <div
             key={index}
             onClick={() => setSelectedIndex(index)}
-            className={`flex w-full aspect-[136/124] cursor-pointer items-center justify-center bg-[#F3F5F9] transition-all duration-200 ${selectedIndex === index ? 'border border-[#1053D5]' : 'border border-transparent'
+            className={`flex w-full aspect-136/124 cursor-pointer items-center justify-center bg-[#F3F5F9] transition-all rounded-xl md:rounded-2xl duration-200 ${selectedIndex === index ? 'ring-2 ring-[#1053D5]' : 'ring ring-transparent'
               }`}
           >
             <img
