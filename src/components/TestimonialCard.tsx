@@ -31,7 +31,7 @@ export default function TestimonialCard({
       </div>
 
       {/* Review Text */}
-      <p className="text-xs font-semibold leading-[1.5em] text-[#292D32] md:text-base md:leading-[2em]">
+      <p className="text-sm font-semibold leading-[1.5em] text-[#292D32] md:text-base md:leading-[2em]">
         "{review}"
       </p>
 

@@ -25,9 +25,9 @@ const ProductGallery = () => {
   }, [selectedIndex, images.length]);
 
   return (
-    <div className="flex w-full max-w-[580px] flex-col gap-3">
+    <div className="flex w-full flex-col gap-3">
       {/* Main Image Container */}
-      <div className="flex w-full aspect-[580/356] items-center justify-center overflow-hidden bg-[#F3F5F9] rounded-none">
+      <div className="flex w-full aspect-580/356 items-center justify-center overflow-hidden bg-[#F3F5F9] rounded-xl md:rounded-2xl">
         <img
           src={images[selectedIndex]}
           alt="Main Product"

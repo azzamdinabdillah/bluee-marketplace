@@ -24,7 +24,7 @@ export default function StoreCard({ name, logo, productCount, href }: StoreCardP
                     <span className="text-sec-color text-base font-semibold leading-tight">{productCount} Total Products</span>
                 </div>
             </div>
-            <a href={href} className="text-primary-color text-lg font-semibold leading-tight hover:underline">Visit Store</a>
+            <a href={href} className="text-primary-color text-lg font-semibold leading-tight hover:underline lg:hidden xl:block">Visit Store</a>
         </div>
     );
 }

@@ -40,7 +40,7 @@ export default function ProductTestimony({
                         0: {
                             slidesPerView: 1,
                         },
-                        640: {
+                        1300: {
                             spaceBetween: 16,
                             slidesPerView: 2,
                         }
