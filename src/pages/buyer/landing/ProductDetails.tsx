@@ -134,7 +134,7 @@ OS: macOS`;
                 name="Bimore Gadget Universe"
                 logo={store1}
                 productCount="1,294"
-                href="#"
+                href="/store-details/1"
               />
 
               <ProductAbout content={productDescription} />

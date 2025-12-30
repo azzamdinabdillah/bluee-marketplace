@@ -1,7 +1,7 @@
 import HeartIcon from "./icons/HeartIcon";
 import CartIcon from "./icons/CartIcon";
 import Button from "./Button";
-import type { ProductCardProps } from "../types/ProductType";
+import type { ProductType } from "../types/ProductType";
 
 export default function ProductCard({
   image = "https://placehold.co/276x192",
@@ -12,7 +12,7 @@ export default function ProductCard({
   onAddToCart,
   onWishlist,
   className = "",
-}: ProductCardProps) {
+}: ProductType) {
   return (
     <div
       className={`flex w-full flex-col rounded-[14px] md:w-[276px] md:rounded-[20px] ${className}`}
