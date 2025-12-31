@@ -1,22 +1,14 @@
 import Button from "@src/components/Button";
 
 // Placeholder imports - User will replace these with actual paths
-// import verifyIcon from "@src/assets/icons/verify.svg";
-// import boxIcon from "@src/assets/icons/box.svg";
-// import userIcon from "@src/assets/icons/user.svg";
-// import locationIcon from "@src/assets/icons/location.svg";
-// import shopAddIcon from "@src/assets/icons/shop-add.svg";
-// import messageIcon from "@src/assets/icons/message.svg";
-// import defaultAvatar from "@src/assets/images/default-avatar.png";
-
-// Temporary placeholders to prevent build errors
-const verifyIcon = "/icons/verify.svg";
-const boxIcon = "/icons/box.svg";
-const userIcon = "/icons/user.svg";
-const locationIcon = "/icons/location.svg";
-const shopAddIcon = "/icons/shop-add.svg";
-const messageIcon = "/icons/message.svg";
-const defaultAvatar = "/images/default-avatar.png";
+import verifyIcon from "/icons/verify-blue.svg";
+import userIcon from "/icons/user.svg";
+import locationIcon from "/icons/location.svg";
+import FlagIcon from "@src/components/icons/FlagIcon";
+import LinkIcon from "@src/components/icons/LinkIcon";
+import StoreIcon from "@src/components/icons/StoreIcon";
+import MessageIcon from "@src/components/icons/MessageIcon";
+import boxIcon from "/icons/box.svg";
 
 interface StoreHeaderProps {
   storeName?: string;
@@ -34,18 +26,18 @@ export default function StoreHeader({
   totalProducts = 1294,
   sellerName = "Shadam Bimo",
   location = "Buitenzorg",
-  avatarUrl = defaultAvatar,
+  avatarUrl,
   className = "",
 }: StoreHeaderProps) {
   return (
     <div
-      className={`border-stroke-color flex w-full max-w-[630px] flex-col gap-5 rounded-[24px] border bg-white p-5 lg:w-[630px] ${className}`}
+      className={`border-stroke-color flex w-full flex-col gap-5 rounded-[24px] border bg-white p-5 ${className}`}
     >
       {/* Top Section: Avatar & Store Info */}
       <div className="flex flex-col gap-6 md:flex-row md:items-center">
         <div className="flex flex-1 flex-row items-center gap-[14px]">
           {/* Avatar */}
-          <div className="h-[86px] w-[86px] shrink-0 overflow-hidden rounded-full md:rounded-none">
+          <div className="bg-[#4e35b30d] flex items-center justify-center rounded-full p-4 md:p-6 size-[60px] md:size-[72px] lg:size-[86px] shrink-0">
             <img
               src={avatarUrl}
               alt={storeName}
@@ -55,8 +47,8 @@ export default function StoreHeader({
 
           {/* Store Info */}
           <div className="flex flex-col gap-[6px]">
-            <div className="flex flex-wrap items-center gap-[6px]">
-              <h2 className="text-black-color font-lexend text-lg font-bold">
+            <div className="flex items-center gap-[6px]">
+              <h2 className="text-black-color font-lexend text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden">
                 {storeName}
               </h2>
               {isVerified && (
@@ -75,19 +67,11 @@ export default function StoreHeader({
 
         {/* Right Side: Share & Report */}
         <div className="flex items-center gap-3">
-          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-[16px] border bg-white p-4 transition-colors duration-200">
-            <img
-              src=""
-              alt="Share"
-              className="h-6 w-6 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
-            />
+          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white p-4 transition-colors duration-200 group cursor-pointer">
+            <FlagIcon className="text-sec-color group-hover:text-white" />
           </button>
-          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-[16px] border bg-white p-4 transition-colors duration-200">
-            <img
-              src=""
-              alt="Report"
-              className="h-6 w-6 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
-            />
+          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white p-4 transition-colors duration-200 group cursor-pointer group">
+            <LinkIcon className="text-sec-color group-hover:text-white" />
           </button>
         </div>
       </div>
@@ -125,14 +109,14 @@ export default function StoreHeader({
       </div>
 
       {/* Actions */}
-      <div className="flex flex-col gap-4 md:flex-row">
-        <Button variant="blue" icon={shopAddIcon} className="w-full flex-1">
+      <div className="flex flex-col gap-4 md:grid grid-cols-3">
+        <Button variant="blue" icon={StoreIcon} className="w-full flex-1 md:col-span-2">
           Follow Store
         </Button>
 
         <Button
           variant="lightBlue"
-          icon={messageIcon}
+          icon={MessageIcon}
           className="w-full flex-1"
         >
           Message

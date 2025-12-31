@@ -1,0 +1,8 @@
+export default function FlagIcon({ className }: { className?: string }) {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+            <path d="M6.4502 2V22" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6.9502 4L15.0502 7.5C18.3502 8.9 18.3502 11.3 15.2502 12.9L6.9502 17" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
