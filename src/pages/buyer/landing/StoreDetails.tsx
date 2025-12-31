@@ -139,8 +139,8 @@ export default function StoreDetails() {
                     ))}
                   </TabList>
 
-                  <TabPanel key="1" className="overflow-auto mt-6 scrollbar-hide">
-                    <div className="product-container grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                  <TabPanel key="1" className="overflow-auto scrollbar-hide">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
                       {PRODUCTS.map((product) => (
                         <Link key={product.id} to={`/product-details/${product.id}`}>
                           <ProductCard
@@ -159,14 +159,65 @@ export default function StoreDetails() {
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="2">
-                    222222
+                  <TabPanel key="2" className="overflow-auto scrollbar-hide">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                      {PRODUCTS.slice(0, 4).map((product) => (
+                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                          <ProductCard
+                            key={product.id}
+                            image={product.image}
+                            title={product.title}
+                            price={product.price}
+                            sold={product.sold}
+                            tag={product.tag}
+                          />
+                        </Link>
+                      ))}
+                    </div>
+
+                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                      Load More
+                    </Button>
                   </TabPanel>
-                  <TabPanel key="3">
-                    33333333333
+                  <TabPanel key="3" className="overflow-auto scrollbar-hide">
+                    <div className="product-container grid mt-6 min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                      {PRODUCTS.slice(4, 8).map((product) => (
+                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                          <ProductCard
+                            key={product.id}
+                            image={product.image}
+                            title={product.title}
+                            price={product.price}
+                            sold={product.sold}
+                            tag={product.tag}
+                          />
+                        </Link>
+                      ))}
+                    </div>
+
+                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                      Load More
+                    </Button>
                   </TabPanel>
-                  <TabPanel key="4">
-                    444444444444
+                  <TabPanel key="4" className="overflow-auto scrollbar-hide">
+                    <div className="product-container grid mt-6 min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                      {PRODUCTS.slice(8, 12).map((product) => (
+                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                          <ProductCard
+                            key={product.id}
+                            image={product.image}
+                            title={product.title}
+                            price={product.price}
+                            sold={product.sold}
+                            tag={product.tag}
+                          />
+                        </Link>
+                      ))}
+                    </div>
+
+                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                      Load More
+                    </Button>
                   </TabPanel>
 
                 </Tabs>
