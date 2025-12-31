@@ -1,0 +1,104 @@
+import type { ProductType } from "@src/types/ProductType";
+import lp1 from "/images/lp-1.png";
+import lp2 from "/images/lp-2.png";
+import hp3 from "/images/hp-3.png";
+import hp4 from "/images/hp-4.png";
+
+export const PRODUCTS: ProductType[] = [
+    {
+        id: 1,
+        image: "/images/product-1.png",
+        title: "SonicWhirl Wireless Headphone",
+        price: "Rp 3.500.500",
+        sold: "120 Sold",
+        tag: "Gadget",
+    },
+    {
+        id: 2,
+        image: "/images/product-2.png",
+        title: "LuminaSmart Home Hub",
+        price: "Rp 1.250.000",
+        sold: "85 Sold",
+        tag: "Home",
+    },
+    {
+        id: 3,
+        image: "/images/product-3.png",
+        title: "X-Pro Mechanical Keyboard",
+        price: "Rp 850.000",
+        sold: "340 Sold",
+        tag: "Gaming",
+    },
+    {
+        id: 4,
+        image: "/images/product-4.png",
+        title: "UltraView 4K Monitor",
+        price: "Rp 4.500.000",
+        sold: "65 Sold",
+        tag: "Electronics",
+    },
+    {
+        id: 5,
+        image: "/images/product-5.png",
+        title: "ErgoLift Office Chair",
+        price: "Rp 2.800.000",
+        sold: "210 Sold",
+        tag: "Furniture",
+    },
+    {
+        id: 6,
+        image: "/images/product-6.png",
+        title: "PixelClear Webcam 1080p",
+        price: "Rp 650.000",
+        sold: "500+ Sold",
+        tag: "Accessories",
+    },
+    {
+        id: 7,
+        image: "/images/product-7.png",
+        title: "SoundBlast Bluetooth Speaker",
+        price: "Rp 450.000",
+        sold: "1.2k Sold",
+        tag: "Audio",
+    },
+    {
+        id: 8,
+        image: "/images/product-8.png",
+        title: "PowerMax Power Bank 20000mAh",
+        price: "Rp 350.000",
+        sold: "2k+ Sold",
+        tag: "Gadget",
+    },
+    {
+        id: 9,
+        image: lp1,
+        title: "Airpods Gen Z 2025",
+        price: "Rp 6.399.000",
+        sold: "150 Sold",
+        tag: "Gadget",
+    },
+    {
+        id: 10,
+        image: lp2,
+        title: "Macbook Pro M2",
+        price: "Rp 18.999.000",
+        sold: "80 Sold",
+        tag: "Gadget",
+    },
+    {
+        id: 11,
+        image: hp3,
+        title: "Xiaomi Redmi Note 12",
+        price: "Rp 2.599.000",
+        sold: "300 Sold",
+        tag: "Gadget",
+    },
+    {
+        id: 12,
+        image: hp4,
+        title: "Oppo Reno 8T 5G",
+        price: "Rp 5.999.000",
+        sold: "120 Sold",
+        tag: "Gadget",
+    },
+];

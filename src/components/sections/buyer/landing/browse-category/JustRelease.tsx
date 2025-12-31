@@ -1,4 +1,4 @@
-import type { ProductCardProps } from "../../../../../types/ProductType";
+import type { ProductType } from "../../../../../types/ProductType";
 import Button from "../../../../Button";
 import ProductCard from "../../../../ProductCard";
 import lp1 from "/images/lp-1.png";
@@ -7,7 +7,7 @@ import hp3 from "/images/hp-3.png";
 import hp4 from "/images/hp-4.png";
 import arrowDownWhite from "/icons/arrow-down-white.svg";
 
-const PRODUCTS: ProductCardProps[] = [
+const PRODUCTS: ProductType[] = [
   {
     id: 1,
     image: lp1,

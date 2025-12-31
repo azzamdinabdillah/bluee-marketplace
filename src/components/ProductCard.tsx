@@ -15,7 +15,7 @@ export default function ProductCard({
 }: ProductType) {
   return (
     <div
-      className={`flex w-full flex-col rounded-[14px] md:w-[276px] md:rounded-[20px] ${className}`}
+      className={`flex w-full flex-col rounded-[14px] md:w-[276px] md:rounded-[20px] ${className} overflow-hidden`}
     >
       {/* Product Image */}
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">
