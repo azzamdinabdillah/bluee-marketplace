@@ -1,4 +1,7 @@
 import StarIcon from "./icons/StarIcon";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface TestimonialCardProps {
   name: string;
@@ -6,6 +9,7 @@ interface TestimonialCardProps {
   review: string;
   avatar: string;
   rating?: number;
+  images?: string[];
 }
 
 export default function TestimonialCard({
@@ -14,7 +18,11 @@ export default function TestimonialCard({
   review,
   avatar,
   rating = 5,
+  images,
 }: TestimonialCardProps) {
+  const [open, setOpen] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+
   return (
     <div className="flex flex-col gap-3 rounded-[14px] border border-[#E8E8E8] p-3 md:gap-4 md:rounded-[20px] md:p-5">
       {/* User Info */}
@@ -34,6 +42,33 @@ export default function TestimonialCard({
       <p className="text-sm font-semibold leading-[1.5em] text-[#292D32] md:text-base md:leading-[2em]">
         "{review}"
       </p>
+
+      {/* Images */}
+      {images && images.length > 0 && (
+        <>
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`testimony-image-${index}`}
+                className="h-16 w-16 cursor-pointer rounded-lg object-cover transition-opacity hover:opacity-80 md:h-20 md:w-20"
+                onClick={() => {
+                  setImageIndex(index);
+                  setOpen(true);
+                }}
+              />
+            ))}
+          </div>
+
+          <Lightbox
+            open={open}
+            close={() => setOpen(false)}
+            index={imageIndex}
+            slides={images.map((src) => ({ src }))}
+          />
+        </>
+      )}
 
       {/* Rating */}
       <div className="flex items-center gap-0.5 md:gap-1">

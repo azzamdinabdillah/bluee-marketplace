@@ -14,6 +14,10 @@ import ProductCard from "@src/components/ProductCard";
 import { PRODUCTS } from "@src/datas/Products";
 import Button from "@src/components/Button";
 import arrowDownWhite from "/icons/arrow-down-white.svg";
+import TestimonialCard from "@src/components/TestimonialCard";
+import user1 from "/images/user.png";
+import user2 from "/images/user-2.png";
+import user3 from "/images/user-3.png";
 
 export default function StoreDetails() {
   const storeTabs = [
@@ -169,8 +173,70 @@ export default function StoreDetails() {
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="py-4">
-                <p className="text-gray-500">Testimony content goes here (Dummy)</p>
+              <div className="py-8 flex flex-col gap-6">
+                <h3 className="text-[20px] md:text-[32px] font-bold text-black-color leading-[1.6em]">
+                  Testimony
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+                  {[
+                    {
+                      id: 1,
+                      name: "Angga Risky",
+                      time: "2 days ago",
+                      review:
+                        "The item is very good, my son likes it very much and plays it every day 💯",
+                      avatar: user1,
+                      rating: 5,
+                      images: [
+                        "https://picsum.photos/seed/101/200/200",
+                        "https://picsum.photos/seed/102/200/200",
+                      ],
+                    },
+                    {
+                      id: 2,
+                      name: "Bimo Semesta",
+                      time: "4 days ago",
+                      review:
+                        "The seller is very fast in responding to chats and the items are also very good",
+                      avatar: user2,
+                      rating: 5,
+                      images: ["https://picsum.photos/seed/201/200/200"],
+                    },
+                    {
+                      id: 3,
+                      name: "Shadam Bimo",
+                      time: "4 days ago",
+                      review:
+                        "The items are very good, the shipping is also very fast",
+                      avatar: user3,
+                      rating: 5,
+                    },
+                    {
+                      id: 4,
+                      name: "Dian Sastro",
+                      time: "4 days ago",
+                      review:
+                        "The items are very good, the shipping is also very fast",
+                      avatar: user1,
+                      rating: 5,
+                      images: [
+                        "https://picsum.photos/seed/401/200/200",
+                        "https://picsum.photos/seed/402/200/200",
+                        "https://picsum.photos/seed/403/200/200",
+                      ],
+                    },
+                  ].map((testimonial) => (
+                    <TestimonialCard
+                      key={testimonial.id}
+                      name={testimonial.name}
+                      time={testimonial.time}
+                      review={testimonial.review}
+                      avatar={testimonial.avatar}
+                      rating={testimonial.rating}
+                      images={testimonial.images}
+                    />
+                  ))}
+                </div>
               </div>
             </TabPanel>
           </Tabs>

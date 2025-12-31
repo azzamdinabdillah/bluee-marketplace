@@ -41,6 +41,10 @@ OS: macOS`;
         "The M2 chip is blazing fast! I can edit 4K videos without any lag. Battery easily lasts me through a full workday plus Netflix at night.",
       avatar: user,
       rating: 5,
+      images: [
+        "https://picsum.photos/seed/501/200/200",
+        "https://picsum.photos/seed/502/200/200",
+      ],
     },
     {
       name: "Kintan Saff",
@@ -49,6 +53,7 @@ OS: macOS`;
         "Upgraded from an Intel MacBook and the difference is night and day. It stays cool, silent, and handles everything I throw at it. Worth every rupiah!",
       avatar: user2,
       rating: 5,
+      images: ["https://picsum.photos/seed/601/200/200"],
     },
     {
       name: "Rudi Hermawan",

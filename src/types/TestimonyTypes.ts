@@ -4,4 +4,5 @@ export interface TestimonyType {
   review: string;
   avatar: string;
   rating: number;
+  images?: string[];
 }
