@@ -16,6 +16,14 @@
   font-family: "Lexend Deca", sans-serif;
 }
 
+.margin-top-navbar{
+  @apply mt-[130px] md:mt-[105px] lg:mt-[121px];
+}
+
+.padding-page{
+  @apply mx-4 my-4 md:mx-8 md:my-8 lg:mx-[52px];
+}
+
 .max-w-1176 {
   max-width: 1176px;
 }

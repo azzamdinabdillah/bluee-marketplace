@@ -14,6 +14,7 @@ import { Buildings } from "@src/components/icons/Buildings";
 import { CustomerService } from "@src/components/icons/CustomerService";
 import SearchIcon from "@src/components/icons/SearchIcon";
 import Button from "@src/components/Button";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -130,9 +131,9 @@ export default function Navbar() {
                 <div className="group hover:bg-primary-color flex cursor-pointer items-center justify-center rounded-full bg-[#F3F3F3] p-2 transition-colors duration-200 md:p-4">
                   <Notification className="text-black-color h-5 w-5 transition-colors duration-200 group-hover:text-white md:h-6 md:w-6" />
                 </div>
-                <div className="group hover:bg-primary-color flex cursor-pointer items-center justify-center rounded-full bg-[#F3F3F3] p-2 transition-colors duration-200 md:p-4">
+                <Link to="/cart" className="group hover:bg-primary-color flex cursor-pointer items-center justify-center rounded-full bg-[#F3F3F3] p-2 transition-colors duration-200 md:p-4">
                   <ShoppingCart className="text-black-color h-5 w-5 transition-colors duration-200 group-hover:text-white md:h-6 md:w-6" />
-                </div>
+                </Link>
                 {/* <div className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden">
                   <img src={user} alt="" className="w-full h-full object-cover" />
                 </div> */}

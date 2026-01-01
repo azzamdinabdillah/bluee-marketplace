@@ -4,6 +4,7 @@ import BrowseCategoryProduct from "./pages/buyer/landing/BrowseCategoryProduct";
 import ProductDetails from "./pages/buyer/landing/ProductDetails";
 import StoreDetails from "./pages/buyer/landing/StoreDetails";
 import ScrollToTop from "./helper/ScrollToTop";
+import Cart from "./pages/buyer/landing/Cart";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route
           path="/browse-category-product/:category"
           element={<BrowseCategoryProduct />}

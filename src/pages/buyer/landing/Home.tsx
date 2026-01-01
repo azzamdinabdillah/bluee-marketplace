@@ -1,7 +1,7 @@
 import Footer from "../../../components/Footer";
 import Banner from "../../../components/sections/buyer/landing/home/Banner";
 import Categories from "../../../components/sections/buyer/landing/home/Categories";
-import Navbar from "../../../components/sections/buyer/landing/home/Navbar";
+import Navbar from "../../../components/Navbar";
 import ProductRecomendation from "../../../components/sections/buyer/landing/home/ProductRecomendation";
 import SellerRecomendation from "../../../components/sections/buyer/landing/home/SellerRecomendation";
 import { PRODUCTS } from "@src/datas/Products";

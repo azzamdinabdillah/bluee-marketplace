@@ -1,6 +1,6 @@
 import Breadcrumb from "@src/components/Breadcrumb";
 import Footer from "@src/components/Footer";
-import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
+import Navbar from "@src/components/Navbar";
 import StoreHeader from "@src/components/sections/buyer/landing/store-details/StoreHeader";
 import avatar from "/images/store.png";
 import promo1 from "/images/promo-1.png";
@@ -63,7 +63,7 @@ export default function StoreDetails() {
     <div>
       <Navbar />
 
-      <div className="mt-[130px] md:mt-[105px] lg:mt-[121px]">
+      <div className="margin-top-navbar">
         <Breadcrumb
           items={[
             { label: "Homepage", href: "/" },
@@ -73,8 +73,8 @@ export default function StoreDetails() {
           ]}
         />
 
-        <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[52px]">
-          <div className="grid xl:grid-cols-2 gap-5">
+        <div className="padding-page flex flex-col gap-6 md:gap-10 lg:gap-[52px] max-w-1176">
+          <div className="grid gap-5 xl:grid-cols-2">
             <StoreHeader
               id={1}
               storeName="Bimore Gadget Universe"
@@ -89,46 +89,46 @@ export default function StoreDetails() {
               <img
                 src={promo1}
                 alt="Promo image 1"
-                className="rounded-xl md:rounded-3xl w-full object-cover h-[300px] md:h-[500px] xl:h-[300px]"
+                className="h-[300px] w-full rounded-xl object-cover md:h-[500px] md:rounded-3xl xl:h-[300px]"
               />
               <img
                 src={promo2}
                 alt="Promo image 2"
-                className="rounded-xl md:rounded-3xl w-full object-cover h-[300px] md:h-[500px] xl:h-[300px]"
+                className="h-[300px] w-full rounded-xl object-cover md:h-[500px] md:rounded-3xl xl:h-[300px]"
               />
             </div>
           </div>
 
           <Tabs className="">
-            <TabList className="flex flex-row gap-4 md:gap-[38px] items-center">
+            <TabList className="flex flex-row items-center gap-4 md:gap-[38px]">
               <Tab
-                className="text-lg md:text-[20px] leading-[1.6em] text-sec-color font-semibold cursor-pointer outline-none transition-colors"
+                className="text-sec-color cursor-pointer text-lg leading-[1.6em] font-semibold transition-colors outline-none md:text-[20px]"
                 selectedClassName="!text-primary-color !font-bold"
               >
                 Products
               </Tab>
               <Tab
-                className="text-lg md:text-[20px] leading-[1.6em] text-sec-color font-semibold cursor-pointer outline-none transition-colors"
+                className="text-sec-color cursor-pointer text-lg leading-[1.6em] font-semibold transition-colors outline-none md:text-[20px]"
                 selectedClassName="!text-primary-color !font-bold"
               >
                 Testimony
               </Tab>
             </TabList>
 
-            <div className="h-[1.5px] w-full bg-stroke-color mt-3" />
+            <div className="bg-stroke-color mt-3 h-[1.5px] w-full" />
 
             <TabPanel>
-              <div className="py-4 md:py-8 gap-4 flex flex-col md:gap-6">
-                <h3 className="text-[20px] md:text-[32px] font-bold text-black-color leading-[1.6em]">
+              <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-8">
+                <h3 className="text-black-color text-[20px] leading-[1.6em] font-bold md:text-[32px]">
                   Store Products
                 </h3>
 
                 <Tabs className="">
-                  <TabList className="flex flex-row gap-3 md:gap-5 overflow-x-auto pb-2 scrollbar-hide">
+                  <TabList className="scrollbar-hide flex flex-row gap-3 overflow-x-auto pb-2 md:gap-5">
                     {storeTabs.map((tab) => (
                       <Tab
                         key={tab.id}
-                        className="flex min-w-fit cursor-pointer flex-row items-center gap-2 rounded-2xl border border-stroke-color bg-white text-base font-bold text-black-color transition-colors outline-none px-4 py-2 md:px-5 md:py-3"
+                        className="border-stroke-color text-black-color flex min-w-fit cursor-pointer flex-row items-center gap-2 rounded-2xl border bg-white px-4 py-2 text-base font-bold transition-colors outline-none md:px-5 md:py-3"
                         selectedClassName="!bg-black-color !text-white !border-black-color"
                       >
                         {tab.isReverse ? (
@@ -139,7 +139,9 @@ export default function StoreDetails() {
                         ) : (
                           <>
                             {tab.icon}
-                            <span className={tab.isUppercase ? "uppercase" : ""}>
+                            <span
+                              className={tab.isUppercase ? "uppercase" : ""}
+                            >
                               {tab.label}
                             </span>
                           </>
@@ -148,10 +150,13 @@ export default function StoreDetails() {
                     ))}
                   </TabList>
 
-                  <TabPanel key="1" className="overflow-auto scrollbar-hide">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                  <TabPanel key="1" className="scrollbar-hide overflow-auto">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
                       {PRODUCTS.map((product) => (
-                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                        <Link
+                          key={product.id}
+                          to={`/product-details/${product.id}`}
+                        >
                           <ProductCard
                             key={product.id}
                             image={product.image}
@@ -164,14 +169,21 @@ export default function StoreDetails() {
                       ))}
                     </div>
 
-                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                    <Button
+                      className="mx-auto mt-4 w-fit md:mt-6"
+                      variant="black"
+                      icon={arrowDownWhite}
+                    >
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="2" className="overflow-auto scrollbar-hide">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                  <TabPanel key="2" className="scrollbar-hide overflow-auto">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
                       {PRODUCTS.slice(0, 4).map((product) => (
-                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                        <Link
+                          key={product.id}
+                          to={`/product-details/${product.id}`}
+                        >
                           <ProductCard
                             key={product.id}
                             image={product.image}
@@ -184,14 +196,21 @@ export default function StoreDetails() {
                       ))}
                     </div>
 
-                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                    <Button
+                      className="mx-auto mt-4 w-fit md:mt-6"
+                      variant="black"
+                      icon={arrowDownWhite}
+                    >
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="3" className="overflow-auto scrollbar-hide">
-                    <div className="product-container grid mt-6 min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                  <TabPanel key="3" className="scrollbar-hide overflow-auto">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
                       {PRODUCTS.slice(4, 8).map((product) => (
-                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                        <Link
+                          key={product.id}
+                          to={`/product-details/${product.id}`}
+                        >
                           <ProductCard
                             key={product.id}
                             image={product.image}
@@ -204,14 +223,21 @@ export default function StoreDetails() {
                       ))}
                     </div>
 
-                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                    <Button
+                      className="mx-auto mt-4 w-fit md:mt-6"
+                      variant="black"
+                      icon={arrowDownWhite}
+                    >
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="4" className="overflow-auto scrollbar-hide">
-                    <div className="product-container grid mt-6 min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6 overflow-hidden">
+                  <TabPanel key="4" className="scrollbar-hide overflow-auto">
+                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
                       {PRODUCTS.slice(8, 12).map((product) => (
-                        <Link key={product.id} to={`/product-details/${product.id}`}>
+                        <Link
+                          key={product.id}
+                          to={`/product-details/${product.id}`}
+                        >
                           <ProductCard
                             key={product.id}
                             image={product.image}
@@ -224,20 +250,23 @@ export default function StoreDetails() {
                       ))}
                     </div>
 
-                    <Button className="mx-auto w-fit mt-4 md:mt-6" variant="black" icon={arrowDownWhite}>
+                    <Button
+                      className="mx-auto mt-4 w-fit md:mt-6"
+                      variant="black"
+                      icon={arrowDownWhite}
+                    >
                       Load More
                     </Button>
                   </TabPanel>
-
                 </Tabs>
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="py-8 flex flex-col gap-6">
-                <h3 className="text-[20px] md:text-[32px] font-bold text-black-color leading-[1.6em]">
+              <div className="flex flex-col gap-6 py-8">
+                <h3 className="text-black-color text-[20px] leading-[1.6em] font-bold md:text-[32px]">
                   Testimony
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+                <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-6">
                   {[
                     {
                       id: 1,

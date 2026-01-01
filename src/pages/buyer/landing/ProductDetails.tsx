@@ -1,6 +1,6 @@
 import Breadcrumb from "@src/components/Breadcrumb";
 import store1 from "/images/store.png";
-import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
+import Navbar from "@src/components/Navbar";
 import Footer from "@src/components/Footer";
 import promo1 from "/images/promo-1.png";
 import promo2 from "/images/promo-2.png";

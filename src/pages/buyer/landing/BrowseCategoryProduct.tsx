@@ -1,6 +1,6 @@
 import Breadcrumb from "@src/components/Breadcrumb";
 import Footer from "@src/components/Footer";
-import Navbar from "@src/components/sections/buyer/landing/home/Navbar";
+import Navbar from "@src/components/Navbar";
 import boxIcon from "/icons/box.svg";
 import verifyIcon from "/icons/verify.svg";
 import Popular from "@src/components/sections/buyer/landing/browse-category/Popular";
