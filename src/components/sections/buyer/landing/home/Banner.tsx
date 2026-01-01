@@ -4,7 +4,7 @@ import banner1 from "/images/banner-1.png";
 import banner2 from "/images/banner-2.png";
 import "swiper/css";
 
-const banners = [banner1, banner2, banner1, banner2];
+const banners: string[] = [banner1, banner2, banner1, banner2];
 
 export default function Banner() {
   return (

@@ -1,7 +1,7 @@
-import TitleSection from "../../../../TitleSection";
-import Button from "../../../../Button";
+import TitleSection from "@src/components/TitleSection";
+import Button from "@src/components/Button";
 import arrowRight from "/icons/arrow-right.svg";
-import SellerCard from "../../../../SellerCard";
+import StoreBigCard from "@src/components/StoreBigCard";
 import logo1 from "/images/logo-1.png";
 import logo2 from "/images/logo-2.png";
 import logo3 from "/images/logo-3.png";
@@ -54,46 +54,42 @@ export default function SellerRecomendation() {
           className="pb-12" // Add padding bottom for pagination/navigation space
         >
           <SwiperSlide>
-            <SellerCard
+            <StoreBigCard
+              id={1}
               storeName="Xiaomi Store Indonesia"
-              brand="Xiaomi"
               sellerName="Budi Hartanto"
-              city="Bandung"
-              address="Cihampelas"
-              coverImage={logo1}
+              location="Cihampelas"
+              avatarUrl={logo1}
               coverBackgroundColor="#FF6600" // Light red/pink
             />
           </SwiperSlide>
           <SwiperSlide>
-            <SellerCard
+            <StoreBigCard
+              id={2}
               storeName="Samsung Official Store"
-              brand="Samsung"
               sellerName="Siti Aminah"
-              city="Jakarta"
-              address="Grand Indonesia"
-              coverImage={logo2}
+              location="Grand Indonesia"
+              avatarUrl={logo2}
               coverBackgroundColor="#295BA7" // Light cyan
             />
           </SwiperSlide>
           <SwiperSlide>
-            <SellerCard
+            <StoreBigCard
+              id={3}
               storeName="iBox Apple Reseller"
-              brand="Apple"
               sellerName="Rudi Hermawan"
-              city="Surabaya"
-              address="Tunjungan Plaza"
-              coverImage={logo3}
+              location="Tunjungan Plaza"
+              avatarUrl={logo3}
               coverBackgroundColor="#000000" // Light purple
             />
           </SwiperSlide>
           <SwiperSlide>
-            <SellerCard
+            <StoreBigCard
+              id={4}
               storeName="Xiaomi Store Indonesia"
-              brand="Xiaomi"
               sellerName="Budi Hartanto"
-              city="Bandung"
-              address="Cihampelas"
-              coverImage={logo1}
+              location="Cihampelas"
+              avatarUrl={logo1}
               coverBackgroundColor="#FF6600"
             />
           </SwiperSlide>

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../../../../Button";
-import ProductCard from "../../../../ProductCard";
-import TitleSection from "../../../../TitleSection";
+import Button from "@src/components/Button";
+import ProductCard from "@src/components/ProductCard";
+import TitleSection from "@src/components/TitleSection";
 import arrowRight from "/icons/arrow-right.svg";
-import type { ProductType } from "@src/types/ProductType";
+import type { ProductType } from "@src/types/ProductTypes";
 
 interface ProductRecomendationProps {
   products: ProductType[];

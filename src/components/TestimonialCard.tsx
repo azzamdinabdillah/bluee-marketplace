@@ -1,16 +1,8 @@
+import type { TestimonyType } from "@src/types/TestimonyTypes";
 import StarIcon from "./icons/StarIcon";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-
-interface TestimonialCardProps {
-  name: string;
-  time: string;
-  review: string;
-  avatar: string;
-  rating?: number;
-  images?: string[];
-}
 
 export default function TestimonialCard({
   name,
@@ -19,7 +11,7 @@ export default function TestimonialCard({
   avatar,
   rating = 5,
   images,
-}: TestimonialCardProps) {
+}: TestimonyType) {
   const [open, setOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 

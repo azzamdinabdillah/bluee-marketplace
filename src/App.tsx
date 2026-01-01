@@ -3,10 +3,12 @@ import Home from "./pages/buyer/landing/Home";
 import BrowseCategoryProduct from "./pages/buyer/landing/BrowseCategoryProduct";
 import ProductDetails from "./pages/buyer/landing/ProductDetails";
 import StoreDetails from "./pages/buyer/landing/StoreDetails";
+import ScrollToTop from "./helper/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

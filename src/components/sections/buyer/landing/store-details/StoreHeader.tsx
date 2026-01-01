@@ -9,16 +9,7 @@ import LinkIcon from "@src/components/icons/LinkIcon";
 import StoreIcon from "@src/components/icons/StoreIcon";
 import MessageIcon from "@src/components/icons/MessageIcon";
 import boxIcon from "/icons/box.svg";
-
-interface StoreHeaderProps {
-  storeName?: string;
-  isVerified?: boolean;
-  totalProducts?: number;
-  sellerName?: string;
-  location?: string;
-  avatarUrl?: string;
-  className?: string;
-}
+import type { StoreType } from "@src/types/StoreTypes";
 
 export default function StoreHeader({
   storeName = "Bimore Gadget Universe",
@@ -28,7 +19,7 @@ export default function StoreHeader({
   location = "Buitenzorg",
   avatarUrl,
   className = "",
-}: StoreHeaderProps) {
+}: StoreType) {
   return (
     <div
       className={`border-stroke-color flex w-full flex-col gap-5 rounded-[24px] border bg-white p-5 ${className}`}

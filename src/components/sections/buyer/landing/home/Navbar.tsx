@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import logo from "/icons/logo.svg";
 import menuSm from "/icons/menu-sm.svg";
 import arrowDown from "/icons/arrow-down.svg";
-import ShoppingCart from "../../../../icons/ShoppingCart";
-import Notification from "../../../../icons/Notification";
+import ShoppingCart from "@src/components/icons/ShoppingCart";
+import Notification from "@src/components/icons/Notification";
 import user from "/images/user.png";
-import { Home } from "../../../../icons/Home";
-import { Flash } from "../../../../icons/Flash";
-import { BoxSearch } from "../../../../icons/BoxSearch";
-import { Note } from "../../../../icons/Note";
-import { Group } from "../../../../icons/Group";
-import { Buildings } from "../../../../icons/Buildings";
-import { CustomerService } from "../../../../icons/CustomerService";
-import SearchIcon from "../../../../icons/SearchIcon";
-import Button from "../../../../Button";
+import { Home } from "@src/components/icons/Home";
+import { Flash } from "@src/components/icons/Flash";
+import { BoxSearch } from "@src/components/icons/BoxSearch";
+import { Note } from "@src/components/icons/Note";
+import { Group } from "@src/components/icons/Group";
+import { Buildings } from "@src/components/icons/Buildings";
+import { CustomerService } from "@src/components/icons/CustomerService";
+import SearchIcon from "@src/components/icons/SearchIcon";
+import Button from "@src/components/Button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -52,7 +52,11 @@ export default function Navbar() {
     setIsCategoriesOpen(!isCategoriesOpen);
   };
 
-  const navItems = [
+  const navItems: {
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    label: string;
+    href: string;
+  }[] = [
     { icon: Home, label: "Homepage", href: "" },
     { icon: Flash, label: "Flash Sale", href: "" },
     { icon: BoxSearch, label: "Products", href: "" },

@@ -4,32 +4,46 @@ import HeartIcon from "@src/components/icons/HeartIcon";
 import StarIcon from "@src/components/icons/StarIcon";
 import Button from "@src/components/Button";
 import bagTickRed from "/icons/bag-tick-red.svg";
+import type { ProductDetailType } from "@src/types/ProductTypes";
 
 // Inline Icons for icons not available in project
 const MinusIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M4.16699 10H15.8337" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M4.16699 10H15.8337"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const AddIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M5 10H15M10 15V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M5 10H15M10 15V5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
-
-export interface ProductActionCardProps {
-  title: string;
-  category: string;
-  rating: number;
-  reviewCount: number;
-  price: string;
-  condition: string;
-  weight: string;
-  warranty: string;
-  orderStatus: string;
-  soldCount: number;
-}
 
 export default function ProductActionCard({
   title,
@@ -41,27 +55,28 @@ export default function ProductActionCard({
   weight,
   warranty,
   orderStatus,
-  soldCount
-}: ProductActionCardProps) {
+  soldCount,
+}: ProductDetailType) {
   const [quantity, setQuantity] = useState(5);
 
   const handleIncrement = () => setQuantity((prev) => prev + 1);
-  const handleDecrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const handleDecrement = () =>
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   return (
-    <div className="flex flex-col gap-6 md:gap-7 lg:gap-8 w-full">
+    <div className="flex w-full flex-col gap-6 md:gap-7 lg:gap-8">
       {/* Header Section */}
-      <div className="flex flex-col gap-5 md:gap-6 w-full">
+      <div className="flex w-full flex-col gap-5 md:gap-6">
         {/* Title & Rating */}
-        <div className="flex flex-col gap-2 md:gap-3 w-full">
-          <h1 className="font-extrabold text-2xl md:text-[28px] lg:text-[32px] leading-[1.25em] text-black-color">
+        <div className="flex w-full flex-col gap-2 md:gap-3">
+          <h1 className="text-black-color text-2xl leading-[1.25em] font-extrabold md:text-[28px] lg:text-[32px]">
             {title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-2 md:gap-3 w-full">
+          <div className="flex w-full flex-wrap items-center gap-2 md:gap-3">
             {/* Category Badge */}
-            <div className="flex justify-center items-center px-2.5 py-2 md:px-3 md:py-2.5 bg-light-blue-color rounded-lg">
-              <span className="font-bold text-base md:text-lg leading-[1.25em] text-primary-color">
+            <div className="bg-light-blue-color flex items-center justify-center rounded-lg px-2.5 py-2 md:px-3 md:py-2.5">
+              <span className="text-primary-color text-base leading-[1.25em] font-bold md:text-lg">
                 {category}
               </span>
             </div>
@@ -69,14 +84,14 @@ export default function ProductActionCard({
             {/* Rating */}
             <div className="flex items-center gap-1 md:gap-1.5">
               <div className="flex items-center gap-0.5 md:gap-1">
-                <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-                  <StarIcon fill="#FF6B00" className="w-5 h-5 md:w-6 md:h-6" />
+                <div className="flex h-5 w-5 items-center justify-center md:h-6 md:w-6">
+                  <StarIcon fill="#FF6B00" className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
-                <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color">
+                <span className="text-black-color text-base leading-[1.25em] font-bold md:text-lg">
                   {rating}
                 </span>
               </div>
-              <span className="font-semibold text-base md:text-lg leading-[1.25em] text-sec-color">
+              <span className="text-sec-color text-base leading-[1.25em] font-semibold md:text-lg">
                 ({reviewCount} Reviews)
               </span>
             </div>
@@ -84,122 +99,128 @@ export default function ProductActionCard({
         </div>
 
         {/* Specs Grid */}
-        <div className="flex flex-col gap-3 md:gap-4 p-4 lg:p-5 w-full rounded-xl border border-stroke-color">
+        <div className="border-stroke-color flex w-full flex-col gap-3 rounded-xl border p-4 md:gap-4 lg:p-5">
           {/* Row 1: Condition */}
-          <div className="flex items-center gap-1 w-full justify-between">
-            <span className="font-semibold text-base md:text-lg leading-[1.25em] text-sec-color w-[120px] lg:w-[140px] shrink-0">
+          <div className="flex w-full items-center justify-between gap-1">
+            <span className="text-sec-color w-[120px] shrink-0 text-base leading-[1.25em] font-semibold md:text-lg lg:w-[140px]">
               Condition:
             </span>
-            <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color text-right">
+            <span className="text-black-color text-right text-base leading-[1.25em] font-bold md:text-lg">
               {condition}
             </span>
           </div>
 
-          <div className="w-full h-px bg-stroke-color" />
+          <div className="bg-stroke-color h-px w-full" />
 
           {/* Row 2: Weight */}
-          <div className="flex items-center gap-1 w-full justify-between">
-            <span className="font-semibold text-base md:text-lg leading-[1.25em] text-sec-color w-[120px] lg:w-[140px] shrink-0">
+          <div className="flex w-full items-center justify-between gap-1">
+            <span className="text-sec-color w-[120px] shrink-0 text-base leading-[1.25em] font-semibold md:text-lg lg:w-[140px]">
               Weight:
             </span>
-            <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color text-right">
+            <span className="text-black-color text-right text-base leading-[1.25em] font-bold md:text-lg">
               {weight}
             </span>
           </div>
 
-          <div className="w-full h-px bg-stroke-color" />
+          <div className="bg-stroke-color h-px w-full" />
 
           {/* Row 3: Warranty */}
-          <div className="flex items-center gap-1 w-full justify-between">
-            <span className="font-semibold text-base md:text-lg leading-[1.25em] text-sec-color w-[120px] lg:w-[140px] shrink-0">
+          <div className="flex w-full items-center justify-between gap-1">
+            <span className="text-sec-color w-[120px] shrink-0 text-base leading-[1.25em] font-semibold md:text-lg lg:w-[140px]">
               Warranty:
             </span>
-            <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color text-right">
+            <span className="text-black-color text-right text-base leading-[1.25em] font-bold md:text-lg">
               {warranty}
             </span>
           </div>
 
-          <div className="w-full h-px bg-stroke-color" />
+          <div className="bg-stroke-color h-px w-full" />
 
           {/* Row 4: Order Status */}
-          <div className="flex items-center gap-1 w-full justify-between">
-            <span className="font-semibold text-base md:text-lg leading-[1.25em] text-sec-color w-[120px] lg:w-[140px] shrink-0">
+          <div className="flex w-full items-center justify-between gap-1">
+            <span className="text-sec-color w-[120px] shrink-0 text-base leading-[1.25em] font-semibold md:text-lg lg:w-[140px]">
               Order Status:
             </span>
-            <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color text-right">
+            <span className="text-black-color text-right text-base leading-[1.25em] font-bold md:text-lg">
               {orderStatus}
             </span>
           </div>
         </div>
 
         {/* Price & Quantity Section */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 md:gap-5 lg:gap-6 w-full">
-          <div className="flex flex-col justify-center gap-1 md:gap-1.5 w-full">
+        <div className="flex w-full flex-col items-start gap-4 md:gap-5 lg:flex-row lg:items-center lg:gap-6">
+          <div className="flex w-full flex-col justify-center gap-1 md:gap-1.5">
             <div className="flex items-center gap-1">
-              <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 text-sec-color" />
-              <span className="font-semibold text-sm md:text-base leading-[1.25em] text-sec-color">
+              <ShoppingCart className="text-sec-color h-4 w-4 md:h-5 md:w-5" />
+              <span className="text-sec-color text-sm leading-[1.25em] font-semibold md:text-base">
                 Subtotal
               </span>
             </div>
-            <span className="font-bold text-xl md:text-2xl lg:text-24 leading-[1.25em] text-primary-color">
+            <span className="lg:text-24 text-primary-color text-xl leading-[1.25em] font-bold md:text-2xl">
               {price}
             </span>
           </div>
 
           {/* Quantity Selector */}
-          <div className="flex items-center gap-4 p-3 md:p-4 rounded-2xl border border-stroke-color w-full lg:w-auto justify-between lg:justify-start">
+          <div className="border-stroke-color flex w-full items-center justify-between gap-4 rounded-2xl border p-3 md:p-4 lg:w-auto lg:justify-start">
             <button
               onClick={handleDecrement}
-              className="w-5 h-5 flex items-center justify-center text-black-color hover:text-primary-color transition-colors cursor-pointer"
+              className="text-black-color hover:text-primary-color flex h-5 w-5 cursor-pointer items-center justify-center transition-colors"
             >
-              <MinusIcon className="w-5 h-5" />
+              <MinusIcon className="h-5 w-5" />
             </button>
 
-            <div className="w-px h-[18px] bg-stroke-color" />
+            <div className="bg-stroke-color h-[18px] w-px" />
 
-            <div className="w-[40px] md:w-[46px] flex justify-center">
-              <span className="font-bold text-base md:text-lg leading-[1.25em] text-black-color">
+            <div className="flex w-[40px] justify-center md:w-[46px]">
+              <span className="text-black-color text-base leading-[1.25em] font-bold md:text-lg">
                 {quantity}
               </span>
             </div>
 
-            <div className="w-px h-[18px] bg-stroke-color" />
+            <div className="bg-stroke-color h-[18px] w-px" />
 
             <button
               onClick={handleIncrement}
-              className="w-5 h-5 flex items-center justify-center text-black-color hover:text-primary-color transition-colors cursor-pointer"
+              className="text-black-color hover:text-primary-color flex h-5 w-5 cursor-pointer items-center justify-center transition-colors"
             >
-              <AddIcon className="w-5 h-5" />
+              <AddIcon className="h-5 w-5" />
             </button>
           </div>
         </div>
       </div>
 
-
       {/* Actions Section */}
-      <div className="flex flex-col gap-3 md:gap-4 w-full">
-        <div className="flex flex-col md:grid md:grid-cols-2 items-stretch gap-3 md:gap-5 w-full">
+      <div className="flex w-full flex-col gap-3 md:gap-4">
+        <div className="flex w-full flex-col items-stretch gap-3 md:grid md:grid-cols-2 md:gap-5">
           {/* Add to Cart Button */}
           <Button variant="blue" className="w-full rounded-2xl md:rounded-2xl">
             <span className="flex items-center gap-1.5">
-              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <ShoppingCart className="h-5 w-5 text-white md:h-6 md:w-6" />
               Add to Cart
             </span>
           </Button>
 
           {/* Wishlist Button */}
-          <Button variant="gray" className="w-full rounded-2xl md:rounded-2xl group">
+          <Button
+            variant="gray"
+            className="group w-full rounded-2xl md:rounded-2xl"
+          >
             <span className="flex items-center gap-1.5">
-              <HeartIcon className="w-5 h-5 md:w-6 md:h-6 stroke-sec-color text-black-color group-hover:text-primary-color group-hover:stroke-primary-color" />
+              <HeartIcon className="stroke-sec-color text-black-color group-hover:text-primary-color group-hover:stroke-primary-color h-5 w-5 md:h-6 md:w-6" />
               Add To Wishlist
             </span>
           </Button>
         </div>
 
         {/* Sold Count */}
-        <div className="flex items-center gap-1.5 w-full">
-          <img src={bagTickRed} alt="bag tick red" className="size-4 md:size-5 text-primary-color" />
-          <span className="font-bold text-base md:text-lg leading-[1.25em] text-red-color">
+        <div className="flex w-full items-center gap-1.5">
+          <img
+            src={bagTickRed}
+            alt="bag tick red"
+            className="text-primary-color size-4 md:size-5"
+          />
+          <span className="text-red-color text-base leading-[1.25em] font-bold md:text-lg">
             {soldCount} Units Sold
           </span>
         </div>

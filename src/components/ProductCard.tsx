@@ -1,7 +1,7 @@
 import HeartIcon from "./icons/HeartIcon";
 import CartIcon from "./icons/CartIcon";
 import Button from "./Button";
-import type { ProductType } from "../types/ProductType";
+import type { ProductType } from "../types/ProductTypes";
 
 export default function ProductCard({
   image = "https://placehold.co/276x192",

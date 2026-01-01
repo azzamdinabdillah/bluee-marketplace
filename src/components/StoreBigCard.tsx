@@ -1,17 +1,7 @@
+import type { StoreType } from "@src/types/StoreTypes";
 import Button from "./Button";
 import HeartIcon from "./icons/HeartIcon";
-
-interface SellerCardProps {
-  storeName?: string;
-  brand?: string;
-  sellerName?: string;
-  city?: string;
-  address?: string;
-  isVerified?: boolean;
-  coverImage?: string;
-  profileImage?: string;
-  coverBackgroundColor?: string;
-}
+import { Link } from "react-router-dom";
 
 const VerifyIcon = () => (
   <svg
@@ -82,26 +72,25 @@ const LocationIcon = () => (
   </svg>
 );
 
-export default function SellerCard({
+export default function StoreBigCard({
+  id,
   storeName = "Xiaomi Store Indonesia",
-  brand = "Xiaomi",
   sellerName = "Budi Hartanto",
-  city = "Bandung",
-  address = "Cihampelas",
   isVerified = true,
-  coverImage,
+  location = "Bandung",
+  avatarUrl = "",
   coverBackgroundColor = "#F3F5F9",
-}: SellerCardProps) {
+}: StoreType) {
   return (
-    <div className="border-stroke-color flex w-full flex-col overflow-hidden rounded-[20px] border bg-white shadow-sm transition-shadow hover:shadow-md md:max-w-[376px]">
+    <Link to={`/store-details/${id}`} className="border-stroke-color flex w-full flex-col overflow-hidden rounded-[20px] border bg-white md:max-w-[376px]">
       {/* Cover Image Area */}
       <div
         className="relative flex h-[150px] w-full items-center justify-center md:h-[220px]"
         style={{ backgroundColor: coverBackgroundColor }}
       >
-        {coverImage ? (
+        {avatarUrl ? (
           <img
-            src={coverImage}
+            src={avatarUrl}
             alt={storeName}
             className="size-[50%] object-contain"
           />
@@ -133,27 +122,27 @@ export default function SellerCard({
         <div className="grid grid-cols-2 gap-4 md:gap-6">
           <div className="flex flex-col gap-1 md:gap-[6px]">
             <span className="text-black-color truncate text-sm leading-tight font-bold md:text-[18px] md:leading-[22.5px]">
-              {brand}
+              {sellerName}
             </span>
             <div className="flex items-center gap-1.5 md:gap-[6px]">
               <div className="flex h-4 w-4 shrink-0 items-center justify-center md:h-5 md:w-5">
                 <UserIcon />
               </div>
               <span className="text-sec-color truncate text-xs leading-tight font-semibold md:text-[16px] md:leading-5">
-                {sellerName}
+                Seller Name
               </span>
             </div>
           </div>
           <div className="flex flex-col gap-1 md:gap-[6px]">
             <span className="text-black-color truncate text-sm leading-tight font-bold md:text-[18px] md:leading-[22.5px]">
-              {city}
+              {location}
             </span>
             <div className="flex items-center gap-1.5 md:gap-[6px]">
               <div className="flex h-4 w-4 shrink-0 items-center justify-center md:h-5 md:w-5">
                 <LocationIcon />
               </div>
               <span className="text-sec-color truncate text-xs leading-tight font-semibold md:text-[16px] md:leading-5">
-                {address}
+                Store Location
               </span>
             </div>
           </div>
@@ -172,6 +161,6 @@ export default function SellerCard({
           </Button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

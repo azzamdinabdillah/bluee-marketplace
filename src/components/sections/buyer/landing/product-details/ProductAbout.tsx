@@ -7,11 +7,6 @@ interface ProductAboutProps {
 const ProductAbout: React.FC<ProductAboutProps> = ({ content }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Determine what to show
-  // For simplicity, we'll show the first paragraph and the "Key Specs" header if collapsed
-  // Or just truncate by character count.
-  // Given the design has "Read More" at the end, I'll simulate a truncation.
-
   const shortContent = content.split('Key Specs:')[0].trim();
 
   return (

@@ -18,9 +18,17 @@ import TestimonialCard from "@src/components/TestimonialCard";
 import user1 from "/images/user.png";
 import user2 from "/images/user-2.png";
 import user3 from "/images/user-3.png";
+import type { ReactNode } from "react";
 
 export default function StoreDetails() {
-  const storeTabs = [
+  const storeTabs: {
+    id: number;
+    label: string;
+    icon: ReactNode;
+    dummyCount: number;
+    isReverse?: boolean;
+    isUppercase?: boolean;
+  }[] = [
     {
       id: 1,
       label: "Just Released",
@@ -68,6 +76,7 @@ export default function StoreDetails() {
         <div className="mx-4 my-4 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-8 md:gap-10 lg:mx-[52px] lg:gap-[52px]">
           <div className="grid xl:grid-cols-2 gap-5">
             <StoreHeader
+              id={1}
               storeName="Bimore Gadget Universe"
               isVerified={true}
               totalProducts={1294}
