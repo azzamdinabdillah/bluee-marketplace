@@ -9,6 +9,7 @@ import shopIcon from "/icons/shop.svg";
 import ProductItemLine from "@src/components/icons/ProductItemLine";
 import { type ProductDetailType } from "@src/types/ProductTypes";
 import Button from "@src/components/Button";
+import Checkbox from "@src/components/Checkbox";
 import shoppingCart from "/icons/shopping-cart-gray.svg";
 import box from "/icons/box.svg";
 import ticket from "/icons/ticket.svg";
@@ -169,11 +170,12 @@ export default function Cart() {
                 >
                   <div className="flex items-stretch overflow-hidden">
                     <div className="flex shrink-0 flex-col items-center justify-start">
-                      <input type="checkbox" className="z-2" />
+                      {/* <input type="checkbox" className="z-2" /> */}
+                      <Checkbox wrapperClassName="z-2" />
                       {/* <div className="bg-stroke-color h-[80%] w-[2px]" /> */}
                     </div>
-                    <div className="flex grow flex-col gap-2 pl-5">
-                      <div className="flex items-center gap-1">
+                    <div className="flex grow flex-col gap-2 pl-5 -translate-x-1">
+                      <div className="flex items-center gap-1 -translate-y-[2px]">
                         <img src={shopIcon} alt="" />
                         <p className="text-sec-color text-base font-medium">
                           {store.storeName}
