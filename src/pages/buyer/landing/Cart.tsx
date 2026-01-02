@@ -19,6 +19,8 @@ import money from "/icons/money.svg";
 import arrowRight from "/icons/arrow-right-rounded.svg";
 import ticketDiscount from "/icons/ticket-discount.svg";
 import arrowRightPlainWhite from "/icons/arrow-right-plain-white.svg";
+import CartEmptyState from "@src/components/sections/buyer/landing/cart/CartEmptyState";
+import { useNavigate } from "react-router-dom";
 
 interface CartItemType extends Partial<ProductDetailType> {
   quantity: number;
@@ -152,6 +154,8 @@ const CartItem = ({ item }: { item: CartItemType }) => {
 };
 
 export default function Cart() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#F3F5F9]">
       <Navbar />
@@ -162,7 +166,7 @@ export default function Cart() {
           </h3>
 
           <div className="mt-6 grid gap-3 md:gap-5 min-[1250px]:grid-cols-[1fr_444px] items-start">
-            <div className="flex flex-col gap-6">
+            <div className="flex-col gap-6 flex">
               {datas.map((store, storeIdx) => (
                 <div
                   key={storeIdx}
@@ -202,6 +206,9 @@ export default function Cart() {
                 </div>
               ))}
             </div>
+
+            {/* if chart empty */}
+            {/* <CartEmptyState onFindProduct={() => navigate("/browse-category-product/1")} /> */}
 
             <div className="flex flex-col gap-3 md:gap-5 lg:sticky lg:top-5">
               <div className="flex w-full cursor-pointer flex-row items-center justify-between gap-3 rounded-xl bg-[url('/images/bg-coupon.png')] bg-cover bg-center p-4 md:gap-[14px] md:rounded-[20px] md:p-5">
