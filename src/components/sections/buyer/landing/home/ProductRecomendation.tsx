@@ -26,6 +26,8 @@ export default function ProductRecomendation({
             <Link key={product.id} to={`/product-details/${product.id}`}>
               <ProductCard
                 key={product.id}
+                id={product.id}
+                store={product.store}
                 image={product.image}
                 title={product.title}
                 price={product.price}

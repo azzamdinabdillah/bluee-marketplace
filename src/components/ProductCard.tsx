@@ -1,7 +1,9 @@
 import HeartIcon from "./icons/HeartIcon";
 import CartIcon from "./icons/CartIcon";
+import StoreIcon from "./icons/StoreIcon";
 import Button from "./Button";
 import type { ProductType } from "../types/ProductTypes";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({
   image = "https://placehold.co/276x192",
@@ -9,6 +11,7 @@ export default function ProductCard({
   price = "Rp 3.500.500",
   sold = "120 Sold",
   tag = "Gadget",
+  store = "Official Store",
   onAddToCart,
   onWishlist,
   className = "",
@@ -49,6 +52,14 @@ export default function ProductCard({
             {price}
           </p>
         </div>
+
+        {/* Store Info */}
+        <Link to={'/store-details/1'} className="group flex cursor-pointer items-center gap-1.5 md:gap-2">
+          <StoreIcon className="h-4 w-4 text-[#8C8C8C] transition-colors group-hover:text-primary-color md:h-5 md:w-5" />
+          <span className="text-xs leading-4 font-semibold text-[#8C8C8C] transition-colors group-hover:text-primary-color md:text-base md:leading-5">
+            {store}
+          </span>
+        </Link>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 md:gap-3">

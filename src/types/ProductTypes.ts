@@ -1,10 +1,11 @@
 export interface ProductType {
-  id?: number;
+  id: number;
   image?: string;
-  title?: string;
-  price?: string;
+  title: string;
+  price: string;
   sold?: string | number;
   tag?: string;
+  store: string;
   onAddToCart?: () => void;
   onWishlist?: () => void;
   className?: string;

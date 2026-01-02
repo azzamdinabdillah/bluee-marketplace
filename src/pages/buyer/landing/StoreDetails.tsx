@@ -158,6 +158,8 @@ export default function StoreDetails() {
                           to={`/product-details/${product.id}`}
                         >
                           <ProductCard
+                            id={product.id}
+                            store={product.store}
                             key={product.id}
                             image={product.image}
                             title={product.title}
@@ -185,6 +187,8 @@ export default function StoreDetails() {
                           to={`/product-details/${product.id}`}
                         >
                           <ProductCard
+                            id={product.id}
+                            store={product.store}
                             key={product.id}
                             image={product.image}
                             title={product.title}
@@ -212,6 +216,8 @@ export default function StoreDetails() {
                           to={`/product-details/${product.id}`}
                         >
                           <ProductCard
+                            id={product.id}
+                            store={product.store}
                             key={product.id}
                             image={product.image}
                             title={product.title}
@@ -239,6 +245,8 @@ export default function StoreDetails() {
                           to={`/product-details/${product.id}`}
                         >
                           <ProductCard
+                            id={product.id}
+                            store={product.store}
                             key={product.id}
                             image={product.image}
                             title={product.title}

@@ -18,6 +18,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 3.500.500",
     sold: "120 Sold",
     tag: "Gadget",
+    store: "TechHub Store",
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 1.250.000",
     sold: "85 Sold",
     tag: "Home",
+    store: "SmartLiving",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 850.000",
     sold: "340 Sold",
     tag: "Gaming",
+    store: "GameGear",
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 4.500.000",
     sold: "65 Sold",
     tag: "Electronics",
+    store: "ScreenMaster",
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 2.800.000",
     sold: "210 Sold",
     tag: "Furniture",
+    store: "ComfortZone",
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 650.000",
     sold: "500+ Sold",
     tag: "Accessories",
+    store: "AccessoriesPlus",
   },
   {
     id: 7,
@@ -66,6 +72,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 450.000",
     sold: "1.2k Sold",
     tag: "Audio",
+    store: "AudioWave",
   },
   {
     id: 8,
@@ -74,6 +81,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 350.000",
     sold: "2k+ Sold",
     tag: "Gadget",
+    store: "PowerZone",
   },
   {
     id: 9,
@@ -82,6 +90,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 6.399.000",
     sold: "150 Sold",
     tag: "Gadget",
+    store: "AppleHub",
   },
   {
     id: 10,
@@ -90,6 +99,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 18.999.000",
     sold: "80 Sold",
     tag: "Gadget",
+    store: "MacCenter",
   },
   {
     id: 11,
@@ -98,6 +108,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 2.599.000",
     sold: "300 Sold",
     tag: "Gadget",
+    store: "XiaomiStore",
   },
   {
     id: 12,
@@ -106,6 +117,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 5.999.000",
     sold: "120 Sold",
     tag: "Gadget",
+    store: "OppoShop",
   },
   {
     id: 13,
@@ -114,6 +126,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 6.399.000",
     sold: "150 Sold",
     tag: "Gadget",
+    store: "GalaxyStore",
   },
   {
     id: 14,
@@ -122,6 +135,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 18.999.000",
     sold: "80 Sold",
     tag: "Gadget",
+    store: "AppleHub",
   },
   {
     id: 15,
@@ -130,6 +144,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 2.599.000",
     sold: "300 Sold",
     tag: "Gadget",
+    store: "XiaomiStore",
   },
   {
     id: 16,
@@ -138,6 +153,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 5.999.000",
     sold: "120 Sold",
     tag: "Gadget",
+    store: "OppoShop",
   },
   {
     id: 17,
@@ -146,6 +162,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 19.999.000",
     sold: "50 Sold",
     tag: "Gadget",
+    store: "GalaxyStore",
   },
   {
     id: 18,
@@ -154,6 +171,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 5.999.000",
     sold: "90 Sold",
     tag: "Gadget",
+    store: "VivoMart",
   },
   {
     id: 19,
@@ -162,6 +180,7 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 5.999.000",
     sold: "110 Sold",
     tag: "Gadget",
+    store: "RealmeShop",
   },
   {
     id: 20,
@@ -170,5 +189,6 @@ export const PRODUCTS: ProductType[] = [
     price: "Rp 3.699.000",
     sold: "200 Sold",
     tag: "Gadget",
+    store: "InfinixStore",
   },
 ];
