@@ -58,9 +58,9 @@ export default function Navbar() {
     label: string;
     href: string;
   }[] = [
-    { icon: Home, label: "Homepage", href: "" },
+    { icon: Home, label: "Homepage", href: "/" },
     { icon: Flash, label: "Flash Sale", href: "" },
-    { icon: BoxSearch, label: "Products", href: "" },
+    { icon: BoxSearch, label: "Products", href: "/products" },
     { icon: Note, label: "Orders", href: "" },
     { icon: Group, label: "Community", href: "" },
     { icon: Buildings, label: "Wholesale", href: "" },

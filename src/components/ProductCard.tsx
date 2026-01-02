@@ -27,6 +27,14 @@ export default function ProductCard({
           alt={title}
           className="size-[90%] rounded-t-[14px] object-contain md:rounded-t-[20px] transition-transform duration-300 ease-in-out group-hover/card:scale-105"
         />
+        {/* Mobile Wishlist Button (Overlay) */}
+        <button
+          onClick={onWishlist}
+          className="group/button absolute right-2 top-2 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white shadow-sm transition-colors hover:bg-[#FF3056] md:hidden"
+          aria-label="Add to wishlist"
+        >
+          <HeartIcon className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover/button:fill-white group-hover/button:stroke-white" />
+        </button>
       </div>
 
       {/* Content */}
@@ -63,10 +71,10 @@ export default function ProductCard({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 md:gap-3">
-          {/* Wishlist Button */}
+          {/* Wishlist Button (Desktop) */}
           <button
             onClick={onWishlist}
-            className="group/button flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] md:h-14 md:w-14 md:rounded-2xl"
+            className="group/button hidden h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] md:flex md:h-14 md:w-14 md:rounded-2xl"
             aria-label="Add to wishlist"
           >
             <HeartIcon className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover/button:fill-white group-hover/button:stroke-white md:h-6 md:w-6" />
