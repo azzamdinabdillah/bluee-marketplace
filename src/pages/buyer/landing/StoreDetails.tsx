@@ -29,35 +29,35 @@ export default function StoreDetails() {
     isReverse?: boolean;
     isUppercase?: boolean;
   }[] = [
-    {
-      id: 1,
-      label: "Just Released",
-      icon: <span className="text-[19px]">🙌🏻</span>,
-      dummyCount: 8,
-      isReverse: true,
-    },
-    {
-      id: 2,
-      label: "Gadget",
-      icon: <img src={gadgedIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 4,
-      isUppercase: true,
-    },
-    {
-      id: 3,
-      label: "Furniture",
-      icon: <img src={furnitureIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 6,
-      isUppercase: true,
-    },
-    {
-      id: 4,
-      label: "Electronic",
-      icon: <img src={electronicIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 5,
-      isUppercase: true,
-    },
-  ];
+      {
+        id: 1,
+        label: "Just Released",
+        icon: <span className="text-[19px]">🙌🏻</span>,
+        dummyCount: 8,
+        isReverse: true,
+      },
+      {
+        id: 2,
+        label: "Gadget",
+        icon: <img src={gadgedIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 4,
+        isUppercase: true,
+      },
+      {
+        id: 3,
+        label: "Furniture",
+        icon: <img src={furnitureIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 6,
+        isUppercase: true,
+      },
+      {
+        id: 4,
+        label: "Electronic",
+        icon: <img src={electronicIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 5,
+        isUppercase: true,
+      },
+    ];
 
   return (
     <div>
@@ -150,8 +150,8 @@ export default function StoreDetails() {
                     ))}
                   </TabList>
 
-                  <TabPanel key="1" className="scrollbar-hide overflow-auto">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
+                  <TabPanel key="1" className="">
+                    <div className="product-container mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:grid-cols-4">
                       {PRODUCTS.map((product) => (
                         <Link
                           key={product.id}
@@ -179,8 +179,8 @@ export default function StoreDetails() {
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="2" className="scrollbar-hide overflow-auto">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
+                  <TabPanel key="2" className="">
+                    <div className="product-container mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
                       {PRODUCTS.slice(0, 4).map((product) => (
                         <Link
                           key={product.id}
@@ -208,8 +208,8 @@ export default function StoreDetails() {
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="3" className="scrollbar-hide overflow-auto">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
+                  <TabPanel key="3" className="">
+                    <div className="product-container mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
                       {PRODUCTS.slice(4, 8).map((product) => (
                         <Link
                           key={product.id}
@@ -237,8 +237,8 @@ export default function StoreDetails() {
                       Load More
                     </Button>
                   </TabPanel>
-                  <TabPanel key="4" className="scrollbar-hide overflow-auto">
-                    <div className="product-container mt-6 grid min-w-[880px] grid-cols-4 gap-4 overflow-hidden md:min-w-[1160px] md:gap-6">
+                  <TabPanel key="4" className="">
+                    <div className="product-container mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:grid-cols-4">
                       {PRODUCTS.slice(8, 12).map((product) => (
                         <Link
                           key={product.id}
