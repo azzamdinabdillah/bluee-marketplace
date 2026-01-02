@@ -16,11 +16,11 @@
   font-family: "Lexend Deca", sans-serif;
 }
 
-.margin-top-navbar{
+.margin-top-navbar {
   @apply mt-[130px] md:mt-[105px] lg:mt-[121px];
 }
 
-.padding-page{
+.padding-page {
   @apply mx-4 my-4 md:mx-8 md:my-8 lg:mx-[52px];
 }
 
@@ -61,7 +61,8 @@
 .swiper-pagination-custom .swiper-pagination-bullet {
   width: 20px;
   height: 4px;
-  background: #e8e8e8; /* Tailwind gray-300 */
+  background: #e8e8e8;
+  /* Tailwind gray-300 */
   opacity: 1;
   margin: 0 4px !important;
   transition: all 0.3s ease;
@@ -76,5 +77,6 @@
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet-active {
-  background: #1053d5; /* Tailwind gray-900 */
+  background: #1053d5;
+  /* Tailwind gray-900 */
 }

@@ -1,4 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import profileCircle from "/icons/profile-circle.svg";
+import stickyNote from "/icons/stickynote.svg";
+import setting2 from "/icons/setting-2.svg";
+import logoutIcon from "/icons/logout.svg";
 import logo from "/icons/logo.svg";
 import menuSm from "/icons/menu-sm.svg";
 import arrowDown from "/icons/arrow-down.svg";
@@ -19,6 +23,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
@@ -32,7 +37,7 @@ export default function Navbar() {
         return;
       }
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -58,14 +63,14 @@ export default function Navbar() {
     label: string;
     href: string;
   }[] = [
-    { icon: Home, label: "Homepage", href: "/" },
-    { icon: Flash, label: "Flash Sale", href: "" },
-    { icon: BoxSearch, label: "Products", href: "/products" },
-    { icon: Note, label: "Orders", href: "" },
-    { icon: Group, label: "Community", href: "" },
-    { icon: Buildings, label: "Wholesale", href: "" },
-    { icon: CustomerService, label: "Customer Service", href: "" },
-  ];
+      { icon: Home, label: "Homepage", href: "/" },
+      { icon: Flash, label: "Flash Sale", href: "" },
+      { icon: BoxSearch, label: "Products", href: "/products" },
+      { icon: Note, label: "Orders", href: "" },
+      { icon: Group, label: "Community", href: "" },
+      { icon: Buildings, label: "Wholesale", href: "" },
+      { icon: CustomerService, label: "Customer Service", href: "" },
+    ];
 
   return (
     <div>
@@ -73,11 +78,10 @@ export default function Navbar() {
         className={`border-stroke-color fixed top-0 left-0 z-50 w-full border-b bg-white transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
       >
         <div
-          className={`grid p-4 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 md:p-6 lg:p-8 ${
-            isCategoriesOpen
-              ? "grid-rows-[2fr] gap-4 md:gap-6"
-              : "grid-rows-[0fr] gap-0"
-          }`}
+          className={`grid p-4 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 md:p-6 lg:p-8 ${isCategoriesOpen
+            ? "grid-rows-[2fr] gap-4 md:gap-6"
+            : "grid-rows-[0fr] gap-0"
+            }`}
         >
           <div className="flex flex-col gap-2 md:gap-4">
             <div className="flex gap-4 md:gap-6">
@@ -111,9 +115,8 @@ export default function Navbar() {
                   <img
                     src={arrowDown}
                     alt=""
-                    className={`transition-transform duration-300 ${
-                      isCategoriesOpen ? "" : "rotate-180"
-                    }`}
+                    className={`transition-transform duration-300 ${isCategoriesOpen ? "" : "rotate-180"
+                      }`}
                   />
                 </div>
               </div>
@@ -137,15 +140,56 @@ export default function Navbar() {
                 >
                   <ShoppingCart className="text-black-color h-5 w-5 transition-colors duration-200 group-hover:text-white md:h-6 md:w-6" />
                 </Link>
-                {/* <div className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden">
-                  <img src={user} alt="" className="w-full h-full object-cover" />
-                </div> */}
+                <div className="relative">
+                  <button
+                    popoverTarget="user-menu"
+                    className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden cursor-pointer"
+                  // onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  >
+                    <img src={user} alt="" className="w-full h-full object-cover" />
+                  </button>
+
+                  <div popover="auto" id="user-menu">
+                    <div className="mt-2 w-[201px] flex flex-col gap-[18px] rounded-[20px_0px_20px_20px] bg-white py-6 px-4 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)] z-50">
+                      <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                        <p className="text-[#6A7686] font-medium text-base leading-5">
+                          My Profile
+                        </p>
+                        <img className="h-6 w-6" src={profileCircle} alt="" />
+                      </div>
+                      <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                        <p className="text-[#6A7686] font-medium text-base leading-5">
+                          My Transactions
+                        </p>
+                        <img className="h-6 w-6" src={stickyNote} alt="" />
+                      </div>
+                      <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                        <p className="text-[#6A7686] font-medium text-base leading-5">
+                          Settings
+                        </p>
+                        <img className="h-6 w-6" src={setting2} alt="" />
+                      </div>
+                      <div className="h-[1px] w-full bg-[#E8E8E8]"></div>
+                      <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                        <p className="text-[#FF133D] font-medium text-base leading-5">
+                          Log Out
+                        </p>
+                        <img className="h-6 w-6" src={logoutIcon} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  {/* {isUserMenuOpen && (
+                  )} */}
+                </div>
+
                 {/* If user is not logged in, show Sign In/Register button */}
-                <Button variant="blue">
+                {/* <Button variant="blue">
                   <span className="hidden lg:inline-block">Sign In/</span>
                   Register
-                </Button>
+                </Button> */}
+
               </div>
+
             </div>
 
             <div className="relative md:hidden">
@@ -159,9 +203,8 @@ export default function Navbar() {
           </div>
 
           <div
-            className={`hidden transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${
-              isCategoriesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-            }`}
+            className={`hidden transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${isCategoriesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
           >
             <div className="overflow-hidden">
               <ul className="scrollbar-hide flex items-center gap-6 overflow-x-auto whitespace-nowrap md:gap-8">
@@ -186,11 +229,10 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`fixed inset-0 z-50 h-full bg-black/50 transition-opacity duration-300 lg:hidden ${
-          isMobileMenuOpen
-            ? "opacity-100"
-            : "pointer-events-none opacity-0 select-none"
-        }`}
+        className={`fixed inset-0 z-50 h-full bg-black/50 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen
+          ? "opacity-100"
+          : "pointer-events-none opacity-0 select-none"
+          }`}
         onClick={handleMenuToggle}
       >
         <div
