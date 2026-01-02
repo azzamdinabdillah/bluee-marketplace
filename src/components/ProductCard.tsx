@@ -18,14 +18,14 @@ export default function ProductCard({
 }: ProductType) {
   return (
     <div
-      className={`flex w-full flex-col rounded-[14px] md:w-[276px] md:rounded-[20px] ${className} overflow-hidden`}
+      className={`group/card flex w-full flex-col rounded-[14px] md:w-[276px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg`}
     >
       {/* Product Image */}
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">
         <img
           src={image}
           alt={title}
-          className="size-[90%] rounded-t-[14px] object-contain md:rounded-t-[20px]"
+          className="size-[90%] rounded-t-[14px] object-contain md:rounded-t-[20px] transition-transform duration-300 ease-in-out group-hover/card:scale-105"
         />
       </div>
 
@@ -66,10 +66,10 @@ export default function ProductCard({
           {/* Wishlist Button */}
           <button
             onClick={onWishlist}
-            className="group flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] md:h-14 md:w-14 md:rounded-2xl"
+            className="group/button flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[10px] bg-[#FF3056]/9 transition-colors hover:bg-[#FF3056] md:h-14 md:w-14 md:rounded-2xl"
             aria-label="Add to wishlist"
           >
-            <HeartIcon className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover:fill-white group-hover:stroke-white md:h-6 md:w-6" />
+            <HeartIcon className="h-5 w-5 fill-transparent stroke-current text-[#FF3056] transition-colors duration-200 group-hover/button:fill-white group-hover/button:stroke-white md:h-6 md:w-6" />
           </button>
 
           {/* Add to Cart Button */}
