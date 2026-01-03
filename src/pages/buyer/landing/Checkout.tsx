@@ -1,6 +1,7 @@
 import Footer from "@src/components/Footer";
 import Navbar from "@src/components/Navbar";
 import CartItemList from "@src/components/sections/buyer/landing/checkout/CartItemList";
+import InputInteractive from "@src/components/InputInteractive";
 import { cartItems } from "@src/datas/CartProduct";
 
 export default function Checkout() {
@@ -17,10 +18,17 @@ export default function Checkout() {
             <div>
               <CartItemList stores={cartItems} />
             </div>
+
+            <div className="flex flex-col gap-3 p-3 bg-white">
+              <label className="text-base font-semibold text-[#6A7686]">
+                Address Searching
+              </label>
+              <InputInteractive label="Enter District" id="address-search" />
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
