@@ -17,15 +17,14 @@ import { Group } from "@src/components/icons/Group";
 import { Buildings } from "@src/components/icons/Buildings";
 import { CustomerService } from "@src/components/icons/CustomerService";
 import SearchIcon from "@src/components/icons/SearchIcon";
-import Button from "@src/components/Button";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +38,7 @@ export default function Navbar() {
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
+        popoverRef.current?.hidePopover();
       } else {
         setIsVisible(true);
       }
@@ -143,14 +143,13 @@ export default function Navbar() {
                 <div className="relative">
                   <button
                     popoverTarget="user-menu"
-                    className="rounded-full bg-[#F3F3F3] flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden cursor-pointer"
-                  // onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                    className="anchor/--user-anchor rounded-full bg-yellow flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden cursor-pointer"
                   >
                     <img src={user} alt="" className="w-full h-full object-cover" />
                   </button>
 
-                  <div popover="auto" id="user-menu">
-                    <div className="mt-2 w-[201px] flex flex-col gap-[18px] rounded-[20px_0px_20px_20px] bg-white py-6 px-4 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)] z-50">
+                  <div popover="auto" id="user-menu" ref={popoverRef} className="anchored/--user-anchor anchored-bottom-span-left translate-y-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)] rounded-[20px_0px_20px_20px] bg-white">
+                    <div className="w-[201px] flex flex-col gap-[18px] py-6 px-4 z-50">
                       <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
                         <p className="text-[#6A7686] font-medium text-base leading-5">
                           My Profile
@@ -178,8 +177,6 @@ export default function Navbar() {
                       </div>
                     </div>
                   </div>
-                  {/* {isUserMenuOpen && (
-                  )} */}
                 </div>
 
                 {/* If user is not logged in, show Sign In/Register button */}
