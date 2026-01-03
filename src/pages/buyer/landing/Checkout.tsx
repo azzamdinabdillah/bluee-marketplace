@@ -24,6 +24,7 @@ export default function Checkout() {
                 Address Searching
               </label>
               <InputInteractive label="Enter District" id="address-search" />
+              <InputInteractive label="Description" as="textarea" />
             </div>
           </div>
         </div>
