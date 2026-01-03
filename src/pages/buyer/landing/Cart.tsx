@@ -14,7 +14,7 @@ import arrowRight from "/icons/arrow-right-rounded.svg";
 import ticketDiscount from "/icons/ticket-discount.svg";
 import arrowRightPlainWhite from "/icons/arrow-right-plain-white.svg";
 import CartEmptyState from "@src/components/sections/buyer/landing/cart/CartEmptyState";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ChartItemProduct from "@src/components/CartItemProduct";
 import { cartItems } from "@src/datas/CartProduct";
 
@@ -203,13 +203,15 @@ export default function Cart() {
                   </div>
                 </div>
 
-                <Button
-                  variant="blue"
-                  icon={arrowRight}
-                  className="w-full rounded-xl md:rounded-2xl"
-                >
-                  Continue To Checkout
-                </Button>
+                <Link to="/cart/checkout">
+                  <Button
+                    variant="blue"
+                    icon={arrowRight}
+                    className="w-full rounded-xl md:rounded-2xl"
+                  >
+                    Continue To Checkout
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
