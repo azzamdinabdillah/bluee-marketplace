@@ -18,7 +18,7 @@
 }
 
 .margin-top-navbar {
-  @apply mt-[130px] md:mt-[105px] lg:mt-[121px];
+  @apply mt-[120px] md:mt-[105px] lg:mt-[121px];
 }
 
 .padding-page {

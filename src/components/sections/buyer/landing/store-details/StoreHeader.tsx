@@ -39,7 +39,7 @@ export default function StoreHeader({
           {/* Store Info */}
           <div className="flex flex-col gap-[6px]">
             <div className="flex items-center gap-[6px]">
-              <h2 className="text-black-color font-lexend text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden">
+              <h2 className="text-black-color font-lexend text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden max-w-[150px] md:max-w-full">
                 {storeName}
               </h2>
               {isVerified && (
