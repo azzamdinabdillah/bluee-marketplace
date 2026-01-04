@@ -7,7 +7,19 @@ import GlobalSearch from "@src/components/icons/GlobalSearch";
 import { Buildings } from "@src/components/icons/Buildings";
 import Keyboard from "@src/components/icons/Keyboard";
 import Location from "@src/components/icons/Location";
+import SelectCourier from "@src/components/sections/buyer/landing/checkout/SelectCourier";
 import shieldTick from "/icons/shield-tick.svg";
+import OrderSummary from "@src/components/sections/buyer/landing/checkout/OrderSummary";
+import Button from "@src/components/Button";
+import shoppingCart from "/icons/shopping-cart-gray.svg";
+import box from "/icons/box.svg";
+import ticket from "/icons/ticket.svg";
+import receipt from "/icons/receipt.svg";
+import discount from "/icons/discount.svg";
+import money from "/icons/money.svg";
+import arrowRight from "/icons/arrow-right-rounded.svg";
+import cardTick from "/icons/card-tick.svg";
+import group from "/icons/group.svg";
 
 export default function Checkout() {
   return (
@@ -19,62 +31,128 @@ export default function Checkout() {
             Checkout Page
           </h3>
 
-          <div className="mt-6 grid gap-3 md:gap-5 min-[1250px]:grid-cols-2 items-start">
+          <div className="mt-6 grid items-start gap-3 min-[1250px]:grid-cols-2 md:gap-5">
             <div>
               <CartItemList stores={cartItems} />
             </div>
 
             <div className="flex flex-col gap-3 md:gap-5">
-              <div className="relative flex w-full max-w-[581px] items-center justify-center overflow-hidden rounded-[20px] bg-[url('/images/bg-secure.png')] bg-no-repeat bg-cover px-[18px] py-[16px] shadow-sm transition-all hover:shadow-md">
-                
+              <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-[url('/images/bg-secure.png')] bg-cover bg-center bg-no-repeat px-4 py-3 shadow-sm transition-all hover:shadow-md md:rounded-[20px] md:px-[18px] md:py-[16px]">
                 {/* Main Content */}
-                <div className="relative z-10 flex w-full flex-row items-center justify-center gap-[10px]">
-                  <div className="flex h-[36px] w-[36px] shrink-0 items-center justify-center">
+                <div className="z-10 flex w-full flex-row items-center justify-start gap-[10px]">
+                  <div className="flex shrink-0 items-center justify-center">
                     <img
                       src={shieldTick}
                       alt="Security Shield Icon"
-                      className="size-7 md:size-[36px] object-contain"
+                      className="size-8 object-contain md:size-[36px]"
                     />
                   </div>
 
-                  <p className="md:text-[16px] font-bold leading-[1.4] text-white text-left text-sm">
+                  <p className="text-left text-base leading-[1.4] font-bold text-white">
                     Your personal data is securely protected by us
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-5 rounded-[20px] bg-white p-5">
-                <h4 className="w-full text-xl font-bold leading-[1.25] text-[#292D32]">
+                <h4 className="w-full text-xl leading-tight font-bold text-[#292D32]">
                   Contact & Delivery Address
                 </h4>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-base font-semibold leading-tight text-[#6A7686]">
+                  <p className="text-base leading-tight font-semibold text-[#6A7686]">
                     Address Searching
                   </p>
-                  <InputInteractive label="Enter Disctrict" icon={GlobalSearch} />
+                  <InputInteractive
+                    label="Enter Disctrict"
+                    icon={GlobalSearch}
+                  />
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-base font-semibold leading-tight text-[#6A7686]">
+                  <p className="text-base leading-tight font-semibold text-[#6A7686]">
                     Your Address
                   </p>
-                  <InputInteractive label="Enter Your Address" icon={Location} as="textarea" />
+                  <InputInteractive
+                    label="Enter Your Address"
+                    icon={Location}
+                    as="textarea"
+                  />
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-base font-semibold leading-tight text-[#6A7686]">
+                  <p className="text-base leading-tight font-semibold text-[#6A7686]">
                     Your City
                   </p>
                   <InputInteractive label="Enter Your City" icon={Buildings} />
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-base font-semibold leading-tight text-[#6A7686]">
+                  <p className="text-base leading-tight font-semibold text-[#6A7686]">
                     Post Code
                   </p>
                   <InputInteractive label="Enter Post Code" icon={Keyboard} />
                 </div>
+              </div>
+
+              <div>
+                <SelectCourier
+                  courierName="J&T Express"
+                  serviceName="EZ"
+                  price={5000}
+                />
+              </div>
+
+              <div>
+                <OrderSummary
+                  items={[
+                    {
+                      icon: shoppingCart,
+                      label: "Total Items:",
+                      value: "2 Items",
+                    },
+                    {
+                      icon: box,
+                      label: "Total Quantity:",
+                      value: "10x",
+                    },
+                    {
+                      icon: cardTick,
+                      label: "Service Fee:",
+                      value: "Rp 50.000",
+                    },
+                    {
+                      icon: group,
+                      label: "Delivery Fee:",
+                      value: "Rp 350.000",
+                    },
+                    {
+                      icon: receipt,
+                      label: "Sub Total:",
+                      value: "Rp 40.250",
+                    },
+                    {
+                      icon: ticket,
+                      label: "PPN 11%",
+                      value: "Rp 11.000",
+                    },
+                    {
+                      icon: money,
+                      label: "Grand total",
+                      value: "Rp 56.250",
+                      isTotal: true,
+                    },
+                  ]}
+                  button={
+                    <Button
+                      variant="blue"
+                      icon={arrowRight}
+                      className="w-full rounded-xl md:rounded-2xl"
+                    >
+                      Pay Now
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>
