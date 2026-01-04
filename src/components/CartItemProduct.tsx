@@ -1,8 +1,9 @@
 import type { ProductDetailType } from "@src/types/ProductTypes";
 import { useState } from "react";
+import Button from "./Button";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
-import TrashIcon from "/icons/trash-red.svg";
+import TrashIcon from "./icons/TrashIcon";
 import ShoppingCartIcon from "/icons/shopping-cart-gray.svg";
 
 export interface CartItemType extends Partial<ProductDetailType> {
@@ -80,12 +81,14 @@ export default function ChartItemProduct({ item }: { item: CartItemType }) {
           </span>
         </div>
 
-        <button className="flex w-full cursor-pointer items-center justify-center gap-[6px] rounded-[13px] bg-[rgba(255,19,61,0.09)] px-3 py-3 transition-colors hover:bg-[rgba(255,19,61,0.15)] md:w-auto md:px-4 md:py-[14px]">
-          <img src={TrashIcon} alt="" />
-          <span className="font-lexend text-red-color text-sm leading-[1.25em] font-semibold md:text-base">
-            Remove
-          </span>
-        </button>
+        <Button
+          variant="lightRed"
+          icon={TrashIcon}
+          iconPosition="left"
+          className="font-lexend w-full font-semibold md:w-auto"
+        >
+          Remove
+        </Button>
       </div>
     </div>
   );
