@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 type ButtonVariant = "black" | "lightBlue" | "blue" | "gray" | "lightRed";
 
@@ -8,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
   iconPosition?: "left" | "right";
+  to?: string;
 }
 
 export default function Button({
@@ -16,6 +18,7 @@ export default function Button({
   className = "",
   variant = "black",
   iconPosition = "right",
+  to,
   ...props
 }: ButtonProps) {
   const variants = {
@@ -45,14 +48,30 @@ export default function Button({
     </div>
   );
 
-  return (
-    <button
-      className={`group relative flex cursor-pointer items-center justify-center gap-2.5 rounded-[14px] px-5 py-3 text-[14px] font-medium text-nowrap transition-all duration-300 ease-out active:scale-95 md:rounded-[18px] md:px-6 md:py-4 md:text-[16px] ${variants[variant]} ${className}`}
-      {...props}
-    >
+  const buttonClass = `group relative flex cursor-pointer items-center justify-center gap-2.5 rounded-[14px] px-5 py-3 text-[14px] font-medium text-nowrap transition-all duration-300 ease-out active:scale-95 md:rounded-[18px] md:px-6 md:py-4 md:text-[16px] ${variants[variant]} ${className}`;
+
+  const content = (
+    <>
       {icon && iconPosition === "left" && renderIcon()}
       <div className="relative z-10">{children}</div>
       {icon && iconPosition === "right" && renderIcon()}
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={buttonClass}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      className={buttonClass}
+      {...props}
+    >
+      {content}
     </button>
   );
 }

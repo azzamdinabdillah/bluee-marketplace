@@ -41,6 +41,7 @@ function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
             variant="blue"
             className="w-full rounded-2xl"
             onClick={onClose}
+            to="/"
           >
             View Transaction
           </Button>
@@ -48,6 +49,7 @@ function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
             variant="lightBlue"
             className="w-full rounded-2xl"
             onClick={onClose}
+            to="/"
           >
             Back to Homepage
           </Button>
