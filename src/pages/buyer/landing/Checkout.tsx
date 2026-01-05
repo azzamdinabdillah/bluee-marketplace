@@ -66,6 +66,7 @@ export default function Checkout() {
                   <InputInteractive
                     label="Enter Disctrict"
                     icon={GlobalSearch}
+                    error="Format email tidak valid" 
                   />
                 </div>
 
