@@ -2,7 +2,6 @@ import Footer from "@src/components/Footer";
 import Navbar from "@src/components/Navbar";
 import shopIcon from "/icons/shop.svg";
 import ProductItemLine from "@src/components/icons/ProductItemLine";
-import Button from "@src/components/Button";
 import Checkbox from "@src/components/Checkbox";
 import shoppingCart from "/icons/shopping-cart-gray.svg";
 import box from "/icons/box.svg";
@@ -10,16 +9,50 @@ import ticket from "/icons/ticket.svg";
 import receipt from "/icons/receipt.svg";
 import discount from "/icons/discount.svg";
 import money from "/icons/money.svg";
-import arrowRight from "/icons/arrow-right-rounded.svg";
 import ticketDiscount from "/icons/ticket-discount.svg";
 import arrowRightPlainWhite from "/icons/arrow-right-plain-white.svg";
-import CartEmptyState from "@src/components/sections/buyer/landing/cart/CartEmptyState";
-import { Link, useNavigate } from "react-router-dom";
+// import CartEmptyState from "@src/components/sections/buyer/landing/cart/CartEmptyState";
+import CartOrderSummary from "@src/components/sections/buyer/landing/cart/CartOrderSummary";
+// import { useNavigate } from "react-router-dom";
 import ChartItemProduct from "@src/components/CartItemProduct";
 import { cartItems } from "@src/datas/CartProduct";
 
 export default function Cart() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  const summaryItems = [
+    {
+      icon: shoppingCart,
+      label: "Total Items:",
+      value: "2 Items",
+    },
+    {
+      icon: box,
+      label: "Total Quantity:",
+      value: "10x",
+    },
+    {
+      icon: receipt,
+      label: "Sub Total:",
+      value: "Rp 40.250",
+    },
+    {
+      icon: ticket,
+      label: "PPN 11%",
+      value: "Rp 11.000",
+    },
+    {
+      icon: discount,
+      label: "Discount",
+      value: "Rp 0",
+    },
+    {
+      icon: money,
+      label: "Grand total",
+      value: "Rp 51.205",
+      isGrandTotal: true,
+    },
+  ];
 
   return (
     <div className="bg-[#F3F5F9]">
@@ -101,118 +134,7 @@ export default function Cart() {
                 />
               </div>
 
-              <div className="flex h-fit w-full flex-col gap-3 rounded-xl bg-white p-4 md:gap-4 md:rounded-[20px] md:p-5">
-                <h3 className="text-black-color font-lexend text-lg font-bold md:text-xl">
-                  Order Summary
-                </h3>
-
-                <div className="border-stroke-color flex flex-col gap-3 rounded-xl border p-4 md:gap-4 md:p-5">
-                  {/* Total Items */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={shoppingCart}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      Total Items:
-                    </span>
-                    <span className="text-black-color font-lexend text-base font-bold md:text-lg">
-                      2 Items
-                    </span>
-                  </div>
-                  <div className="bg-stroke-color h-px w-full"></div>
-
-                  {/* Total Quantity */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={box}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      Total Quantity:
-                    </span>
-                    <span className="text-black-color font-lexend text-base font-bold md:text-lg">
-                      10x
-                    </span>
-                  </div>
-                  <div className="bg-stroke-color h-px w-full"></div>
-
-                  {/* Sub Total */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={receipt}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      Sub Total:
-                    </span>
-                    <span className="text-black-color font-lexend text-base font-bold md:text-lg">
-                      Rp 40.250
-                    </span>
-                  </div>
-                  <div className="bg-stroke-color h-px w-full"></div>
-
-                  {/* PPN */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={ticket}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      PPN 11%
-                    </span>
-                    <span className="text-black-color font-lexend text-base font-bold md:text-lg">
-                      Rp 11.000
-                    </span>
-                  </div>
-                  <div className="bg-stroke-color h-px w-full"></div>
-
-                  {/* Discount */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={discount}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      Discount
-                    </span>
-                    <span className="text-black-color font-lexend text-base font-bold md:text-lg">
-                      Rp 0
-                    </span>
-                  </div>
-                  <div className="bg-stroke-color h-px w-full"></div>
-
-                  {/* Grand Total */}
-                  <div className="flex items-center gap-1">
-                    <img
-                      src={money}
-                      alt="icon"
-                      className="h-5 w-5 md:h-6 md:w-6"
-                    />
-                    <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
-                      Grand total
-                    </span>
-                    <span className="text-primary-color font-lexend text-base font-bold md:text-lg">
-                      Rp 51.205
-                    </span>
-                  </div>
-                </div>
-
-                <Link to="/cart/checkout">
-                  <Button
-                    variant="blue"
-                    icon={arrowRight}
-                    className="w-full rounded-xl md:rounded-2xl"
-                  >
-                    Continue To Checkout
-                  </Button>
-                </Link>
-              </div>
+              <CartOrderSummary summaryItems={summaryItems} />
             </div>
           </div>
         </div>
