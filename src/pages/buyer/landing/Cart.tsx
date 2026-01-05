@@ -9,9 +9,8 @@ import ticket from "/icons/ticket.svg";
 import receipt from "/icons/receipt.svg";
 import discount from "/icons/discount.svg";
 import money from "/icons/money.svg";
-import ticketDiscount from "/icons/ticket-discount.svg";
-import arrowRightPlainWhite from "/icons/arrow-right-plain-white.svg";
 // import CartEmptyState from "@src/components/sections/buyer/landing/cart/CartEmptyState";
+import CartApplyCoupon from "@src/components/sections/buyer/landing/cart/CartApplyCoupon";
 import CartOrderSummary from "@src/components/sections/buyer/landing/cart/CartOrderSummary";
 // import { useNavigate } from "react-router-dom";
 import ChartItemProduct from "@src/components/CartItemProduct";
@@ -109,30 +108,7 @@ export default function Cart() {
             {/* <CartEmptyState onFindProduct={() => navigate("/browse-category-product/1")} /> */}
 
             <div className="flex flex-col gap-3 md:gap-5 lg:sticky lg:top-5">
-              <div className="flex w-full cursor-pointer flex-row items-center justify-between gap-3 rounded-xl bg-[url('/images/bg-coupon.png')] bg-cover bg-center p-4 md:gap-[14px] md:rounded-[20px] md:p-5">
-                <div className="flex flex-1 flex-row items-center gap-3 md:gap-[14px]">
-                  <div className="border-2 border-[#ffffff17] bg-[#ffffff17] rounded-2xl md:rounded-[20px] p-2 md:p-4">
-                    <img
-                      src={ticketDiscount}
-                      alt="coupon"
-                      className=""
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1 md:gap-[4px]">
-                    <h5 className="font-lexend text-base font-bold text-white md:text-lg">
-                      Apply Discount Coupon
-                    </h5>
-                    <p className="font-lexend text-sm font-medium text-[#98E1E1] md:text-base">
-                      You Have 23 Available Coupons
-                    </p>
-                  </div>
-                </div>
-                <img
-                  src={arrowRightPlainWhite}
-                  alt="arrow"
-                  className="size-3 md:size-5"
-                />
-              </div>
+              <CartApplyCoupon />
 
               <CartOrderSummary summaryItems={summaryItems} />
             </div>
