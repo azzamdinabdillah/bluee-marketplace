@@ -20,13 +20,68 @@ import money from "/icons/money.svg";
 import arrowRight from "/icons/arrow-right-rounded.svg";
 import cardTick from "/icons/card-tick.svg";
 import group from "/icons/group.svg";
+import bagTick from "/images/bag-tick.png";
+import Modal from "@src/components/Modal";
+
+interface PaymentSuccessModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Payment Successful"
+      width="max-w-[400px]"
+      footer={
+        <div className="flex flex-col gap-3">
+          <Button
+            variant="blue"
+            className="w-full rounded-2xl"
+            onClick={onClose}
+          >
+            View Transaction
+          </Button>
+          <Button
+            variant="lightBlue"
+            className="w-full rounded-2xl"
+            onClick={onClose}
+          >
+            Back to Homepage
+          </Button>
+        </div>
+      }
+    >
+      <div className="flex flex-col items-center gap-2 py-4 text-center">
+        <div className="mb-4 flex size-[72px] items-center justify-center">
+          {/* Empty Image as requested */}
+          <img src={bagTick} alt="Success Icon" className="size-full object-contain" />
+        </div>
+
+        <h4 className="font-lexend text-xl font-bold text-[#292D32]">
+          Thank You!
+        </h4>
+        <p className="font-lexend text-base font-semibold text-[#6A7686]">
+          Your order has been placed successfully.
+        </p>
+      </div>
+    </Modal>
+  );
+}
 
 export default function Checkout() {
   const [selectedCourier, setSelectedCourier] = useState<CourierOption | null>(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   return (
     <div className="bg-[#F3F5F9]">
       <Navbar />
+      <PaymentSuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+      />
       <div className="margin-top-navbar">
         <div className="padding-page max-w-1176 lg:pb-[100px]">
           <h3 className="text-black-color w-full pt-4 text-xl font-bold md:pt-6 md:text-2xl lg:pt-8 lg:text-[32px]">
@@ -150,6 +205,7 @@ export default function Checkout() {
                       variant="blue"
                       icon={arrowRight}
                       className="w-full rounded-xl md:rounded-2xl"
+                      onClick={() => setShowSuccessModal(true)}
                     >
                       Pay Now
                     </Button>
