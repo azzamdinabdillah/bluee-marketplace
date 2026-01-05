@@ -70,25 +70,25 @@ export default function SelectCourier({
 
   return (
     <>
-      <div className="flex flex-col gap-5 rounded-[20px] bg-white p-5">
-        <h3 className="text-xl leading-tight font-bold text-[#292D32]">
+      <div className="flex flex-col gap-4 md:gap-5 rounded-[20px] bg-white p-4 md:p-5">
+        <h3 className="text-lg md:text-xl leading-tight font-bold text-[#292D32]">
           Select Courier
         </h3>
 
         {!selectedCourier ? (
           <>
-            <div className="flex flex-col items-start justify-between gap-4 rounded-[20px] border border-[#E8E8E8] p-5 sm:flex-row sm:items-center">
-              <div className="flex items-center gap-[14px]">
+            <div className="flex flex-col items-start justify-between gap-4 rounded-[20px] border border-[#E8E8E8] p-4 md:p-5 sm:flex-row sm:items-center">
+              <div className="flex items-center gap-3 md:gap-[14px]">
                 {/* Icon Placeholder */}
-                <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full bg-[#F3F3F3]">
-                  <img src={groupIcon} alt="" className="h-6 w-6" />
+                <div className="flex h-10 w-10 md:h-[56px] md:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#F3F3F3]">
+                  <img src={groupIcon} alt="" className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <h4 className="text-[18px] leading-tight font-bold text-[#292D32]">
+                <div className="flex flex-col gap-1 md:gap-1.5">
+                  <h4 className="text-base md:text-[18px] leading-tight font-bold text-[#292D32]">
                     No Courier Selected
                   </h4>
-                  <p className="text-base leading-tight font-semibold text-[#6A7686]">
+                  <p className="text-sm md:text-base leading-tight font-semibold text-[#6A7686]">
                     Calculate to select courier
                   </p>
                 </div>
@@ -96,31 +96,31 @@ export default function SelectCourier({
 
               <button
                 onClick={handleOpenModal}
-                className="flex items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
+                className="flex w-full sm:w-auto justify-center sm:justify-start items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
               >
-                <span className="text-base leading-tight font-bold text-[#1053D5]">
+                <span className="text-sm md:text-base leading-tight font-bold text-[#1053D5]">
                   Calculate Delivery
                 </span>
                 <img src={arrowRight} alt="" className="h-4 w-4" />
               </button>
             </div>
-            <p className="text-base leading-tight font-semibold text-red-color">
+            <p className="text-sm md:text-base leading-tight font-semibold text-red-color">
               Please fill Contact & Delivery Address
             </p>
           </>
         ) : (
-          <div className="flex flex-col items-start justify-between gap-4 rounded-[20px] border border-[#E8E8E8] p-5 sm:flex-row sm:items-center">
-            <div className="flex items-center gap-[14px]">
+          <div className="flex flex-col items-start justify-between gap-4 rounded-[20px] border border-[#E8E8E8] p-4 md:p-5 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3 md:gap-[14px]">
               {/* Icon Placeholder */}
-              <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full bg-[#F3F3F3]">
-                <img src={selectedCourier.icon} alt="" className="h-6 w-6" />
+              <div className="flex h-10 w-10 md:h-[56px] md:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#F3F3F3]">
+                <img src={selectedCourier.icon} alt="" className="h-5 w-5 md:h-6 md:w-6" />
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <h4 className="text-lg leading-tight font-bold text-[#292D32]">
+              <div className="flex flex-col gap-1 md:gap-1.5">
+                <h4 className="text-base md:text-lg leading-tight font-bold text-[#292D32]">
                   {selectedCourier.name}
                 </h4>
-                <p className="text-base leading-tight font-semibold text-[#6A7686]">
+                <p className="text-sm md:text-base leading-tight font-semibold text-[#6A7686]">
                   {selectedCourier.service} (Rp {selectedCourier.price.toLocaleString("id-ID")})
                 </p>
               </div>
@@ -128,9 +128,9 @@ export default function SelectCourier({
 
             <button
               onClick={handleOpenModal}
-              className="flex items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
+              className="flex w-full sm:w-auto justify-center sm:justify-start items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
             >
-              <span className="text-base leading-tight font-bold text-[#1053D5]">
+              <span className="text-sm md:text-base leading-tight font-bold text-[#1053D5]">
                 Change Courier
               </span>
               {/* Arrow Right Placeholder */}

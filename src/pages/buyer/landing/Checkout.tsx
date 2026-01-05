@@ -107,7 +107,7 @@ export default function Checkout() {
                     />
                   </div>
 
-                  <p className="text-left text-base leading-[1.4] font-bold text-white">
+                  <p className="text-left text-sm md:text-base leading-[1.4] font-bold text-white">
                     Your personal data is securely protected by us
                   </p>
                 </div>
