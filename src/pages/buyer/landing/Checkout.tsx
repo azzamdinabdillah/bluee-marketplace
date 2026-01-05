@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "@src/components/Footer";
 import Navbar from "@src/components/Navbar";
 import CartItemList from "@src/components/sections/buyer/landing/checkout/CartItemList";
@@ -7,7 +8,7 @@ import GlobalSearch from "@src/components/icons/GlobalSearch";
 import { Buildings } from "@src/components/icons/Buildings";
 import Keyboard from "@src/components/icons/Keyboard";
 import Location from "@src/components/icons/Location";
-import SelectCourier from "@src/components/sections/buyer/landing/checkout/SelectCourier";
+import SelectCourier, { type CourierOption } from "@src/components/sections/buyer/landing/checkout/SelectCourier";
 import shieldTick from "/icons/shield-tick.svg";
 import OrderSummary from "@src/components/sections/buyer/landing/checkout/OrderSummary";
 import Button from "@src/components/Button";
@@ -15,13 +16,14 @@ import shoppingCart from "/icons/shopping-cart-gray.svg";
 import box from "/icons/box.svg";
 import ticket from "/icons/ticket.svg";
 import receipt from "/icons/receipt.svg";
-import discount from "/icons/discount.svg";
 import money from "/icons/money.svg";
 import arrowRight from "/icons/arrow-right-rounded.svg";
 import cardTick from "/icons/card-tick.svg";
 import group from "/icons/group.svg";
 
 export default function Checkout() {
+  const [selectedCourier, setSelectedCourier] = useState<CourierOption | null>(null);
+
   return (
     <div className="bg-[#F3F5F9]">
       <Navbar />
@@ -66,7 +68,7 @@ export default function Checkout() {
                   <InputInteractive
                     label="Enter Disctrict"
                     icon={GlobalSearch}
-                    error="Format email tidak valid" 
+                    error="Format email tidak valid"
                   />
                 </div>
 
@@ -98,9 +100,8 @@ export default function Checkout() {
 
               <div>
                 <SelectCourier
-                  courierName="J&T Express"
-                  serviceName="EZ"
-                  price={5000}
+                  selectedCourier={selectedCourier}
+                  onChangeCourier={setSelectedCourier}
                 />
               </div>
 
