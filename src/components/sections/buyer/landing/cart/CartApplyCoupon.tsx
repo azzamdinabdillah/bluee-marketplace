@@ -15,27 +15,27 @@ interface Coupon {
 const MOCK_COUPONS: Coupon[] = [
   {
     id: "1",
-    title: "Diskon Pengguna Baru",
-    description: "Potongan harga spesial untuk transaksi pertama Anda",
+    title: "New User Discount",
+    description: "Special price cut for your first transaction",
     code: "NEWUSER50",
     discount: "50%",
-    expiry: "Berakhir dlm 3 hari",
+    expiry: "Expires in 3 days",
   },
   {
     id: "2",
-    title: "Gratis Ongkir",
-    description: "Gratis ongkir hingga Rp20.000 tanpa minimum pembelian",
+    title: "Free Shipping",
+    description: "Free shipping up to Rp20,000 with no minimum purchase",
     code: "FREESHIP",
     discount: "Free Shipping",
-    expiry: "Berakhir dlm 5 jam",
+    expiry: "Expires in 5 hours",
   },
   {
     id: "3",
-    title: "Cashback Mingguan",
-    description: "Dapatkan cashback 10% untuk pembelian elektronik",
+    title: "Weekly Cashback",
+    description: "Get 10% cashback on electronics purchases",
     code: "ELECTRO10",
     discount: "10%",
-    expiry: "Berlaku hingga 30 Jan",
+    expiry: "Valid until Jan 30",
   },
 ];
 
@@ -76,14 +76,14 @@ export default function CartApplyCoupon() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="Pilih Kupon"
+        title="Apply Discount Coupon"
         width="w-full max-w-[500px]"
         footer={
           <button
             onClick={() => setIsModalOpen(false)}
             className="w-full rounded-xl bg-primary-color py-3 text-sm md:text-base font-bold text-white transition-colors hover:bg-primary-color/90"
           >
-            Terapkan
+            Apply
           </button>
         }
       >
@@ -91,11 +91,11 @@ export default function CartApplyCoupon() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Masukkan kode promo"
-              className="w-full rounded-xl border border-stroke-color bg-gray-50 py-3 pl-4 pr-20 md:pr-24 font-lexend text-sm text-black-color outline-none placeholder:text-sec-color focus:border-transparent focus:ring-2 focus:ring-inset focus:ring-primary-color"
+              placeholder="Enter coupon code"
+              className="w-full rounded-xl border border-stroke-color bg-gray-50 py-3 pl-4 pr-20 md:pr-24 font-lexend text-sm text-black-color outline-none placeholder:text-sec-color transition-shadow focus:ring-2 focus:ring-inset focus:ring-primary-color"
             />
             <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg bg-light-blue-color px-3 py-1.5 md:px-4 text-xs md:text-sm font-semibold text-primary-color hover:bg-primary-color/20 transition-colors">
-              Pakai
+              Apply
             </button>
           </div>
 
