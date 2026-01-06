@@ -3,7 +3,7 @@ import ProductCard from "@src/components/ProductCard";
 import arrowDownWhite from "/icons/arrow-down-white.svg";
 import { PRODUCTS } from "@src/datas/Products";
 
-export default function Popular() {
+export default function BrowseCategoryPopular() {
   return (
     <div className="flex flex-col gap-4 md:gap-6 lg:gap-9">
       <h3 className="text-black-color w-full text-xl font-bold md:text-2xl lg:text-[32px]">

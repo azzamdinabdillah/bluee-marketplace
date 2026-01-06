@@ -48,7 +48,7 @@ interface SelectCourierProps {
   onChangeCourier?: (courier: CourierOption) => void;
 }
 
-export default function SelectCourier({
+export default function CheckoutSelectCourier({
   selectedCourier,
   onChangeCourier,
 }: SelectCourierProps) {

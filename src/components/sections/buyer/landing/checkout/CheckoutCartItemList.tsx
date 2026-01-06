@@ -10,7 +10,7 @@ interface CartItemListProps {
     stores: StoreGroup[];
 }
 
-export default function CartItemList({ stores }: CartItemListProps) {
+export default function CheckoutCartItemList({ stores }: CartItemListProps) {
     return (
         <div className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-5">
             <h2 className="font-lexend text-black-color text-xl font-bold leading-[1.25em]">

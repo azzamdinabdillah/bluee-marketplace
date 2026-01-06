@@ -12,7 +12,7 @@ interface OrderSummaryProps {
   button?: React.ReactNode;
 }
 
-const OrderSummary: React.FC<OrderSummaryProps> = ({ items, button }) => {
+const CheckoutOrderSummary: React.FC<OrderSummaryProps> = ({ items, button }) => {
   return (
     <div className="flex h-fit w-full flex-col gap-3 rounded-xl bg-white p-4 md:gap-4 md:rounded-[20px] md:p-5">
       <h3 className="text-black-color font-lexend text-lg font-bold md:text-xl">
@@ -51,4 +51,4 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ items, button }) => {
   );
 };
 
-export default OrderSummary;
+export default CheckoutOrderSummary;
