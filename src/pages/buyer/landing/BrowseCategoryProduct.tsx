@@ -3,8 +3,8 @@ import Footer from "@src/components/Footer";
 import Navbar from "@src/components/Navbar";
 import boxIcon from "/icons/box.svg";
 import verifyIcon from "/icons/verify.svg";
-import Popular from "@src/components/sections/buyer/landing/browse-category/Popular";
-import JustRelease from "@src/components/sections/buyer/landing/browse-category/JustRelease";
+import BrowseCategoryPopular from "@src/components/sections/buyer/landing/browse-category/BrowseCategoryPopular";
+import BrowseCategoryJustRelease from "@src/components/sections/buyer/landing/browse-category/BrowseCategoryJustRelease";
 
 export default function BrowseCategoryProduct() {
   return (
@@ -44,8 +44,8 @@ export default function BrowseCategoryProduct() {
         </Breadcrumb>
 
         <div className="mx-4 my-8 flex max-w-1176 flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-[52px] lg:my-18 lg:gap-[100px]">
-          <Popular />
-          <JustRelease />
+          <BrowseCategoryPopular />
+          <BrowseCategoryJustRelease />
         </div>
       </div>
 
