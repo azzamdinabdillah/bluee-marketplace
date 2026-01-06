@@ -16,7 +16,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export default function SellerRecomendation() {
+export default function HomeSellerRecomendation() {
   return (
     <div className="relative flex flex-col gap-6 md:gap-9">
       <TitleSection title="Trusted Sellers, Quality Guaranteed">

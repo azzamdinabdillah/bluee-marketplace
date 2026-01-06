@@ -3,7 +3,7 @@ import Button from "@src/components/Button";
 import TitleSection from "@src/components/TitleSection";
 import { Link } from "react-router-dom";
 
-export default function Categories() {
+export default function HomeCategories() {
   return (
     <div className="flex flex-col gap-9">
       <TitleSection title="Explore High Quality Products by Categories">

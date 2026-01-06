@@ -1,10 +1,10 @@
-import Footer from "../../../components/Footer";
-import Banner from "../../../components/sections/buyer/landing/home/Banner";
-import Categories from "../../../components/sections/buyer/landing/home/Categories";
-import Navbar from "../../../components/Navbar";
-import ProductRecomendation from "../../../components/sections/buyer/landing/home/ProductRecomendation";
-import SellerRecomendation from "../../../components/sections/buyer/landing/home/SellerRecomendation";
+import Footer from "@src/components/Footer";
+import Navbar from "@src/components/Navbar";
 import { PRODUCTS } from "@src/datas/Products";
+import HomeBanner from "@src/components/sections/buyer/landing/home/HomeBanner";
+import HomeCategories from "@src/components/sections/buyer/landing/home/HomeCategories";
+import HomeProductRecomendation from "@src/components/sections/buyer/landing/home/HomeProductRecomendation";
+import HomeSellerRecomendation from "@src/components/sections/buyer/landing/home/HomeSellerRecomendation";
 
 export default function Home() {
   return (
@@ -12,15 +12,15 @@ export default function Home() {
       <Navbar />
 
       <div className="mt-[130px] md:mt-[105px] lg:mt-[121px]">
-        <Banner />
+        <HomeBanner />
 
         <div className="mx-4 my-8 flex max-w-[1176px] flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-12 lg:my-18 lg:gap-[100px] xl:mx-auto">
-          <Categories />
-          <ProductRecomendation
+          <HomeCategories />
+          <HomeProductRecomendation
             products={PRODUCTS}
             title="Shop Quality Picks from Top Sellers"
           />
-          <SellerRecomendation />
+          <HomeSellerRecomendation />
         </div>
 
         <Footer />

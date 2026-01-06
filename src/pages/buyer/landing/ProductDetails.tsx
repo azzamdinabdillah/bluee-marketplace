@@ -12,7 +12,7 @@ import StoreCard from "@src/components/sections/buyer/landing/product-details/St
 import ProductAbout from "@src/components/sections/buyer/landing/product-details/ProductAbout";
 import ProductTestimony from "@src/components/sections/buyer/landing/product-details/ProductTestimony";
 import ProductActionCard from "@src/components/sections/buyer/landing/product-details/ProductActionCard";
-import ProductRecomendation from "@src/components/sections/buyer/landing/home/ProductRecomendation";
+import ProductRecomendation from "@src/components/sections/buyer/landing/home/HomeProductRecomendation";
 import type { ProductDetailType } from "@src/types/ProductTypes";
 import lp1 from "/images/lp-2.png";
 import lp2 from "/images/lp-1-2.png";

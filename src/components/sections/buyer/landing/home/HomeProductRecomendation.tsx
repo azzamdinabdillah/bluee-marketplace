@@ -10,7 +10,7 @@ interface ProductRecomendationProps {
   title: string;
 }
 
-export default function ProductRecomendation({
+export default function HomeProductRecomendation({
   products,
   title,
 }: ProductRecomendationProps) {

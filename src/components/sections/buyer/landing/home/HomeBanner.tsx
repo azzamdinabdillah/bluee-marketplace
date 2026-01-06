@@ -6,7 +6,7 @@ import "swiper/css";
 
 const banners: string[] = [banner1, banner2, banner1, banner2];
 
-export default function Banner() {
+export default function HomeBanner() {
   return (
     <div className="bg-[#F3F5F9] p-4 px-0! md:p-6 lg:p-8">
       <Swiper
