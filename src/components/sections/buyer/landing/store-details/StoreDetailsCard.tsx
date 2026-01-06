@@ -11,7 +11,7 @@ import MessageIcon from "@src/components/icons/MessageIcon";
 import boxIcon from "/icons/box.svg";
 import type { StoreType } from "@src/types/StoreTypes";
 
-export default function StoreHeader({
+export default function StoreDetailsCard({
   storeName = "Bimore Gadget Universe",
   isVerified = true,
   totalProducts = 1294,
