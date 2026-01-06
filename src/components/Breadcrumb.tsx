@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export interface BreadcrumbItem {
   label: string;
@@ -35,7 +36,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               return (
                 <React.Fragment key={index}>
                   <li
-                    className={`flex items-center text-xs md:text-sm leading-[1.25em] md:text-[18px] ${
+                    className={`flex items-center text-sm leading-[1.25em] md:text-[18px] ${
                       isActive
                         ? "text-primary-color font-semibold"
                         : "text-sec-color font-medium"
@@ -43,12 +44,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                     aria-current={isActive ? "page" : undefined}
                   >
                     {item.href && !isActive ? (
-                      <a
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className="hover:text-primary-color transition-colors focus:underline focus:outline-none"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ) : (
                       <span>{item.label}</span>
                     )}

@@ -18,7 +18,7 @@
 }
 
 .margin-top-navbar {
-  @apply mt-[120px] md:mt-[105px] lg:mt-[121px];
+  @apply mt-[125px] md:mt-[100px] lg:mt-[121px];
 }
 
 .margin-page {

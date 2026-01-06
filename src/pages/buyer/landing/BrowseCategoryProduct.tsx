@@ -11,7 +11,7 @@ export default function BrowseCategoryProduct() {
     <div>
       <Navbar />
 
-      <div className="mt-[130px] md:mt-[105px] lg:mt-[121px]">
+      <div className="margin-top-navbar">
         <Breadcrumb
           title="Explore based on Gadget Category"
           items={[
