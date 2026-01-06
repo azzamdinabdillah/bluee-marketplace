@@ -85,7 +85,7 @@ export default function Checkout() {
         onClose={() => setShowSuccessModal(false)}
       />
       <div className="margin-top-navbar">
-        <div className="padding-page max-w-1176 lg:pb-[100px]">
+        <div className="margin-page max-w-1176 lg:pb-[100px]">
           <h3 className="text-black-color w-full pt-4 text-xl font-bold md:pt-6 md:text-2xl lg:pt-8 lg:text-[32px]">
             Checkout Page
           </h3>

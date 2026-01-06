@@ -15,6 +15,7 @@ import CartOrderSummary from "@src/components/sections/buyer/landing/cart/CartOr
 // import { useNavigate } from "react-router-dom";
 import ChartItemProduct from "@src/components/CartItemProduct";
 import { cartItems } from "@src/datas/CartProduct";
+import Breadcrumb from "@src/components/Breadcrumb";
 
 export default function Cart() {
   // const navigate = useNavigate();
@@ -57,8 +58,15 @@ export default function Cart() {
     <div className="bg-[#F3F5F9]">
       <Navbar />
       <div className="margin-top-navbar">
-        <div className="padding-page max-w-1176 lg:pb-[100px]">
-          <h3 className="text-black-color w-full pt-4 text-xl font-bold md:pt-6 md:text-2xl lg:pt-8 lg:text-[32px]">
+        <Breadcrumb
+          items={[
+            { label: "Homepage", href: "/" },
+            { label: "Gadged", href: "/browse-category-product/gadged" },
+            { label: "Product Details" },
+          ]}
+        />
+        <div className="margin-page mt-0! max-w-1176 lg:pb-[100px]">
+          <h3 className="text-black-color w-full text-xl font-bold md:text-2xl lg:text-[32px]">
             My Shopping Cart
           </h3>
 

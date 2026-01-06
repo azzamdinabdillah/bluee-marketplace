@@ -24,7 +24,7 @@ export default function StoreDetails() {
           ]}
         />
 
-        <div className="padding-page flex flex-col gap-6 md:gap-10 lg:gap-[52px] max-w-1176">
+        <div className="margin-page flex flex-col gap-6 md:gap-10 lg:gap-[52px] max-w-1176">
           <div className="grid gap-5 xl:grid-cols-2">
             <StoreDetailsCard
               id={1}

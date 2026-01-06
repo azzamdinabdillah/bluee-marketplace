@@ -21,7 +21,7 @@
   @apply mt-[120px] md:mt-[105px] lg:mt-[121px];
 }
 
-.padding-page {
+.margin-page {
   @apply mx-4 my-4 md:mx-8 md:my-8 lg:mx-[52px];
 }
 
