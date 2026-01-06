@@ -1,16 +1,15 @@
 import { useState } from "react";
 import Footer from "@src/components/Footer";
 import Navbar from "@src/components/Navbar";
-import CartItemList from "@src/components/sections/buyer/landing/checkout/CartItemList";
 import InputInteractive from "@src/components/InputInteractive";
 import { cartItems } from "@src/datas/CartProduct";
 import GlobalSearch from "@src/components/icons/GlobalSearch";
 import { Buildings } from "@src/components/icons/Buildings";
 import Keyboard from "@src/components/icons/Keyboard";
 import Location from "@src/components/icons/Location";
-import SelectCourier, { type CourierOption } from "@src/components/sections/buyer/landing/checkout/SelectCourier";
+import CheckoutSelectCourier, { type CourierOption } from "@src/components/sections/buyer/landing/checkout/CheckoutSelectCourier";
 import shieldTick from "/icons/shield-tick.svg";
-import OrderSummary from "@src/components/sections/buyer/landing/checkout/OrderSummary";
+import CheckoutOrderSummary from "@src/components/sections/buyer/landing/checkout/CheckoutOrderSummary";
 import Button from "@src/components/Button";
 import shoppingCart from "/icons/shopping-cart-gray.svg";
 import box from "/icons/box.svg";
@@ -22,6 +21,7 @@ import cardTick from "/icons/card-tick.svg";
 import group from "/icons/group.svg";
 import bagTick from "/images/bag-tick.png";
 import Modal from "@src/components/Modal";
+import CheckoutCartItemList from "@src/components/sections/buyer/landing/checkout/CheckoutCartItemList";
 
 interface PaymentSuccessModalProps {
   isOpen: boolean;
@@ -92,7 +92,7 @@ export default function Checkout() {
 
           <div className="mt-6 grid items-start gap-3 min-[1250px]:grid-cols-2 md:gap-5">
             <div>
-              <CartItemList stores={cartItems} />
+              <CheckoutCartItemList stores={cartItems} />
             </div>
 
             <div className="flex flex-col gap-3 md:gap-5">
@@ -156,14 +156,14 @@ export default function Checkout() {
               </div>
 
               <div>
-                <SelectCourier
+                <CheckoutSelectCourier
                   selectedCourier={selectedCourier}
                   onChangeCourier={setSelectedCourier}
                 />
               </div>
 
               <div>
-                <OrderSummary
+                <CheckoutOrderSummary
                   items={[
                     {
                       icon: shoppingCart,
