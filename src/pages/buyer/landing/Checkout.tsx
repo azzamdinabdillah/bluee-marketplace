@@ -22,6 +22,7 @@ import group from "/icons/group.svg";
 import bagTick from "/images/bag-tick.png";
 import Modal from "@src/components/Modal";
 import CheckoutCartItemList from "@src/components/sections/buyer/landing/checkout/CheckoutCartItemList";
+import Breadcrumb from "@src/components/Breadcrumb";
 
 interface PaymentSuccessModalProps {
   isOpen: boolean;
@@ -85,8 +86,14 @@ export default function Checkout() {
         onClose={() => setShowSuccessModal(false)}
       />
       <div className="margin-top-navbar">
-        <div className="margin-page max-w-1176 lg:pb-[100px]">
-          <h3 className="text-black-color w-full pt-4 text-xl font-bold md:pt-6 md:text-2xl lg:pt-8 lg:text-[32px]">
+        <Breadcrumb
+          items={[
+            { label: "Homepage", href: "/" },
+            { label: "Checkout" },
+          ]}
+        />
+        <div className="margin-page mt-0! max-w-1176 lg:pb-[100px]">
+          <h3 className="text-black-color w-full text-2xl font-bold lg:text-[32px]">
             Checkout Page
           </h3>
 

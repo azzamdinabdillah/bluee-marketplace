@@ -61,12 +61,11 @@ export default function Cart() {
         <Breadcrumb
           items={[
             { label: "Homepage", href: "/" },
-            { label: "Gadged", href: "/browse-category-product/gadged" },
-            { label: "Product Details" },
+            { label: "Cart" },
           ]}
         />
         <div className="margin-page mt-0! max-w-1176 lg:pb-[100px]">
-          <h3 className="text-black-color w-full text-xl font-bold md:text-2xl lg:text-[32px]">
+          <h3 className="text-black-color w-full text-2xl font-bold lg:text-[32px]">
             My Shopping Cart
           </h3>
 

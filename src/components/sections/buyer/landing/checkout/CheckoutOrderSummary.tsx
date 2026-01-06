@@ -26,15 +26,15 @@ const CheckoutOrderSummary: React.FC<OrderSummaryProps> = ({ items, button }) =>
               <img
                 src={item.icon}
                 alt="icon"
-                className="h-5 w-5 md:h-6 md:w-6"
+                className="size-5 md:size-6"
               />
-              <span className="text-sec-color font-lexend flex-1 text-base font-semibold md:text-lg">
+              <span className="text-sec-color font-lexend flex-1 text-[15px] font-semibold md:text-lg">
                 {item.label}
               </span>
               <span
                 className={`${
                   item.isTotal ? "text-primary-color" : "text-black-color"
-                } font-lexend text-base font-bold md:text-lg`}
+                } font-lexend text-[15px] font-bold md:text-lg`}
               >
                 {item.value}
               </span>
