@@ -3,7 +3,7 @@ import box from "/icons/box.svg";
 import { Link } from "react-router-dom";
 import type { StoreType } from "@src/types/StoreTypes";
 
-export default function StoreCard({
+export default function ProductDetailsStoreCard({
   storeName,
   avatarUrl,
   totalProducts,

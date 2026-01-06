@@ -7,13 +7,13 @@ import TestimonialCard from "@src/components/TestimonialCard";
 import arrowLeftBlack from "/icons/arrow-left-black.svg";
 import type { TestimonyType } from "@src/types/TestimonyTypes";
 
-interface ProductTestimonyProps {
+interface ProductDetailsTestimonyProps {
     testimonials: TestimonyType[];
 }
 
-export default function ProductTestimony({
+export default function ProductDetailsTestimony({
     testimonials,
-}: ProductTestimonyProps) {
+}: ProductDetailsTestimonyProps) {
     return (
         <div className="flex w-full flex-col gap-6">
             <h3 className="text-[18px] leading-[1.25em] font-bold text-black">

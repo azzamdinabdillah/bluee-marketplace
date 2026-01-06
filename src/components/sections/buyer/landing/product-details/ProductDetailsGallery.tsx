@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-interface ProductGalleryProps {
+interface ProductDetailsGalleryProps {
   images: string[];
 }
 
-const ProductGallery = ({ images }: ProductGalleryProps) => {
+const ProductDetailsGallery = ({ images }: ProductDetailsGalleryProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -50,4 +50,4 @@ const ProductGallery = ({ images }: ProductGalleryProps) => {
   );
 };
 
-export default ProductGallery;
+export default ProductDetailsGallery;

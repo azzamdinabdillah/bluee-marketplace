@@ -7,12 +7,12 @@ import promo2 from "/images/promo-2.png";
 import user from "/images/user.png";
 import user2 from "/images/user-2.png";
 import user3 from "/images/user-3.png";
-import ProductGallery from "@src/components/sections/buyer/landing/product-details/ProductGallery";
-import StoreCard from "@src/components/sections/buyer/landing/product-details/StoreCard";
-import ProductAbout from "@src/components/sections/buyer/landing/product-details/ProductAbout";
-import ProductTestimony from "@src/components/sections/buyer/landing/product-details/ProductTestimony";
-import ProductActionCard from "@src/components/sections/buyer/landing/product-details/ProductActionCard";
-import ProductRecomendation from "@src/components/sections/buyer/landing/home/HomeProductRecomendation";
+import ProductGallery from "@src/components/sections/buyer/landing/product-details/ProductDetailsGallery";
+import ProductDetailsStoreCard from "@src/components/sections/buyer/landing/product-details/ProductDetailsStoreCard";
+import ProductDetailsAbout from "@src/components/sections/buyer/landing/product-details/ProductDetailsAbout";
+import ProductDetailsTestimony from "@src/components/sections/buyer/landing/product-details/ProductDetailsTestimony";
+import ProductDetailsActionCard from "@src/components/sections/buyer/landing/product-details/ProductDetailsActionCard";
+import HomeProductRecomendation from "@src/components/sections/buyer/landing/home/HomeProductRecomendation";
 import type { ProductDetailType } from "@src/types/ProductTypes";
 import lp1 from "/images/lp-2.png";
 import lp2 from "/images/lp-1-2.png";
@@ -68,6 +68,8 @@ OS: macOS`;
   ];
 
   const productDetails: ProductDetailType = {
+    id: 1,
+    store: "Bimore Gadget Universe",
     title: "Macbook Pro M2",
     category: "Laptop",
     rating: 4.5,
@@ -99,10 +101,10 @@ OS: macOS`;
               <ProductGallery images={[lp1, lp2, lp3, lp4]} />
 
               <div className="lg:hidden">
-                <ProductActionCard {...productDetails} />
+                <ProductDetailsActionCard {...productDetails} />
               </div>
 
-              <StoreCard
+              <ProductDetailsStoreCard
                 id={1}
                 storeName="Bimore Gadget Universe"
                 avatarUrl={store1}
@@ -110,7 +112,7 @@ OS: macOS`;
                 href="/store-details/1"
               />
 
-              <ProductAbout content={productDescription} />
+              <ProductDetailsAbout content={productDescription} />
 
               <div className="grid grid-cols-2 gap-1.5 md:gap-[20px]">
                 <img
@@ -125,15 +127,15 @@ OS: macOS`;
                 />
               </div>
 
-              <ProductTestimony testimonials={testimonials} />
+              <ProductDetailsTestimony testimonials={testimonials} />
             </div>
 
             <div className="sticky top-5 left-0 hidden lg:block">
-              <ProductActionCard {...productDetails} />
+              <ProductDetailsActionCard {...productDetails} />
             </div>
           </div>
 
-          <ProductRecomendation
+          <HomeProductRecomendation
             products={PRODUCTS.slice(0, 4)}
             title="Shop Quality Picks from Top Sellers"
           />

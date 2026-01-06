@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-interface ProductAboutProps {
+interface ProductDetailsAboutProps {
   content: string;
 }
 
-const ProductAbout: React.FC<ProductAboutProps> = ({ content }) => {
+const ProductDetailsAbout: React.FC<ProductDetailsAboutProps> = ({ content }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const shortContent = content.split('Key Specs:')[0].trim();
@@ -30,4 +30,4 @@ const ProductAbout: React.FC<ProductAboutProps> = ({ content }) => {
   );
 };
 
-export default ProductAbout;
+export default ProductDetailsAbout;

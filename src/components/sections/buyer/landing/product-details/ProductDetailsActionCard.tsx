@@ -45,7 +45,7 @@ const AddIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default function ProductActionCard({
+export default function ProductDetailsActionCard({
   title,
   category,
   rating,
