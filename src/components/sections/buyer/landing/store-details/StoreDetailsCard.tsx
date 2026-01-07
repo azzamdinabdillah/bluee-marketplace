@@ -39,7 +39,7 @@ export default function StoreDetailsCard({
           {/* Store Info */}
           <div className="flex flex-col gap-[6px]">
             <div className="flex items-center gap-[6px]">
-              <h2 className="text-black-color font-lexend text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden max-w-[150px] md:max-w-full">
+              <h2 className="text-black-color font-lexend text-base md:text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden max-w-[180px] md:max-w-full">
                 {storeName}
               </h2>
               {isVerified && (
@@ -48,8 +48,8 @@ export default function StoreDetailsCard({
             </div>
 
             <div className="flex items-center gap-[6px]">
-              <img src={boxIcon} alt="Products" className="h-5 w-5" />
-              <p className="text-sec-color font-lexend text-base font-semibold">
+              <img src={boxIcon} alt="Products" className="size-4 md:size-5" />
+              <p className="text-sec-color font-lexend text-sm md:text-base font-semibold">
                 {totalProducts.toLocaleString()} Total Products
               </p>
             </div>
@@ -71,15 +71,15 @@ export default function StoreDetailsCard({
       <div className="border-stroke-color h-px w-full border-t"></div>
 
       {/* Details Section: Seller & Location */}
-      <div className="flex flex-col gap-6 md:flex-row md:items-stretch">
+      <div className="flex flex-wrap gap-4 md:gap-6 md:items-stretch">
         {/* Seller Name */}
         <div className="flex flex-1 flex-col justify-center gap-[6px]">
-          <h3 className="text-black-color font-lexend text-lg font-bold">
+          <h3 className="text-black-color font-lexend text-base md:text-lg font-bold">
             {sellerName}
           </h3>
           <div className="flex items-center gap-[6px]">
-            <img src={userIcon} alt="Seller" className="h-5 w-5" />
-            <p className="text-sec-color font-lexend text-base font-semibold">
+            <img src={userIcon} alt="Seller" className="size-4 md:size-5" />
+            <p className="text-sec-color font-lexend  text-sm md:text-base font-semibold">
               Seller Name
             </p>
           </div>
@@ -87,12 +87,12 @@ export default function StoreDetailsCard({
 
         {/* Location */}
         <div className="flex flex-1 flex-col justify-center gap-[6px]">
-          <h3 className="text-black-color font-lexend text-lg font-bold">
+          <h3 className="text-black-color font-lexend text-base md:text-lg font-bold">
             {location}
           </h3>
           <div className="flex items-center gap-[6px]">
-            <img src={locationIcon} alt="Location" className="h-5 w-5" />
-            <p className="text-sec-color font-lexend text-base font-semibold">
+            <img src={locationIcon} alt="Location" className="size-4 md:size-5" />
+            <p className="text-sec-color font-lexend  text-sm md:text-base font-semibold">
               Store Location
             </p>
           </div>
