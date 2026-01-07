@@ -58,10 +58,10 @@ export default function StoreDetailsCard({
 
         {/* Right Side: Share & Report */}
         <div className="flex items-center gap-3">
-          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white p-4 transition-colors duration-200 group cursor-pointer">
+          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white size-12 md:size-14 p-2 lg:p-4 transition-colors duration-200 group cursor-pointer">
             <FlagIcon className="text-sec-color group-hover:text-white" />
           </button>
-          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white p-4 transition-colors duration-200 group cursor-pointer group">
+          <button className="border-stroke-color hover:bg-primary-color group flex items-center justify-center rounded-full border bg-white size-12 md:size-14 p-2 lg:p-4 transition-colors duration-200 group cursor-pointer group">
             <LinkIcon className="text-sec-color group-hover:text-white" />
           </button>
         </div>

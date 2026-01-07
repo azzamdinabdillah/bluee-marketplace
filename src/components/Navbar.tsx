@@ -143,7 +143,7 @@ export default function Navbar() {
                 <div className="relative">
                   <button
                     popoverTarget="user-menu"
-                    className="anchor/--user-anchor rounded-full bg-yellow flex justify-center items-center w-10 h-10 md:w-14 md:h-14 overflow-hidden cursor-pointer"
+                    className="anchor/--user-anchor rounded-full bg-yellow flex justify-center items-center w-9 h-9 md:w-14 md:h-14 overflow-hidden cursor-pointer"
                   >
                     <img src={user} alt="" className="w-full h-full object-cover" />
                   </button>

@@ -18,7 +18,7 @@ export default function ProductCard({
 }: ProductType) {
   return (
     <div
-      className={`group/card flex w-full flex-col rounded-[14px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg`}
+      className={`group/card relative flex w-full flex-col rounded-[14px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg`}
     >
       {/* Product Image */}
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">
@@ -41,12 +41,12 @@ export default function ProductCard({
       <div className="border-stroke-color flex flex-col gap-3 rounded-b-[14px] border border-t-0 p-3 md:gap-6 md:rounded-b-[20px] md:p-5">
         {/* Tag and Sold Count */}
         <div className="flex items-center gap-2 md:gap-3">
-          <div className="bg-primary-color/9 flex items-center justify-center rounded px-1.5 py-1 md:px-2 md:py-2">
+          <div className="absolute top-2 left-2 z-20 bg-primary-color/9 flex items-center justify-center rounded px-1.5 py-1 md:static md:px-2 md:py-2">
             <span className="text-primary-color text-xs leading-4 font-bold md:text-base md:leading-5">
               {tag}
             </span>
           </div>
-          <span className="text-xs leading-4 font-semibold text-[#FF133D] md:text-base md:leading-5">
+          <span className="text-xs leading-4 font-semibold text-red-color md:text-base md:leading-5">
             {sold}
           </span>
         </div>
