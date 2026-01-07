@@ -25,15 +25,13 @@ import CheckoutCartItemList from "@src/components/sections/buyer/landing/checkou
 import Breadcrumb from "@src/components/Breadcrumb";
 
 interface PaymentSuccessModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  id: string;
 }
 
-function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
+function PaymentSuccessModal({ id }: PaymentSuccessModalProps) {
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={onClose}
+      id={id}
       title="Payment Successful"
       width="max-w-[400px]"
       footer={
@@ -41,7 +39,6 @@ function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
           <Button
             variant="blue"
             className="w-full rounded-2xl"
-            onClick={onClose}
             to="/"
           >
             View Transaction
@@ -49,7 +46,6 @@ function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
           <Button
             variant="lightBlue"
             className="w-full rounded-2xl"
-            onClick={onClose}
             to="/"
           >
             Back to Homepage
@@ -76,14 +72,12 @@ function PaymentSuccessModal({ isOpen, onClose }: PaymentSuccessModalProps) {
 
 export default function Checkout() {
   const [selectedCourier, setSelectedCourier] = useState<CourierOption | null>(null);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   return (
     <div className="bg-[#F3F5F9]">
       <Navbar />
       <PaymentSuccessModal
-        isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
+        id="payment-success-modal"
       />
       <div className="margin-top-navbar">
         <Breadcrumb
@@ -214,7 +208,7 @@ export default function Checkout() {
                       variant="blue"
                       icon={arrowRight}
                       className="w-full rounded-xl md:rounded-2xl"
-                      onClick={() => setShowSuccessModal(true)}
+                      popoverTarget="payment-success-modal"
                     >
                       Pay Now
                     </Button>

@@ -52,12 +52,10 @@ export default function CheckoutSelectCourier({
   selectedCourier,
   onChangeCourier,
 }: SelectCourierProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourierId, setSelectedCourierId] = useState<string | null>(null);
 
   const handleOpenModal = () => {
     setSelectedCourierId(selectedCourier?.id || COURIER_OPTIONS[0].id);
-    setIsModalOpen(true);
   };
 
   const handleChooseCourier = () => {
@@ -65,7 +63,6 @@ export default function CheckoutSelectCourier({
     if (selected && onChangeCourier) {
       onChangeCourier(selected);
     }
-    setIsModalOpen(false);
   };
 
   return (
@@ -96,6 +93,7 @@ export default function CheckoutSelectCourier({
 
               <button
                 onClick={handleOpenModal}
+                popoverTarget="courier-modal"
                 className="flex w-full sm:w-auto justify-center sm:justify-start items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
               >
                 <span className="text-sm md:text-base leading-tight font-bold text-[#1053D5]">
@@ -128,6 +126,7 @@ export default function CheckoutSelectCourier({
 
             <button
               onClick={handleOpenModal}
+              popoverTarget="courier-modal"
               className="flex w-full sm:w-auto justify-center sm:justify-start items-center gap-0.5 transition-opacity hover:opacity-80 cursor-pointer"
             >
               <span className="text-sm md:text-base leading-tight font-bold text-[#1053D5]">
@@ -141,8 +140,7 @@ export default function CheckoutSelectCourier({
       </div>
 
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        id="courier-modal"
         title="Available Couriers"
         width="w-full md:w-[460px]"
         footer={
@@ -150,6 +148,8 @@ export default function CheckoutSelectCourier({
             variant="blue"
             className="w-full rounded-[14px] md:rounded-[18px]"
             onClick={handleChooseCourier}
+            popoverTarget="courier-modal"
+            popoverTargetAction="hide"
           >
             Choose Courier
           </Button>

@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { createPortal } from "react-dom";
+import React from "react";
 
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  id: string;
   title?: React.ReactNode;
   footer?: React.ReactNode;
   children: React.ReactNode;
@@ -12,38 +10,19 @@ interface ModalProps {
 }
 
 export default function Modal({
-  isOpen,
-  onClose,
+  id,
   title,
   footer,
   children,
   className = "",
   width = "max-w-[460px]",
 }: ModalProps) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  return createPortal(
-    <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 font-lexend">
-      {/* Backdrop */}
+  return (
+    <>
       <div
-        className="absolute inset-0 bg-black/50 transition-opacity"
-        onClick={onClose}
-      />
-
-      {/* Modal Content */}
-      <div
-        className={`relative z-10 w-full ${width} flex flex-col rounded-[20px] bg-white shadow-xl overflow-hidden ${className}`}
+        id={id}
+        popover="auto"
+        className={`fixed z-999 flex-col backdrop:backdrop-blur-[2px] backdrop:bg-black/50 backdrop:opacity-0 open:backdrop:opacity-100 transition-all transition-discrete opacity-0 starting:opacity-0 starting:backdrop:opacity-0 starting:open:opacity-0 backdrop:transition-all backdrop:duration-200 starting:open:backdrop:opacity-0 open:opacity-100 duration-200 rounded-[20px] bg-white shadow-xl overflow-hidden ${width} ${className} p-0 scale-75 open:scale-100 starting:open:scale-75`}
       >
         {/* Header */}
         <div className="flex items-center justify-between bg-[#292D32] p-5">
@@ -55,9 +34,11 @@ export default function Modal({
             title
           )}
           <button
-            onClick={onClose}
+            popoverTarget={id}
+            popoverTargetAction="hide"
             className="text-white hover:opacity-70 transition-opacity"
             aria-label="Close modal"
+            type="button"
           >
             <svg
               width="24"
@@ -102,7 +83,6 @@ export default function Modal({
           {footer && <div className="mt-auto">{footer}</div>}
         </div>
       </div>
-    </div>,
-    document.body
+    </>
   );
 }

@@ -40,14 +40,14 @@ const MOCK_COUPONS: Coupon[] = [
 ];
 
 export default function CartApplyCoupon() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCoupon, setSelectedCoupon] = useState<string | null>(null);
 
   return (
     <>
-      <div
-        onClick={() => setIsModalOpen(true)}
-        className="flex w-full cursor-pointer flex-row items-center justify-between gap-3 rounded-xl bg-[url('/images/bg-coupon.png')] bg-cover bg-center p-4 md:gap-[14px] md:rounded-[20px] md:p-5 hover:opacity-95 transition-opacity"
+      <button
+        type="button"
+        popoverTarget="coupon-modal"
+        className="flex w-full cursor-pointer flex-row items-center justify-between gap-3 rounded-xl bg-[url('/images/bg-coupon.png')] bg-cover bg-center p-4 md:gap-[14px] md:rounded-[20px] md:p-5 hover:opacity-95 transition-opacity text-left border-none"
       >
         <div className="flex flex-1 flex-row items-center gap-3 md:gap-[14px]">
           <div className="border-2 border-[#ffffff17] bg-[#ffffff17] rounded-2xl md:rounded-[20px] p-2 md:p-4">
@@ -71,16 +71,16 @@ export default function CartApplyCoupon() {
           alt="arrow"
           className="size-3 md:size-5"
         />
-      </div>
+      </button>
 
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        id="coupon-modal"
         title="Apply Discount Coupon"
         width="w-full max-w-[500px]"
         footer={
           <button
-            onClick={() => setIsModalOpen(false)}
+            popoverTarget="coupon-modal"
+            popoverTargetAction="hide"
             className="w-full rounded-xl bg-primary-color py-3 text-sm md:text-base font-bold text-white transition-colors hover:bg-primary-color/90"
           >
             Apply
