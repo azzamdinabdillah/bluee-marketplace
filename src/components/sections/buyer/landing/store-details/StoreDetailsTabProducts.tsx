@@ -18,35 +18,35 @@ export default function StoreDetailsTabProducts() {
     isReverse?: boolean;
     isUppercase?: boolean;
   }[] = [
-    {
-      id: 1,
-      label: "Just Released",
-      icon: <span className="text-[19px]">🙌🏻</span>,
-      dummyCount: 8,
-      isReverse: true,
-    },
-    {
-      id: 2,
-      label: "Gadget",
-      icon: <img src={gadgedIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 4,
-      isUppercase: true,
-    },
-    {
-      id: 3,
-      label: "Furniture",
-      icon: <img src={furnitureIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 6,
-      isUppercase: true,
-    },
-    {
-      id: 4,
-      label: "Electronic",
-      icon: <img src={electronicIcon} alt="" className="size-4 md:size-6" />,
-      dummyCount: 5,
-      isUppercase: true,
-    },
-  ];
+      {
+        id: 1,
+        label: "Just Released",
+        icon: <span className="text-[16px] md:text-[19px]">🙌🏻</span>,
+        dummyCount: 8,
+        isReverse: true,
+      },
+      {
+        id: 2,
+        label: "Gadget",
+        icon: <img src={gadgedIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 4,
+        isUppercase: true,
+      },
+      {
+        id: 3,
+        label: "Furniture",
+        icon: <img src={furnitureIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 6,
+        isUppercase: true,
+      },
+      {
+        id: 4,
+        label: "Electronic",
+        icon: <img src={electronicIcon} alt="" className="size-4 md:size-6" />,
+        dummyCount: 5,
+        isUppercase: true,
+      },
+    ];
 
   return (
     <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-8">
@@ -59,7 +59,7 @@ export default function StoreDetailsTabProducts() {
           {storeTabs.map((tab) => (
             <Tab
               key={tab.id}
-              className="border-stroke-color text-black-color flex min-w-fit cursor-pointer flex-row items-center gap-2 rounded-2xl border bg-white px-4 py-2 text-base font-bold transition-colors outline-none md:px-5 md:py-3"
+              className="border-stroke-color text-black-color flex min-w-fit cursor-pointer flex-row items-center gap-1.5 rounded-2xl border bg-white px-3 py-1.5 text-sm font-bold transition-colors outline-none md:gap-2 md:px-5 md:py-3 md:text-base"
               selectedClassName="!bg-black-color !text-white !border-black-color"
             >
               {tab.isReverse ? (
