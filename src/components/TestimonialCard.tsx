@@ -2,6 +2,7 @@ import type { TestimonyType } from "@src/types/TestimonyTypes";
 import StarIcon from "./icons/StarIcon";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
 export default function TestimonialCard({
@@ -58,7 +59,20 @@ export default function TestimonialCard({
             close={() => setOpen(false)}
             index={imageIndex}
             slides={images.map((src) => ({ src }))}
+            plugins={[Zoom]}
+            className="lightbox-custom"
           />
+          {open && (
+            <style>{`
+              .lightbox-custom .yarl__slide_image {
+                width: 90vw !important;
+                height: 90vh !important;
+                max-width: 90vw !important;
+                max-height: 90vh !important;
+                object-fit: contain !important;
+              }
+            `}</style>
+          )}
         </>
       )}
 
