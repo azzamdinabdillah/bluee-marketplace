@@ -22,7 +22,7 @@ export default function Modal({
       <div
         id={id}
         popover="auto"
-        className={`fixed z-999 flex-col backdrop:backdrop-blur-[2px] backdrop:bg-black/50 backdrop:opacity-0 open:backdrop:opacity-100 transition-all transition-discrete opacity-0 starting:opacity-0 starting:backdrop:opacity-0 starting:open:opacity-0 backdrop:transition-all backdrop:duration-200 starting:open:backdrop:opacity-0 open:opacity-100 duration-200 rounded-[20px] bg-white shadow-xl overflow-hidden ${width} ${className} p-0 scale-75 open:scale-100 starting:open:scale-75`}
+        className={`fixed z-999 w-[90%] open:flex flex-col backdrop:backdrop-blur-[2px] backdrop:bg-black/50 backdrop:opacity-0 open:backdrop:opacity-100 transition-all transition-discrete opacity-0 starting:opacity-0 starting:backdrop:opacity-0 starting:open:opacity-0 backdrop:transition-all backdrop:duration-200 starting:open:backdrop:opacity-0 open:opacity-100 duration-200 rounded-[20px] bg-white shadow-xl overflow-hidden max-h-[95dvh] ${width} ${className} p-0 scale-75 open:scale-100 starting:open:scale-75`}
       >
         {/* Header */}
         <div className="flex items-center justify-between bg-[#292D32] p-5">
@@ -73,9 +73,9 @@ export default function Modal({
         </div>
 
         {/* Body & Footer Wrapper */}
-        <div className="flex flex-col gap-6 p-5">
+        <div className="flex flex-col gap-6 p-5 flex-1 min-h-0">
           {/* Body */}
-          <div className="flex-1 overflow-y-auto max-h-[80vh] scrollbar-hide">
+          <div className="flex-1 overflow-y-auto scrollbar-hide">
             {children}
           </div>
 

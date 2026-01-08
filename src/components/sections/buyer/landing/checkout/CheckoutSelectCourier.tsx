@@ -142,7 +142,7 @@ export default function CheckoutSelectCourier({
       <Modal
         id="courier-modal"
         title="Available Couriers"
-        width="w-full md:w-[460px]"
+        width="md:w-[460px]"
         footer={
           <Button
             variant="blue"

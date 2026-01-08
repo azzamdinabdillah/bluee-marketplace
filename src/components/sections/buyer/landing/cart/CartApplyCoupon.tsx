@@ -76,7 +76,7 @@ export default function CartApplyCoupon() {
       <Modal
         id="coupon-modal"
         title="Apply Discount Coupon"
-        width="w-full max-w-[500px]"
+        width="max-w-[500px]"
         footer={
           <button
             popoverTarget="coupon-modal"

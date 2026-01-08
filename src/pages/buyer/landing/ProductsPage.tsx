@@ -8,6 +8,7 @@ import SearchIcon from "@src/components/icons/SearchIcon";
 import Checkbox from "@src/components/Checkbox";
 import Breadcrumb from "@src/components/Breadcrumb";
 import { Link } from "react-router-dom";
+import Modal from "@src/components/Modal";
 
 const ProductsPage: React.FC = () => {
   // State for filters
@@ -16,9 +17,6 @@ const ProductsPage: React.FC = () => {
   const [maxPrice, setMaxPrice] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("default");
-
-  // State for mobile filter sidebar
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   // Derive unique categories from products
   const categories = useMemo(() => {
@@ -155,7 +153,9 @@ const ProductsPage: React.FC = () => {
             <div className="flex items-center gap-4 flex-wrap">
               {/* Mobile Filter Trigger */}
               <button
-                onClick={() => setIsMobileFilterOpen(true)}
+                popoverTarget="filter-modal"
+                popoverTargetAction="show"
+                type="button"
                 className="flex items-center gap-2 rounded-xl border border-stroke-color bg-white px-4 py-3 font-semibold text-black-color transition-colors hover:border-primary-color hover:text-primary-color lg:hidden"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -237,51 +237,24 @@ const ProductsPage: React.FC = () => {
         </main>
       </div>
 
-      {/* Mobile Filter Sidebar (Overlay) */}
-      <div
-        className={`fixed inset-0 z-50 flex lg:hidden ${isMobileFilterOpen ? "pointer-events-auto" : "pointer-events-none"
-          }`}
+      {/* Mobile Filter Modal */}
+      <Modal
+        id="filter-modal"
+        title="Filters"
+        className="lg:hidden w-[90%]"
+        footer={
+          <Button
+            variant="blue"
+            className="w-full justify-center"
+            popoverTarget="filter-modal"
+            popoverTargetAction="hide"
+          >
+            Show Results
+          </Button>
+        }
       >
-        {/* Backdrop */}
-        <div
-          className={`fixed inset-0 bg-black/50 transition-opacity duration-300 ${isMobileFilterOpen ? "opacity-100" : "opacity-0"
-            }`}
-          onClick={() => setIsMobileFilterOpen(false)}
-        />
-
-        {/* Sidebar Content */}
-        <div
-          className={`relative ml-auto h-full w-[85%] max-w-[320px] transform bg-white p-6 shadow-xl transition-transform duration-300 ease-in-out ${isMobileFilterOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-        >
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="font-montserrat text-xl font-bold text-black-color">Filters</h2>
-            <button
-              onClick={() => setIsMobileFilterOpen(false)}
-              className="rounded-full p-2 hover:bg-gray-100"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black-color">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-
-          <div className="h-[calc(100vh-100px)] overflow-y-auto pb-8">
-            <FilterContent />
-          </div>
-
-          <div className="absolute bottom-0 left-0 w-full border-t border-stroke-color bg-white p-4">
-            <Button
-              variant="blue"
-              className="w-full justify-center"
-              onClick={() => setIsMobileFilterOpen(false)}
-            >
-              Show Results
-            </Button>
-          </div>
-        </div>
-      </div>
+        <FilterContent />
+      </Modal>
 
       <Footer />
     </div>

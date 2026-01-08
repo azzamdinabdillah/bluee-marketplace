@@ -7,7 +7,7 @@ export default function HomeCategories() {
   return (
     <div className="flex flex-col gap-9">
       <TitleSection title="Explore High Quality Products by Categories">
-        <Button icon={arrowRight}>VIEW ALL</Button>
+        <Button icon={arrowRight} to="/products">VIEW ALL</Button>
       </TitleSection>
 
       <div className="categories">
