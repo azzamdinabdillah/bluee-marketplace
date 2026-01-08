@@ -17,7 +17,7 @@ export default function Home() {
         <div className="mx-4 my-8 flex max-w-[1176px] flex-col gap-6 md:mx-8 md:my-12 md:gap-10 lg:mx-12 lg:my-18 lg:gap-[100px] xl:mx-auto">
           <HomeCategories />
           <HomeProductRecomendation
-            products={PRODUCTS}
+            products={PRODUCTS.slice(0, 8)}
             title="Shop Quality Picks from Top Sellers"
           />
           <HomeSellerRecomendation />

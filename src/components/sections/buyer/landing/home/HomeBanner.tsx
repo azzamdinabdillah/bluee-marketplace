@@ -24,18 +24,21 @@ export default function HomeBanner() {
           1280: {
             slidesPerView: 1.6,
           },
+          1440: {
+            slidesPerView: 2.3,
+          },
         }}
         className="w-full"
       >
         {banners.map((banner, index) => (
           <SwiperSlide
             key={index}
-            className="h-full w-full overflow-hidden pl-4 md:pl-6 lg:pl-8"
+            className="h-full w-full overflow-hidden pl-4 md:pl-6 lg:pl-8 "
           >
             <img
               src={banner}
               alt={`Banner ${index + 1}`}
-              className="w-full overflow-hidden object-cover"
+              className="w-full h-full overflow-hidden object-cover"
             />
           </SwiperSlide>
         ))}

@@ -74,12 +74,12 @@ export default function Navbar() {
     ];
 
   return (
-    <div>
+    <div className={`border-stroke-color fixed top-0 left-0 z-50 w-full border-b bg-white transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
       <div
-        className={`border-stroke-color fixed top-0 left-0 z-50 w-full border-b bg-white transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+        className="min-[1700px]:max-w-[2000px] mx-auto"
       >
         <div
-          className={`grid p-4 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 md:p-6 lg:p-8 ${isCategoriesOpen
+          className={`grid p-4 min-[1700px]:px-0 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 md:p-6 lg:p-8 ${isCategoriesOpen
             ? "grid-rows-[2fr] gap-4 md:gap-6"
             : "grid-rows-[0fr] gap-0"
             }`}
