@@ -1,8 +1,8 @@
-import React, { type ComponentType, type SVGProps } from "react";
+import React, { type ComponentType, type ReactNode, type SVGProps } from "react";
 
 interface InputBasicProps extends React.InputHTMLAttributes<HTMLInputElement> {
   containerClassName?: string;
-  Icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  Icon?: ComponentType<SVGProps<SVGSVGElement>> | ReactNode;
   label?: string;
 }
 
@@ -22,11 +22,13 @@ export default function InputBasic({
       )}
       <div className="relative">
         <input
-          className={`ring-stroke-color placeholder:text-sec-color peer focus:ring-primary-color text-black-color w-full rounded-[12px] px-4 py-3 text-sm font-medium ring-[1.5px] transition-all duration-200 placeholder:text-sm placeholder:font-semibold focus:ring-2 focus:outline-none ${Icon ? "pl-12" : ""} ${className}`}
+          className={`ring-stroke-color ring-inset placeholder:text-sec-color peer focus:ring-primary-color text-black-color w-full rounded-[12px] px-4 py-3 text-sm font-medium ring-[1.5px] transition-all duration-200 placeholder:text-sm placeholder:font-semibold focus:ring-2 focus:outline-none ${Icon ? "pl-12" : ""} ${className}`}
           {...props}
         />
         {Icon && (
-          <Icon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
+          // <Icon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
+
+          '-'
         )}
       </div>
     </div>

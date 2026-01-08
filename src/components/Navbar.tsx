@@ -17,8 +17,8 @@ import { Group } from "@src/components/icons/Group";
 import { Buildings } from "@src/components/icons/Buildings";
 import { CustomerService } from "@src/components/icons/CustomerService";
 import SearchIcon from "@src/components/icons/SearchIcon";
-import InputBasic from "@src/components/InputBasic";
 import { Link } from "react-router-dom";
+import InputBasic from "./InputBasic";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -190,12 +190,14 @@ export default function Navbar() {
 
             </div>
 
-            <InputBasic
-              containerClassName="md:hidden"
-              type="text"
-              placeholder="Search any product"
-              Icon={SearchIcon}
-            />
+            <div className="relative md:hidden">
+              <InputBasic
+                type="text"
+                placeholder="Search any products"
+                Icon={SearchIcon}
+                className="text-sm"
+              />
+            </div>
           </div>
 
           <div

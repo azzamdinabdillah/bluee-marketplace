@@ -9,6 +9,80 @@ import Checkbox from "@src/components/Checkbox";
 import Breadcrumb from "@src/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import Modal from "@src/components/Modal";
+import InputBasic from "@src/components/InputBasic";
+
+interface FilterContentProps {
+  categories: string[];
+  selectedCategories: string[];
+  toggleCategory: (category: string) => void;
+  minPrice: string;
+  setMinPrice: (value: string) => void;
+  maxPrice: string;
+  setMaxPrice: (value: string) => void;
+  clearFilters: () => void;
+}
+
+const FilterContent: React.FC<FilterContentProps> = ({
+  categories,
+  selectedCategories,
+  toggleCategory,
+  minPrice,
+  setMinPrice,
+  maxPrice,
+  setMaxPrice,
+  clearFilters,
+}) => (
+  <div className="flex flex-col gap-8">
+    {/* Categories */}
+    <div>
+      <h3 className="font-montserrat mb-4 text-lg font-bold text-black-color">Categories</h3>
+      <div className="flex flex-col gap-3">
+        {categories.map((category) => (
+          <div key={category} className="flex items-center gap-3">
+            <Checkbox
+              checked={selectedCategories.includes(category)}
+              onChange={() => toggleCategory(category)}
+            />
+            <span
+              className="text-sec-color font-medium hover:text-primary-color cursor-pointer"
+              onClick={() => toggleCategory(category)}
+            >
+              {category}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Price Range */}
+    <div>
+      <h3 className="font-montserrat mb-4 text-lg font-bold text-black-color">Price Range</h3>
+      <div className="flex flex-col gap-4">
+        <InputBasic
+          label="Min Price"
+          type="number"
+          value={minPrice}
+          onChange={(e) => setMinPrice(e.target.value)}
+          placeholder="0"
+        />
+        <InputBasic
+          label="Max Price"
+          type="number"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+          placeholder="Max"
+        />
+      </div>
+    </div>
+
+    <button
+      onClick={clearFilters}
+      className="text-primary-color hover:underline font-semibold text-sm self-start"
+    >
+      Clear All Filters
+    </button>
+  </div>
+);
 
 const ProductsPage: React.FC = () => {
   // State for filters
@@ -71,64 +145,8 @@ const ProductsPage: React.FC = () => {
   };
 
   // Filter UI Component (Reusable for Sidebar and Mobile)
-  const FilterContent = () => (
-    <div className="flex flex-col gap-8">
-      {/* Categories */}
-      <div>
-        <h3 className="font-montserrat mb-4 text-lg font-bold text-black-color">Categories</h3>
-        <div className="flex flex-col gap-3">
-          {categories.map((category) => (
-            <div key={category} className="flex items-center gap-3">
-              <Checkbox
-                checked={selectedCategories.includes(category)}
-                onChange={() => toggleCategory(category)}
-              />
-              <span
-                className="text-sec-color font-medium hover:text-primary-color cursor-pointer"
-                onClick={() => toggleCategory(category)}
-              >
-                {category}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+  // Moved outside component to prevent re-renders losing focus
 
-      {/* Price Range */}
-      <div>
-        <h3 className="font-montserrat mb-4 text-lg font-bold text-black-color">Price Range</h3>
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-sec-color">Min Price</label>
-            <input
-              type="number"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-              placeholder="0"
-              className="w-full rounded-[12px] border border-stroke-color px-4 py-3 text-sm font-medium outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-sec-color">Max Price</label>
-            <input
-              type="number"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-              placeholder="Max"
-              className="w-full rounded-[12px] border border-stroke-color px-4 py-3 text-sm font-medium outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color"
-            />
-          </div>
-        </div>
-      </div>
-
-      <button
-        onClick={clearFilters}
-        className="text-primary-color hover:underline font-semibold text-sm self-start"
-      >
-        Clear All Filters
-      </button>
-    </div>
-  );
 
   return (
     <div className="min-h-screen bg-white font-lexend">
@@ -196,7 +214,16 @@ const ProductsPage: React.FC = () => {
             {/* Desktop Sidebar */}
             <aside className="hidden w-[280px] shrink-0 lg:block">
               <div className="sticky top-5 rounded-[20px] border border-stroke-color bg-white p-6">
-                <FilterContent />
+                <FilterContent
+                  categories={categories}
+                  selectedCategories={selectedCategories}
+                  toggleCategory={toggleCategory}
+                  minPrice={minPrice}
+                  setMinPrice={setMinPrice}
+                  maxPrice={maxPrice}
+                  setMaxPrice={setMaxPrice}
+                  clearFilters={clearFilters}
+                />
               </div>
             </aside>
 
@@ -253,7 +280,16 @@ const ProductsPage: React.FC = () => {
           </Button>
         }
       >
-        <FilterContent />
+        <FilterContent
+          categories={categories}
+          selectedCategories={selectedCategories}
+          toggleCategory={toggleCategory}
+          minPrice={minPrice}
+          setMinPrice={setMinPrice}
+          maxPrice={maxPrice}
+          setMaxPrice={setMaxPrice}
+          clearFilters={clearFilters}
+        />
       </Modal>
 
       <Footer />
