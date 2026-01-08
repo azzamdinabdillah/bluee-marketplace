@@ -27,6 +27,7 @@ export default function ProductDetailsTestimony({
                         delay: 3000,
                         disableOnInteraction: false,
                     }}
+                    spaceBetween={16}
                     loop={true}
                     slidesPerView={1}
                     breakpoints={{

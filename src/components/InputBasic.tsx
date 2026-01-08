@@ -26,9 +26,7 @@ export default function InputBasic({
           {...props}
         />
         {Icon && (
-          // <Icon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
-
-          '-'
+          <Icon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
         )}
       </div>
     </div>
