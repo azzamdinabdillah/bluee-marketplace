@@ -17,6 +17,7 @@ import { Group } from "@src/components/icons/Group";
 import { Buildings } from "@src/components/icons/Buildings";
 import { CustomerService } from "@src/components/icons/CustomerService";
 import SearchIcon from "@src/components/icons/SearchIcon";
+import InputBasic from "@src/components/InputBasic";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -189,14 +190,12 @@ export default function Navbar() {
 
             </div>
 
-            <div className="relative md:hidden">
-              <input
-                type="text"
-                className="ring-stroke-color placeholder:text-sec-color peer focus:ring-primary-color text-black-color w-full rounded-[12px] px-4 py-3 pl-12 text-sm font-medium ring-[1.5px] transition-all duration-200 placeholder:text-sm placeholder:font-semibold focus:ring-2 focus:outline-none"
-                placeholder="Search any product"
-              />
-              <SearchIcon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
-            </div>
+            <InputBasic
+              containerClassName="md:hidden"
+              type="text"
+              placeholder="Search any product"
+              Icon={SearchIcon}
+            />
           </div>
 
           <div
