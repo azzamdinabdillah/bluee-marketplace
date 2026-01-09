@@ -20,7 +20,7 @@ export default function HomeProductRecomendation({
         <Button icon={arrowRight}>VIEW ALL</Button>
       </TitleSection>
 
-      <div className="scrollbar-hide w-full overflow-x-auto lg:overflow-x-visible pb-4">
+      <div className="scrollbar-hide w-full overflow-x-auto xl:overflow-x-visible pb-4">
         <div className="product-container grid min-w-[880px] grid-cols-4 gap-4 md:min-w-[1160px] md:gap-6">
           {products.map((product) => (
             <Link key={product.id} to={`/product-details/${product.id}`}>
