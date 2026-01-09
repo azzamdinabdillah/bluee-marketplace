@@ -52,7 +52,7 @@
   transform: translateX(0);
 }
 
-body:has(:popover-open) {
+.modal-container:has(:popover-open) {
   overflow: hidden;
 }
 

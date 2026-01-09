@@ -18,7 +18,7 @@ export default function ProductCard({
 }: ProductType) {
   return (
     <div
-      className={`group/card relative flex w-full flex-col rounded-[14px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg`}
+      className={`group/card relative flex w-full flex-col rounded-[14px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-primary-color`}
     >
       {/* Product Image */}
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">

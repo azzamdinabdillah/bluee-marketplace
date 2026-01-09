@@ -37,10 +37,10 @@ export default function HomeSellerRecomendation() {
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false,
+          // }}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -51,7 +51,7 @@ export default function HomeSellerRecomendation() {
               spaceBetween: 32,
             },
           }}
-          className="pb-12" // Add padding bottom for pagination/navigation space
+          className="pt-1! -mt-1 pb-12" // Add padding top for hover effect and bottom for pagination
         >
           <SwiperSlide>
             <StoreBigCard

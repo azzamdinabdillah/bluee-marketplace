@@ -2,6 +2,7 @@ import Button from "@src/components/Button";
 import ProductCard from "@src/components/ProductCard";
 import arrowDownWhite from "/icons/arrow-down-white.svg";
 import { PRODUCTS } from "@src/datas/Products";
+import { Link } from "react-router-dom";
 
 export default function BrowseCategoryJustRelease() {
   return (
@@ -11,16 +12,18 @@ export default function BrowseCategoryJustRelease() {
       </h3>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
         {PRODUCTS.slice(8, 12).map((product) => (
-          <ProductCard
-            id={product.id}
-            store={product.store}
-            key={product.id}
-            image={product.image}
-            title={product.title}
-            price={product.price}
-            sold={product.sold}
-            tag={product.tag}
-          />
+          <Link key={product.id} to={`/product-details/${product.id}`}>
+            <ProductCard
+              id={product.id}
+              store={product.store}
+              key={product.id}
+              image={product.image}
+              title={product.title}
+              price={product.price}
+              sold={product.sold}
+              tag={product.tag}
+            />
+          </Link>
         ))}
       </div>
 

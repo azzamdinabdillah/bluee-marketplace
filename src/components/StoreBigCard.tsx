@@ -82,7 +82,7 @@ export default function StoreBigCard({
   coverBackgroundColor = "#F3F5F9",
 }: StoreType) {
   return (
-    <Link to={`/store-details/${id}`} className="border-stroke-color flex w-full flex-col overflow-hidden rounded-[20px] border bg-white md:max-w-[376px]">
+    <Link to={`/store-details/${id}`} className="border-stroke-color flex w-full flex-col overflow-hidden rounded-[20px] border bg-white md:max-w-[376px] transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-primary-color">
       {/* Cover Image Area */}
       <div
         className="relative flex h-[150px] w-full items-center justify-center md:h-[220px]"
