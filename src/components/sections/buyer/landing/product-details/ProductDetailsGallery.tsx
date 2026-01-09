@@ -20,9 +20,10 @@ const ProductDetailsGallery = ({ images }: ProductDetailsGalleryProps) => {
       {/* Main Image Container */}
       <div className="flex aspect-580/356 w-full items-center justify-center overflow-hidden rounded-xl bg-[#F3F5F9] md:rounded-2xl">
         <img
+          key={selectedIndex}
           src={images[selectedIndex]}
           alt="Main Product"
-          className="h-full w-full object-contain mix-blend-multiply"
+          className="size-[80%] animate-fade-in object-contain"
         />
       </div>
 
@@ -32,11 +33,10 @@ const ProductDetailsGallery = ({ images }: ProductDetailsGalleryProps) => {
           <div
             key={index}
             onClick={() => setSelectedIndex(index)}
-            className={`flex aspect-136/124 w-full cursor-pointer items-center justify-center rounded-xl bg-[#F3F5F9] transition-all duration-200 md:rounded-2xl ${
-              selectedIndex === index
-                ? "ring-2 ring-[#1053D5]"
+            className={`flex aspect-136/124 w-full cursor-pointer items-center justify-center rounded-xl bg-[#F3F5F9] transition-all duration-200 md:rounded-2xl ${selectedIndex === index
+                ? "ring-2 ring-primary-color ring-inset"
                 : "ring ring-transparent"
-            }`}
+              }`}
           >
             <img
               src={img}
