@@ -13,7 +13,7 @@ import hp8 from "/images/hp-8.png";
 export const PRODUCTS: ProductType[] = [
   {
     id: 1,
-    image: "/images/product-1.png",
+    image: ["/images/product-1.png", "/images/product-2.png", "/images/product-3.png"],
     title: "SonicWhirl Wireless Headphone",
     price: "Rp 3.500.500",
     sold: "120 Sold",
@@ -22,7 +22,7 @@ export const PRODUCTS: ProductType[] = [
   },
   {
     id: 2,
-    image: "/images/product-2.png",
+    image: ["/images/product-2.png", "/images/product-4.png"],
     title: "LuminaSmart Home Hub",
     price: "Rp 1.250.000",
     sold: "85 Sold",
@@ -85,7 +85,7 @@ export const PRODUCTS: ProductType[] = [
   },
   {
     id: 9,
-    image: lp1,
+    image: [lp1, lp2],
     title: "Airpods Gen Z 2025",
     price: "Rp 6.399.000",
     sold: "150 Sold",
@@ -121,7 +121,7 @@ export const PRODUCTS: ProductType[] = [
   },
   {
     id: 13,
-    image: hp1,
+    image: [hp1, hp2, hp3],
     title: "Smartphone Galaxy A54 5G",
     price: "Rp 6.399.000",
     sold: "150 Sold",

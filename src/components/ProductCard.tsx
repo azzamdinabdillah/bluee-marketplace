@@ -4,6 +4,11 @@ import StoreIcon from "./icons/StoreIcon";
 import Button from "./Button";
 import type { ProductType } from "../types/ProductTypes";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 export default function ProductCard({
   image = "https://placehold.co/276x192",
@@ -16,17 +21,46 @@ export default function ProductCard({
   onWishlist,
   className = "",
 }: ProductType) {
+  const images = Array.isArray(image) ? image : [image];
+
   return (
     <div
       className={`group/card relative flex w-full flex-col rounded-[14px] md:rounded-[20px] ${className} overflow-hidden transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-primary-color`}
     >
       {/* Product Image */}
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">
-        <img
-          src={image}
-          alt={title}
-          className="size-[90%] rounded-t-[14px] object-contain md:rounded-t-[20px] transition-transform duration-300 ease-in-out group-hover/card:scale-105"
-        />
+        {images.length > 1 ? (
+          <Swiper
+            effect="fade"
+            modules={[Autoplay, Pagination, EffectFade]}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            loop={true}
+            className="h-full w-full [&_.swiper-pagination-bullet]:h-1.5! [&_.swiper-pagination-bullet]:w-1.5! [&_.swiper-pagination-bullet-active]:bg-primary-color! [&_.swiper-pagination-bullet]:bg-[#ccc]! [&_.swiper-pagination-bullet]:opacity-100! [&_.swiper-pagination]:bottom-2! [&_.swiper-pagination]:z-10!"
+          >
+            {images.map((img, index) => (
+              <SwiperSlide key={index} className="flex items-center justify-center">
+                <img
+                  src={img}
+                  alt={`${title} - ${index + 1}`}
+                  className="size-[80%] object-contain transition-transform duration-300 ease-in-out group-hover/card:scale-105 mx-auto"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <img
+            src={images[0]}
+            alt={title}
+            className="size-[90%] rounded-t-[14px] object-contain md:rounded-t-[20px] transition-transform duration-300 ease-in-out group-hover/card:scale-105"
+          />
+        )}
         {/* Mobile Wishlist Button (Overlay) */}
         <button
           onClick={onWishlist}
