@@ -31,10 +31,10 @@ export default function ProductCard({
       <div className="relative flex h-[150px] w-full items-center justify-center bg-[#F3F5F9] md:h-[192px]">
         {images.length > 1 ? (
           <Swiper
-            effect="fade"
+            // effect="fade"
             modules={[Autoplay, Pagination, EffectFade]}
             autoplay={{
-              delay: 2000,
+              delay: 2000 + Math.random() * 1000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -45,12 +45,14 @@ export default function ProductCard({
             className="h-full w-full [&_.swiper-pagination-bullet]:h-1.5! [&_.swiper-pagination-bullet]:w-1.5! [&_.swiper-pagination-bullet-active]:bg-primary-color! [&_.swiper-pagination-bullet]:bg-[#ccc]! [&_.swiper-pagination-bullet]:opacity-100! [&_.swiper-pagination]:bottom-2! [&_.swiper-pagination]:z-10!"
           >
             {images.map((img, index) => (
-              <SwiperSlide key={index} className="flex items-center justify-center">
-                <img
-                  src={img}
-                  alt={`${title} - ${index + 1}`}
-                  className="size-[80%] object-contain transition-transform duration-300 ease-in-out group-hover/card:scale-105 mx-auto"
-                />
+              <SwiperSlide key={index} className="">
+                <div className="flex items-center justify-center h-full">
+                  <img
+                    src={img}
+                    alt={`${title} - ${index + 1}`}
+                    className="size-[80%] -mt-4 object-contain transition-transform duration-300 ease-in-out group-hover/card:scale-105 mx-auto"
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
