@@ -10,7 +10,7 @@ export default function Sidebar() {
     return (
         <>
             {/* Mobile Header */}
-            <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 h-16 flex items-center px-4 justify-between">
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 h-16 flex items-center px-4 justify-between">
                 <div className="flex items-center gap-2">
                     <img src="/icons/sidebar-logo.svg" alt="Bluee" className="w-[30px] h-[24px]" />
                     <span className="text-[20px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-[#292D32]">Bluee</span>
@@ -28,12 +28,12 @@ export default function Sidebar() {
             {/* Overlay for Mobile */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                     onClick={() => setIsOpen(false)}
                 />
             )}
 
-            <div className={`sidebar fixed md:sticky top-0 left-0 z-50 h-screen w-[280px] bg-white border-r border-gray-100 shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+            <div className={`sidebar fixed lg:sticky top-0 left-0 z-50 h-screen w-[280px] bg-white border-r border-gray-100 shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
                 <div className="flex flex-col h-full py-[30px] px-4 gap-[30px] overflow-y-auto">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
