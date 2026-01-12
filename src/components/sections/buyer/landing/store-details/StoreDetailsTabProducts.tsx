@@ -106,7 +106,7 @@ export default function StoreDetailsTabProducts() {
           </Button>
         </TabPanel>
         <TabPanel key="2" className="">
-          <div className="product-container mt-3 md:mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+          <div className="product-container mt-3 md:mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:grid-cols-4">
             {PRODUCTS.slice(0, 4).map((product) => (
               <Link key={product.id} to={`/product-details/${product.id}`}>
                 <ProductCard
@@ -132,7 +132,7 @@ export default function StoreDetailsTabProducts() {
           </Button>
         </TabPanel>
         <TabPanel key="3" className="">
-          <div className="product-container mt-3 md:mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+          <div className="product-container mt-3 md:mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:grid-cols-4">
             {PRODUCTS.slice(4, 8).map((product) => (
               <Link key={product.id} to={`/product-details/${product.id}`}>
                 <ProductCard
