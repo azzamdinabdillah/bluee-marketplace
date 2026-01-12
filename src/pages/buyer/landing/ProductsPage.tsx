@@ -191,22 +191,21 @@ const ProductsPage: React.FC = () => {
               </button>
 
               {/* Sort Dropdown */}
-              <div className="relative">
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none cursor-pointer rounded-xl border border-stroke-color bg-white px-4 py-3 pr-10 font-semibold text-black-color outline-none focus:border-primary-color"
-                >
-                  <option value="default">Sort by: Recommended</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-sec-color">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </div>
-              </div>
+              <button
+                popoverTarget="sort-modal"
+                popoverTargetAction="show"
+                type="button"
+                className="flex items-center gap-2 rounded-xl border border-stroke-color bg-white px-4 py-3 font-semibold text-black-color transition-colors hover:border-primary-color hover:text-primary-color"
+              >
+                <span>
+                  {sortBy === "default" && "Sort by: Recommended"}
+                  {sortBy === "price-asc" && "Price: Low to High"}
+                  {sortBy === "price-desc" && "Price: High to Low"}
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-sec-color">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -290,6 +289,40 @@ const ProductsPage: React.FC = () => {
           setMaxPrice={setMaxPrice}
           clearFilters={clearFilters}
         />
+      </Modal>
+
+      {/* Sort Modal */}
+      <Modal
+        id="sort-modal"
+        title="Sort Products"
+        className="w-[90%] max-w-[400px]"
+      >
+        <div className="flex flex-col gap-2">
+          {[
+            { value: "default", label: "Recommended" },
+            { value: "price-asc", label: "Price: Low to High" },
+            { value: "price-desc", label: "Price: High to Low" },
+          ].map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              popoverTarget="sort-modal"
+              popoverTargetAction="hide"
+              onClick={() => setSortBy(option.value)}
+              className={`flex items-center justify-between rounded-lg p-3 text-left font-semibold transition-colors ${sortBy === option.value
+                ? "bg-primary-color/10 text-primary-color"
+                : "text-black-color hover:bg-gray-50"
+                }`}
+            >
+              {option.label}
+              {sortBy === option.value && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+            </button>
+          ))}
+        </div>
       </Modal>
 
       <Footer />
