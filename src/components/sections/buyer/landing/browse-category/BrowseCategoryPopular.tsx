@@ -10,7 +10,7 @@ export default function BrowseCategoryPopular() {
       <h3 className="text-black-color w-full text-xl font-bold md:text-2xl lg:text-[32px]">
         Sedang Popular 🔥{" "}
       </h3>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
         {PRODUCTS.slice(12, 20).map((product) => (
           <Link key={product.id} to={`/product-details/${product.id}`}>
             <ProductCard
