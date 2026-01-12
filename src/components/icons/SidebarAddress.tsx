@@ -1,0 +1,27 @@
+import React from 'react';
+
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SidebarAddress = ({ size = 24, className, stroke = "currentColor", fill = "none", ...props }: IconProps) => {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill={fill} 
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      {...props}
+    >
+      <path d="M22 9.00002V15C22 17.5 21.5 19.25 20.38 20.38L14 14L21.73 6.27002C21.91 7.06002 22 7.96002 22 9.00002Z" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M21.73 6.27L6.26999 21.73C3.25999 21.04 2 18.96 2 15V9C2 4 4 2 9 2H15C18.96 2 21.04 3.26 21.73 6.27Z" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M20.3795 20.38C19.2495 21.5 17.4995 22 14.9995 22H8.99954C7.95954 22 7.05953 21.91 6.26953 21.73L13.9995 14L20.3795 20.38Z" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M6.23929 7.98C6.91929 5.05 11.3193 5.05 11.9993 7.98C12.3893 9.7 11.3093 11.16 10.3593 12.06C9.66928 12.72 8.5793 12.72 7.8793 12.06C6.9293 11.16 5.83929 9.7 6.23929 7.98Z" stroke={stroke} strokeWidth="2"/>
+      <path d="M9.09412 8.70001H9.1031" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+};
+
+export default SidebarAddress;

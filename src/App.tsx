@@ -7,6 +7,7 @@ import StoreDetails from "./pages/buyer/landing/StoreDetails";
 import ScrollToTop from "./helper/ScrollToTop";
 import Cart from "./pages/buyer/landing/Cart";
 import ProductsPage from "./pages/buyer/landing/ProductsPage";
+import MyTransaction from "./pages/buyer/manage-transaction/MyTransaction";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="/store-details/:id" element={<StoreDetails />} />
+
+        <Route path="/my-transaction" element={<MyTransaction />} />
       </Routes>
     </BrowserRouter>
   );
