@@ -2,10 +2,17 @@ import { useState } from 'react';
 import SidebarOverview from '../icons/SidebarOverview';
 import SidebarTransaction from '../icons/SidebarTransaction';
 import SidebarAddress from '../icons/SidebarAddress';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [activeMenu, setActiveMenu] = useState('transactions');
+    const location = useLocation();
+
+    const menuItems = [
+        { id: 'overview', label: 'Overview', icon: SidebarOverview, path: '/backoffice-buyer/overview' },
+        { id: 'transactions', label: 'My Transactions', icon: SidebarTransaction, path: '/backoffice-buyer/my-transaction' },
+        { id: 'address', label: 'My Address', icon: SidebarAddress, path: '/backoffice-buyer/my-address' }
+    ];
 
     return (
         <>
@@ -13,10 +20,10 @@ export default function Sidebar() {
             <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 h-16 flex items-center px-4 justify-between">
                 <div className="flex items-center gap-2">
                     <img src="/icons/sidebar-logo.svg" alt="Bluee" className="w-[30px] h-[24px]" />
-                    <span className="text-[20px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-[#292D32]">Bluee</span>
+                    <span className="text-[20px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-black">Bluee</span>
                 </div>
                 <button
-                    className="p-2 -mr-2 text-[#292D32] hover:bg-gray-50 rounded-md"
+                    className="p-2 -mr-2 text-black hover:bg-gray-50 rounded-md"
                     onClick={() => setIsOpen(true)}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -38,41 +45,40 @@ export default function Sidebar() {
                     {/* Logo */}
                     <div className="flex items-center gap-2">
                         <img src="/icons/sidebar-logo.svg" alt="Bluee" className="w-[41px] h-[32px]" />
-                        <span className="text-[25px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-[#292D32]">Bluee</span>
+                        <span className="text-[25px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-black">Bluee</span>
                     </div>
 
                     {/* Main Menu */}
                     <div className="flex flex-col gap-4">
-                        <div className="text-[#6A7686] font-['Lexend_Deca'] font-medium text-base">Main Menu</div>
+                        <div className="text-sec-color font-medium text-base">Main Menu</div>
                         <div className="flex flex-col gap-2">
-                            {[
-                                { id: 'overview', label: 'Overview', icon: SidebarOverview },
-                                { id: 'transactions', label: 'My Transactions', icon: SidebarTransaction },
-                                { id: 'address', label: 'My Address', icon: SidebarAddress }
-                            ].map((item) => (
-                                <div
-                                    key={item.id}
-                                    onClick={() => {
-                                        setActiveMenu(item.id);
-                                        setIsOpen(false);
-                                    }}
-                                    className={`relative lg:h-14 flex items-center gap-2 p-[10px_0_10px_16px] rounded-[16px] overflow-hidden cursor-pointer group transition-colors ${activeMenu === item.id
-                                        ? 'bg-[#1053D5]/10 text-[#1053D5]'
-                                        : 'text-[#292D32] hover:bg-gray-50 hover:text-[#1053D5]'
-                                        }`}
-                                >
-                                    <item.icon
-                                        className={`${activeMenu === item.id ? 'text-[#1053D5]' : 'text-[#292D32] group-hover:text-[#1053D5]'}`}
-                                        stroke="currentColor"
-                                    />
-                                    <span className={`font-['Lexend_Deca'] text-base flex-1 ${activeMenu === item.id ? 'font-bold' : 'font-medium'}`}>
-                                        {item.label}
-                                    </span>
-                                    {activeMenu === item.id && (
-                                        <div className="w-2 h-7.5 md:h-9 bg-[#1053D5] rounded-l-[6px] md:rounded-l-[12px] absolute right-0 top-1/2 -translate-y-1/2"></div>
-                                    )}
-                                </div>
-                            ))}
+                            {menuItems.map((item) => {
+                                const isActive = location.pathname === item.path;
+                                return (
+                                    <Link
+                                        to={item.path}
+                                        key={item.id}
+                                        onClick={() => {
+                                            setIsOpen(false);
+                                        }}
+                                        className={`relative lg:h-14 flex items-center gap-2 p-[10px_0_10px_16px] rounded-[16px] overflow-hidden cursor-pointer group transition-colors ${isActive
+                                            ? 'bg-primary-color/10 text-primary-color'
+                                            : 'text-black hover:bg-gray-50 hover:text-primary-color'
+                                            }`}
+                                    >
+                                        <item.icon
+                                            className={`${isActive ? 'text-primary-color' : 'text-black group-hover:text-primary-color'}`}
+                                            stroke="currentColor"
+                                        />
+                                        <span className={`font-['Lexend_Deca'] text-base flex-1 ${isActive ? 'font-bold' : 'font-medium'}`}>
+                                            {item.label}
+                                        </span>
+                                        {isActive && (
+                                            <div className="w-2 h-7.5 md:h-9 bg-primary-color rounded-l-[6px] md:rounded-l-[12px] absolute right-0 top-1/2 -translate-y-1/2"></div>
+                                        )}
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
