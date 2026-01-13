@@ -5,6 +5,9 @@ import walletIcon from "/icons/wallet-2.svg";
 import shoppingCartIcon from "/icons/shopping-cart-blue.svg";
 import TransactionCard from "@src/components/backoffice/TransactionCard";
 import store2 from "/images/store-2.png";
+import store3 from "/images/store-3.png";
+import store4 from "/images/store-4.png";
+import store5 from "/images/store-5.png";
 
 interface StatCardProps {
     iconSrc: string;
@@ -42,6 +45,45 @@ const StatCard: React.FC<StatCardProps> = ({ iconSrc, value, label, children }) 
 };
 
 export default function Overview() {
+    const transactions = [
+        {
+            id: 1,
+            storeName: "Ichsan Electronics",
+            date: "21 Mei 2025",
+            totalProducts: 240,
+            imageUrl: store2,
+            totalQuantity: "1.260",
+            grandTotal: "Rp 3.200.506"
+        },
+        {
+            id: 2,
+            storeName: "Marct Beauty",
+            date: "21 Mei 2025",
+            totalProducts: 240,
+            imageUrl: store3,
+            totalQuantity: "1.260",
+            grandTotal: "Rp 3.200.506"
+        },
+        {
+            id: 3,
+            storeName: "Rafly Bookstore",
+            date: "21 Mei 2025",
+            totalProducts: 240,
+            imageUrl: store4,
+            totalQuantity: "1.260",
+            grandTotal: "Rp 3.200.506"
+        },
+        {
+            id: 3,
+            storeName: "Shayna Sport",
+            date: "21 Mei 2025",
+            totalProducts: 240,
+            imageUrl: store5,
+            totalQuantity: "1.260",
+            grandTotal: "Rp 3.200.506"
+        }
+    ];
+
     return (
         <div className="flex min-h-screen bg-[#F3F5F9] font-sans">
             <Sidebar />
@@ -72,17 +114,20 @@ export default function Overview() {
                 >
                     <h3 className="text-base md:text-xl text-black-color font-bold">Latest Transactions</h3>
 
-                    <div>
-                        <TransactionCard
-                            storeName="Ichsan Electronics"
-                            date="21 Mei 2025"
-                            totalProducts={240}
-                            imageUrl={store2}
-                            totalQuantity="1.260"
-                            grandTotal="Rp 3.200.506"
-                            onExport={() => console.log('Export clicked')}
-                            onDetails={() => console.log('Details clicked')}
-                        />
+                    <div className="flex flex-col gap-4">
+                        {transactions.map((transaction) => (
+                            <TransactionCard
+                                key={transaction.id}
+                                storeName={transaction.storeName}
+                                date={transaction.date}
+                                totalProducts={transaction.totalProducts}
+                                imageUrl={transaction.imageUrl}
+                                totalQuantity={transaction.totalQuantity}
+                                grandTotal={transaction.grandTotal}
+                                onExport={() => console.log('Export clicked')}
+                                onDetails={() => console.log('Details clicked')}
+                            />
+                        ))}
                     </div>
                 </StatCard>
 
