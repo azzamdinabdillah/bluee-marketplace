@@ -3,6 +3,8 @@ import Sidebar from "@src/components/backoffice/Sidebar";
 import HeaderBackoffice from "@src/components/backoffice/HeaderBackoffice";
 import walletIcon from "/icons/wallet-2.svg";
 import shoppingCartIcon from "/icons/shopping-cart-blue.svg";
+import TransactionCard from "@src/components/backoffice/TransactionCard";
+import store2 from "/images/store-2.png";
 
 interface StatCardProps {
     iconSrc: string;
@@ -71,7 +73,16 @@ export default function Overview() {
                     <h3 className="text-base md:text-xl text-black-color font-bold">Latest Transactions</h3>
 
                     <div>
-                        asdadsa
+                        <TransactionCard
+                            storeName="Ichsan Electronics"
+                            date="21 Mei 2025"
+                            totalProducts={240}
+                            imageUrl={store2}
+                            totalQuantity="1.260"
+                            grandTotal="Rp 3.200.506"
+                            onExport={() => console.log('Export clicked')}
+                            onDetails={() => console.log('Details clicked')}
+                        />
                     </div>
                 </StatCard>
 
