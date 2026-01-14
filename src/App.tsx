@@ -7,8 +7,8 @@ import StoreDetails from "./pages/buyer/landing/StoreDetails";
 import ScrollToTop from "./helper/ScrollToTop";
 import Cart from "./pages/buyer/landing/Cart";
 import ProductsPage from "./pages/buyer/landing/ProductsPage";
-import MyTransaction from "./pages/buyer/backoffice-buyer/MyTransaction";
 import Overview from "./pages/buyer/backoffice-buyer/Overview";
+import MyTransactions from "./pages/buyer/backoffice-buyer/MyTransactions";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
 
         <Route path="/backoffice-buyer">
           <Route path="overview" element={<Overview />} />
-          <Route path="my-transaction" element={<MyTransaction />} />
+          <Route path="my-transactions" element={<MyTransactions />} />
         </Route>
       </Routes>
     </BrowserRouter>

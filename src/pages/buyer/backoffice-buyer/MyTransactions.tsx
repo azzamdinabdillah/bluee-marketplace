@@ -1,7 +1,7 @@
 import Sidebar from '@src/components/backoffice/Sidebar';
 import HeaderBackoffice from '@src/components/backoffice/HeaderBackoffice';
 
-export default function MyTransaction() {
+export default function MyTransactions() {
     return (
         <div className="flex min-h-screen bg-[#F3F5F9] font-sans">
             <Sidebar />
