@@ -50,7 +50,7 @@ export default function HeaderBackoffice({
         </div>
       </div>
 
-      <div className="flex w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
+      <div className="hidden md:flex w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
         <div className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-[10px]">
           {/* Avatar */}
           <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100 md:h-12 md:w-12 lg:h-[56px] lg:w-[56px]">
@@ -94,14 +94,14 @@ export default function HeaderBackoffice({
   return (
     <>
       {/* Fixed Header */}
-      <div className="fixed top-16 right-0 left-0 z-30 bg-[#F3F5F9]/95 px-4 pt-2 pb-2 backdrop-blur-sm transition-all duration-300 md:pt-4 md:pb-4 lg:top-0 lg:left-[280px] lg:px-5 lg:pt-4 lg:pb-4">
+      <div className="md:fixed top-16 right-0 left-0 z-30 bg-[#F3F5F9]/95 px-4 backdrop-blur-sm transition-all duration-300 md:pt-4 md:pb-4 lg:top-0 lg:left-[280px] lg:px-5 lg:pt-4 lg:pb-4">
         {content}
       </div>
 
       {/* Spacer to maintain flow */}
-      <div className="pointer-events-none invisible -mx-4 px-4 pt-2 pb-2 md:pt-4 md:pb-4 lg:-mx-5 lg:-mt-4 lg:px-5 lg:pt-4 lg:pb-4">
+      {/* <div className="pointer-events-none hidden md:block invisible -mx-4 px-4 pt-2 pb-2 md:pt-4 md:pb-4 lg:-mx-5 lg:-mt-4 lg:px-5 lg:pt-4 lg:pb-4">
         {content}
-      </div>
+      </div> */}
     </>
   );
 }

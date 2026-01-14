@@ -3,6 +3,9 @@ import SidebarOverview from '../icons/SidebarOverview';
 import SidebarTransaction from '../icons/SidebarTransaction';
 import SidebarAddress from '../icons/SidebarAddress';
 import { Link, useLocation } from 'react-router-dom';
+import userIcon from "/icons/user.svg";
+import logoutIcon from "/icons/logout.svg";
+import profileIcon from "/images/user.png";
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +25,46 @@ export default function Sidebar() {
                     <img src="/icons/sidebar-logo.svg" alt="Bluee" className="w-[30px] h-[24px]" />
                     <span className="text-[20px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-black">Bluee</span>
                 </div>
-                <button
-                    className="p-2 -mr-2 text-black hover:bg-gray-50 rounded-md"
-                    onClick={() => setIsOpen(true)}
-                >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M3 12h18M3 6h18M3 18h18" />
-                    </svg>
-                </button>
+                <div className="flex items-center gap-1">
+                    {/* Profile Pill */}
+                    <div className="flex md:hidden items-center gap-2 rounded-full bg-gray-50 py-1.5 pl-1.5 pr-3">
+                        <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white ring-2 ring-white">
+                            <img
+                                src={profileIcon}
+                                alt="Profile"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-0.5">
+                            <h3 className="font-lexend text-xs font-bold text-gray-900 leading-none">
+                                Bimore W
+                            </h3>
+                            <span className="font-lexend text-[10px] font-medium text-gray-500 leading-none">
+                                Buyer
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Actions Group */}
+                    <div className="flex items-center pl-1">
+                        <button className="flex md:hidden h-9 w-9 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-50">
+                            <img
+                                src={logoutIcon}
+                                alt="Logout"
+                                className="h-5 w-5 opacity-60 hover:opacity-100 transition-opacity"
+                            />
+                        </button>
+
+                        <button
+                            className="flex h-9 w-9 items-center justify-center rounded-full text-black hover:bg-gray-50"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M3 12h18M3 6h18M3 18h18" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             {/* Overlay for Mobile */}
@@ -40,7 +75,7 @@ export default function Sidebar() {
                 />
             )}
 
-            <div className={`sidebar fixed lg:sticky top-0 left-0 z-50 h-screen w-[280px] bg-white border-r border-gray-100 shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+            <div className={`sidebar fixed lg:sticky top-0 left-0 z-50 h-dvh w-[280px] bg-white border-r border-gray-100 shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
                 <div className="flex flex-col h-full py-[30px] px-4 gap-[30px] overflow-y-auto">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
@@ -79,6 +114,48 @@ export default function Sidebar() {
                                     </Link>
                                 );
                             })}
+                        </div>
+                    </div>
+
+                    {/* Mobile Profile Section */}
+                    <div className="md:hidden mt-auto">
+                        <div className="flex w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md border border-gray-100">
+                            <div className="flex flex-row items-center gap-2">
+                                {/* Avatar */}
+                                <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                                    <img
+                                        src={profileIcon}
+                                        alt="Profile"
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+
+                                {/* Info */}
+                                <div className="flex flex-col gap-0.5">
+                                    <h3 className="font-lexend text-black-color text-sm leading-tight font-semibold">
+                                        Bimore W
+                                    </h3>
+                                    <div className="text-sec-color flex flex-row items-center gap-1">
+                                        <img
+                                            src={userIcon}
+                                            alt="Role"
+                                            className="h-3 w-3"
+                                        />
+                                        <span className="font-lexend text-xs leading-tight font-medium">
+                                            Buyer
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Logout */}
+                            <button className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-50">
+                                <img
+                                    src={logoutIcon}
+                                    alt="Logout"
+                                    className="h-5 w-5"
+                                />
+                            </button>
                         </div>
                     </div>
                 </div>

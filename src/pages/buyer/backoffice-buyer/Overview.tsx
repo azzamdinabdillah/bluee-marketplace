@@ -95,13 +95,13 @@ export default function Overview() {
         <div className="flex min-h-screen bg-[#F3F5F9] font-sans">
             <Sidebar />
 
-            <div className="w-full overflow-hidden">
+            <div className="w-full overflow-hidden margin-top-sidebar">
                 <HeaderBackoffice
                     title="Dashboard Overviews"
                     subtitle="View Your Dashboard"
                 />
 
-                <div className="mt-14 flex w-full flex-1 flex-col gap-3 overflow-x-hidden p-4 md:gap-5 lg:mt-0 lg:px-5 lg:py-7.5 lg:pt-5">
+                <div className="flex w-full flex-1 flex-col gap-3 overflow-x-hidden p-4 md:gap-5 lg:mt-0 lg:px-5 lg:py-7.5 lg:pt-5">
                     <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-2">
                         <StatCard
                             iconSrc={walletIcon}

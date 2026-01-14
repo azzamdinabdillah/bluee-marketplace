@@ -21,6 +21,14 @@
   @apply mt-[120px] md:mt-[100px] lg:mt-[121px];
 }
 
+.margin-top-sidebar {
+  @apply mt-20 md:mt-44 lg:mt-28;
+}
+
+body:has(.sidebar.translate-x-0) {
+  overflow: hidden;
+}
+
 .margin-page {
   @apply mx-4 my-4 md:mx-8 md:my-8 lg:mx-[52px];
 }
