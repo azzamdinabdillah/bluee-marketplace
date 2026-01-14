@@ -1,4 +1,3 @@
-import React from 'react';
 import TemplateLayoutBackoffice from '@src/components/backoffice/TemplateLayoutBackoffice';
 import TransactionCard from '@src/components/backoffice/TransactionCard';
 import Pagination from '@src/components/backoffice/Pagination';
@@ -10,6 +9,7 @@ import store4 from '/images/store-4.png';
 import store5 from '/images/store-5.png';
 import stickyNoteIcon from '/icons/stickynote.svg';
 import arrowDownIcon from '/icons/arrow-down.svg';
+import EmptyState from '@src/components/backoffice/EmptyState';
 
 export default function MyTransactions() {
     const transactions = [
@@ -138,6 +138,8 @@ export default function MyTransactions() {
                         pages={[1, 2, 3, 5]}
                         activePage={1}
                     />
+
+                    <EmptyState />
                 </div>
             </div>
         </TemplateLayoutBackoffice>

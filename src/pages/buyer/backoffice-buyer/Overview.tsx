@@ -8,6 +8,7 @@ import store3 from "/images/store-3.png";
 import store4 from "/images/store-4.png";
 import store5 from "/images/store-5.png";
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
+import EmptyState from "@src/components/backoffice/EmptyState";
 
 interface StatCardProps {
     iconSrc: string;
@@ -128,18 +129,7 @@ export default function Overview() {
                         />
                     ))}
 
-                    {/* <div className="empty-transaction flex w-full flex-col items-center justify-center gap-3 py-8 md:gap-4 lg:gap-4">
-                                <img
-                                    src={noteRemoveIcon}
-                                    alt="No data"
-                                    className="size-10 object-contain md:size-11 lg:size-[52px]"
-                                />
-                                <div className="flex flex-col items-center gap-1">
-                                    <span className="text-center text-sm font-semibold text-[#6A7686] md:text-base lg:text-lg">
-                                        Oops, you don't have any data yet
-                                    </span>
-                                </div>
-                            </div> */}
+                    <EmptyState />
                 </div>
             </StatCard>
         </TemplateLayoutBackoffice>
