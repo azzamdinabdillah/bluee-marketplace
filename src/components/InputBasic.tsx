@@ -2,7 +2,7 @@ import React, { type ComponentType, type ReactNode, type SVGProps } from "react"
 
 interface InputBasicProps extends React.InputHTMLAttributes<HTMLInputElement> {
   containerClassName?: string;
-  Icon?: ComponentType<SVGProps<SVGSVGElement>> | ReactNode;
+  Icon?: ComponentType<SVGProps<SVGSVGElement>> | ReactNode | string;
   label?: string;
 }
 
@@ -26,7 +26,25 @@ export default function InputBasic({
           {...props}
         />
         {Icon && (
-          <Icon className="text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto" />
+          <>
+            {typeof Icon === "string" ? (
+              <img
+                src={Icon}
+                alt={label || "icon"}
+                className="absolute top-1/2 left-4 size-5 -translate-y-1/2 object-contain"
+              />
+            ) : React.isValidElement(Icon) ? (
+              React.cloneElement(Icon as React.ReactElement<{ className?: string }>, {
+                className: `absolute top-1/2 left-4 size-5 -translate-y-1/2 ${(Icon as React.ReactElement<{ className?: string }>).props.className || ""
+                  }`,
+              })
+            ) : (
+              React.createElement(Icon as ComponentType<{ className?: string }>, {
+                className:
+                  "text-sec-color peer-focus:text-primary-color absolute top-1/2 left-4 size-5 -translate-y-1/2 transition-colors duration-200 md:h-auto md:w-auto",
+              })
+            )}
+          </>
         )}
       </div>
     </div>
