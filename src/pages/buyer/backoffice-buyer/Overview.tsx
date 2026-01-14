@@ -1,15 +1,13 @@
 import React from "react";
-import Sidebar from "@src/components/backoffice/Sidebar";
-import HeaderBackoffice from "@src/components/backoffice/HeaderBackoffice";
 import walletIcon from "/icons/wallet-2.svg";
 import shoppingCartIcon from "/icons/shopping-cart-blue.svg";
 import stickyNoteIcon from "/icons/stickynote-blue.svg";
-import noteRemoveIcon from "/icons/note-remove.svg";
 import TransactionCard from "@src/components/backoffice/TransactionCard";
 import store2 from "/images/store-2.png";
 import store3 from "/images/store-3.png";
 import store4 from "/images/store-4.png";
 import store5 from "/images/store-5.png";
+import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
 
 interface StatCardProps {
     iconSrc: string;
@@ -81,7 +79,7 @@ export default function Overview() {
             grandTotal: "Rp 3.200.506",
         },
         {
-            id: 3,
+            id: 4,
             storeName: "Shayna Sport",
             date: "21 Mei 2025",
             totalProducts: 240,
@@ -92,54 +90,45 @@ export default function Overview() {
     ];
 
     return (
-        <div className="flex min-h-screen bg-[#F3F5F9] font-sans">
-            <Sidebar />
-
-            <div className="w-full overflow-hidden margin-top-sidebar">
-                <HeaderBackoffice
-                    title="Dashboard Overviews"
-                    subtitle="View Your Dashboard"
+        <TemplateLayoutBackoffice title="Dashboard Overviews" subtitle="View Your Dashboard">
+            <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-2">
+                <StatCard
+                    iconSrc={walletIcon}
+                    value="Rp 920.650.320"
+                    label="Total Expense"
                 />
+                <StatCard
+                    iconSrc={shoppingCartIcon}
+                    value="16.200"
+                    label="Total Products"
+                />
+            </div>
 
-                <div className="flex w-full flex-1 flex-col gap-3 overflow-x-hidden p-4 md:gap-5 lg:mt-0 lg:px-5 lg:py-7.5 lg:pt-5">
-                    <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-2">
-                        <StatCard
-                            iconSrc={walletIcon}
-                            value="Rp 920.650.320"
-                            label="Total Expense"
+            <StatCard
+                iconSrc={stickyNoteIcon}
+                value="320"
+                label="Total Transaction"
+            >
+                <h3 className="text-black-color text-base font-bold md:text-xl">
+                    Latest Transactions
+                </h3>
+
+                <div className="flex flex-col gap-4">
+                    {transactions.map((transaction) => (
+                        <TransactionCard
+                            key={transaction.id}
+                            storeName={transaction.storeName}
+                            date={transaction.date}
+                            totalProducts={transaction.totalProducts}
+                            imageUrl={transaction.imageUrl}
+                            totalQuantity={transaction.totalQuantity}
+                            grandTotal={transaction.grandTotal}
+                            onExport={() => console.log("Export clicked")}
+                            onDetails={() => console.log("Details clicked")}
                         />
-                        <StatCard
-                            iconSrc={shoppingCartIcon}
-                            value="16.200"
-                            label="Total Products"
-                        />
-                    </div>
+                    ))}
 
-                    <StatCard
-                        iconSrc={stickyNoteIcon}
-                        value="320"
-                        label="Total Transaction"
-                    >
-                        <h3 className="text-black-color text-base font-bold md:text-xl">
-                            Latest Transactions
-                        </h3>
-
-                        <div className="flex flex-col gap-4">
-                            {transactions.map((transaction) => (
-                                <TransactionCard
-                                    key={transaction.id}
-                                    storeName={transaction.storeName}
-                                    date={transaction.date}
-                                    totalProducts={transaction.totalProducts}
-                                    imageUrl={transaction.imageUrl}
-                                    totalQuantity={transaction.totalQuantity}
-                                    grandTotal={transaction.grandTotal}
-                                    onExport={() => console.log("Export clicked")}
-                                    onDetails={() => console.log("Details clicked")}
-                                />
-                            ))}
-
-                            {/* <div className="empty-transaction flex w-full flex-col items-center justify-center gap-3 py-8 md:gap-4 lg:gap-4">
+                    {/* <div className="empty-transaction flex w-full flex-col items-center justify-center gap-3 py-8 md:gap-4 lg:gap-4">
                                 <img
                                     src={noteRemoveIcon}
                                     alt="No data"
@@ -151,10 +140,8 @@ export default function Overview() {
                                     </span>
                                 </div>
                             </div> */}
-                        </div>
-                    </StatCard>
                 </div>
-            </div>
-        </div>
+            </StatCard>
+        </TemplateLayoutBackoffice>
     );
 }
