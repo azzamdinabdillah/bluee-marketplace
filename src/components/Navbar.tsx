@@ -159,7 +159,7 @@ export default function Navbar() {
                           <img className="h-6 w-6" src={profileCircle} alt="" />
                         </div>
                         <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <Link to={'/backoffice-buyer/my-transactions'} className="text-[#6A7686] font-medium text-base leading-5">
+                          <Link to={'/backoffice-buyer/manage-transactions'} className="text-[#6A7686] font-medium text-base leading-5">
                             My Transactions
                           </Link>
                           <img className="h-6 w-6" src={stickyNote} alt="" />

@@ -8,7 +8,8 @@ import ScrollToTop from "./helper/ScrollToTop";
 import Cart from "./pages/buyer/landing/Cart";
 import ProductsPage from "./pages/buyer/landing/ProductsPage";
 import Overview from "./pages/buyer/backoffice-buyer/Overview";
-import MyTransactions from "./pages/buyer/backoffice-buyer/MyTransactions";
+import MyTransactions from "./pages/buyer/backoffice-buyer/manage-transactions/MyTransactions";
+import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactions/DetailsTransaction";
 
 function App() {
   return (
@@ -30,7 +31,10 @@ function App() {
 
         <Route path="/backoffice-buyer">
           <Route path="overview" element={<Overview />} />
-          <Route path="my-transactions" element={<MyTransactions />} />
+          <Route path="manage-transactions">
+            <Route index element={<MyTransactions />} />
+            <Route path=":id" element={<DetailsTransaction />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

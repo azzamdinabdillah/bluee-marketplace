@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     const menuItems = [
         { id: 'overview', label: 'Overview', icon: SidebarOverview, path: '/backoffice-buyer/overview' },
-        { id: 'transactions', label: 'My Transactions', icon: SidebarTransaction, path: '/backoffice-buyer/my-transactions' },
+        { id: 'transactions', label: 'My Transactions', icon: SidebarTransaction, path: '/backoffice-buyer/manage-transactions' },
         { id: 'address', label: 'My Address', icon: SidebarAddress, path: '/backoffice-buyer/my-address' }
     ];
 

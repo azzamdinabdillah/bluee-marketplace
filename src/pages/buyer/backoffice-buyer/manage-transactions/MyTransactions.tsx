@@ -10,8 +10,11 @@ import store5 from '/images/store-5.png';
 import stickyNoteIcon from '/icons/stickynote.svg';
 import arrowDownIcon from '/icons/arrow-down.svg';
 import EmptyState from '@src/components/backoffice/EmptyState';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyTransactions() {
+    const navigate = useNavigate();
+    
     const transactions = [
         {
             id: 1,
@@ -128,7 +131,7 @@ export default function MyTransactions() {
                                 grandTotal={transaction.grandTotal}
                                 imageUrl={transaction.imageUrl}
                                 onExport={() => console.log(`Export ${transaction.storeName}`)}
-                                onDetails={() => console.log(`Details ${transaction.storeName}`)}
+                                onDetails={() => navigate(`/backoffice-buyer/manage-transactions/${transaction.id}`)}
                             />
                         ))}
                     </div>
