@@ -16,6 +16,9 @@ export default function MyTransactions() {
             id: 1,
             storeName: "Ichsan Electronics",
             date: "21 Mei 2025",
+            headerDate: "21 Mei 2025",
+            status: "DELIVERING",
+            statusVariant: "delivering" as const,
             totalProducts: 240,
             totalQuantity: "1.260",
             grandTotal: "Rp 3.200.506",
@@ -25,6 +28,9 @@ export default function MyTransactions() {
             id: 2,
             storeName: "Marct Beauty",
             date: "9 Mei 2025",
+            headerDate: "9 Mei 2025",
+            status: "COMPLETED",
+            statusVariant: "completed" as const,
             totalProducts: 15,
             totalQuantity: "50",
             grandTotal: "Rp 1.500.000",
@@ -34,6 +40,9 @@ export default function MyTransactions() {
             id: 3,
             storeName: "Gadget Store",
             date: "15 April 2025",
+            headerDate: "15 April 2025",
+            status: "PENDING",
+            statusVariant: "pending" as const,
             totalProducts: 5,
             totalQuantity: "10",
             grandTotal: "Rp 5.200.000",
@@ -43,6 +52,9 @@ export default function MyTransactions() {
             id: 4,
             storeName: "Fashion Hub",
             date: "10 April 2025",
+            headerDate: "10 April 2025",
+            status: "PROCESSING",
+            statusVariant: "processing" as const,
             totalProducts: 120,
             totalQuantity: "300",
             grandTotal: "Rp 12.500.000",
@@ -107,6 +119,9 @@ export default function MyTransactions() {
                                 key={transaction.id}
                                 storeName={transaction.storeName}
                                 date={transaction.date}
+                                headerDate={transaction.headerDate}
+                                status={transaction.status}
+                                statusVariant={transaction.statusVariant}
                                 totalProducts={transaction.totalProducts}
                                 totalQuantity={transaction.totalQuantity}
                                 grandTotal={transaction.grandTotal}
