@@ -1,4 +1,5 @@
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
+import DetailsBoxList from "@src/components/backoffice/DetailsBoxList";
 import product1 from "/images/store.png";
 import timerIcon from "/icons/timer.svg";
 import truckTimeIcon from "/icons/truck-time.svg";
@@ -66,6 +67,24 @@ export function TransactionStatus({ status }: TransactionStatusProps) {
 }
 
 function TransactionDetailCard() {
+  const details = [
+    {
+      icon: boxIcon,
+      value: 3,
+      label: "Total Products",
+    },
+    {
+      icon: shoppingCartIcon,
+      value: 21,
+      label: "Total Quantity",
+    },
+    {
+      icon: calendarIcon,
+      value: "4 April 2025",
+      label: "Date Transaction",
+    },
+  ];
+
   return (
     <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
       {/* Header */}
@@ -98,56 +117,7 @@ function TransactionDetailCard() {
       </div>
 
       {/* Details Box */}
-      <div className="border-stroke-color flex flex-col gap-3 rounded-[20px] border p-3 md:gap-4 md:p-4">
-        {/* Total Products */}
-        <div className="flex items-center gap-[10px]">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px]">
-            <img src={boxIcon} alt="Products" className="h-6 w-6" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-lexend text-black-color text-base font-bold md:text-lg">
-              3
-            </span>
-            <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
-              Total Products
-            </span>
-          </div>
-        </div>
-
-        <div className="bg-stroke-color h-[1px] w-full"></div>
-
-        {/* Total Quantity */}
-        <div className="flex items-center gap-[10px]">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px]">
-            <img src={shoppingCartIcon} alt="Quantity" className="h-6 w-6" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-lexend text-black-color text-base font-bold md:text-lg">
-              21
-            </span>
-            <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
-              Total Quantity
-            </span>
-          </div>
-        </div>
-
-        <div className="bg-stroke-color h-[1px] w-full"></div>
-
-        {/* Date Transaction */}
-        <div className="flex items-center gap-[10px]">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px]">
-            <img src={calendarIcon} alt="Date" className="h-6 w-6" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-lexend text-black-color text-base font-bold md:text-lg">
-              4 April 2025
-            </span>
-            <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
-              Date Transaction
-            </span>
-          </div>
-        </div>
-      </div>
+      <DetailsBoxList items={details} />
     </div>
   );
 }
