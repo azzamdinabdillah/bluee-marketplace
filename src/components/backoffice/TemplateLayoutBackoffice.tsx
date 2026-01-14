@@ -7,7 +7,7 @@ export default function TemplateLayoutBackoffice({ children, title, subtitle }: 
         <div className="flex min-h-screen bg-[#F3F5F9] font-sans">
             <Sidebar />
 
-            <div className="w-full overflow-hidden margin-top-sidebar">
+            <div className="w-full overflow-hidden margin-top-sidebar max-w-[1500px] mx-auto">
                 <HeaderBackoffice
                     title={title}
                     subtitle={subtitle}

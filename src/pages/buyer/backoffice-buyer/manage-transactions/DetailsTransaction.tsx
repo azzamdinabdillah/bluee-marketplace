@@ -9,28 +9,28 @@ interface TransactionStatusProps {
 const statusConfig = {
     pending: {
         // bg-[#FED833] from Figma
-        bg: 'bg-[#FED833]',
+        bg: "bg-[url(/images/status-waiting.png)]",
         text: 'text-[#544607]',
         icon: '/icons/timer.svg',
         label: 'Order pending. Waiting for your approval',
     },
     processing: {
         // bg-[#1053D5] from Figma
-        bg: 'bg-[#1053D5]',
+        bg: "bg-[url(/images/status-processing.png)]",
         text: 'text-white',
         icon: '/icons/truck-time.svg',
         label: 'Prepare the item for pickup by the courier',
     },
     delivering: {
         // bg-[#FF7020] from Figma
-        bg: 'bg-[#FF7020]',
+        bg: "bg-[url(/images/status-delivering.png)]",
         text: 'text-white',
         icon: '/icons/truck-fast.svg',
         label: 'The order is heading to your address',
     },
     completed: {
         // bg-[#00A48A] from Figma
-        bg: 'bg-[#00A48A]',
+        bg: "bg-[url(/images/status-completed.png)]",
         text: 'text-white',
         icon: '/icons/truck-tick.svg',
         label: 'The order is arrived to your address',
@@ -43,7 +43,7 @@ export function TransactionStatus({ status }: TransactionStatusProps) {
     // Note: Background colors are applied based on Figma design. 
     // User mentioned providing backgrounds later, so these are placeholders/defaults.
     return (
-        <div className={`flex items-center gap-2.5 p-4 rounded-[20px] w-full lg:w-[470px] ${config.bg} ${config.text}`}>
+        <div className={`flex items-center gap-2.5 p-4 rounded-[20px] w-full lg:w-[470px] bg-no-repeat bg-cover bg-center ${config.bg} ${config.text}`}>
             <img
                 src={config.icon}
                 alt={status}

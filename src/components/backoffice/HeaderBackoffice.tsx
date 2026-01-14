@@ -15,7 +15,7 @@ export default function HeaderBackoffice({
   subtitle,
 }: HeaderBackofficeProps) {
   const content = (
-    <div className="mx-auto flex max-w-[1920px] flex-col gap-3 md:flex-row md:gap-5">
+    <div className="mx-auto flex max-w-[1460px] flex-col gap-3 md:flex-row md:gap-5">
       <div className="flex w-full flex-col items-start justify-between gap-4 rounded-2xl bg-white p-4 md:flex-row md:items-center md:gap-5 md:rounded-[18px] md:p-5 lg:gap-6 lg:rounded-[20px] lg:px-5 lg:py-[18px]">
         <div className="flex flex-col gap-1">
           <h2 className="text-black-color font-lexend text-lg font-bold md:text-xl lg:text-2xl">
