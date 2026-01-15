@@ -142,21 +142,21 @@ export default function DetailsTransaction() {
                         details={customerDetails}
                     />
 
-                    <div className="w-full bg-white rounded-[20px] p-3 md:p-4 lg:p-5 flex flex-col gap-4 md:gap-5">
-                        <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+                    <div className="w-full bg-white rounded-xl md:rounded-2xl lg:rounded-[20px] p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-5">
+                        <h3 className="font-lexend text-black-color text-lg font-bold md:text-xl lg:text-2xl">
                             Transaction Details
                         </h3>
 
-                        <div className="flex flex-col gap-3 md:gap-4">
+                        <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
                             {paymentSummary.map((item, index) => (
-                                <div key={index} className="flex flex-row items-center gap-1.5 w-full">
-                                    <div className="shrink-0 w-6 h-6 flex items-center justify-center">
+                                <div key={index} className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-3 w-full">
+                                    <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
                                         <img src={item.icon} alt={item.label} className="w-full h-full object-contain" />
                                     </div>
-                                    <span className="flex-1 text-sm md:text-base font-medium text-sec-color font-lexend text-left">
+                                    <span className="flex-1 text-sm md:text-base lg:text-lg font-medium text-sec-color font-lexend text-left">
                                         {item.label}
                                     </span>
-                                    <span className="text-base md:text-lg font-bold font-lexend text-black-color text-right">
+                                    <span className="text-base md:text-lg lg:text-xl font-bold font-lexend text-black-color text-right">
                                         {item.value}
                                     </span>
                                 </div>
@@ -166,14 +166,14 @@ export default function DetailsTransaction() {
                             <hr className="w-full h-px border border-stroke-color"></hr>
 
                             {/* Grand Total */}
-                            <div className="flex flex-row items-center gap-1.5 w-full">
-                                <div className="shrink-0 w-6 h-6 flex items-center justify-center">
+                            <div className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-3 w-full">
+                                <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
                                     <img src={moneyIcon} alt="Grand Total" className="w-full h-full object-contain" />
                                 </div>
-                                <span className="flex-1 text-sm md:text-base font-medium text-sec-color font-lexend text-left">
+                                <span className="flex-1 text-sm md:text-base lg:text-lg font-medium text-sec-color font-lexend text-left">
                                     Grand Total
                                 </span>
-                                <span className="text-base md:text-lg font-bold font-lexend text-primary-color text-right">
+                                <span className="text-base md:text-lg lg:text-xl font-bold font-lexend text-primary-color text-right">
                                     Rp 202.772.500
                                 </span>
                             </div>
