@@ -107,7 +107,8 @@ const ProductsPage: React.FC = () => {
       }
 
       // Price Filter (Parsing "Rp 3.500.500" to number)
-      const priceNum = parseInt(product.price.replace(/[^0-9]/g, ""));
+      const priceStr = String(product.price);
+      const priceNum = parseInt(priceStr.replace(/[^0-9]/g, ""), 10);
       if (minPrice && priceNum < parseInt(minPrice)) return false;
       if (maxPrice && priceNum > parseInt(maxPrice)) return false;
 
@@ -118,8 +119,8 @@ const ProductsPage: React.FC = () => {
 
       return true;
     }).sort((a, b) => {
-      const priceA = parseInt(a.price.replace(/[^0-9]/g, ""));
-      const priceB = parseInt(b.price.replace(/[^0-9]/g, ""));
+      const priceA = parseInt(String(a.price).replace(/[^0-9]/g, ""), 10);
+      const priceB = parseInt(String(b.price).replace(/[^0-9]/g, ""), 10);
 
       if (sortBy === "price-asc") return priceA - priceB;
       if (sortBy === "price-desc") return priceB - priceA;

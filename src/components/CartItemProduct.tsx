@@ -1,4 +1,4 @@
-import type { ProductDetailType } from "@src/types/ProductTypes";
+import type { ProductType } from "@src/types/ProductTypes";
 import { useState } from "react";
 import Button from "./Button";
 import MinusIcon from "./icons/MinusIcon";
@@ -6,11 +6,7 @@ import PlusIcon from "./icons/PlusIcon";
 import TrashIcon from "./icons/TrashIcon";
 import ShoppingCartIcon from "/icons/shopping-cart-gray.svg";
 
-export interface CartItemType extends Partial<ProductDetailType> {
-  quantity: number;
-}
-
-export default function ChartItemProduct({ item }: { item: CartItemType }) {
+export default function ChartItemProduct({ item }: { item: ProductType }) {
   const [quantity, setQuantity] = useState(item.quantity || 1);
 
   return (
@@ -20,7 +16,7 @@ export default function ChartItemProduct({ item }: { item: CartItemType }) {
         {/* Image & Info */}
         <div className="flex w-full flex-1 flex-row items-center gap-3 md:gap-[14px]">
           <img
-            src={item.image || "/images/lp-1.png"}
+            src={Array.isArray(item.image) ? item.image[0] : item.image || "/images/lp-1.png"}
             alt="Product"
             className="h-20 w-20 rounded object-cover md:h-[92px] md:w-[92px]"
           />
