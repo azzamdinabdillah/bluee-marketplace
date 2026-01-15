@@ -12,18 +12,18 @@ interface DetailsBoxListProps {
 
 export default function DetailsBoxList({ items }: DetailsBoxListProps) {
   return (
-    <div className="border-stroke-color flex flex-col gap-3 rounded-[20px] border p-3 md:gap-4 md:p-4">
+    <div className="border-stroke-color flex flex-col gap-3 rounded-[20px] border p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <div className="flex items-center gap-[10px]">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px]">
-              <img src={item.icon} alt={item.label} className="h-6 w-6" />
+          <div className="flex items-center gap-[10px] md:gap-3 lg:gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px] lg:h-[70px] lg:w-[70px]">
+              <img src={item.icon} alt={item.label} className="h-6 w-6 lg:h-8 lg:w-8" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-lexend text-black-color text-base font-bold md:text-lg">
+            <div className="flex flex-col gap-0.5 lg:gap-1">
+              <span className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
                 {item.value}
               </span>
-              <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
+              <span className="font-lexend text-sec-color text-sm font-semibold md:text-base lg:text-lg">
                 {item.label}
               </span>
             </div>

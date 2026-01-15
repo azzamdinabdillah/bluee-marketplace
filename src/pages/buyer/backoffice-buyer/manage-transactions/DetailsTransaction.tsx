@@ -4,12 +4,18 @@ import product2 from "/images/lp-2.png";
 import product3 from "/images/hp-3.png";
 import store from "/images/store.png";
 import userIcon from "/icons/user.svg";
+import userImage from "/images/user.png";
 import boxIcon from "/icons/box-black.svg";
 import shoppingCartIcon from "/icons/shopping-cart-black.svg";
 import calendarIcon from "/icons/calendar-2-black.svg";
+import emailIcon from "/icons/sms.svg";
+import buildingsIcon from "/icons/buildings-black.svg";
+import locationIcon from "/icons/routing.svg";
+import postCodeIcon from "/icons/keyboard.svg";
 import TransactionStatusSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsStatus";
 import ProductDetailsSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsProduct";
 import TransactionDetailsOrderReviews from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderReviews";
+import TransactionDetailsCustomer from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsCustomer";
 
 export default function DetailsTransaction() {
     const transactionDetails = [
@@ -57,6 +63,29 @@ export default function DetailsTransaction() {
         },
     ];
 
+    const customerDetails = [
+        {
+            icon: emailIcon,
+            value: "mamatgadger@gmail.com",
+            label: "Email",
+        },
+        {
+            icon: buildingsIcon,
+            value: "Malang",
+            label: "City Location",
+        },
+        {
+            icon: locationIcon,
+            value: "Wolf Street No 32",
+            label: "Street Address",
+        },
+        {
+            icon: postCodeIcon,
+            value: "32250",
+            label: "Post Code",
+        },
+    ];
+
     return (
         <TemplateLayoutBackoffice
             title="Manage Transactions"
@@ -75,6 +104,14 @@ export default function DetailsTransaction() {
                     />
 
                     <ProductDetailsSection products={products} />
+                </div>
+
+                <div className="flex flex-col gap-3 md:gap-5">
+                    <TransactionDetailsCustomer
+                        name="Mamat Gadger"
+                        image={userImage}
+                        details={customerDetails}
+                    />
                 </div>
 
             </div>
