@@ -143,7 +143,7 @@ export default function DetailsTransaction() {
                     />
 
                     <div className="w-full bg-white rounded-xl md:rounded-2xl lg:rounded-[20px] p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-5">
-                        <h3 className="font-lexend text-black-color text-lg font-bold md:text-xl lg:text-2xl">
+                        <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
                             Transaction Details
                         </h3>
 

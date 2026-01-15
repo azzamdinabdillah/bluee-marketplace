@@ -49,10 +49,10 @@ export default function TransactionDetailsStatus({ status }: TransactionDetailsS
 
     return (
         <div
-            className={`flex w-full items-center gap-2.5 rounded-[20px] bg-cover bg-center bg-no-repeat p-4 ${config.text} ${config.bg}`}
+            className={`flex w-full items-center gap-2.5 rounded-2xl md:rounded-[20px] bg-cover bg-center bg-no-repeat p-3 md:p-4 ${config.text} ${config.bg}`}
         >
-            <img src={config.icon} alt={status} className="h-9 w-9 shrink-0" />
-            <span className="text-base leading-[1.4] font-bold md:text-lg">
+            <img src={config.icon} alt={status} className="size-7 md:size-9 shrink-0" />
+            <span className="text-sm leading-[1.4] font-bold md:text-lg">
                 {config.label}
             </span>
         </div>

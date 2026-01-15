@@ -20,7 +20,7 @@ export default function TransactionDetailsCustomer({
 }: TransactionDetailsCustomerProps) {
     return (
         <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
-            <h3 className="font-lexend text-black-color text-sm font-bold md:text-base lg:text-xl">
+            <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
                 Customer Details
             </h3>
 
