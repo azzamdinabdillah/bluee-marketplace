@@ -9,7 +9,7 @@ export type TransactionStatusType =
     | "delivering"
     | "completed";
 
-interface TransactionStatusSectionProps {
+interface TransactionDetailsStatusProps {
     status: TransactionStatusType;
 }
 
@@ -44,7 +44,7 @@ const statusConfig = {
     },
 };
 
-export default function TransactionStatusSection({ status }: TransactionStatusSectionProps) {
+export default function TransactionDetailsStatus({ status }: TransactionDetailsStatusProps) {
     const config = statusConfig[status];
 
     return (

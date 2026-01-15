@@ -3,21 +3,13 @@ import arrowDownIcon from "/icons/arrow-circle-down.svg";
 import shoppingCartIcon from "/icons/shopping-cart-gray.svg";
 import bagIcon from "/icons/bag-gray.svg";
 import { useState } from "react";
-
-export interface Product {
-    id: number;
-    title: string;
-    category: string;
-    price: number;
-    quantity: number;
-    image: string;
-}
+import type { ProductType } from "@src/types/ProductTypes";
 
 interface ProductDetailsSectionProps {
-    products: Product[];
+    products: ProductType[];
 }
 
-export default function ProductDetailsSection({ products }: ProductDetailsSectionProps) {
+export default function TransactionDetailsProduct({ products }: ProductDetailsSectionProps) {
     const [openProductDetails, setOpenProductDetails] = useState(false);
 
     return (
@@ -51,12 +43,13 @@ export default function ProductDetailsSection({ products }: ProductDetailsSectio
                     <ProductDetailsCard
                         className="lg:p-4!"
                         key={product.id}
-                        image={product.image}
+                        id={product.id}
+                        image={product.image ?? ''}
                         title={product.title}
-                        category={product.category}
+                        category={product.category ?? ''}
                         categoryIcon={bagIcon}
-                        price={product.price}
-                        quantity={product.quantity}
+                        price={typeof product.price === 'number' ? product.price : 0}
+                        quantity={product.quantity ?? 0}
                     />
                 ))}
             </div>

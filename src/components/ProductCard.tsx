@@ -4,6 +4,7 @@ import StoreIcon from "./icons/StoreIcon";
 import Button from "./Button";
 import type { ProductType } from "../types/ProductTypes";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -22,6 +23,11 @@ export default function ProductCard({
   className = "",
 }: ProductType) {
   const images = Array.isArray(image) ? image : [image];
+  const [randomDelay, setRandomDelay] = useState(2000);
+
+  useEffect(() => {
+    setRandomDelay(2000 + Math.random() * 1000);
+  }, []);
 
   return (
     <div
@@ -34,7 +40,7 @@ export default function ProductCard({
             // effect="fade"
             modules={[Autoplay, Pagination, EffectFade]}
             autoplay={{
-              delay: 2000 + Math.random() * 1000,
+              delay: randomDelay,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}

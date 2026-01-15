@@ -1,15 +1,5 @@
+import type { ProductType } from "@src/types/ProductTypes";
 import ShoppingCart from "./icons/ShoppingCart";
-
-interface ProductDetailsCardProps {
-  image: string;
-  title: string;
-  category: string;
-  categoryIcon?: string;
-  weight?: string;
-  price: number;
-  quantity: number;
-  className?: string;
-}
 
 export default function ProductDetailsCard({
   image,
@@ -20,8 +10,8 @@ export default function ProductDetailsCard({
   price,
   quantity,
   className = "",
-}: ProductDetailsCardProps) {
-  const subtotal = price * quantity;
+}: ProductType) {
+  const subtotal = typeof price === 'number' && typeof quantity === 'number' ? price * quantity : 0;
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -42,7 +32,7 @@ export default function ProductDetailsCard({
         <div className="flex flex-1 flex-row min-w-0 gap-3 md:gap-4 lg:gap-[14px]">
           <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-[10px] bg-[#F3F5F9] md:h-20 md:w-20 lg:h-[92px] lg:w-[92px]">
             <img
-              src={image}
+              src={Array.isArray(image) ? image[0] : image}
               alt={title}
               className="h-full w-full object-contain p-2"
             />
@@ -77,7 +67,7 @@ export default function ProductDetailsCard({
         {/* Price & Qty */}
         <div className="flex shrink-0 flex-col items-end gap-1 text-right md:gap-1.5 lg:gap-2">
           <span className="text-primary-color text-sm font-bold md:text-base lg:text-[16px]">
-            {formatCurrency(price)}
+            {typeof price === 'number' ? formatCurrency(price) : 'Price not available'}
           </span>
           <span className="text-sec-color text-sm font-semibold md:text-base lg:text-[16px]">
             ({quantity}x)

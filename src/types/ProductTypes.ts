@@ -2,17 +2,20 @@ export interface ProductType {
   id: number;
   image?: string | string[];
   title: string;
-  price: string;
+  price: string | number;
   sold?: string | number;
   tag?: string;
-  store: string;
+  store?: string;
   onAddToCart?: () => void;
   onWishlist?: () => void;
   className?: string;
+  category?: string;
+  categoryIcon?: string;
+  quantity?: number;
+  weight?: string;
 }
 
 export interface ProductDetailType extends ProductType {
-  category: string;
   rating: number;
   reviewCount: number;
   condition: string;

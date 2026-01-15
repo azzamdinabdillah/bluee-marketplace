@@ -6,7 +6,7 @@ interface DetailItem {
     label: string;
 }
 
-interface TransactionDetailCardSectionProps {
+interface TransactionDetailsOrderReviewsProps {
     details: DetailItem[];
     brandImage: string;
     storeName: string;
@@ -14,13 +14,13 @@ interface TransactionDetailCardSectionProps {
     userName: string;
 }
 
-export default function TransactionDetailCardSection({
+export default function TransactionDetailsOrderReviews({
     details,
     brandImage,
     storeName,
     userImage,
     userName,
-}: TransactionDetailCardSectionProps) {
+}: TransactionDetailsOrderReviewsProps) {
     return (
         <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
             {/* Header */}

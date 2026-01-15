@@ -1,7 +1,7 @@
 import React from "react";
 import GlobalSearch from "@src/components/icons/GlobalSearch";
 
-type InputType = "text" | "password" | "email" | "number" | "tel" | "url" | "search";
+// type InputType = "text" | "password" | "email" | "number" | "tel" | "url" | "search";
 
 interface BaseProps {
   label: string;

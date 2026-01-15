@@ -7,9 +7,9 @@ import userIcon from "/icons/user.svg";
 import boxIcon from "/icons/box-black.svg";
 import shoppingCartIcon from "/icons/shopping-cart-black.svg";
 import calendarIcon from "/icons/calendar-2-black.svg";
-import TransactionStatusSection from "../sections/manage-transactions-sections/TransactionStatusSection";
-import TransactionDetailCardSection from "../sections/manage-transactions-sections/TransactionDetailCardSection";
-import ProductDetailsSection from "../sections/manage-transactions-sections/ProductDetailsSection";
+import TransactionStatusSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsStatus";
+import ProductDetailsSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsProduct";
+import TransactionDetailsOrderReviews from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderReviews";
 
 export default function DetailsTransaction() {
     const transactionDetails = [
@@ -66,7 +66,7 @@ export default function DetailsTransaction() {
                 <div className="flex flex-col gap-3 md:gap-5">
                     <TransactionStatusSection status="pending" />
 
-                    <TransactionDetailCardSection
+                    <TransactionDetailsOrderReviews
                         details={transactionDetails}
                         brandImage={store}
                         storeName="Bimore Gadget Universe"

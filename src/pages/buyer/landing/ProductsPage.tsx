@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Navbar from "@src/components/Navbar";
 import Footer from "@src/components/Footer";
 import ProductCard from "@src/components/ProductCard";
