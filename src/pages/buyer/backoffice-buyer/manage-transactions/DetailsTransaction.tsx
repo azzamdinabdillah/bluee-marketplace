@@ -21,6 +21,7 @@ import TransactionStatusSection from "../sections/manage-transactions-sections/t
 import ProductDetailsSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsProduct";
 import TransactionDetailsOrderReviews from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderReviews";
 import TransactionDetailsCustomer from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsCustomer";
+import TransactionDetailsOrderStatus from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderStatus";
 
 export default function DetailsTransaction() {
     const transactionDetails = [
@@ -178,6 +179,8 @@ export default function DetailsTransaction() {
                             </div>
                         </div>
                     </div>
+
+                    <TransactionDetailsOrderStatus />
                 </div>
 
             </div>
