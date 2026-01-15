@@ -7,11 +7,16 @@ import userIcon from "/icons/user.svg";
 import userImage from "/images/user.png";
 import boxIcon from "/icons/box-black.svg";
 import shoppingCartIcon from "/icons/shopping-cart-black.svg";
+import shoppingCartGrayIcon from "/icons/shopping-cart-gray.svg";
 import calendarIcon from "/icons/calendar-2-black.svg";
 import emailIcon from "/icons/sms.svg";
 import buildingsIcon from "/icons/buildings-black.svg";
 import locationIcon from "/icons/routing.svg";
 import postCodeIcon from "/icons/keyboard.svg";
+import receiptIcon from "/icons/receipt.svg";
+import truckIcon from "/icons/group-gray.svg";
+import noteIcon from "/icons/note-text.svg";
+import moneyIcon from "/icons/money.svg";
 import TransactionStatusSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsStatus";
 import ProductDetailsSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsProduct";
 import TransactionDetailsOrderReviews from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderReviews";
@@ -86,6 +91,29 @@ export default function DetailsTransaction() {
         },
     ];
 
+    const paymentSummary = [
+        {
+            icon: receiptIcon,
+            label: "Subtotal",
+            value: "Rp 202.702.500",
+        },
+        {
+            icon: shoppingCartGrayIcon,
+            label: "Service Fee",
+            value: "Rp 5.000",
+        },
+        {
+            icon: truckIcon,
+            label: "Delivery Fee",
+            value: "Rp 25.000",
+        },
+        {
+            icon: noteIcon,
+            label: "PPN 12%",
+            value: "Rp 40.000",
+        },
+    ];
+
     return (
         <TemplateLayoutBackoffice
             title="Manage Transactions"
@@ -112,6 +140,44 @@ export default function DetailsTransaction() {
                         image={userImage}
                         details={customerDetails}
                     />
+
+                    <div className="w-full bg-white rounded-[20px] p-3 md:p-4 lg:p-5 flex flex-col gap-4 md:gap-5">
+                        <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+                            Transaction Details
+                        </h3>
+
+                        <div className="flex flex-col gap-3 md:gap-4">
+                            {paymentSummary.map((item, index) => (
+                                <div key={index} className="flex flex-row items-center gap-1.5 w-full">
+                                    <div className="shrink-0 w-6 h-6 flex items-center justify-center">
+                                        <img src={item.icon} alt={item.label} className="w-full h-full object-contain" />
+                                    </div>
+                                    <span className="flex-1 text-sm md:text-base font-medium text-sec-color font-lexend text-left">
+                                        {item.label}
+                                    </span>
+                                    <span className="text-base md:text-lg font-bold font-lexend text-black-color text-right">
+                                        {item.value}
+                                    </span>
+                                </div>
+                            ))}
+
+                            {/* Divider */}
+                            <hr className="w-full h-px border border-stroke-color"></hr>
+
+                            {/* Grand Total */}
+                            <div className="flex flex-row items-center gap-1.5 w-full">
+                                <div className="shrink-0 w-6 h-6 flex items-center justify-center">
+                                    <img src={moneyIcon} alt="Grand Total" className="w-full h-full object-contain" />
+                                </div>
+                                <span className="flex-1 text-sm md:text-base font-medium text-sec-color font-lexend text-left">
+                                    Grand Total
+                                </span>
+                                <span className="text-base md:text-lg font-bold font-lexend text-primary-color text-right">
+                                    Rp 202.772.500
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
