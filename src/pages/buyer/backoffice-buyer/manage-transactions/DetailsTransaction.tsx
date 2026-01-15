@@ -1,79 +1,18 @@
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
-import DetailsBoxList from "@src/components/backoffice/DetailsBoxList";
-import ProductDetailsCard from "@src/components/ProductDetailsCard";
 import product1 from "/images/lp-1.png";
 import product2 from "/images/lp-2.png";
 import product3 from "/images/hp-3.png";
-import timerIcon from "/icons/timer.svg";
-import truckTimeIcon from "/icons/truck-time.svg";
-import truckFastIcon from "/icons/truck-fast.svg";
-import truckTickIcon from "/icons/truck-tick.svg";
+import store from "/images/store.png";
 import userIcon from "/icons/user.svg";
 import boxIcon from "/icons/box-black.svg";
-import shoppingCartIcon from "/icons/shopping-cart-gray.svg";
+import shoppingCartIcon from "/icons/shopping-cart-black.svg";
 import calendarIcon from "/icons/calendar-2-black.svg";
-import arrowDownIcon from "/icons/arrow-circle-down.svg";
-import bagIcon from "/icons/bag-gray.svg";
-import { useState } from "react";
+import TransactionStatusSection from "../sections/manage-transactions-sections/TransactionStatusSection";
+import TransactionDetailCardSection from "../sections/manage-transactions-sections/TransactionDetailCardSection";
+import ProductDetailsSection from "../sections/manage-transactions-sections/ProductDetailsSection";
 
-type TransactionStatusType =
-    | "pending"
-    | "processing"
-    | "delivering"
-    | "completed";
-
-interface TransactionStatusProps {
-    status: TransactionStatusType;
-}
-
-const statusConfig = {
-    pending: {
-        // bg-[#FED833] from Figma
-        bg: "bg-[url(/images/status-waiting.png)]",
-        text: "text-[#544607]",
-        icon: timerIcon,
-        label: "Order pending. Waiting for your approval",
-    },
-    processing: {
-        // bg-[#1053D5] from Figma
-        bg: "bg-[url(/images/status-processing.png)]",
-        text: "text-white",
-        icon: truckTimeIcon,
-        label: "Prepare the item for pickup by the courier",
-    },
-    delivering: {
-        // bg-[#FF7020] from Figma
-        bg: "bg-[url(/images/status-delivering.png)]",
-        text: "text-white",
-        icon: truckFastIcon,
-        label: "The order is heading to your address",
-    },
-    completed: {
-        // bg-[#00A48A] from Figma
-        bg: "bg-[url(/images/status-completed.png)]",
-        text: "text-white",
-        icon: truckTickIcon,
-        label: "The order is arrived to your address",
-    },
-};
-
-export function TransactionStatus({ status }: TransactionStatusProps) {
-    const config = statusConfig[status];
-
-    return (
-        <div
-            className={`flex w-full items-center gap-2.5 rounded-[20px] bg-cover bg-center bg-no-repeat p-4 ${config.text} ${config.bg}`}
-        >
-            <img src={config.icon} alt={status} className="h-9 w-9 shrink-0" />
-            <span className="text-base leading-[1.4] font-bold md:text-lg">
-                {config.label}
-            </span>
-        </div>
-    );
-}
-
-function TransactionDetailCard() {
-    const details = [
+export default function DetailsTransaction() {
+    const transactionDetails = [
         {
             icon: boxIcon,
             value: 3,
@@ -90,46 +29,6 @@ function TransactionDetailCard() {
             label: "Date Transaction",
         },
     ];
-
-    return (
-        <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
-            {/* Header */}
-            <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
-                Order Reviews
-            </h3>
-
-            {/* Product Info */}
-            <div className="flex items-center gap-3 md:gap-[14px]">
-                {/* Product Image */}
-                <div className="flex h-[70px] w-[70px] items-center justify-center rounded-full bg-[#F3F3F3] md:h-[80px] md:w-[80px] lg:h-[92px] lg:w-[92px]">
-                    <img
-                        src={product1}
-                        alt="Product"
-                        className="h-[60%] w-[60%] object-contain"
-                    />
-                </div>
-
-                <div className="flex flex-col gap-1 md:gap-[6px]">
-                    <h4 className="font-lexend text-black-color text-lg font-bold md:text-xl lg:text-[22px]">
-                        Bimore Gadget Universe
-                    </h4>
-                    <div className="flex items-center gap-1">
-                        <img src={userIcon} alt="User" className="h-5 w-5 md:h-6 md:w-6" />
-                        <span className="font-lexend text-sec-color text-sm font-semibold md:text-base lg:text-lg">
-                            Mamat Gadger
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Details Box */}
-            <DetailsBoxList items={details} />
-        </div>
-    );
-}
-
-export default function DetailsTransaction() {
-    const [openProductDetails, setOpenProductDetails] = useState(false);
 
     const products = [
         {
@@ -164,52 +63,18 @@ export default function DetailsTransaction() {
             subtitle="View & Update Your Transactions"
         >
             <div className="grid gap-4 lg:grid-cols-2">
-                {/* Example usage of the TransactionStatus component */}
                 <div className="flex flex-col gap-3 md:gap-5">
-                    <TransactionStatus status="pending" />
+                    <TransactionStatusSection status="pending" />
 
-                    <TransactionDetailCard />
+                    <TransactionDetailCardSection
+                        details={transactionDetails}
+                        brandImage={store}
+                        storeName="Bimore Gadget Universe"
+                        userImage={userIcon}
+                        userName="Mamat Gadger"
+                    />
 
-                    <div className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-4 md:gap-5 md:p-5">
-                        <div className="flex flex-col gap-2">
-                            <div className="flex items-center justify-between">
-                                <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
-                                    Product Details
-                                </h3>
-                                <img
-                                    src={arrowDownIcon}
-                                    alt="Toggle"
-                                    className={`h-6 w-6 cursor-pointer transition-transform duration-300 ${openProductDetails ? 'rotate-180' : 'rotate-0'}`}
-                                    onClick={() => setOpenProductDetails(!openProductDetails)}
-                                />
-                            </div>
-                            <div className="flex items-center gap-1">
-                                <img
-                                    src={shoppingCartIcon}
-                                    alt="Cart"
-                                    className="h-6 w-6"
-                                />
-                                <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
-                                    4 Total Products
-                                </span>
-                            </div>
-                        </div>
-
-                        <div style={{ interpolateSize: 'allow-keywords' }} className={`flex overflow-hidden flex-col transition-all duration-500 gap-4 ${openProductDetails ? 'h-auto' : 'h-0'}`}>
-                            {products.map((product) => (
-                                <ProductDetailsCard
-                                    className="lg:p-4!"
-                                    key={product.id}
-                                    image={product.image}
-                                    title={product.title}
-                                    category={product.category}
-                                    categoryIcon={bagIcon}
-                                    price={product.price}
-                                    quantity={product.quantity}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                    <ProductDetailsSection products={products} />
                 </div>
 
             </div>
