@@ -5,6 +5,7 @@ import shoppingCartIcon from '/icons/shopping-cart.svg';
 import moneyIcon from '/icons/money.svg';
 import exportIcon from '/icons/receive-square.svg';
 import detailsIcon from '/icons/eye.svg';
+import StatusBadge, { type StatusBadgeVariant } from './StatusBadge';
 
 interface TransactionCardProps {
     storeName: string;
@@ -17,7 +18,7 @@ interface TransactionCardProps {
     onDetails?: () => void;
     headerDate?: string;
     status?: string;
-    statusVariant?: 'delivering' | 'completed' | 'pending' | 'processing' | 'default';
+    statusVariant?: StatusBadgeVariant;
 }
 
 export default function TransactionCard({
@@ -33,23 +34,6 @@ export default function TransactionCard({
     status,
     statusVariant = 'default'
 }: TransactionCardProps) {
-    const getStatusStyles = (variant: string) => {
-        switch (variant) {
-            case 'delivering':
-                return { bg: 'bg-[#FF702117]', text: 'text-[#FF7020]' };
-            case 'completed':
-                return { bg: 'bg-[#00A48A17]', text: 'text-[#00A48A]' };
-            case 'pending':
-                return { bg: 'bg-[#FED833]', text: 'text-[#544607]' };
-            case 'processing':
-                return { bg: 'bg-[#1053D517]', text: 'text-[#1053D5]' };
-            default:
-                return { bg: 'bg-gray-100', text: 'text-gray-600' };
-        }
-    };
-
-    const statusStyle = getStatusStyles(statusVariant);
-
     return (
         <div className="flex flex-col gap-4 md:gap-5 lg:gap-6 p-4 md:p-5 lg:p-[18px_20px] bg-white rounded-2xl md:rounded-[20px] border border-stroke-color w-full">
             {/* Header Section (Optional) */}
@@ -67,15 +51,7 @@ export default function TransactionCard({
                             <div></div>
                         )}
                         {status && (
-                            <div
-                                className={`px-3 py-2 md:px-4 md:py-2.5 lg:px-[18px] lg:py-[12px] rounded-full flex flex-col items-center justify-center ${statusStyle.bg}`}
-                            >
-                                <span
-                                    className={`font-lexend font-bold text-[10px] md:text-sm lg:text-base uppercase ${statusStyle.text}`}
-                                >
-                                    {status}
-                                </span>
-                            </div>
+                            <StatusBadge status={status} variant={statusVariant} />
                         )}
                     </div>
 
