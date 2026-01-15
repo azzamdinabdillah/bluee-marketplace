@@ -4,7 +4,8 @@ interface ProductDetailsCardProps {
   image: string;
   title: string;
   category: string;
-  weight: string;
+  categoryIcon?: string;
+  weight?: string;
   price: number;
   quantity: number;
   className?: string;
@@ -14,6 +15,7 @@ export default function ProductDetailsCard({
   image,
   title,
   category,
+  categoryIcon,
   weight,
   price,
   quantity,
@@ -37,7 +39,7 @@ export default function ProductDetailsCard({
       {/* Top Section */}
       <div className="flex flex-row items-start justify-between gap-3 md:gap-4 lg:gap-[14px]">
         {/* Image & Info */}
-        <div className="flex flex-1 flex-row gap-3 md:gap-4 lg:gap-[14px]">
+        <div className="flex flex-1 flex-row min-w-0 gap-3 md:gap-4 lg:gap-[14px]">
           <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-[10px] bg-[#F3F5F9] md:h-20 md:w-20 lg:h-[92px] lg:w-[92px]">
             <img
               src={image}
@@ -45,18 +47,29 @@ export default function ProductDetailsCard({
               className="h-full w-full object-contain p-2"
             />
           </div>
-          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-[6px]">
-            <h3 className="text-black-color line-clamp-2 text-sm font-bold md:text-base lg:text-[18px]">
+          <div className="flex flex-1 flex-col min-w-0 gap-1 md:gap-1.5 lg:gap-[6px]">
+            <h3 className="text-black-color truncate text-sm font-bold md:text-base lg:text-[18px]">
               {title}
             </h3>
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-primary-color text-xs font-bold md:text-sm lg:text-[16px]">
+              {categoryIcon && (
+                <img
+                  src={categoryIcon}
+                  alt="Category"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                />
+              )}
+              <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
                 {category}
               </span>
-              <span className="text-sec-color text-sm lg:text-[22px]">•</span>
-              <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
-                {weight}
-              </span>
+              {weight && (
+                <>
+                  <span className="text-sec-color text-sm lg:text-[22px]">•</span>
+                  <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
+                    {weight}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -77,7 +90,7 @@ export default function ProductDetailsCard({
 
       {/* Bottom Section */}
       <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center gap-1 md:gap-2">
+        <div className="flex flex-row items-center gap-1">
           <ShoppingCart className="text-sec-color h-4 w-4 md:h-5 md:w-5" />
           <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
             Subtotal
