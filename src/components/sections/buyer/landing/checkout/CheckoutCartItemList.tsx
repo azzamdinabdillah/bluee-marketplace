@@ -1,10 +1,10 @@
-import { type CartItemType } from "@src/components/CartItemProduct";
 import StoreIcon from "@src/components/icons/StoreIcon";
 import ProductDetailsCard from "@src/components/ProductDetailsCard";
+import type { ProductType } from "@src/types/ProductTypes";
 
 interface StoreGroup {
   storeName: string;
-  items: CartItemType[];
+  items: ProductType[];
 }
 
 interface CartItemListProps {
@@ -33,6 +33,7 @@ export default function CheckoutCartItemList({ stores }: CartItemListProps) {
             <div className="flex flex-col gap-5">
               {store.items.map((item, itemIndex) => (
                 <ProductDetailsCard
+                  id={Number(item.id) || 0}
                   key={itemIndex}
                   image={
                     typeof item.image === "string"
@@ -42,7 +43,7 @@ export default function CheckoutCartItemList({ stores }: CartItemListProps) {
                   title={item.title || ""}
                   category={item.category || ""}
                   weight={item.weight || ""}
-                  price={parseInt(item.price?.replace(/[^0-9]/g, "") || "0")}
+                  price={item.price || ""}
                   quantity={item.quantity}
                 />
               ))}

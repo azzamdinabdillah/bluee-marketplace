@@ -1,10 +1,11 @@
-import type { CartItemType } from "@src/components/CartItemProduct";
+import type { ProductType } from "@src/types/ProductTypes";
 
-export const cartItems: { storeName: string; items: CartItemType[] }[] = [
+export const cartItems: { storeName: string; items: ProductType[] }[] = [
   {
     storeName: "Bimore Gadget Universe",
     items: [
       {
+        id: 1,
         title: "Macbook Pro M2",
         category: "Gadget",
         weight: "3 KG",
@@ -13,6 +14,7 @@ export const cartItems: { storeName: string; items: CartItemType[] }[] = [
         image: "/images/lp-1.png",
       },
       {
+        id: 2,
         title: "iPhone 14 Pro Blue",
         category: "Gadget",
         weight: "3 KG",
@@ -26,6 +28,7 @@ export const cartItems: { storeName: string; items: CartItemType[] }[] = [
     storeName: "Rafly Gadget Universe",
     items: [
       {
+        id: 3,
         title: "iPhone 16 Pro Max Gold",
         category: "Gadget",
         weight: "3 KG",
@@ -34,6 +37,7 @@ export const cartItems: { storeName: string; items: CartItemType[] }[] = [
         image: "/images/hp-1.png",
       },
       {
+        id: 4,
         title: "Macbook Pro M2",
         category: "Gadget",
         weight: "3 KG",
