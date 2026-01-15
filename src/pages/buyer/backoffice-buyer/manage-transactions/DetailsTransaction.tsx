@@ -14,6 +14,7 @@ import shoppingCartIcon from "/icons/shopping-cart-gray.svg";
 import calendarIcon from "/icons/calendar-2-black.svg";
 import arrowDownIcon from "/icons/arrow-circle-down.svg";
 import bagIcon from "/icons/bag-gray.svg";
+import { useState } from "react";
 
 type TransactionStatusType =
     | "pending"
@@ -128,6 +129,8 @@ function TransactionDetailCard() {
 }
 
 export default function DetailsTransaction() {
+    const [openProductDetails, setOpenProductDetails] = useState(false);
+
     const products = [
         {
             id: 1,
@@ -176,7 +179,8 @@ export default function DetailsTransaction() {
                                 <img
                                     src={arrowDownIcon}
                                     alt="Toggle"
-                                    className="h-6 w-6 cursor-pointer"
+                                    className={`h-6 w-6 cursor-pointer transition-transform duration-300 ${openProductDetails ? 'rotate-180' : 'rotate-0'}`}
+                                    onClick={() => setOpenProductDetails(!openProductDetails)}
                                 />
                             </div>
                             <div className="flex items-center gap-1">
@@ -191,7 +195,7 @@ export default function DetailsTransaction() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-4">
+                        <div style={{ interpolateSize: 'allow-keywords' }} className={`flex overflow-hidden flex-col transition-all duration-500 gap-4 ${openProductDetails ? 'h-auto' : 'h-0'}`}>
                             {products.map((product) => (
                                 <ProductDetailsCard
                                     className="lg:p-4!"
