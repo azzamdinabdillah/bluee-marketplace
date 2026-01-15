@@ -24,166 +24,177 @@ import TransactionDetailsCustomer from "../sections/manage-transactions-sections
 import TransactionDetailsOrderStatus from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderStatus";
 
 export default function DetailsTransaction() {
-    const transactionDetails = [
-        {
-            icon: boxIcon,
-            value: 3,
-            label: "Total Products",
-        },
-        {
-            icon: shoppingCartIcon,
-            value: 21,
-            label: "Total Quantity",
-        },
-        {
-            icon: calendarIcon,
-            value: "4 April 2025",
-            label: "Date Transaction",
-        },
-    ];
+  const transactionDetails = [
+    {
+      icon: boxIcon,
+      value: 3,
+      label: "Total Products",
+    },
+    {
+      icon: shoppingCartIcon,
+      value: 21,
+      label: "Total Quantity",
+    },
+    {
+      icon: calendarIcon,
+      value: "4 April 2025",
+      label: "Date Transaction",
+    },
+  ];
 
-    const products = [
-        {
-            id: 1,
-            title: "Iphone 15 Pro Max",
-            category: "Electronics",
-            price: 18120500,
-            quantity: 6,
-            image: product1,
-        },
-        {
-            id: 2,
-            title: "Macbook Pro M1",
-            category: "Electronics",
-            price: 21500500,
-            quantity: 3,
-            image: product2,
-        },
-        {
-            id: 3,
-            title: "Airpods Gen 12",
-            category: "Electronics",
-            price: 2456500,
-            quantity: 12,
-            image: product3,
-        },
-    ];
+  const products = [
+    {
+      id: 1,
+      title: "Iphone 15 Pro Max",
+      category: "Electronics",
+      price: 18120500,
+      quantity: 6,
+      image: product1,
+    },
+    {
+      id: 2,
+      title: "Macbook Pro M1",
+      category: "Electronics",
+      price: 21500500,
+      quantity: 3,
+      image: product2,
+    },
+    {
+      id: 3,
+      title: "Airpods Gen 12",
+      category: "Electronics",
+      price: 2456500,
+      quantity: 12,
+      image: product3,
+    },
+  ];
 
-    const customerDetails = [
-        {
-            icon: emailIcon,
-            value: "mamatgadger@gmail.com",
-            label: "Email",
-        },
-        {
-            icon: buildingsIcon,
-            value: "Malang",
-            label: "City Location",
-        },
-        {
-            icon: locationIcon,
-            value: "Wolf Street No 32",
-            label: "Street Address",
-        },
-        {
-            icon: postCodeIcon,
-            value: "32250",
-            label: "Post Code",
-        },
-    ];
+  const customerDetails = [
+    {
+      icon: emailIcon,
+      value: "mamatgadger@gmail.com",
+      label: "Email",
+    },
+    {
+      icon: buildingsIcon,
+      value: "Malang",
+      label: "City Location",
+    },
+    {
+      icon: locationIcon,
+      value: "Wolf Street No 32",
+      label: "Street Address",
+    },
+    {
+      icon: postCodeIcon,
+      value: "32250",
+      label: "Post Code",
+    },
+  ];
 
-    const paymentSummary = [
-        {
-            icon: receiptIcon,
-            label: "Subtotal",
-            value: "Rp 202.702.500",
-        },
-        {
-            icon: shoppingCartGrayIcon,
-            label: "Service Fee",
-            value: "Rp 5.000",
-        },
-        {
-            icon: truckIcon,
-            label: "Delivery Fee",
-            value: "Rp 25.000",
-        },
-        {
-            icon: noteIcon,
-            label: "PPN 12%",
-            value: "Rp 40.000",
-        },
-    ];
+  const paymentSummary = [
+    {
+      icon: receiptIcon,
+      label: "Subtotal",
+      value: "Rp 202.702.500",
+    },
+    {
+      icon: shoppingCartGrayIcon,
+      label: "Service Fee",
+      value: "Rp 5.000",
+    },
+    {
+      icon: truckIcon,
+      label: "Delivery Fee",
+      value: "Rp 25.000",
+    },
+    {
+      icon: noteIcon,
+      label: "PPN 12%",
+      value: "Rp 40.000",
+    },
+  ];
 
-    return (
-        <TemplateLayoutBackoffice
-            title="Manage Transactions"
-            subtitle="View & Update Your Transactions"
-        >
-            <div className="grid gap-4 lg:grid-cols-2">
-                <div className="flex flex-col gap-3 md:gap-5">
-                    <TransactionStatusSection status="pending" />
+  return (
+    <TemplateLayoutBackoffice
+      title="Manage Transactions"
+      subtitle="View & Update Your Transactions"
+    >
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="flex flex-col gap-3 md:gap-5">
+          <TransactionStatusSection status="pending" />
 
-                    <TransactionDetailsOrderReviews
-                        details={transactionDetails}
-                        brandImage={store}
-                        storeName="Bimore Gadget Universe"
-                        userImage={userIcon}
-                        userName="Mamat Gadger"
+          <TransactionDetailsOrderReviews
+            details={transactionDetails}
+            brandImage={store}
+            storeName="Bimore Gadget Universe"
+            userImage={userIcon}
+            userName="Mamat Gadger"
+          />
+
+          <ProductDetailsSection products={products} />
+        </div>
+
+        <div className="flex flex-col gap-3 md:gap-5">
+          <TransactionDetailsCustomer
+            phoneNumber={"081255553005"}
+            name="Mamat Gadger"
+            image={userImage}
+            details={customerDetails}
+          />
+
+          <div className="flex w-full flex-col gap-3 rounded-xl bg-white p-3 md:gap-4 md:rounded-2xl md:p-4 lg:gap-5 lg:rounded-[20px] lg:p-5">
+            <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+              Transaction Details
+            </h3>
+
+            <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+              {paymentSummary.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex w-full flex-row items-center gap-1.5"
+                >
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center md:h-6 md:w-6">
+                    <img
+                      src={item.icon}
+                      alt={item.label}
+                      className="h-full w-full object-contain"
                     />
-
-                    <ProductDetailsSection products={products} />
+                  </div>
+                  <span className="text-sec-color font-lexend flex-1 text-left text-sm font-medium md:text-base">
+                    {item.label}
+                  </span>
+                  <span className="font-lexend text-black-color text-right text-base font-bold md:text-lg">
+                    {item.value}
+                  </span>
                 </div>
+              ))}
 
-                <div className="flex flex-col gap-3 md:gap-5">
-                    <TransactionDetailsCustomer
-                        name="Mamat Gadger"
-                        image={userImage}
-                        details={customerDetails}
-                    />
+              {/* Divider */}
+              <hr className="border-stroke-color h-px w-full border"></hr>
 
-                    <div className="w-full bg-white rounded-xl md:rounded-2xl lg:rounded-[20px] p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-5">
-                        <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
-                            Transaction Details
-                        </h3>
-
-                        <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
-                            {paymentSummary.map((item, index) => (
-                                <div key={index} className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-3 w-full">
-                                    <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
-                                        <img src={item.icon} alt={item.label} className="w-full h-full object-contain" />
-                                    </div>
-                                    <span className="flex-1 text-sm md:text-base lg:text-lg font-medium text-sec-color font-lexend text-left">
-                                        {item.label}
-                                    </span>
-                                    <span className="text-base md:text-lg lg:text-xl font-bold font-lexend text-black-color text-right">
-                                        {item.value}
-                                    </span>
-                                </div>
-                            ))}
-
-                            {/* Divider */}
-                            <hr className="w-full h-px border border-stroke-color"></hr>
-
-                            {/* Grand Total */}
-                            <div className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-3 w-full">
-                                <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
-                                    <img src={moneyIcon} alt="Grand Total" className="w-full h-full object-contain" />
-                                </div>
-                                <span className="flex-1 text-sm md:text-base lg:text-lg font-medium text-sec-color font-lexend text-left">
-                                    Grand Total
-                                </span>
-                                <span className="text-base md:text-lg lg:text-xl font-bold font-lexend text-primary-color text-right">
-                                    Rp 202.772.500
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <TransactionDetailsOrderStatus />
+              {/* Grand Total */}
+              <div className="flex w-full flex-row items-center gap-1.5">
+                <div className="flex h-5 w-5 shrink-0 items-center justify-center md:h-6 md:w-6">
+                  <img
+                    src={moneyIcon}
+                    alt="Grand Total"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
-
+                <span className="text-sec-color font-lexend flex-1 text-left text-sm font-medium md:text-base lg:text-lg">
+                  Grand Total
+                </span>
+                <span className="font-lexend text-primary-color text-right text-base font-bold md:text-lg lg:text-xl">
+                  Rp 202.772.500
+                </span>
+              </div>
             </div>
-        </TemplateLayoutBackoffice>
-    );
+          </div>
+
+          <TransactionDetailsOrderStatus />
+        </div>
+      </div>
+    </TemplateLayoutBackoffice>
+  );
 }

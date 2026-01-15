@@ -10,7 +10,7 @@ interface ProductDetailsSectionProps {
 }
 
 export default function TransactionDetailsProduct({ products }: ProductDetailsSectionProps) {
-    const [openProductDetails, setOpenProductDetails] = useState(false);
+    const [openProductDetails, setOpenProductDetails] = useState(true);
 
     return (
         <div className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-4 md:gap-5 md:p-5">

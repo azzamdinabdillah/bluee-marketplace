@@ -10,6 +10,7 @@ interface DetailItem {
 interface TransactionDetailsCustomerProps {
     name: string;
     image: string;
+    phoneNumber: number | string;
     details: DetailItem[];
 }
 
@@ -17,6 +18,7 @@ export default function TransactionDetailsCustomer({
     name,
     image,
     details,
+    phoneNumber
 }: TransactionDetailsCustomerProps) {
     return (
         <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
@@ -39,7 +41,7 @@ export default function TransactionDetailsCustomer({
                     </h4>
                     <div className="font-lexend flex gap-1 items-center text-sec-color text-xs font-semibold md:text-sm lg:text-[18px]">
                         <img src={Phone} alt="" className="h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
-                        Customer
+                        {phoneNumber}
                     </div>
                 </div>
             </div>

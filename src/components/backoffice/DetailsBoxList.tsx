@@ -16,14 +16,14 @@ export default function DetailsBoxList({ items }: DetailsBoxListProps) {
       {items.map((item, index) => (
         <React.Fragment key={index}>
           <div className="flex items-center gap-[10px] md:gap-3 lg:gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F3F3] md:h-[60px] md:w-[60px] lg:h-[70px] lg:w-[70px]">
-              <img src={item.icon} alt={item.label} className="h-6 w-6 lg:h-8 lg:w-8" />
+            <div className="flex size-12 items-center justify-center rounded-full bg-[#F3F3F3] md:size-[56px]">
+              <img src={item.icon} alt={item.label} className="size-5 md:size-6" />
             </div>
             <div className="flex flex-col gap-0.5 lg:gap-1">
-              <span className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+              <span className="font-lexend text-black-color text-base font-bold md:text-lg">
                 {item.value}
               </span>
-              <span className="font-lexend text-sec-color text-sm font-semibold md:text-base lg:text-lg">
+              <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
                 {item.label}
               </span>
             </div>

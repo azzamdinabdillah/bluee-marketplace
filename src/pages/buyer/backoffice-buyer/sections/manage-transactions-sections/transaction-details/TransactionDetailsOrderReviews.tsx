@@ -29,13 +29,13 @@ export default function TransactionDetailsOrderReviews({
             </h3>
 
             {/* Product Info */}
-            <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
+            <div className="flex items-center gap-3 md:gap-[14px]">
                 {/* Product Image */}
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F3F3F3] md:h-20 md:w-20 lg:h-[92px] lg:w-[92px]">
                     <img
                         src={brandImage}
                         alt="Brand"
-                        className="h-[60%] w-[60%] object-contain"
+                        className="size-[45%] object-contain"
                     />
                 </div>
 
@@ -43,13 +43,13 @@ export default function TransactionDetailsOrderReviews({
                     <h4 className="font-lexend text-black-color text-base font-bold md:text-xl lg:text-[22px]">
                         {storeName}
                     </h4>
-                    <div className="flex items-center gap-1.5 md:gap-2 lg:gap-2.5">
+                    <div className="flex items-center gap-1">
                         <img
                             src={userImage}
                             alt="User"
-                            className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7"
+                            className="size-5 md:size-6"
                         />
-                        <span className="font-lexend text-sec-color text-sm font-semibold md:text-base lg:text-lg">
+                        <span className="font-lexend text-sec-color font-semibold text-base md:text-lg">
                             {userName}
                         </span>
                     </div>
