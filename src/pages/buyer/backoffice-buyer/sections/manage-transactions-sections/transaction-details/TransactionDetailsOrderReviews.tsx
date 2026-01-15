@@ -29,9 +29,9 @@ export default function TransactionDetailsOrderReviews({
             </h3>
 
             {/* Product Info */}
-            <div className="flex items-center gap-3 md:gap-[14px]">
+            <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
                 {/* Product Image */}
-                <div className="flex h-[70px] w-[70px] items-center justify-center rounded-full bg-[#F3F3F3] md:h-[80px] md:w-[80px] lg:h-[92px] lg:w-[92px]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F3F3F3] md:h-20 md:w-20 lg:h-[92px] lg:w-[92px]">
                     <img
                         src={brandImage}
                         alt="Brand"
@@ -39,12 +39,16 @@ export default function TransactionDetailsOrderReviews({
                     />
                 </div>
 
-                <div className="flex flex-col gap-1 md:gap-[6px]">
-                    <h4 className="font-lexend text-black-color text-lg font-bold md:text-xl lg:text-[22px]">
+                <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+                    <h4 className="font-lexend text-black-color text-base font-bold md:text-xl lg:text-[22px]">
                         {storeName}
                     </h4>
-                    <div className="flex items-center gap-1">
-                        <img src={userImage} alt="User" className="h-5 w-5 md:h-6 md:w-6" />
+                    <div className="flex items-center gap-1.5 md:gap-2 lg:gap-2.5">
+                        <img
+                            src={userImage}
+                            alt="User"
+                            className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7"
+                        />
                         <span className="font-lexend text-sec-color text-sm font-semibold md:text-base lg:text-lg">
                             {userName}
                         </span>
