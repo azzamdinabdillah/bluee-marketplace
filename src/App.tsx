@@ -10,6 +10,7 @@ import ProductsPage from "./pages/buyer/landing/ProductsPage";
 import Overview from "./pages/buyer/backoffice-buyer/Overview";
 import MyTransactions from "./pages/buyer/backoffice-buyer/manage-transactions/MyTransactions";
 import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactions/DetailsTransaction";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/cart">
           <Route index element={<Cart />} />
