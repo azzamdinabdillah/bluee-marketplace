@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import StatusBadge from "@src/components/backoffice/StatusBadge";
 import Button from "@src/components/Button";
 import truckIcon from "/icons/group.svg";
-import barcodeIcon from "/icons/barcode.svg";
-import locationIcon from "/icons/location.svg";
+import locationIcon from "/icons/routing-gray.svg";
 import proofImage from "/images/proof.png";
+import Modal from "@src/components/Modal";
+import boxTickIcon from "/icons/box-tick.svg";
 
 const STEPS = [
     { id: 1, label: "Book Review" },
@@ -103,7 +104,7 @@ export default function TransactionDetailsOrderStatus() {
                         <hr className="border-stroke-color" />
 
                         {/* Mark Completed Button */}
-                        <Button variant="blue" className="w-full rounded-full!">
+                        <Button variant="blue" className="w-full rounded-full!" popoverTarget="completion-modal">
                             Mark This Transaction Completed
                         </Button>
                     </div>
@@ -228,6 +229,42 @@ export default function TransactionDetailsOrderStatus() {
                     </Button>
                 </div>
             </div>
+
+            <Modal id="completion-modal" title="Order confirmation">
+                <div className="flex flex-col items-center justify-center gap-4 md:gap-6 text-center">
+                    <div className="flex flex-col gap-3 my-3 md:my-6 lg:my-8 items-center">
+                        <img
+                            src={boxTickIcon}
+                            alt="Confirm"
+                            className="size-10 md:size-[52px]"
+                        />
+                        <h4 className="font-lexend text-sm md:text-base font-bold text-black-color">
+                            Are you sure you want to finish this order? Please ensure you’ve received the item as ordered
+                        </h4>
+                    </div>
+
+                    <div className="flex w-full flex-col gap-3">
+                        <Button
+                            variant="blue"
+                            className="w-full justify-center"
+                            onClick={() => {
+                                document.getElementById("completion-modal")?.hidePopover();
+                                setCurrentStep(4);
+                            }}
+                        >
+                            Yes, Finish the order
+                        </Button>
+                        <Button
+                            variant="gray"
+                            className="w-full justify-center text-black-color!"
+                            popoverTarget="completion-modal"
+                            popoverTargetAction="hide"
+                        >
+                            Cancel
+                        </Button>
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 }
