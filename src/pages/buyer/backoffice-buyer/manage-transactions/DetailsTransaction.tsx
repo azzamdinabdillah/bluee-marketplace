@@ -122,7 +122,13 @@ export default function DetailsTransaction() {
     >
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="flex flex-col gap-3 md:gap-5">
-          <TransactionStatusSection status="pending" />
+          <div className="flex flex-col gap-3 md:gap-5">
+            <TransactionStatusSection status="pending" />
+            <TransactionStatusSection status="processing" />
+            <TransactionStatusSection status="delivering" />
+            <TransactionStatusSection status="completed" />
+          </div>
+
 
           <TransactionDetailsOrderReviews
             details={transactionDetails}

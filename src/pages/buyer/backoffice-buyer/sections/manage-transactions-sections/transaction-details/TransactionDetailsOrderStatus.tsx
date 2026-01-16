@@ -18,7 +18,7 @@ const STEPS = [
 ];
 
 export default function TransactionDetailsOrderStatus() {
-    const [currentStep, setCurrentStep] = useState<number>(2); // Defaulting to 2 as per original design implication
+    const [currentStep, setCurrentStep] = useState<number>(1); // Defaulting to 2 as per original design implication
     const [rating, setRating] = useState<number>(0);
     const [review, setReview] = useState<string>("");
 
@@ -180,7 +180,7 @@ export default function TransactionDetailsOrderStatus() {
                     {/* Progress Line */}
                     <div
                         className="absolute left-0 top-1/2 translate-y-[-150%] h-2 rounded-[50px] bg-[#CBEE5A] md:h-3 transition-all duration-300 ease-in-out"
-                        style={{ width: progressWidth }}
+                        style={{ width: currentStep === 1 ? '15%' : progressWidth }}
                     />
 
                     {/* Step 1: Book Review */}
