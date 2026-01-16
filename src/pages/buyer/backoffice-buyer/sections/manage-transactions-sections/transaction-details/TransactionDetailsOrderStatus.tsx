@@ -3,6 +3,7 @@ import StatusBadge from "@src/components/backoffice/StatusBadge";
 import Button from "@src/components/Button";
 import truckIcon from "/icons/group.svg";
 import barcodeIcon from "/icons/barcode.svg";
+import locationIcon from "/icons/location.svg";
 import proofImage from "/images/proof.png";
 
 const STEPS = [
@@ -54,88 +55,102 @@ export default function TransactionDetailsOrderStatus() {
                     </div>
                 );
 
-            // case 2:
-            //     // Existing Content for "Processing" (assumed)
-            //     return (
-            //         <>
-            //             {/* Delivery Status Row */}
-            //             <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
-            //                 <div className="flex flex-row items-center gap-1.5 md:gap-2">
-            //                     <img
-            //                         src={truckIcon}
-            //                         alt="Delivery Status"
-            //                         className="h-5 w-5 object-contain md:h-6 md:w-6"
-            //                     />
-            //                     <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
-            //                         Delivery Status
-            //                     </span>
-            //                 </div>
-            //                 <StatusBadge status="Pending" variant="pending" />
-            //             </div>
-
-            //             <hr className="border-stroke-color" />
-
-            //             {/* Photo Section */}
-            //             <div className="flex w-full items-center justify-between gap-4">
-            //                 <div className="relative h-[80px] w-[80px] shrink-0 overflow-hidden rounded-[16px] bg-[#F6F7F9] md:h-[90px] md:w-[90px] lg:h-[100px] lg:w-[100px]">
-            //                     <img
-            //                         src={proofImage}
-            //                         alt="Proof of Delivery"
-            //                         className="h-full w-full object-cover"
-            //                     />
-            //                 </div>
-            //                 <Button variant="black" className="w-fit">
-            //                     Change Photo
-            //                 </Button>
-            //             </div>
-
-            //             {/* Tracking Number Section */}
-            //             <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
-            //                 <h4 className="font-lexend text-xs font-semibold text-[#6A7686] md:text-sm lg:text-base">
-            //                     Tracking Number
-            //                 </h4>
-            //                 <div className="flex w-full items-center gap-3 rounded-[14px] ring-[1.5px] ring-stroke-color p-3 md:gap-4 md:rounded-[16px] md:p-4 lg:rounded-[18px] lg:px-5 lg:py-[18px]">
-            //                     <img
-            //                         src={barcodeIcon}
-            //                         alt="Tracking Icon"
-            //                         className="h-5 w-5 object-contain md:h-6 md:w-6"
-            //                     />
-
-            //                     {/* Vertical Divider */}
-            //                     <div className="h-8 w-[1.5px] bg-[#E8E8E8] md:h-10" />
-
-            //                     <div className="flex flex-col">
-            //                         <span className="font-lexend text-xs font-semibold text-[#6A7686] md:text-sm">
-            //                             Enter Tracking Number
-            //                         </span>
-            //                         <span className="font-lexend text-sm font-bold text-[#292D32] md:text-base lg:text-lg">
-            //                             2500050102015
-            //                         </span>
-            //                     </div>
-            //                 </div>
-            //             </div>
-
-            //             {/* Update Button */}
-            //             <Button variant="blue" className="mt-2 w-full rounded-full!">
-            //                 Update Status
-            //             </Button>
-            //         </>
-            //     );
             case 3:
                 return (
+                    /* Step 3: Shipping - Figma Node 3185:19528 */
                     <div className="flex flex-col gap-4">
-                        <div className="p-4 rounded-xl bg-blue-50 border border-blue-200">
-                            <h4 className="font-lexend font-bold text-lg text-blue-700">Shipping in Progress</h4>
-                            <p className="text-blue-500 text-sm">Your order is on the way!</p>
+                        {/* Hero Image */}
+                        <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-[260px]">
+                            <img
+                                src={proofImage}
+                                alt="Shipping Proof"
+                                className="h-full w-full object-cover"
+                            />
                         </div>
+
+                        {/* Delivery Status Row */}
+                        <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+                            <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                                <img
+                                    src={truckIcon}
+                                    alt="Delivery Status"
+                                    className="h-5 w-5 object-contain md:h-6 md:w-6"
+                                />
+                                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                                    Delivery Status
+                                </span>
+                            </div>
+                            <StatusBadge status="Delivering" variant="delivering" />
+                        </div>
+
+                        {/* Tracking Number Row */}
+                        <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+                            <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                                <img
+                                    src={locationIcon}
+                                    alt="Tracking Number"
+                                    className="h-5 w-5 object-contain md:h-6 md:w-6"
+                                />
+                                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                                    Tracking Number
+                                </span>
+                            </div>
+                            <span className="font-lexend text-sm font-bold text-[#292D32] md:text-base lg:text-lg">
+                                2500050102015
+                            </span>
+                        </div>
+
+                        <hr className="border-stroke-color" />
+
+                        {/* Mark Completed Button */}
+                        <Button variant="blue" className="w-full rounded-full!">
+                            Mark This Transaction Completed
+                        </Button>
                     </div>
                 );
             case 4:
                 return (
+                    /* Step 3: Shipping - Figma Node 3185:19528 */
                     <div className="flex flex-col gap-4">
-                        <div className="p-4 rounded-xl bg-green-50 border border-green-200">
-                            <h4 className="font-lexend font-bold text-lg text-green-700">Order Delivered</h4>
-                            <p className="text-green-500 text-sm">Package has been received successfully.</p>
+                        {/* Hero Image */}
+                        <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-[260px]">
+                            <img
+                                src={proofImage}
+                                alt="Shipping Proof"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+
+                        {/* Delivery Status Row */}
+                        <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+                            <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                                <img
+                                    src={truckIcon}
+                                    alt="Delivery Status"
+                                    className="h-5 w-5 object-contain md:h-6 md:w-6"
+                                />
+                                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                                    Delivery Status
+                                </span>
+                            </div>
+                            <StatusBadge status="completed" variant="completed" />
+                        </div>
+
+                        {/* Tracking Number Row */}
+                        <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+                            <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                                <img
+                                    src={locationIcon}
+                                    alt="Tracking Number"
+                                    className="h-5 w-5 object-contain md:h-6 md:w-6"
+                                />
+                                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                                    Tracking Number
+                                </span>
+                            </div>
+                            <span className="font-lexend text-sm font-bold text-[#292D32] md:text-base lg:text-lg">
+                                2500050102015
+                            </span>
                         </div>
                     </div>
                 );
