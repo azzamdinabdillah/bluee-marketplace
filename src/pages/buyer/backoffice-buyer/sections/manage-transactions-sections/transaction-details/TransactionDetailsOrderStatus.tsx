@@ -5,6 +5,9 @@ import truckIcon from "/icons/group.svg";
 import locationIcon from "/icons/routing-gray.svg";
 import proofImage from "/images/proof.png";
 import Modal from "@src/components/Modal";
+import InputInteractive from "@src/components/InputInteractive";
+import MessageIcon from "@src/components/icons/MessageIcon";
+import StarIcon from "@src/components/icons/StarIcon";
 import boxTickIcon from "/icons/box-tick.svg";
 
 const STEPS = [
@@ -16,6 +19,8 @@ const STEPS = [
 
 export default function TransactionDetailsOrderStatus() {
     const [currentStep, setCurrentStep] = useState<number>(2); // Defaulting to 2 as per original design implication
+    const [rating, setRating] = useState<number>(0);
+    const [review, setReview] = useState<string>("");
 
     // Helper to calculate progress width for the background line
     const progressWidth = `${((Math.min(currentStep, 3) - 1) / 2) * 100}%`;
@@ -249,7 +254,7 @@ export default function TransactionDetailsOrderStatus() {
                             className="w-full justify-center"
                             onClick={() => {
                                 document.getElementById("completion-modal")?.hidePopover();
-                                setCurrentStep(4);
+                                document.getElementById("testimony-modal")?.showPopover();
                             }}
                         >
                             Yes, Finish the order
@@ -261,6 +266,67 @@ export default function TransactionDetailsOrderStatus() {
                             popoverTargetAction="hide"
                         >
                             Cancel
+                        </Button>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal id="testimony-modal" title="Leave Testimony?" width="max-w-[500px]">
+                <div className="flex flex-col items-center gap-2 md:gap-3">
+                    {/* Stars Rating */}
+                    <div className="flex items-center gap-2 md:gap-3 lg:gap-4 my-3 md:my-6 lg:my-8">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <button
+                                key={star}
+                                type="button"
+                                onClick={() => setRating(star)}
+                                className="transition-transform hover:scale-110 focus:outline-none"
+                            >
+                                <StarIcon
+                                    className="h-8 w-8 md:h-10 md:w-10 lg:text-5xl lg:h-12 lg:w-12 transition-colors duration-200"
+                                    fill={rating >= star ? "#FDB022" : "none"}
+                                    stroke={rating >= star ? "none" : "#FDB022"}
+                                />
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Review Input */}
+                    <div className="flex w-full flex-col gap-3 md:gap-4">
+                        <label className="font-lexend text-sm font-bold text-[#6A7686] md:text-base">
+                            Share your experience
+                        </label>
+                        <InputInteractive
+                            label="Enter your feedback here"
+                            as="textarea"
+                            value={review}
+                            rows={4}
+                            onChange={(e) => setReview(e.target.value)}
+                            icon={MessageIcon}
+                        />
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex w-full flex-col gap-3 md:gap-4">
+                        <Button
+                            variant="blue"
+                            className="w-full justify-center"
+                            onClick={() => {
+                                document.getElementById("testimony-modal")?.hidePopover();
+                                setCurrentStep(4);
+                            }}
+                        >
+                            Submit & Complete
+                        </Button>
+                        <Button
+                            variant="gray"
+                            className="w-full justify-center bg-transparent border-stroke-color text-black-color!"
+                            onClick={() => {
+                                document.getElementById("testimony-modal")?.hidePopover();
+                                setCurrentStep(4);
+                            }}
+                        >
+                            No, Thanks
                         </Button>
                     </div>
                 </div>
