@@ -170,13 +170,13 @@ export default function Navbar() {
                           </p>
                           <img className="h-6 w-6" src={setting2} alt="" />
                         </div>
-                        <div className="h-[1px] w-full bg-[#E8E8E8]"></div>
-                        <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-[#FF133D] font-medium text-base leading-5">
+                        <div className="h-px w-full bg-[#E8E8E8]"></div>
+                        <Link to={'/login'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                          <p className="text-red-color font-medium text-base leading-5">
                             Log Out
                           </p>
                           <img className="h-6 w-6" src={logoutIcon} alt="" />
-                        </div>
+                        </Link>
                       </div>
                     </div>
                   </div>

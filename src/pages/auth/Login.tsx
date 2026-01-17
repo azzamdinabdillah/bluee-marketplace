@@ -126,18 +126,28 @@ export default function Login() {
 
                             <div className="flex flex-col gap-3 justify-center">
                                 <div className="flex flex-col gap-3 md:gap-4">
-                                    <InputInteractive
-                                        label="Enter Your Email"
-                                        icon={SmsIcon}
-                                        type="email"
-                                        className="font-lexend font-bold"
-                                    />
-                                    <InputInteractive
-                                        label="Enter Your Password"
-                                        icon={KeyIcon}
-                                        type="password"
-                                        className="font-lexend font-bold"
-                                    />
+                                    <div className='flex flex-col gap-3'>
+                                        <p className="text-base leading-tight font-semibold text-sec-color">
+                                            Email Address
+                                        </p>
+                                        <InputInteractive
+                                            label="Enter Your Email"
+                                            icon={SmsIcon}
+                                            type="email"
+                                            className="font-lexend font-bold"
+                                        />
+                                    </div>
+                                    <div className='flex flex-col gap-3'>
+                                        <p className="text-base leading-tight font-semibold text-sec-color">
+                                            Password
+                                        </p>
+                                        <InputInteractive
+                                            label="Enter Your Password"
+                                            icon={KeyIcon}
+                                            type="password"
+                                            className="font-lexend font-bold"
+                                        />
+                                    </div>
                                 </div>
 
                                 <div className="flex items-center justify-between">
@@ -151,9 +161,11 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <Button variant="blue" className="w-full rounded-full! text-base font-semibold" type="submit">
-                                Sign In
-                            </Button>
+                            <Link to={'/'}>
+                                <Button variant="blue" className="w-full rounded-full! text-base font-semibold" type="submit">
+                                    Sign In
+                                </Button>
+                            </Link>
 
                             <div className="text-center">
                                 <span className="text-sec-color font-medium text-sm md:text-base font-lexend">Don’t have account? </span>
