@@ -5,6 +5,20 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import arrowLeftIcon from "/icons/arrow-circle-left.svg";
+import arrowRightIcon from "/icons/arrow-circle-right.svg";
+import starIcon from "/icons/star-2.svg";
+import login1 from "/images/login-1.png";
+import login2 from "/images/login-2.png";
+import login3 from "/images/login-3.png";
+import { Link } from "react-router-dom";
+import InputInteractive from "@src/components/InputInteractive";
+import Button from "@src/components/Button";
+import Checkbox from "@src/components/Checkbox";
+import SmsIcon from "@src/components/icons/SmsIcon";
+import LockIcon from "@src/components/icons/LockIcon";
+import sidebarLogo from "/icons/sidebar-logo.svg";
+import KeyIcon from '@src/components/icons/KeyIcon';
 
 export default function Login() {
     const swiperRef = useRef<SwiperType>(null);
@@ -12,38 +26,37 @@ export default function Login() {
     const slides = [
         {
             id: 1,
-            image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
-            title: "Discover the Latest Trends",
-            subtitle: "Shop the most stylish collections from top brands around the world."
+            image: login1,
+            quote: "Moving my business online was the best decision I ever made. The platform's ease of use and support are unmatched.",
+            author: "Jasmine Putri",
+            role: "Business Owner",
+            rating: 5
         },
         {
             id: 2,
-            image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop",
-            title: "Premium Quality Products",
-            subtitle: "Experience luxury and comfort with our carefully curated items."
+            image: login2,
+            quote: "The quality of products and the seamless buying experience have completely transformed how I source inventory.",
+            author: "Sarah Chen",
+            role: "Fashion Retailer",
+            rating: 5
         },
         {
             id: 3,
-            image: "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop",
-            title: "Exclusive Deals & Offers",
-            subtitle: "Get access to limited-time discounts and special promotions."
+            image: login3,
+            quote: "I've never seen such a comprehensive marketplace. It's truly a game-changer for wholesale buyers.",
+            author: "Michael Ross",
+            role: "Procurement Manager",
+            rating: 5
         }
     ];
 
     return (
-        <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
+        <div className="h-dvh w-full grid grid-cols-1 lg:grid-cols-2 bg-[#F3F5F9]">
             {/* Left Side - Carousel (Desktop Only) */}
             <div className="hidden lg:block relative h-full w-full bg-gray-900 overflow-hidden">
                 <Swiper
                     modules={[Navigation, Autoplay, Pagination]}
                     spaceBetween={0}
-                    pagination={{
-                        el: '.swiper-custom-pagination',
-                        clickable: true,
-                        renderBullet: function (_index, className) {
-                            return '<span class="' + className + ' h-2.5! w-2.5! bg-white/50! hover:bg-white! transition-all! duration-300!"></span>';
-                        },
-                    }}
                     autoplay={{
                         delay: 5000,
                         disableOnInteraction: false,
@@ -56,80 +69,98 @@ export default function Login() {
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id} className="relative h-full w-full">
-                            <div className="absolute inset-0 bg-black/30 z-10" />
+                            <div className="absolute inset-0 bg-black/20 z-10" />
                             <img
                                 src={slide.image}
-                                alt={slide.title}
+                                alt={slide.author}
                                 className="h-full w-full object-cover"
                             />
-                            <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 pb-40">
-                                <h2 className="text-4xl font-bold text-white mb-4 max-w-lg">
-                                    {slide.title}
-                                </h2>
-                                <p className="text-gray-200 text-lg max-w-md">
-                                    {slide.subtitle}
-                                </p>
+
+                            {/* Testimonial Card Overlay */}
+                            <div className="absolute bottom-0 left-0 z-20 w-full bg-linear-to-b from-transparent via-[#0E1626]/75 to-[#0E1626] px-12 pb-12 pt-24">
+                                {/* Rating Stars */}
+                                <div className="flex gap-1 mb-6">
+                                    {[...Array(slide.rating)].map((_, i) => (
+                                        <img key={i} src={starIcon} alt="star" className="size-5" />
+                                    ))}
+                                </div>
+
+                                {/* Quote */}
+                                <blockquote className="text-white text-[26px] font-medium leading-[1.6] mb-12 max-w-[600px]">
+                                    "{slide.quote}"
+                                </blockquote>
+
+                                {/* Footer Row */}
+                                <div className="flex items-end justify-between w-full">
+                                    {/* Author Info */}
+                                    <div>
+                                        <div className="text-white text-[20px] font-semibold mb-1">{slide.author}</div>
+                                        <div className="text-white text-[16px] font-medium opacity-80">{slide.role}</div>
+                                    </div>
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}
-                </Swiper>
-
-                {/* Custom Controls - Bottom Left */}
-                <div className="absolute bottom-12 left-12 z-30 flex flex-col gap-8">
-                    {/* Pagination */}
-                    <div className="swiper-custom-pagination flex gap-3 w-auto! static!" />
-
-                    {/* Navigation Buttons */}
-                    <div className="flex gap-4">
-                        <button
-                            onClick={() => swiperRef.current?.slidePrev()}
-                            className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
-                            aria-label="Previous slide"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={2}
-                                stroke="currentColor"
-                                className="h-6 w-6"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                            </svg>
-                        </button>
-                        <button
-                            onClick={() => swiperRef.current?.slideNext()}
-                            className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
-                            aria-label="Next slide"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={2}
-                                stroke="currentColor"
-                                className="h-6 w-6"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </button>
+                    <div className="flex gap-1.5 absolute bottom-12 right-12 z-2">
+                        <img src={arrowLeftIcon} alt="" onClick={() => swiperRef.current?.slidePrev()} className="cursor-pointer hover:scale-110 transition-all active:scale-100" />
+                        <img src={arrowRightIcon} alt="" onClick={() => swiperRef.current?.slideNext()} className="cursor-pointer hover:scale-110 transition-all active:scale-100" />
                     </div>
-                </div>
+                </Swiper>
             </div>
 
-            {/* Right Side - Login Form (Placeholder) */}
-            <div className="h-full w-full flex items-center justify-center bg-white p-8">
-                <div className="w-full max-w-md">
-                    <div className="text-center mb-8">
-                        <h1 className="text-2xl font-bold text-gray-900">Sign In</h1>
-                        <p className="text-gray-500 mt-2">Welcome back! Please enter your details.</p>
-                    </div>
-                    {/* Form content would go here */}
-                    <div className="space-y-4">
-                        <div className="h-12 w-full bg-gray-100 rounded-lg"></div>
-                        <div className="h-12 w-full bg-gray-100 rounded-lg"></div>
-                        <div className="h-12 w-full bg-blue-600 rounded-lg"></div>
-                    </div>
+            {/* Right Side - Login Form */}
+            <div className="p-3 md:p-[30px]">
+                <div className="h-full w-full rounded-[20px] flex items-center justify-center bg-white p-4 md:p-8 lg:p-6">
+                    <form className="w-full flex flex-col gap-8 lg:gap-[40px] max-w-[512px] mx-auto">
+                        {/* Header/Logo */}
+                        <div className="flex justify-center items-center gap-3">
+                            <img src={sidebarLogo} alt="Bluee" className="w-[41px] h-[32px]" />
+                            <span className="text-[25px] md:text-[30px] font-black leading-[1.2] tracking-wider uppercase font-montserrat text-[#292D32]">BLUEE</span>
+                        </div>
+
+                        <div className="flex flex-col gap-6 md:gap-[30px] justify-center">
+                            <div className="flex flex-col gap-3 justify-center mx-auto">
+                                <h1 className="text-xl md:text-2xl lg:text-[24px] font-bold text-[#292D32] font-lexend">Hey🙌🏻, Welcome Back!</h1>
+                                <p className="text-sm md:text-base lg:text-[16px] font-medium text-sec-color font-lexend">Login to your account to continue!</p>
+                            </div>
+
+                            <div className="flex flex-col gap-3 justify-center">
+                                <div className="flex flex-col gap-3 md:gap-4">
+                                    <InputInteractive
+                                        label="Enter Your Email"
+                                        icon={SmsIcon}
+                                        type="email"
+                                        className="font-lexend font-bold"
+                                    />
+                                    <InputInteractive
+                                        label="Enter Your Password"
+                                        icon={KeyIcon}
+                                        type="password"
+                                        className="font-lexend font-bold"
+                                    />
+                                </div>
+
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <Checkbox id="remember" />
+                                        <label htmlFor="remember" className="text-sm md:text-base font-semibold text-sec-color cursor-pointer font-lexend">Remember me</label>
+                                    </div>
+                                    <Link to="/forgot-password" className="text-sm md:text-base font-semibold text-sec-color font-lexend hover:underline">Reset Password</Link>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <Button variant="blue" className="w-full rounded-full! text-base font-semibold" type="submit">
+                                Sign In
+                            </Button>
+
+                            <div className="text-center">
+                                <span className="text-sec-color font-medium text-sm md:text-base font-lexend">Don’t have account? </span>
+                                <Link to="/register" className="text-primary-color font-semibold     text-sm md:text-base underline font-lexend">Create Account</Link>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
