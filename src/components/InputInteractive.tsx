@@ -29,8 +29,8 @@ export default function InputInteractive({
   const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
   const isTextarea = as === "textarea";
 
-  const commonClasses = `peer w-full bg-transparent text-sm font-bold text-[#292D32] outline-none placeholder:text-transparent md:text-base ${className || ""}`;
-  const inputClasses = `${commonClasses} pt-3 md:pt-4`;
+  const commonClasses = `peer w-full bg-transparent text-sm font-bold text-[#292D32] outline-none placeholder:text-transparent md:text-base autofill:bg-transparent! ${className || ""}`;
+  const inputClasses = `${commonClasses} pt-3 md:pt-4 `;
   const textareaClasses = `${commonClasses} pt-5 min-h-24 resize-y`;
 
   const containerBorderClasses = error
