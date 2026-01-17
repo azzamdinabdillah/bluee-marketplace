@@ -7,7 +7,8 @@ import StoreDetails from "./pages/buyer/landing/StoreDetails";
 import ScrollToTop from "./helper/ScrollToTop";
 import Cart from "./pages/buyer/landing/Cart";
 import ProductsPage from "./pages/buyer/landing/ProductsPage";
-import Overview from "./pages/buyer/backoffice-buyer/Overview";
+import OverviewBuyer from "./pages/buyer/backoffice-buyer/Overview";
+import OverviewSeller from "./pages/seller/Overview";
 import MyTransactions from "./pages/buyer/backoffice-buyer/manage-transactions/MyTransactions";
 import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactions/DetailsTransaction";
 import Login from "./pages/auth/Login";
@@ -34,11 +35,15 @@ function App() {
         <Route path="/store-details/:id" element={<StoreDetails />} />
 
         <Route path="/backoffice-buyer">
-          <Route path="overview" element={<Overview />} />
+          <Route path="overview" element={<OverviewBuyer />} />
           <Route path="manage-transactions">
             <Route index element={<MyTransactions />} />
             <Route path=":id" element={<DetailsTransaction />} />
           </Route>
+        </Route>
+
+        <Route path="/backoffice-seller">
+          <Route path="overview" element={<OverviewSeller />} />
         </Route>
       </Routes>
     </BrowserRouter>
