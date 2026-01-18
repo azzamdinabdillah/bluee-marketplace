@@ -1,9 +1,4 @@
 import { useState } from "react";
-import SidebarOverview from "../icons/SidebarOverview";
-import SidebarTransaction from "../icons/SidebarTransaction";
-import SidebarAddress from "../icons/SidebarAddress";
-import StoreIcon from "../icons/StoreIcon";
-import { Group } from "../icons/Group";
 import { Link, useLocation } from "react-router-dom";
 import userIcon from "/icons/user.svg";
 import logoutIcon from "/icons/logout.svg";
@@ -24,19 +19,28 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
       {
         id: "overview",
         label: "Overview",
-        icon: SidebarOverview,
+        icon: {
+          active: "/icons/home-active.svg",
+          inactive: "/icons/home-inactive.svg",
+        },
         path: "/backoffice-buyer/overview",
       },
       {
         id: "transactions",
         label: "My Transactions",
-        icon: SidebarTransaction,
+        icon: {
+          active: "/icons/stickynote-active.svg",
+          inactive: "/icons/stickynote-inactive.svg",
+        },
         path: "/backoffice-buyer/manage-transactions",
       },
       {
         id: "address",
         label: "My Address",
-        icon: SidebarAddress,
+        icon: {
+          active: "/icons/myaddress-inactive.svg",
+          inactive: "/icons/myaddress-inactive.svg",
+        },
         path: "/backoffice-buyer/my-address",
       },
     ],
@@ -44,39 +48,75 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
       {
         id: "overview",
         label: "Overview",
-        icon: SidebarOverview,
+        icon: {
+          active: "/icons/home-active.svg",
+          inactive: "/icons/home-inactive.svg",
+        },
         path: "/backoffice-seller/overview",
       },
       {
         id: "products",
         label: "My Store",
-        icon: StoreIcon,
+        icon: {
+          active: "/icons/mystore-active.svg",
+          inactive: "/icons/mystore-inactive.svg",
+        },
         path: "/backoffice-seller/products",
       },
       {
         id: "orders",
         label: "My Products",
-        icon: SidebarTransaction,
+        icon: {
+          active: "/icons/products-active.svg",
+          inactive: "/icons/products-inactive.svg",
+        },
         path: "/backoffice-seller/orders",
+      },
+      {
+        id: "transactions",
+        label: "Transactions",
+        icon: {
+          active: "/icons/stickynote-active.svg",
+          inactive: "/icons/stickynote-inactive.svg",
+        },
+        path: "/backoffice-buyer/manage-transactions",
+      },
+      {
+        id: "myWallet",
+        label: "My Wallet",
+        icon: {
+          active: "/icons/wallet-active.svg",
+          inactive: "/icons/wallet-inactive.svg",
+        },
+        path: "/backoffice-buyer/my-wallet",
       },
     ],
     manager: [
       {
         id: "overview",
         label: "Overview",
-        icon: SidebarOverview,
+        icon: {
+          active: "",
+          inactive: "",
+        },
         path: "/backoffice-manager/overview",
       },
       {
         id: "users",
         label: "Users",
-        icon: Group,
+        icon: {
+          active: "",
+          inactive: "",
+        },
         path: "/backoffice-manager/users",
       },
       {
         id: "settings",
         label: "Settings",
-        icon: SidebarAddress,
+        icon: {
+          active: "",
+          inactive: "",
+        },
         path: "/backoffice-manager/settings",
       },
     ],
@@ -205,10 +245,26 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
                         : "hover:text-primary-color text-black hover:bg-gray-50"
                     }`}
                   >
-                    <item.icon
-                      className={`${isActive ? "text-primary-color" : "group-hover:text-primary-color text-black"}`}
-                      stroke="currentColor"
-                    />
+                    <div className="relative h-6 w-6">
+                      <img
+                        src={item.icon.active}
+                        alt={item.label}
+                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${
+                          isActive
+                            ? "opacity-100"
+                            : "opacity-0 group-hover:opacity-100"
+                        }`}
+                      />
+                      <img
+                        src={item.icon.inactive}
+                        alt={item.label}
+                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${
+                          isActive
+                            ? "opacity-0"
+                            : "opacity-100 group-hover:opacity-0"
+                        }`}
+                      />
+                    </div>
                     <span
                       className={`flex-1 font-['Lexend_Deca'] text-base ${isActive ? "font-bold" : "font-medium"}`}
                     >
