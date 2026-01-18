@@ -117,6 +117,7 @@ export default function DetailsTransaction() {
 
   return (
     <TemplateLayoutBackoffice
+      showBackButton
       title="Manage Transactions"
       subtitle="View & Update Your Transactions"
     >
@@ -128,7 +129,6 @@ export default function DetailsTransaction() {
             <TransactionStatusSection status="delivering" />
             <TransactionStatusSection status="completed" />
           </div>
-
 
           <TransactionDetailsOrderReviews
             details={transactionDetails}

@@ -1,19 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import SearchIcon from "@src/components/icons/SearchIcon";
 import Notification from "@src/components/icons/Notification";
 import crownIcon from "/icons/crown-black.svg";
 import userIcon from "/icons/user.svg";
 import logoutIcon from "/icons/logout.svg";
+import arrowLeftIcon from "/icons/back-arrow.svg";
 import profileIcon from "/images/user.png";
 
 interface HeaderBackofficeProps {
   title: string;
   subtitle: string;
+  showBackButton?: boolean;
 }
 
 export default function HeaderBackoffice({
   title,
   subtitle,
+  showBackButton = false,
 }: HeaderBackofficeProps) {
+  const navigate = useNavigate();
+
   const content = (
     <div className="mx-auto flex max-w-[1460px] flex-col gap-3 md:flex-row md:gap-5">
       <div className="flex w-full flex-col items-start justify-between gap-4 rounded-2xl bg-white p-4 md:flex-row md:items-center md:gap-5 md:rounded-[18px] md:p-5 lg:gap-6 lg:rounded-[20px] lg:px-5 lg:py-[18px]">
@@ -21,9 +27,23 @@ export default function HeaderBackoffice({
           <h2 className="text-black-color font-lexend text-lg font-bold md:text-xl lg:text-2xl">
             {title}
           </h2>
-          <p className="text-sec-color font-lexend text-sm font-semibold md:text-[15px] lg:text-base">
-            {subtitle}
-          </p>
+          <div className="flex items-center gap-1">
+            {showBackButton && (
+              <button
+                onClick={() => navigate(-1)}
+                className="hover:scale-110 flex h-5 w-5 items-center justify-center rounded-full transition-transform duration-200 cursor-pointer"
+              >
+                <img
+                  src={arrowLeftIcon}
+                  alt="Back"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                />
+              </button>
+            )}
+            <p className="text-sec-color font-lexend text-sm font-semibold md:text-[15px] lg:text-base">
+              {subtitle}
+            </p>
+          </div>
         </div>
 
         <div className="flex items-center gap-2 md:gap-2.5 lg:gap-3">
@@ -50,7 +70,7 @@ export default function HeaderBackoffice({
         </div>
       </div>
 
-      <div className="hidden md:flex w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
+      <div className="hidden w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md md:flex md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
         <div className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-[10px]">
           {/* Avatar */}
           <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100 md:h-12 md:w-12 lg:h-[56px] lg:w-[56px]">
@@ -94,7 +114,7 @@ export default function HeaderBackoffice({
   return (
     <>
       {/* Fixed Header */}
-      <div className="md:fixed top-16 right-0 left-0 z-30 bg-[#F3F5F9]/95 px-4 backdrop-blur-sm transition-all duration-300 md:pt-4 md:pb-4 lg:top-0 lg:left-[280px] lg:px-5 lg:pt-4 lg:pb-4">
+      <div className="top-16 right-0 left-0 z-30 bg-[#F3F5F9]/95 px-4 backdrop-blur-sm transition-all duration-300 md:fixed md:pt-4 md:pb-4 lg:top-0 lg:left-[280px] lg:px-5 lg:pt-4 lg:pb-4">
         {content}
       </div>
 
