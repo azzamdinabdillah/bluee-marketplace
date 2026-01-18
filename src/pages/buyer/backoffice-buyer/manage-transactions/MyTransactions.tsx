@@ -75,12 +75,12 @@ export default function MyTransactions() {
 
                     {/* Title & Badge */}
                     <div className="flex flex-col gap-2">
-                        <h2 className="font-lexend font-bold text-lg md:text-xl lg:text-2xl text-black-color">
+                        <h2 className="font-lexend font-bold text-responsive-20 text-black-color">
                             All Transactions
                         </h2>
                         <div className="flex flex-row items-center gap-1">
                             <img src={stickyNoteIcon} alt="Total" className="size-4 md:size-5" />
-                            <span className="font-lexend font-semibold text-sm md:text-base text-sec-color">
+                            <span className="font-lexend font-semibold text-responsive-16 text-sec-color">
                                 {transactions.length} Total Transactions
                             </span>
                         </div>

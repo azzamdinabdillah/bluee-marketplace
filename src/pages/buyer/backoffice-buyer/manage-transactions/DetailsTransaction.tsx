@@ -17,11 +17,11 @@ import receiptIcon from "/icons/receipt.svg";
 import truckIcon from "/icons/group-gray.svg";
 import noteIcon from "/icons/note-text.svg";
 import moneyIcon from "/icons/money.svg";
-import TransactionStatusSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsStatus";
-import ProductDetailsSection from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsProduct";
-import TransactionDetailsOrderReviews from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderReviews";
-import TransactionDetailsCustomer from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsCustomer";
-import TransactionDetailsOrderStatus from "../sections/manage-transactions-sections/transaction-details/TransactionDetailsOrderStatus";
+import TransactionStatusSection from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsStatus";
+import ProductDetailsSection from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsProduct";
+import TransactionDetailsOrderReviews from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsOrderReviews";
+import TransactionDetailsCustomer from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsCustomer";
+import TransactionDetailsOrderStatus from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsOrderStatus";
 
 export default function DetailsTransaction() {
   const transactionDetails = [
@@ -150,7 +150,7 @@ export default function DetailsTransaction() {
           />
 
           <div className="flex w-full flex-col gap-3 rounded-xl bg-white p-3 md:gap-4 md:rounded-2xl md:p-4 lg:gap-5 lg:rounded-[20px] lg:p-5">
-            <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+            <h3 className="font-lexend text-black-color font-bold text-responsive-20">
               Transaction Details
             </h3>
 

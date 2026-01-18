@@ -27,7 +27,7 @@ const StatCard: React.FC<StatCardProps> = ({
                     <h3 className="text-2xl leading-tight font-bold text-[#292D32] md:text-3xl lg:text-4xl">
                         {value}
                     </h3>
-                    <p className="text-sm leading-tight font-medium text-[#6A7686] md:text-base lg:text-lg">
+                    <p className="leading-tight font-medium text-sec-color text-responsive-18">
                         {label}
                     </p>
                 </div>

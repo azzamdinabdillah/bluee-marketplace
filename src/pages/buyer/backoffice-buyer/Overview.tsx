@@ -70,7 +70,7 @@ export default function Overview() {
                 value="320"
                 label="Total Transaction"
             >
-                <h3 className="text-black-color text-base font-bold md:text-xl">
+                <h3 className="text-black-color font-bold text-responsive-20">
                     Latest Transactions
                 </h3>
 

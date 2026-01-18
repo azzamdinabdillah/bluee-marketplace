@@ -168,7 +168,7 @@ export default function TransactionDetailsOrderStatus() {
     return (
         <div className="flex flex-col gap-3 md:gap-5">
             <div className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-4 md:gap-5 md:p-5 lg:gap-[20px] lg:p-[20px]">
-                <h3 className="font-lexend text-base font-bold text-[#292D32] md:text-lg lg:text-xl">
+                <h3 className="font-lexend font-bold text-black-color text-responsive-20">
                     Order Status
                 </h3>
 

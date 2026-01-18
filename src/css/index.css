@@ -10,18 +10,30 @@
   --color-sec-color: #6a7686;
   --color-primary-color: #1053d5;
   --color-light-blue-color: #1053d517;
-  --color-red-color: #FF133D;
+  --color-red-color: #ff133d;
 }
 
 * {
   font-family: "Lexend Deca", sans-serif;
 }
 
+.text-responsive-20 {
+  @apply text-base md:text-lg lg:text-xl;
+}
+
+.text-responsive-18 {
+  @apply text-sm md:text-base lg:text-lg;
+}
+
+.text-responsive-16 {
+  @apply text-xs md:text-sm lg:text-base;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .margin-top-navbar {

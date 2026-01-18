@@ -43,7 +43,7 @@ export default function TransactionCard({
                         {headerDate ? (
                             <div className="flex flex-row items-center gap-1.5 md:gap-2">
                                 <img src={calendarIcon} alt="Date" className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-                                <span className="font-lexend font-semibold text-xs md:text-sm lg:text-base text-sec-color">
+                                <span className="font-lexend font-semibold text-responsive-16 text-sec-color">
                                     {headerDate}
                                 </span>
                             </div>
@@ -70,7 +70,7 @@ export default function TransactionCard({
                         className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[84px] lg:h-[84px] rounded-2xl md:rounded-[20px] object-cover bg-gray-100 shrink-0"
                     />
                     <div className="flex flex-col gap-1 md:gap-[6px]">
-                        <h3 className="font-lexend font-bold text-sm md:text-base lg:text-lg text-black-color line-clamp-1">{storeName}</h3>
+                        <h3 className="font-lexend font-bold text-responsive-18 text-black-color line-clamp-1">{storeName}</h3>
                         <div className="flex flex-row items-center gap-1">
                             <img src={calendarIcon} alt="Date" className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5" />
                             <span className="font-lexend font-semibold text-xs md:text-sm lg:text-base text-sec-color">{date}</span>
@@ -86,8 +86,8 @@ export default function TransactionCard({
                             <img src={boxIcon} alt="Products" className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                         </div>
                         <div className="flex flex-col gap-0.5 md:gap-1">
-                            <span className="font-lexend font-bold text-sm md:text-base lg:text-lg text-black-color">{totalProducts}</span>
-                            <span className="font-lexend font-semibold text-xs md:text-sm lg:text-base text-sec-color">Total Products</span>
+                            <span className="font-lexend font-bold text-responsive-18 text-black-color">{totalProducts}</span>
+                            <span className="font-lexend font-semibold text-sec-color text-responsive-16">Total Products</span>
                         </div>
                     </div>
 
@@ -97,8 +97,8 @@ export default function TransactionCard({
                             <img src={shoppingCartIcon} alt="Quantity" className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                         </div>
                         <div className="flex flex-col gap-0.5 md:gap-1">
-                            <span className="font-lexend font-bold text-sm md:text-base lg:text-lg text-black-color">{totalQuantity}</span>
-                            <span className="font-lexend font-semibold text-xs md:text-sm lg:text-base text-sec-color">Total Quantity</span>
+                            <span className="font-lexend font-bold text-responsive-18 text-black-color">{totalQuantity}</span>
+                            <span className="font-lexend font-semibold text-sec-color text-responsive-16">Total Quantity</span>
                         </div>
                     </div>
                 </div>
@@ -111,10 +111,10 @@ export default function TransactionCard({
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-5 w-full">
                 {/* Price */}
                 <div className="flex flex-col gap-1 md:gap-[6px] w-full md:w-auto">
-                    <span className="font-lexend font-bold text-base md:text-lg lg:text-xl text-primary-color">{grandTotal}</span>
+                    <span className="font-lexend font-bold text-responsive-20 text-primary-color">{grandTotal}</span>
                     <div className="flex flex-row items-center gap-[6px]">
                         <img src={moneyIcon} alt="Total" className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-                        <span className="font-lexend font-semibold text-xs md:text-sm lg:text-base text-sec-color">Grand Total</span>
+                        <span className="font-lexend font-semibold text-responsive-16 text-sec-color">Grand Total</span>
                     </div>
                 </div>
 
@@ -125,7 +125,7 @@ export default function TransactionCard({
                         variant="black"
                         icon={exportIcon}
                         iconPosition="right"
-                        className="flex-1 md:flex-none text-xs md:text-sm lg:text-base py-2.5 md:py-3 lg:py-[14px]"
+                        className="flex-1 md:flex-none text-responsive-16 py-2.5 md:py-3 lg:py-[14px]"
                     >
                         Export
                     </Button>
@@ -134,7 +134,7 @@ export default function TransactionCard({
                         variant="blue"
                         icon={detailsIcon}
                         iconPosition="left"
-                        className="w-auto md:w-[126px] flex-1 md:flex-none text-xs md:text-sm lg:text-base py-2.5 md:py-3 lg:py-[14px]"
+                        className="w-auto md:w-[126px] flex-1 md:flex-none text-responsive-16 py-2.5 md:py-3 lg:py-[14px]"
                     >
                         Details
                     </Button>

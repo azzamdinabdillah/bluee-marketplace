@@ -16,7 +16,7 @@ export default function TransactionDetailsProduct({ products }: ProductDetailsSe
         <div className="flex w-full flex-col gap-4 rounded-[20px] bg-white p-4 md:gap-5 md:p-5">
             <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                    <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+                    <h3 className="font-lexend text-black-color font-bold text-responsive-20">
                         Product Details
                     </h3>
                     <img

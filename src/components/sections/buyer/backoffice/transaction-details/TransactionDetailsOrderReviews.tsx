@@ -24,7 +24,7 @@ export default function TransactionDetailsOrderReviews({
     return (
         <div className="flex w-full flex-col gap-3 rounded-[20px] bg-white p-3 md:gap-4 md:p-4 lg:gap-5 lg:p-5">
             {/* Header */}
-            <h3 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+            <h3 className="font-lexend text-black-color font-bold text-responsive-20">
                 Order Reviews
             </h3>
 
