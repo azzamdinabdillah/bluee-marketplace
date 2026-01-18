@@ -20,10 +20,10 @@ export default function DetailsBoxList({ items }: DetailsBoxListProps) {
               <img src={item.icon} alt={item.label} className="size-5 md:size-6" />
             </div>
             <div className="flex flex-col gap-0.5 lg:gap-1">
-              <span className="font-lexend text-black-color text-base font-bold md:text-lg">
+              <span className="text-black-color text-responsive-18 font-bold">
                 {item.value}
               </span>
-              <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
+              <span className="text-sec-color text-responsive-16 font-semibold">
                 {item.label}
               </span>
             </div>

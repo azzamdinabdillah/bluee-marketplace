@@ -13,6 +13,7 @@ import MyTransactions from "./pages/buyer/backoffice-buyer/manage-transactions/M
 import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactions/DetailsTransaction";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import MyStore from "./pages/seller/my-store/MyStore";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
 
         <Route path="/backoffice-seller">
           <Route path="overview" element={<OverviewSeller />} />
+          <Route path="my-store">
+            <Route index element={<MyStore />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
