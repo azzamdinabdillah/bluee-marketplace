@@ -150,7 +150,7 @@ export default function DetailsTransaction() {
           />
 
           <div className="flex w-full flex-col gap-3 rounded-xl bg-white p-3 md:gap-4 md:rounded-2xl md:p-4 lg:gap-5 lg:rounded-[20px] lg:p-5">
-            <h3 className="font-lexend text-black-color font-bold text-responsive-20">
+            <h3 className="font-lexend text-black-color text-responsive-20 font-bold">
               Transaction Details
             </h3>
 
@@ -167,10 +167,10 @@ export default function DetailsTransaction() {
                       className="h-full w-full object-contain"
                     />
                   </div>
-                  <span className="text-sec-color font-lexend flex-1 text-left text-sm font-medium md:text-base">
+                  <span className="text-sec-color font-lexend text-responsive-18 flex-1 text-left font-medium">
                     {item.label}
                   </span>
-                  <span className="font-lexend text-black-color text-right text-base font-bold md:text-lg">
+                  <span className="font-lexend text-black-color text-responsive-20 text-right font-bold">
                     {item.value}
                   </span>
                 </div>
@@ -188,10 +188,10 @@ export default function DetailsTransaction() {
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <span className="text-sec-color font-lexend flex-1 text-left text-sm font-medium md:text-base lg:text-lg">
+                <span className="text-sec-color font-lexend text-responsive-18 flex-1 text-left font-medium">
                   Grand Total
                 </span>
-                <span className="font-lexend text-primary-color text-right text-base font-bold md:text-lg lg:text-xl">
+                <span className="font-lexend text-primary-color text-responsive-20 text-right font-bold">
                   Rp 202.772.500
                 </span>
               </div>

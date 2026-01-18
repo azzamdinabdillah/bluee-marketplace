@@ -36,10 +36,10 @@ export default function TransactionDetailsCustomer({
                     />
                 </div>
                 <div className="flex flex-col gap-0.5 md:gap-1 lg:gap-1.5">
-                    <h4 className="font-lexend text-black-color text-base font-bold md:text-lg lg:text-xl">
+                    <h4 className="font-lexend text-black-color font-bold text-responsive-20">
                         {name}
                     </h4>
-                    <div className="font-lexend flex gap-1 items-center text-sec-color text-xs font-semibold md:text-sm lg:text-[18px]">
+                    <div className="font-lexend flex gap-1 items-center text-sec-color text-responsive-18 font-semibold">
                         <img src={Phone} alt="" className="h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
                         {phoneNumber}
                     </div>

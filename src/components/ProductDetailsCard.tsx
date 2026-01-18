@@ -11,7 +11,10 @@ export default function ProductDetailsCard({
   quantity,
   className = "",
 }: ProductType) {
-  const subtotal = typeof price === 'number' && typeof quantity === 'number' ? price * quantity : 0;
+  const subtotal =
+    typeof price === "number" && typeof quantity === "number"
+      ? price * quantity
+      : 0;
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -44,11 +47,7 @@ export default function ProductDetailsCard({
           </h3>
           <div className="flex flex-wrap items-center gap-1.5">
             {categoryIcon && (
-              <img
-                src={categoryIcon}
-                alt="Category"
-                className="h-4 w-4"
-              />
+              <img src={categoryIcon} alt="Category" className="h-4 w-4" />
             )}
             <span className="text-sec-color text-sm font-semibold">
               {category}
@@ -65,14 +64,12 @@ export default function ProductDetailsCard({
         </div>
 
         {/* Bottom: Price & Subtotal */}
-        <div className="flex flex-col gap-2 border-t border-stroke-color pt-2">
+        <div className="border-stroke-color flex flex-col gap-2 border-t pt-2">
           <div className="flex items-center justify-between">
-            <span className="text-sec-color text-sm font-semibold">
-              Price
-            </span>
+            <span className="text-sec-color text-sm font-semibold">Price</span>
             <div className="text-right">
               <span className="text-primary-color text-sm font-bold">
-                {typeof price === 'number' ? formatCurrency(price) : '-'}
+                {typeof price === "number" ? formatCurrency(price) : "-"}
               </span>
               <span className="text-sec-color ml-1 text-xs font-semibold">
                 x {quantity}
@@ -95,7 +92,7 @@ export default function ProductDetailsCard({
         {/* Top Section */}
         <div className="flex flex-row items-start justify-between gap-3 md:gap-4 lg:gap-[14px]">
           {/* Image & Info */}
-          <div className="flex flex-1 flex-row min-w-0 gap-3 md:gap-4 lg:gap-[14px]">
+          <div className="flex min-w-0 flex-1 flex-row gap-3 md:gap-4 lg:gap-[14px]">
             <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-[10px] bg-[#F3F5F9] md:h-20 md:w-20 lg:h-[92px] lg:w-[92px]">
               <img
                 src={Array.isArray(image) ? image[0] : image}
@@ -103,8 +100,8 @@ export default function ProductDetailsCard({
                 className="h-full w-full object-contain p-2"
               />
             </div>
-            <div className="flex flex-1 flex-col min-w-0 gap-1 md:gap-1.5 lg:gap-[6px]">
-              <h3 className="text-black-color truncate text-sm font-bold md:text-base lg:text-[18px]">
+            <div className="flex min-w-0 flex-1 flex-col gap-1 md:gap-1.5 lg:gap-[6px]">
+              <h3 className="text-black-color text-responsive-18 truncate font-bold">
                 {title}
               </h3>
               <div className="flex flex-wrap items-center gap-1.5">
@@ -115,13 +112,15 @@ export default function ProductDetailsCard({
                     className="h-4 w-4 md:h-5 md:w-5"
                   />
                 )}
-                <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
+                <span className="text-sec-color text-responsive-16 font-semibold">
                   {category}
                 </span>
                 {weight && (
                   <>
-                    <span className="text-sec-color text-sm lg:text-[22px]">•</span>
-                    <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
+                    <span className="text-sec-color text-sm lg:text-[22px]">
+                      •
+                    </span>
+                    <span className="text-sec-color text-responsive-16 font-semibold">
                       {weight}
                     </span>
                   </>
@@ -133,7 +132,9 @@ export default function ProductDetailsCard({
           {/* Price & Qty */}
           <div className="flex shrink-0 flex-col items-end gap-1 text-right md:gap-1.5 lg:gap-2">
             <span className="text-primary-color text-sm font-bold md:text-base lg:text-[16px]">
-              {typeof price === 'number' ? formatCurrency(price) : 'Price not available'}
+              {typeof price === "number"
+                ? formatCurrency(price)
+                : "Price not available"}
             </span>
             <span className="text-sec-color text-sm font-semibold md:text-base lg:text-[16px]">
               ({quantity}x)
@@ -148,7 +149,7 @@ export default function ProductDetailsCard({
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center gap-1">
             <ShoppingCart className="text-sec-color h-4 w-4 md:h-5 md:w-5" />
-            <span className="text-sec-color text-xs font-semibold md:text-sm lg:text-[16px]">
+            <span className="text-sec-color text-responsive-16 font-semibold">
               Subtotal
             </span>
           </div>

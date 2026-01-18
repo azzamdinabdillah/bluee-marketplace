@@ -32,7 +32,7 @@ export default function TransactionDetailsProduct({ products }: ProductDetailsSe
                         alt="Cart"
                         className="h-6 w-6"
                     />
-                    <span className="font-lexend text-sec-color text-sm font-semibold md:text-base">
+                    <span className="font-lexend text-sec-color font-semibold text-responsive-16">
                         {products.length} Total Products
                     </span>
                 </div>
