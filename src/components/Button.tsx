@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type ButtonVariant = "black" | "lightBlue" | "blue" | "gray" | "lightRed";
+type ButtonVariant = "black" | "lightBlue" | "blue" | "gray" | "lightRed" | "red";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -29,6 +29,7 @@ export default function Button({
     gray: "bg-transparent border-[1.5px] border-stroke-color text-sec-color hover:border-primary-color hover:text-primary-color hover:bg-primary-color/5",
     lightRed:
       "bg-[rgba(255,19,61,0.09)] text-red-color hover:bg-red-color hover:text-white",
+    red: "bg-[#FF133D] text-white hover:bg-red-600",
   };
 
   const renderIcon = () => (

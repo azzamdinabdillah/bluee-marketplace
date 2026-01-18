@@ -11,18 +11,14 @@ export default function Location(props: React.SVGProps<SVGSVGElement>) {
       {...props}
     >
       <path
-        d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+        d="M12.0009 13.4304C13.724 13.4304 15.1209 12.0336 15.1209 10.3104C15.1209 8.5873 13.724 7.19043 12.0009 7.19043C10.2777 7.19043 8.88086 8.5873 8.88086 10.3104C8.88086 12.0336 10.2777 13.4304 12.0009 13.4304Z"
         stroke={props.stroke || "currentColor"}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth="2"
       />
       <path
-        d="M12 22C16 18 20 14.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.4183 8 18 12 22Z"
+        d="M3.61971 8.49C5.58971 -0.169998 18.4197 -0.159997 20.3797 8.5C21.5297 13.58 18.3697 17.88 15.5997 20.54C13.5897 22.48 10.4097 22.48 8.38971 20.54C5.62971 17.88 2.46971 13.57 3.61971 8.49Z"
         stroke={props.stroke || "currentColor"}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth="2"
       />
     </svg>
   );

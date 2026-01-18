@@ -14,6 +14,7 @@ import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactio
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import MyStore from "./pages/seller/my-store/MyStore";
+import CreateStore from "./pages/seller/my-store/CreateStore";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="overview" element={<OverviewSeller />} />
           <Route path="my-store">
             <Route index element={<MyStore />} />
+            <Route path="create" element={<CreateStore />} />
           </Route>
         </Route>
       </Routes>
