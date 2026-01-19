@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import InputInteractive from "@src/components/InputInteractive";
+import InputRadioInteractive from "@src/components/InputRadioInteractive";
 import Button from "@src/components/Button";
 import SmsIcon from "@src/components/icons/SmsIcon";
 import KeyIcon from '@src/components/icons/KeyIcon';
@@ -18,6 +19,7 @@ export default function Register() {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
         const file = event.target.files?.[0];
         if (file) {
             const imageUrl = URL.createObjectURL(file);
@@ -81,43 +83,23 @@ export default function Register() {
                                 <div className="flex flex-col gap-3">
                                     <label className="text-base font-semibold text-sec-color font-lexend">Account Type</label>
                                     <div className="grid grid-cols-2 gap-6 w-full items-center">
-                                        <button
-                                            type="button"
-                                            onClick={() => setAccountType('seller')}
-                                            className={`flex items-center gap-3 md:gap-[18px] p-4 md:py-6 md:px-5 md:h-[76px] rounded-[18px] border-[1.5px] transition-colors group w-full justify-between
-                                                ${accountType === 'seller' ? 'border-primary-color bg-white' : 'border-stroke-color bg-white hover:border-primary-color'}`}
-                                        >
-                                            <div className="flex items-center gap-3 md:gap-[18px]">
-                                                <StoreIcon className={`size-5 md:size-6 transition-colors shrink-0 ${accountType === 'seller' ? 'text-primary-color' : 'text-sec-color group-hover:text-primary-color'}`} />
-                                                <div className={`w-[1.5px] h-6 md:h-8 transition-colors ${accountType === 'seller' ? 'bg-primary-color' : 'bg-stroke-color group-hover:bg-primary-color'}`}></div>
-                                                <span className="text-sm md:text-base font-bold text-black-color font-lexend">Seller</span>
-                                            </div>
-                                            {/* Radio Indicator */}
-                                            <div className={`size-[18px] rounded-full border-[1.5px] flex items-center justify-center shrink-0 transition-colors
-                                                ${accountType === 'seller' ? 'border-primary-color' : 'border-sec-color'}`}>
-                                                {accountType === 'seller' && <div className="size-2.5 bg-primary-color rounded-full" />}
-                                            </div>
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            onClick={() => setAccountType('buyer')}
-                                            className={`flex items-center gap-3 md:gap-[18px] p-4 md:py-6 md:px-5 md:h-[76px] rounded-[18px] border-[1.5px] transition-colors group w-full justify-between
-                                                ${accountType === 'buyer' ? 'border-primary-color bg-white' : 'border-stroke-color bg-white hover:border-primary-color'}`}
-                                        >
-                                            <div className="flex items-center gap-3 md:gap-[18px]">
-                                                <ShoppingCart className={`size-5 md:size-6 transition-colors shrink-0 ${accountType === 'buyer' ? 'text-primary-color' : 'text-sec-color group-hover:text-primary-color'}`} />
-                                                <div className={`w-[1.5px] h-6 md:h-8 transition-colors ${accountType === 'buyer' ? 'bg-primary-color' : 'bg-stroke-color group-hover:bg-primary-color'}`}></div>
-                                                <span className="text-sm md:text-base font-bold text-black-color font-lexend">Buyer</span>
-                                            </div>
-                                            {/* Radio Indicator */}
-                                            <div className={`size-[18px] rounded-full border-[1.5px] flex items-center justify-center shrink-0 transition-colors
-                                                ${accountType === 'buyer' ? 'border-primary-color' : 'border-sec-color'}`}>
-                                                {accountType === 'buyer' && <div className="size-2.5 bg-primary-color rounded-full" />}
-                                            </div>
-                                        </button>
+                                        <InputRadioInteractive
+                                            label="Seller"
+                                            value="seller"
+                                            selectedValue={accountType}
+                                            onChange={setAccountType}
+                                            icon={StoreIcon}
+                                        />
+                                        <InputRadioInteractive
+                                            label="Buyer"
+                                            value="buyer"
+                                            selectedValue={accountType}
+                                            onChange={setAccountType}
+                                            icon={ShoppingCart}
+                                        />
                                     </div>
                                 </div>
+
 
                                 {/* Form Inputs */}
                                 <div className="flex flex-col gap-3">
