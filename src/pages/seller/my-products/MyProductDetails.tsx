@@ -16,6 +16,8 @@ import lp1 from "/images/lp-1.png";
 import lp2 from "/images/lp-2.png";
 import lp3 from "/images/lp-1-1.png";
 import lp4 from "/images/lp-1-2.png";
+import arrowRight from "/icons/arrow-right.svg"
+import arrowLeft from "/icons/arrow-left-black.svg"
 
 export default function MyProductDetails() {
     const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
@@ -43,7 +45,7 @@ export default function MyProductDetails() {
             title="Manage My Products"
             subtitle="View and Update Your Products"
         >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 items-start">
                 <div className="w-full bg-white rounded-[20px] p-4 md:p-5 flex flex-col gap-4 md:gap-6">
                     {/* Header Section */}
                     <div className="flex items-center gap-3 md:gap-[14px]">
@@ -130,12 +132,12 @@ export default function MyProductDetails() {
                                 <div 
                                     key={index}
                                     onClick={() => openModal(index)} 
-                                    className="relative h-[100px] md:h-[110px] lg:h-[121px] bg-light-blue-color rounded-xl md:rounded-2xl overflow-hidden shrink-0 cursor-pointer group"
+                                    className="relative h-[70px] md:h-[110px] lg:h-[121px] bg-light-blue-color rounded-xl md:rounded-2xl overflow-hidden shrink-0 cursor-pointer group"
                                 >
                                     <img 
                                         src={img} 
                                         alt={`Product gallery ${index + 1}`} 
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" 
                                     />
                                     {isLast && remainingCount > 0 && (
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
@@ -166,18 +168,14 @@ export default function MyProductDetails() {
                                     onClick={(e) => { e.stopPropagation(); prevImage(); }}
                                     className="absolute left-2 md:left-4 p-2 md:p-3 bg-white/80 hover:bg-white rounded-full transition-all shadow-md"
                                 >
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6">
-                                        <path d="M15 19.9201L8.47997 13.4001C7.70997 12.6301 7.70997 11.3701 8.47997 10.6001L15 4.08008" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
+                                    <img src={arrowLeft} alt="arrow-left" />
                                 </button>
                                 
                                 <button 
                                     onClick={(e) => { e.stopPropagation(); nextImage(); }}
                                     className="absolute right-2 md:right-4 p-2 md:p-3 bg-white/80 hover:bg-white rounded-full transition-all shadow-md"
                                 >
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6">
-                                        <path d="M8.91003 19.9201L15.43 13.4001C16.2 12.6301 16.2 11.3701 15.43 10.6001L8.91003 4.08008" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
+                                    <img src={arrowLeft} alt="arrow-right" className="rotate-180" />
                                 </button>
                             </div>
                             
@@ -190,7 +188,7 @@ export default function MyProductDetails() {
                                             selectedImageIndex === idx ? 'ring-2 ring-primary-color opacity-100' : 'opacity-60 hover:opacity-100'
                                         }`}
                                     >
-                                        <img src={img} className="w-full h-full object-cover" />
+                                        <img src={img} className="w-full h-full object-contain" />
                                     </button>
                                 ))}
                             </div>
