@@ -156,7 +156,7 @@ export default function MyStore() {
               Oops, you don't have store profile
             </div>
           </div>
-          <Button variant="blue">Create Now +</Button>
+          <Button to="/backoffice-seller/my-store/create" variant="blue">Create Now +</Button>
         </div>
       </div>
     </TemplateLayoutBackoffice>

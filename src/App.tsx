@@ -15,6 +15,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import MyStore from "./pages/seller/my-store/MyStore";
 import CreateStore from "./pages/seller/my-store/CreateStore";
+import MyProducts from "./pages/seller/my-products/MyProducts";
 
 function App() {
   return (
@@ -50,6 +51,10 @@ function App() {
             <Route index element={<MyStore />} />
             <Route path="create" element={<CreateStore />} />
           </Route>
+          <Route path="my-products">
+            <Route index element={<MyProducts />} />
+          </Route>
+
         </Route>
       </Routes>
     </BrowserRouter>

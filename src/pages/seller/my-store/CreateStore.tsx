@@ -14,6 +14,7 @@ export default function CreateStore() {
     <TemplateLayoutBackoffice
       title="Create My Store"
       subtitle="Manage My Store"
+      role="seller"
       showBackButton
     >
       <div className="flex w-full flex-col gap-5 rounded-xl bg-white p-3 md:p-5 lg:rounded-[20px]">

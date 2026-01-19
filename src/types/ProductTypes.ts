@@ -13,6 +13,8 @@ export interface ProductType {
   categoryIcon?: string;
   quantity?: number;
   weight?: string;
+  createdAt?: string;
+  subCategory?: string;
 }
 
 export interface ProductDetailType extends ProductType {

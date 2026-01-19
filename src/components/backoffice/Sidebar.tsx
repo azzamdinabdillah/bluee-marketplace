@@ -55,22 +55,22 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
         path: "/backoffice-seller/overview",
       },
       {
-        id: "products",
+        id: "store",
         label: "My Store",
         icon: {
           active: "/icons/mystore-active.svg",
           inactive: "/icons/mystore-inactive.svg",
         },
-        path: "/backoffice-seller/products",
+        path: "/backoffice-seller/my-store",
       },
       {
-        id: "orders",
+        id: "products", 
         label: "My Products",
         icon: {
           active: "/icons/products-active.svg",
           inactive: "/icons/products-inactive.svg",
         },
-        path: "/backoffice-seller/orders",
+        path: "/backoffice-seller/my-products",
       },
       {
         id: "transactions",
@@ -231,7 +231,9 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
             </div>
             <div className="flex flex-col gap-2">
               {currentMenuItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                const isActive =
+                  location.pathname === item.path ||
+                  location.pathname.startsWith(`${item.path}/`);
                 return (
                   <Link
                     to={item.path}
@@ -239,30 +241,27 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
                     onClick={() => {
                       setIsOpen(false);
                     }}
-                    className={`group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-[16px] p-[10px_0_10px_16px] transition-colors lg:h-14 ${
-                      isActive
+                    className={`group relative flex cursor-pointer items-center gap-2 overflow-hidden rounded-[16px] p-[10px_0_10px_16px] transition-colors lg:h-14 ${isActive
                         ? "bg-primary-color/10 text-primary-color"
                         : "hover:text-primary-color text-black hover:bg-gray-50"
-                    }`}
+                      }`}
                   >
                     <div className="relative h-6 w-6">
                       <img
                         src={item.icon.active}
                         alt={item.label}
-                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${
-                          isActive
+                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${isActive
                             ? "opacity-100"
                             : "opacity-0 group-hover:opacity-100"
-                        }`}
+                          }`}
                       />
                       <img
                         src={item.icon.inactive}
                         alt={item.label}
-                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${
-                          isActive
+                        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 ${isActive
                             ? "opacity-0"
                             : "opacity-100 group-hover:opacity-0"
-                        }`}
+                          }`}
                       />
                     </div>
                     <span
