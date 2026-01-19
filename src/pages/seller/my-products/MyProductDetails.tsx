@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import Modal from "@src/components/Modal";
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
 import statusUpIcon from '/icons/status-up.svg';
 import calendarIcon from '/icons/calendar-2.svg';
@@ -16,6 +18,25 @@ import lp3 from "/images/lp-1-1.png";
 import lp4 from "/images/lp-1-2.png";
 
 export default function MyProductDetails() {
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+    const galleryImages = [lp1, lp2, lp3, lp4];
+
+    const openModal = (index: number) => {
+        setSelectedImageIndex(index);
+        const modal = document.getElementById("gallery-modal");
+        if (modal) {
+            (modal as any).showPopover();
+        }
+    };
+
+    const nextImage = () => {
+        setSelectedImageIndex((prev) => (prev + 1) % galleryImages.length);
+    };
+
+    const prevImage = () => {
+        setSelectedImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    };
+
     return (
         <TemplateLayoutBackoffice
             role="seller"
@@ -100,21 +121,81 @@ export default function MyProductDetails() {
 
                 <div className="w-full bg-white rounded-[20px] p-4 md:p-5 lg:p-5 flex flex-col gap-4 md:gap-6">
                     {/* Image Gallery Section */}
-                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-[16px] overflow-x-auto scrollbar-hide">
-                        {[lp1, lp2, lp3, lp4].map((img, index) => (
-                            <div 
-                                key={index} 
-                                className="relative  h-[100px] md:h-[110px] lg:h-[121px] bg-light-blue-color rounded-xl md:rounded-2xl overflow-hidden shrink-0"
-                            >
-                                <img src={img} alt={`Product gallery ${index + 1}`} className="w-full h-full object-contain" />
-                                {index === 2 && (
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                                        <span className="text-white font-lexend text-responsive-18 font-bold">2+</span>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-[16px]">
+                        {galleryImages.slice(0, 3).map((img, index) => {
+                            const isLast = index === 2;
+                            const remainingCount = galleryImages.length - 3;
+                            
+                            return (
+                                <div 
+                                    key={index}
+                                    onClick={() => openModal(index)} 
+                                    className="relative h-[100px] md:h-[110px] lg:h-[121px] bg-light-blue-color rounded-xl md:rounded-2xl overflow-hidden shrink-0 cursor-pointer group"
+                                >
+                                    <img 
+                                        src={img} 
+                                        alt={`Product gallery ${index + 1}`} 
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                                    />
+                                    {isLast && remainingCount > 0 && (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                                            <span className="text-white font-lexend text-responsive-18 font-bold">
+                                                {remainingCount}+
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
+
+                    <Modal 
+                        id="gallery-modal" 
+                        title="Product Gallery"
+                        width="w-[90%] md:w-[80%] lg:w-[70%] max-w-[1000px]"
+                    >
+                        <div className="flex flex-col gap-4">
+                            <div className="relative w-full aspect-video md:aspect-[16/9] lg:aspect-[21/9] bg-black/5 rounded-xl flex items-center justify-center overflow-hidden">
+                                <img 
+                                    src={galleryImages[selectedImageIndex]} 
+                                    alt={`Gallery view ${selectedImageIndex + 1}`} 
+                                    className="w-full h-full object-contain" 
+                                />
+                                
+                                <button 
+                                    onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                                    className="absolute left-2 md:left-4 p-2 md:p-3 bg-white/80 hover:bg-white rounded-full transition-all shadow-md"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6">
+                                        <path d="M15 19.9201L8.47997 13.4001C7.70997 12.6301 7.70997 11.3701 8.47997 10.6001L15 4.08008" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </button>
+                                
+                                <button 
+                                    onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                                    className="absolute right-2 md:right-4 p-2 md:p-3 bg-white/80 hover:bg-white rounded-full transition-all shadow-md"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6">
+                                        <path d="M8.91003 19.9201L15.43 13.4001C16.2 12.6301 16.2 11.3701 15.43 10.6001L8.91003 4.08008" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div className="flex justify-center gap-2 overflow-x-auto py-2">
+                                {galleryImages.map((img, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setSelectedImageIndex(idx)}
+                                        className={`relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden shrink-0 transition-all ${
+                                            selectedImageIndex === idx ? 'ring-2 ring-primary-color opacity-100' : 'opacity-60 hover:opacity-100'
+                                        }`}
+                                    >
+                                        <img src={img} className="w-full h-full object-cover" />
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </Modal>
 
                     {/* Info List Section */}
                     <DetailsBoxList 
