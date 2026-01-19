@@ -17,6 +17,7 @@ import MyStore from "./pages/seller/my-store/MyStore";
 import CreateStore from "./pages/seller/my-store/CreateStore";
 import MyProducts from "./pages/seller/my-products/MyProducts";
 import MyProductDetails from "./pages/seller/my-products/MyProductDetails";
+import CreateProduct from "./pages/seller/my-products/CreateProduct";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="my-products">
             <Route index element={<MyProducts />} />
             <Route path=":id" element={<MyProductDetails />} />
+            <Route path="create" element={<CreateProduct />} />
           </Route>
 
         </Route>

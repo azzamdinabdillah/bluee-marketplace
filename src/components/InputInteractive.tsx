@@ -15,7 +15,14 @@ interface BaseProps {
 type InputProps = BaseProps & React.InputHTMLAttributes<HTMLInputElement> & { as?: "input" };
 type TextareaProps = BaseProps & React.TextareaHTMLAttributes<HTMLTextAreaElement> & { as: "textarea" };
 
-type InputInteractiveProps = InputProps | TextareaProps;
+interface UnitProps {
+  unitOptions?: string[];
+  selectedUnit?: string;
+  onUnitChange?: (unit: string) => void;
+  unitIcon?: React.ElementType;
+}
+
+type InputInteractiveProps = (InputProps | TextareaProps) & UnitProps;
 
 export default function InputInteractive({
   label,
@@ -24,6 +31,10 @@ export default function InputInteractive({
   className,
   as = "input",
   error,
+  unitOptions,
+  selectedUnit,
+  onUnitChange,
+  unitIcon: UnitIcon,
   ...props
 }: InputInteractiveProps) {
   const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
@@ -44,7 +55,7 @@ export default function InputInteractive({
           <Icon className={`h-5 w-5 text-sec-color transition-colors group-focus-within:text-primary-color md:h-6 md:w-6`} />
         </div>
         <div className={`mx-3 w-[2px] bg-stroke-color transition-colors group-focus-within:bg-primary-color md:mx-[18px] ${isTextarea ? "" : "h-6 md:h-8"}`}></div>
-        <div className="relative flex h-full w-full flex-col justify-center">
+        <div className="relative flex h-full flex-1 flex-col justify-center">
           {isTextarea ? (
             <textarea
               id={inputId}
@@ -74,6 +85,55 @@ export default function InputInteractive({
             {label}
           </label>
         </div>
+        
+        {unitOptions && unitOptions.length > 0 && (
+          <div className={`flex shrink-0 pl-3 md:pl-4 ${isTextarea ? "pt-3 md:pt-4" : "items-center"}`}>
+            <div className="relative">
+              {/* Visual Container */}
+              <div className="flex items-center gap-2 rounded-lg bg-light-blue-color px-4 py-2.5 transition-colors">
+                <span className="font-lexend text-sm font-extrabold text-primary-color md:text-base">
+                  {selectedUnit}
+                </span>
+                <div className="flex items-center justify-center text-primary-color">
+                  {UnitIcon ? (
+                    <UnitIcon className="h-4 w-4 md:h-5 md:w-5" />
+                  ) : (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 md:h-5 md:w-5"
+                    >
+                      <path
+                        d="M13.2802 5.9668L8.93355 10.3135C8.42021 10.8268 7.58021 10.8268 7.06688 10.3135L2.72021 5.9668"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeMiterlimit="10"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
+              </div>
+
+              {/* Hidden Select */}
+              <select
+                value={selectedUnit}
+                onChange={(e) => onUnitChange?.(e.target.value)}
+                className="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
+              >
+                {unitOptions.map((unit) => (
+                  <option key={unit} value={unit}>
+                    {unit}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        )}
       </div>
       {error && (
         <span className="text-red-color text-xs md:text-sm font-medium">{error}</span>

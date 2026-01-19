@@ -14,6 +14,7 @@ import calendarIcon from '/icons/calendar-2.svg';
 import trashIcon from '/icons/trash-red.svg';
 import editIcon from '/icons/edit.svg';
 import eyeIcon from '/icons/eye.svg';
+import addCircleIcon from '/icons/add-circle.svg';
 import lp1 from '/images/lp-1.png';
 import lp2 from '/images/lp-2.png';
 import hp1 from '/images/hp-1.png';
@@ -77,20 +78,26 @@ export default function MyProducts() {
 
             <div className="flex w-full flex-col gap-4 rounded-2xl bg-white p-4 md:gap-5 md:rounded-[20px] md:p-5 lg:gap-6 lg:p-6">
                 {/* Title & Badge */}
-                <div className="flex flex-col gap-2">
-                    <h2 className="font-lexend text-responsive-20 text-black-color font-bold">
-                        All Transactions
-                    </h2>
-                    <div className="flex flex-row items-center gap-1">
-                        <img
-                            src={stickyNoteIcon}
-                            alt="Total"
-                            className="size-4 md:size-5"
-                        />
-                        <span className="font-lexend text-responsive-16 text-sec-color font-semibold">
-                            {products.length} Total Transactions
-                        </span>
+                <div className="flex justify-between items-start">
+                    <div className="flex flex-col gap-2">
+                        <h2 className="font-lexend text-responsive-20 text-black-color font-bold">
+                            All Transactions
+                        </h2>
+                        <div className="flex flex-row items-center gap-1">
+                            <img
+                                src={stickyNoteIcon}
+                                alt="Total"
+                                className="size-4 md:size-5"
+                            />
+                            <span className="font-lexend text-responsive-16 text-sec-color font-semibold">
+                                {products.length} Total Transactions
+                            </span>
+                        </div>
                     </div>
+
+                    <Button to="/backoffice-seller/my-products/create" variant="blue" className="rounded-full!" icon={addCircleIcon}>
+                        Add New
+                    </Button>
                 </div>
 
                 {/* Controls (Search & Filter) */}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "@src/components/Modal";
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
 import statusUpIcon from '/icons/status-up.svg';
@@ -16,7 +16,6 @@ import lp1 from "/images/lp-1.png";
 import lp2 from "/images/lp-2.png";
 import lp3 from "/images/lp-1-1.png";
 import lp4 from "/images/lp-1-2.png";
-import arrowRight from "/icons/arrow-right.svg"
 import arrowLeft from "/icons/arrow-left-black.svg"
 
 export default function MyProductDetails() {
