@@ -11,6 +11,8 @@ import StarIcon from "@src/components/icons/StarIcon";
 import boxTickIcon from "/icons/box-tick.svg";
 import infoCircleIcon from "/icons/info-circle.svg";
 import Divider from "@src/components/Divider";
+import GalleryIcon from "@src/components/icons/GalleryIcon";
+import BarcodeIcon from "@src/components/icons/BarcodeIcon";
 
 const STEPS = [
   { id: 1, label: "Book Review" },
@@ -29,6 +31,7 @@ export default function TransactionDetailsOrderStatus({
   const [currentStep, setCurrentStep] = useState<number>(1); // Defaulting to 1
   const [rating, setRating] = useState<number>(0);
   const [review, setReview] = useState<string>("");
+  const [trackingNo, setTrackingNo] = useState<string>("");
 
   // Helper to calculate progress width for the background line
   const progressWidth = `${((Math.min(currentStep, 3) - 1) / 2) * 100}%`;
@@ -71,7 +74,7 @@ export default function TransactionDetailsOrderStatus({
 
       case 3:
         return (
-          /* Step 3: Shipping - Figma Node 3185:19528 */
+          /* Step 3: Shipping */
           <div className="flex flex-col gap-4">
             {/* Hero Image */}
             <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-[260px]">
@@ -202,7 +205,7 @@ export default function TransactionDetailsOrderStatus({
               <Button variant="blue" className="w-full rounded-full!">
                 Accept Order
               </Button>
-              <p className="text-responsive-16 text-sec-color flex gap-1.5 font-semibold items-center justify-center">
+              <p className="text-responsive-16 text-sec-color flex items-center justify-center gap-1.5 font-semibold">
                 Why can't I decline the order?{" "}
                 <span>
                   <img src={infoCircleIcon} alt="" />
@@ -213,29 +216,147 @@ export default function TransactionDetailsOrderStatus({
         );
       case 2:
         return (
-          <div className="flex flex-col gap-4">
-            {/* Seller UI for Step 2 Placeholder */}
-            <p className="font-lexend text-sm text-[#6A7686]">
-              Seller UI for Processing step will be added here...
-            </p>
+          <div className="flex flex-col gap-3 md:gap-5">
+            <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+              <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                <img
+                  src={truckIcon}
+                  alt="Delivery Status"
+                  className="h-5 w-5 object-contain md:h-6 md:w-6"
+                />
+                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                  Delivery Status
+                </span>
+              </div>
+              <StatusBadge status="processing" variant="processing" />
+            </div>
+
+            <Divider />
+
+            {/* Photo Section */}
+            <div className="flex items-center justify-between">
+              <div className="flex h-20 w-20 items-center justify-center rounded-[16px] bg-[#F6F7F9] md:h-24 md:w-24 lg:h-[100px] lg:w-[100px]">
+                <GalleryIcon className="h-8 w-8 text-[#6A7686] md:h-10 md:w-10" />
+              </div>
+              <Button
+                variant="black"
+                className="rounded-[16px] px-6 py-4 md:px-8"
+              >
+                Add Photo
+              </Button>
+            </div>
+
+            {/* Tracking Number Input */}
+            <div className="flex flex-col gap-2">
+              <label className="font-lexend text-sm font-bold text-[#6A7686] md:text-base">
+                Tracking Number
+              </label>
+              <InputInteractive
+                label="Enter Tracking Number"
+                value={trackingNo}
+                onChange={(e) => setTrackingNo(e.target.value)}
+                icon={BarcodeIcon}
+              />
+            </div>
+
+            {/* Update Status Button */}
+            <Button
+              variant="gray"
+              className={`w-full rounded-full py-4 text-base font-bold md:text-lg ${trackingNo ? "bg-primary-color! text-white!" : "bg-[#E8E8E8]! text-white!"}`}
+              disabled={!trackingNo}
+            >
+              Update Status
+            </Button>
           </div>
         );
       case 3:
         return (
           <div className="flex flex-col gap-4">
-            {/* Seller UI for Step 3 Placeholder */}
-            <p className="font-lexend text-sm text-[#6A7686]">
-              Seller UI for Shipping step will be added here...
-            </p>
+            {/* Hero Image */}
+            <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-[260px]">
+              <img
+                src={proofImage}
+                alt="Shipping Proof"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Delivery Status Row */}
+            <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+              <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                <img
+                  src={truckIcon}
+                  alt="Delivery Status"
+                  className="h-5 w-5 object-contain md:h-6 md:w-6"
+                />
+                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                  Delivery Status
+                </span>
+              </div>
+              <StatusBadge status="Delivering" variant="delivering" />
+            </div>
+
+            {/* Tracking Number Row */}
+            <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+              <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                <img
+                  src={locationIcon}
+                  alt="Tracking Number"
+                  className="h-5 w-5 object-contain md:h-6 md:w-6"
+                />
+                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                  Tracking Number
+                </span>
+              </div>
+              <span className="font-lexend text-sm font-bold text-[#292D32] md:text-base lg:text-lg">
+                2500050102015
+              </span>
+            </div>
           </div>
         );
       case 4:
         return (
           <div className="flex flex-col gap-4">
-            {/* Seller UI for Step 4 Placeholder */}
-            <p className="font-lexend text-sm text-[#6A7686]">
-              Seller UI for Delivered step will be added here...
-            </p>
+            {/* Hero Image */}
+            <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-[260px]">
+              <img
+                src={proofImage}
+                alt="Shipping Proof"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Delivery Status Row */}
+            <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+              <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                <img
+                  src={truckIcon}
+                  alt="Delivery Status"
+                  className="h-5 w-5 object-contain md:h-6 md:w-6"
+                />
+                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                  Delivery Status
+                </span>
+              </div>
+              <StatusBadge status="completed" variant="completed" />
+            </div>
+
+            {/* Tracking Number Row */}
+            <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-1.5">
+              <div className="flex flex-row items-center gap-1.5 md:gap-2">
+                <img
+                  src={locationIcon}
+                  alt="Tracking Number"
+                  className="h-5 w-5 object-contain md:h-6 md:w-6"
+                />
+                <span className="font-lexend text-sm font-medium text-[#6A7686] md:text-base">
+                  Tracking Number
+                </span>
+              </div>
+              <span className="font-lexend text-sm font-bold text-[#292D32] md:text-base lg:text-lg">
+                2500050102015
+              </span>
+            </div>
           </div>
         );
       default:
