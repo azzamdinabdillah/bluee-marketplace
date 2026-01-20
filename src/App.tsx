@@ -20,6 +20,7 @@ import MyProductDetails from "./pages/seller/my-products/MyProductDetails";
 import CreateProduct from "./pages/seller/my-products/CreateProduct";
 import Transactions from "./pages/seller/transactions/Transactions";
 import DetailsTransactionSeller from "./pages/seller/transactions/DetailsTransaction";
+import MyWallet from "./pages/seller/my-wallet/MyWallet";
 
 function App() {
   return (
@@ -65,6 +66,12 @@ function App() {
             <Route index element={<Transactions />} />
             <Route path=":id" element={<DetailsTransactionSeller />} />
           </Route>
+
+          <Route path="my-wallet">
+            <Route index element={<MyWallet />} />
+          </Route>
+
+
         </Route>
       </Routes>
     </BrowserRouter>
