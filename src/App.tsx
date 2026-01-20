@@ -19,6 +19,7 @@ import MyProducts from "./pages/seller/my-products/MyProducts";
 import MyProductDetails from "./pages/seller/my-products/MyProductDetails";
 import CreateProduct from "./pages/seller/my-products/CreateProduct";
 import Transactions from "./pages/seller/transactions/Transactions";
+import DetailsTransactionSeller from "./pages/seller/transactions/DetailsTransaction";
 
 function App() {
   return (
@@ -62,9 +63,8 @@ function App() {
 
           <Route path="transactions">
             <Route index element={<Transactions />} />
-            {/* <Route path=":id" element={<DetailsTransaction />} /> */}
+            <Route path=":id" element={<DetailsTransactionSeller />} />
           </Route>
-
         </Route>
       </Routes>
     </BrowserRouter>

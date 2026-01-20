@@ -236,6 +236,7 @@ export default function Transactions() {
                       Export
                     </Button>
                     <Button
+                      to="/backoffice-seller/transactions/1"
                       variant="blue"
                       icon={eyeIcon}
                       iconPosition="left"

@@ -31,7 +31,7 @@ export default function HeaderBackoffice({
             {showBackButton && (
               <button
                 onClick={() => navigate(-1)}
-                className="hover:scale-110 flex h-5 w-5 items-center justify-center rounded-full transition-transform duration-200 cursor-pointer"
+                className="flex h-5 w-5 cursor-pointer items-center justify-center rounded-full transition-transform duration-200 hover:scale-110"
               >
                 <img
                   src={arrowLeftIcon}
@@ -70,7 +70,7 @@ export default function HeaderBackoffice({
         </div>
       </div>
 
-      <div className="hidden w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 shadow-sm transition-shadow duration-300 hover:shadow-md md:flex md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
+      <div className="hidden w-full shrink-0 flex-row items-center justify-between gap-2 rounded-2xl bg-white p-3 transition-shadow duration-300 md:flex md:w-fit md:gap-2.5 md:rounded-[18px] md:p-4 lg:gap-[10px] lg:rounded-[20px] lg:px-[20px] lg:py-[18px] xl:w-[260px]">
         <div className="flex flex-row items-center gap-2 md:gap-2.5 lg:gap-[10px]">
           {/* Avatar */}
           <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100 md:h-12 md:w-12 lg:h-[56px] lg:w-[56px]">
@@ -83,9 +83,11 @@ export default function HeaderBackoffice({
 
           {/* Info */}
           <div className="flex flex-col gap-0.5 md:gap-1 lg:gap-1.5">
-            <h3 className="font-lexend text-black-color text-sm leading-tight font-semibold md:text-[15px] lg:text-base">
-              Bimore W
-            </h3>
+            <div className="overflow-hidden w-full max-w-[100px]">
+              <h3 className="font-lexend text-black-color truncate text-sm leading-tight font-semibold md:text-[15px] lg:text-base">
+                Bimore Waskdjashdad
+              </h3>
+            </div>
             <div className="text-sec-color flex flex-row items-center gap-1">
               <img
                 src={userIcon}

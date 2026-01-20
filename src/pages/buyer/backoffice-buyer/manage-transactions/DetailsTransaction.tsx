@@ -24,124 +24,126 @@ import TransactionDetailsOrderReviews from "@src/components/sections/buyer/backo
 import TransactionDetailsCustomer from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsCustomer";
 import TransactionDetailsOrderStatus from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsOrderStatus";
 import BoxList from "@src/components/backoffice/BoxList";
+import type { ProductType } from "@src/types/ProductTypes";
+
+export const transactionDetails = [
+  {
+    icon: boxIcon,
+    value: 3,
+    label: "Total Products",
+  },
+  {
+    icon: shoppingCartIcon,
+    value: 21,
+    label: "Total Quantity",
+  },
+  {
+    icon: calendarIcon,
+    value: "4 April 2025",
+    label: "Date Transaction",
+  },
+];
+
+export const products: ProductType[] = [
+  {
+    id: 1,
+    title: "Iphone 15 Pro Max",
+    category: "Electronics",
+    price: 18120500,
+    quantity: 6,
+    image: product1,
+  },
+  {
+    id: 2,
+    title: "Macbook Pro M1",
+    category: "Electronics",
+    price: 21500500,
+    quantity: 3,
+    image: product2,
+  },
+  {
+    id: 3,
+    title: "Airpods Gen 12",
+    category: "Electronics",
+    price: 2456500,
+    quantity: 12,
+    image: product3,
+  },
+];
+
+export const customerDetails = [
+  {
+    icon: emailIcon,
+    value: "mamatgadger@gmail.com",
+    label: "Email",
+  },
+  {
+    icon: buildingsIcon,
+    value: "Malang",
+    label: "City Location",
+  },
+  {
+    icon: locationIcon,
+    value: "Wolf Street No 32",
+    label: "Street Address",
+  },
+  {
+    icon: postCodeIcon,
+    value: "32250",
+    label: "Post Code",
+  },
+];
+
+export const paymentSummary = [
+  {
+    icon: receiptIcon,
+    label: "Subtotal",
+    value: "Rp 202.702.500",
+  },
+  {
+    icon: shoppingCartGrayIcon,
+    label: "Service Fee",
+    value: "Rp 5.000",
+  },
+  {
+    icon: truckIcon,
+    label: "Delivery Fee",
+    value: "Rp 25.000",
+  },
+  {
+    icon: noteIcon,
+    label: "PPN 12%",
+    value: "Rp 40.000",
+  },
+  {
+    icon: discountIcon,
+    label: "Discount",
+    value: "Rp 0",
+    customClassStyleValue: "",
+  },
+  {
+    icon: moneyIcon,
+    label: "Grand Total",
+    value: "Rp 202.772.500",
+    customClassStyleValue:
+      "font-lexend text-primary-color text-responsive-20 text-right font-bold",
+  },
+];
 
 export default function DetailsTransaction() {
-  const transactionDetails = [
-    {
-      icon: boxIcon,
-      value: 3,
-      label: "Total Products",
-    },
-    {
-      icon: shoppingCartIcon,
-      value: 21,
-      label: "Total Quantity",
-    },
-    {
-      icon: calendarIcon,
-      value: "4 April 2025",
-      label: "Date Transaction",
-    },
-  ];
-
-  const products = [
-    {
-      id: 1,
-      title: "Iphone 15 Pro Max",
-      category: "Electronics",
-      price: 18120500,
-      quantity: 6,
-      image: product1,
-    },
-    {
-      id: 2,
-      title: "Macbook Pro M1",
-      category: "Electronics",
-      price: 21500500,
-      quantity: 3,
-      image: product2,
-    },
-    {
-      id: 3,
-      title: "Airpods Gen 12",
-      category: "Electronics",
-      price: 2456500,
-      quantity: 12,
-      image: product3,
-    },
-  ];
-
-  const customerDetails = [
-    {
-      icon: emailIcon,
-      value: "mamatgadger@gmail.com",
-      label: "Email",
-    },
-    {
-      icon: buildingsIcon,
-      value: "Malang",
-      label: "City Location",
-    },
-    {
-      icon: locationIcon,
-      value: "Wolf Street No 32",
-      label: "Street Address",
-    },
-    {
-      icon: postCodeIcon,
-      value: "32250",
-      label: "Post Code",
-    },
-  ];
-
-  const paymentSummary = [
-    {
-      icon: receiptIcon,
-      label: "Subtotal",
-      value: "Rp 202.702.500",
-    },
-    {
-      icon: shoppingCartGrayIcon,
-      label: "Service Fee",
-      value: "Rp 5.000",
-    },
-    {
-      icon: truckIcon,
-      label: "Delivery Fee",
-      value: "Rp 25.000",
-    },
-    {
-      icon: noteIcon,
-      label: "PPN 12%",
-      value: "Rp 40.000",
-    },
-    {
-      icon: discountIcon,
-      label: "Discount",
-      value: "Rp 0",
-      customClassStyleValue: "",
-    },
-    {
-      icon: moneyIcon,
-      label: "Grand Total",
-      value: "Rp 202.772.500",
-      customClassStyleValue: "font-lexend text-primary-color text-responsive-20 text-right font-bold",
-    },
-  ];
-
   return (
     <TemplateLayoutBackoffice
       showBackButton
       title="Manage Transactions"
       subtitle="View & Update Your Transactions"
     >
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
         <div className="flex flex-col gap-3 md:gap-5">
           <div className="flex flex-col gap-3 md:gap-5">
-            <TransactionStatusSection status="pending" />
-            <TransactionStatusSection status="processing" />
-            <TransactionStatusSection status="delivering" />
-            <TransactionStatusSection status="completed" />
+            <TransactionStatusSection status="pending" role="buyer" />
+            <TransactionStatusSection status="processing" role="buyer" />
+            <TransactionStatusSection status="delivering" role="buyer" />
+            <TransactionStatusSection status="completed" role="buyer" />
           </div>
 
           <TransactionDetailsOrderReviews
