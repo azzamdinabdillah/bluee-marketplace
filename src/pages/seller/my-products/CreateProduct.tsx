@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import TemplateLayoutBackoffice from "@src/components/backoffice/TemplateLayoutBackoffice";
 import InputInteractive from "@src/components/InputInteractive";
 import InputRadioInteractive from "@src/components/InputRadioInteractive";
 import SelectInteractive from "@src/components/SelectInteractive";
 import { Box } from "@src/components/icons/Box";
 import StickyNote from "@src/components/icons/StickyNote";
-import { Note } from "@src/components/icons/Note";
-import ProductItemLine from "@src/components/icons/ProductItemLine";
-import PlusIcon from "@src/components/icons/PlusIcon";
-import { EditIcon } from "@src/components/icons/EditIcon";
+import editIcon from "/icons/edit-black.svg";
 import MoneyIcon from "@src/components/icons/MoneyIcon";
 import ShoppingCart from "@src/components/icons/ShoppingCart";
 import Box2 from "@src/components/icons/Box2";
 import GiftIcon from "@src/components/icons/GiftIcon";
 import Box4 from "@src/components/icons/Box4";
 import Box3Icon from "@src/components/icons/Box3Icon";
+import trashIcon from "/icons/trash-white.svg";
 import Button from "@src/components/Button";
 import imagePlaceholder from "/images/image-placeholder-2.png";
 
@@ -30,6 +28,34 @@ export default function CreateProduct() {
     price: "",
     stock: "",
   });
+
+  const [images, setImages] = useState<(string | null)[]>([
+    null,
+    null,
+    null,
+    null,
+  ]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+
+  const handleImageClick = (index: number) => {
+    setActiveImageIndex(index);
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && activeImageIndex !== null) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const newImages = [...images];
+        newImages[activeImageIndex] = reader.result as string;
+        setImages(newImages);
+      };
+      reader.readAsDataURL(file);
+    }
+    e.target.value = "";
+  };
 
   const categories = [
     { value: "electronics", label: "Electronics" },
@@ -65,9 +91,37 @@ export default function CreateProduct() {
           {/* Store Image Section */}
           <div className={rowClass}>
             <label className={labelClassStart}>Store Image</label>
-            <div className="flex scrollbar-hide flex-row gap-4 overflow-x-auto lg:gap-5">
-              {[1, 2, 3, 4].map((i) => (
-                <img src={imagePlaceholder} alt="" key={i} className="size-[80px] md:size-[100px]" />
+            <div className="scrollbar-hide flex flex-row gap-4 overflow-x-auto lg:gap-5">
+              <input
+                type="file"
+                ref={fileInputRef}
+                className="hidden"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              {images.map((img, i) => (
+                <div key={i} className="group relative shrink-0">
+                  <div
+                    onClick={() => !img && handleImageClick(i)}
+                    className="group hover:border-primary-color relative size-[80px] cursor-pointer overflow-hidden rounded-xl border-gray-200 transition-all md:size-[100px]"
+                  >
+                    <img
+                      src={img || imagePlaceholder}
+                      alt=""
+                      className={`h-full w-full object-cover`}
+                    />
+                    {img && (
+                      <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/40 transition-opacity group-hover:opacity-100 lg:opacity-0">
+                        <div className="flex p-1.5 md:p-2.5 items-center justify-center rounded-full bg-white transition-colors">
+                          <img src={editIcon} alt="" className="w-full h-full" />
+                        </div>
+                        <div className="flex p-1.5 md:p-2.5 items-center justify-center rounded-full bg-red-color transition-colors">
+                          <img src={trashIcon} alt="" className="w-full h-full" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -181,7 +235,7 @@ export default function CreateProduct() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex mt-3 md:mt-0 gap-3 md:justify-end">
+          <div className="mt-3 flex gap-3 md:mt-0 md:justify-end">
             <Button variant="red" className="w-full rounded-full! md:w-fit">
               Cancel
             </Button>
