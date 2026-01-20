@@ -17,11 +17,13 @@ import receiptIcon from "/icons/receipt.svg";
 import truckIcon from "/icons/group-gray.svg";
 import noteIcon from "/icons/note-text.svg";
 import moneyIcon from "/icons/money.svg";
+import discountIcon from "/icons/discount-shape.svg";
 import TransactionStatusSection from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsStatus";
 import ProductDetailsSection from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsProduct";
 import TransactionDetailsOrderReviews from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsOrderReviews";
 import TransactionDetailsCustomer from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsCustomer";
 import TransactionDetailsOrderStatus from "@src/components/sections/buyer/backoffice/transaction-details/TransactionDetailsOrderStatus";
+import BoxList from "@src/components/backoffice/BoxList";
 
 export default function DetailsTransaction() {
   const transactionDetails = [
@@ -113,6 +115,18 @@ export default function DetailsTransaction() {
       label: "PPN 12%",
       value: "Rp 40.000",
     },
+    {
+      icon: discountIcon,
+      label: "Discount",
+      value: "Rp 0",
+      customClassStyleValue: "",
+    },
+    {
+      icon: moneyIcon,
+      label: "Grand Total",
+      value: "Rp 202.772.500",
+      customClassStyleValue: "font-lexend text-primary-color text-responsive-20 text-right font-bold",
+    },
   ];
 
   return (
@@ -154,48 +168,7 @@ export default function DetailsTransaction() {
               Transaction Details
             </h3>
 
-            <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
-              {paymentSummary.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex w-full flex-row items-center gap-1.5"
-                >
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center md:h-6 md:w-6">
-                    <img
-                      src={item.icon}
-                      alt={item.label}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                  <span className="text-sec-color font-lexend text-responsive-18 flex-1 text-left font-medium">
-                    {item.label}
-                  </span>
-                  <span className="font-lexend text-black-color text-responsive-20 text-right font-bold">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
-
-              {/* Divider */}
-              <hr className="border-stroke-color h-px w-full border"></hr>
-
-              {/* Grand Total */}
-              <div className="flex w-full flex-row items-center gap-1.5">
-                <div className="flex h-5 w-5 shrink-0 items-center justify-center md:h-6 md:w-6">
-                  <img
-                    src={moneyIcon}
-                    alt="Grand Total"
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <span className="text-sec-color font-lexend text-responsive-18 flex-1 text-left font-medium">
-                  Grand Total
-                </span>
-                <span className="font-lexend text-primary-color text-responsive-20 text-right font-bold">
-                  Rp 202.772.500
-                </span>
-              </div>
-            </div>
+            <BoxList items={paymentSummary} />
           </div>
 
           <TransactionDetailsOrderStatus />
