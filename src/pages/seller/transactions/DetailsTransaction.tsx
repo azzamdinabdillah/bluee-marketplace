@@ -59,7 +59,7 @@ export default function DetailsTransaction() {
             <BoxList items={paymentSummary} />
           </div>
 
-          <TransactionDetailsOrderStatus />
+          <TransactionDetailsOrderStatus role="seller" />
         </div>
       </div>
     </TemplateLayoutBackoffice>
