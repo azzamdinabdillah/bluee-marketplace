@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Box2({
   fill = "#6A7686",
-  stroke = "none",
+  stroke = "currentColor",
   ...props
 }: React.SVGProps<SVGSVGElement>) {
   return (

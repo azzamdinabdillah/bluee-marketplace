@@ -74,7 +74,7 @@ export default function InputInteractive({
           )}
           <label
             htmlFor={inputId}
-            className={`pointer-events-none absolute left-0 z-10 w-full bg-white pr-1 text-sm font-semibold text-sec-color transition-all peer-focus:text-xs peer-focus:font-semibold peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-semibold
+            className={`pointer-events-none absolute left-0 z-10 w-full bg-white pr-1 text-sm font-semibold text-black-color transition-all peer-focus:text-xs peer-focus:font-semibold peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-semibold
               md:text-base md:peer-focus:text-sm md:peer-[:not(:placeholder-shown)]:text-sm
               ${isTextarea
                 ? "top-6 -translate-y-1/2 peer-focus:top-2 peer-[:not(:placeholder-shown)]:top-2 md:top-7 md:peer-focus:top-2.5 md:peer-[:not(:placeholder-shown)]:top-2.5"
