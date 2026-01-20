@@ -18,6 +18,7 @@ import CreateStore from "./pages/seller/my-store/CreateStore";
 import MyProducts from "./pages/seller/my-products/MyProducts";
 import MyProductDetails from "./pages/seller/my-products/MyProductDetails";
 import CreateProduct from "./pages/seller/my-products/CreateProduct";
+import Transactions from "./pages/seller/transactions/Transactions";
 
 function App() {
   return (
@@ -57,6 +58,11 @@ function App() {
             <Route index element={<MyProducts />} />
             <Route path=":id" element={<MyProductDetails />} />
             <Route path="create" element={<CreateProduct />} />
+          </Route>
+
+          <Route path="transactions">
+            <Route index element={<Transactions />} />
+            {/* <Route path=":id" element={<DetailsTransaction />} /> */}
           </Route>
 
         </Route>

@@ -79,7 +79,7 @@ export default function Sidebar({ role = "buyer" }: SidebarProps) {
           active: "/icons/stickynote-active.svg",
           inactive: "/icons/stickynote-inactive.svg",
         },
-        path: "/backoffice-buyer/manage-transactions",
+        path: "/backoffice-seller/transactions",
       },
       {
         id: "myWallet",

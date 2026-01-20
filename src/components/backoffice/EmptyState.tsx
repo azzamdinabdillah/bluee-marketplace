@@ -13,7 +13,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
     className = "",
 }) => {
     return (
-        <div className={`empty-state flex w-full flex-col items-center justify-center gap-3 py-8 md:gap-4 lg:gap-4 ${className}`}>
+        <div className={`empty-state md:h-[450px] flex w-full flex-col items-center justify-center gap-3 py-8 md:gap-4 lg:gap-4 ${className}`}>
             <img
                 src={iconSrc}
                 alt="No data"
