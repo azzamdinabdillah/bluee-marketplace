@@ -10,6 +10,11 @@ import Keyboard from "@src/components/icons/Keyboard";
 import imagePlaceholder from "/icons/image-placeholder.svg";
 
 export default function CreateStore() {
+  const rowClass =
+    "flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-[45fr_55fr] lg:items-center lg:gap-6";
+  const labelClass =
+    "text-sec-color text-sm font-semibold md:text-base lg:shrink-0";
+
   return (
     <TemplateLayoutBackoffice
       title="Create My Store"
@@ -18,15 +23,13 @@ export default function CreateStore() {
       showBackButton
     >
       <div className="flex w-full flex-col gap-5 rounded-xl bg-white p-3 md:p-5 lg:rounded-[20px]">
-        <h2 className="text-black-color text-responsive-20 font-bold">
+        <h2 className="text-responsive-20 text-black-color font-bold">
           Complete the Form
         </h2>
 
         {/* Store Image */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6">
-          <span className="text-sec-color text-base font-semibold lg:shrink-0">
-            Store Image
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Store Image</span>
           <div className="flex items-center justify-between gap-6">
             <img
               src={imagePlaceholder}
@@ -40,10 +43,8 @@ export default function CreateStore() {
         </div>
 
         {/* Store Name */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Store Name
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Store Name</span>
           <div className="w-full">
             <InputInteractive
               label="Enter Store Name"
@@ -54,10 +55,8 @@ export default function CreateStore() {
         </div>
 
         {/* Store Description */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Store Description
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Store Description</span>
           <div className="w-full">
             <InputInteractive
               as="textarea"
@@ -69,10 +68,8 @@ export default function CreateStore() {
         </div>
 
         {/* Address Searching */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Address Searching
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Address Searching</span>
           <div className="w-full">
             <InputInteractive
               label="Enter District"
@@ -83,10 +80,8 @@ export default function CreateStore() {
         </div>
 
         {/* Store Address */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Store Address
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Store Address</span>
           <div className="w-full">
             <InputInteractive
               as="textarea"
@@ -98,10 +93,8 @@ export default function CreateStore() {
         </div>
 
         {/* Store City */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Store City
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Store City</span>
           <div className="w-full">
             <InputInteractive
               label="Select City"
@@ -112,10 +105,8 @@ export default function CreateStore() {
         </div>
 
         {/* Post Code */}
-        <div className="flex w-full flex-col justify-between gap-2 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6">
-          <span className="text-sec-color text-sm font-semibold md:text-base lg:shrink-0">
-            Post Code
-          </span>
+        <div className={rowClass}>
+          <span className={labelClass}>Post Code</span>
           <div className="w-full">
             <InputInteractive
               label="Enter Post Code"

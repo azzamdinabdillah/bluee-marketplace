@@ -91,7 +91,7 @@ export default function MyStore() {
 
           {/* Actions */}
           <div className="mt-auto flex flex-col gap-3">
-            <Button variant="black" iconPosition="left" icon={editIcon}>
+            <Button to="/backoffice-seller/my-store/create" variant="black" iconPosition="left" icon={editIcon}>
               Edit Store
             </Button>
 
