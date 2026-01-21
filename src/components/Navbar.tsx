@@ -152,6 +152,18 @@ export default function Navbar() {
 
                     <div popover="auto" id="user-menu" ref={popoverRef} className="anchored/--user-anchor anchored-bottom-span-left translate-y-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)] rounded-[20px_0px_20px_20px] bg-white">
                       <div className="w-[201px] flex flex-col gap-[18px] py-6 px-4 z-50">
+                        <Link to={'/backoffice-buyer/overview'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                            Buyer Backoffice
+                          </p>
+                          <img className="h-6 w-6" src={profileCircle} alt="" />
+                        </Link>
+                        <Link to={'/backoffice-seller/overview'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
+                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                            Seller Backoffice
+                          </p>
+                          <img className="h-6 w-6" src={profileCircle} alt="" />
+                        </Link>
                         <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
                           <p className="text-[#6A7686] font-medium text-base leading-5">
                             My Profile
