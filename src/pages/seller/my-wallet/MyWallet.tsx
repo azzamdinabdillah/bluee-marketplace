@@ -79,9 +79,9 @@ const WithdrawalRow = ({ amount, status }: (typeof withdrawals)[0]) => {
   return (
     <div className="border-stroke-color flex flex-col gap-3 rounded-2xl border bg-white p-3 md:flex-row md:items-center md:justify-between md:gap-4 md:rounded-[18px] md:p-4 lg:gap-5 lg:rounded-[20px] lg:p-4">
       {/* Icon & Amount Section */}
-      <div className="flex flex-1 items-center gap-2.5 md:gap-3 lg:gap-3.5">
+      <div className="flex flex-1 items-center gap-2.5 md:gap-3 lg:gap-3.5 shrink-0">
         <div
-          className={`relative flex size-12 shrink-0 items-center justify-center rounded-full md:size-14 lg:size-[72px] ${iconConfig.bg}`}
+          className={`relative flex size-12 shrink-0 items-center justify-center rounded-lg md:rounded-2xl md:size-14 lg:size-[72px] ${iconConfig.bg}`}
         >
           <img
             src={iconConfig.icon}
@@ -216,7 +216,7 @@ export default function MyWallet() {
         showSearch={false}
         showEntries={false}
         rightElement={
-          <Button variant="blue" className="rounded-full!" icon={addCircle}>
+          <Button to="/backoffice-seller/my-wallet/request-withdraw" variant="blue" className="rounded-full!" icon={addCircle}>
             Request Withdraw
           </Button>
         }
@@ -230,6 +230,8 @@ export default function MyWallet() {
         <div className="flex justify-end md:justify-start">
           <Pagination />
         </div>
+
+        {/* <EmptyState/> */}
       </SectionFilter>
     </TemplateLayoutBackoffice>
   );

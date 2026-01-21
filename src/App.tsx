@@ -21,6 +21,7 @@ import CreateProduct from "./pages/seller/my-products/CreateProduct";
 import Transactions from "./pages/seller/transactions/Transactions";
 import DetailsTransactionSeller from "./pages/seller/transactions/DetailsTransaction";
 import MyWallet from "./pages/seller/my-wallet/MyWallet";
+import RequestWithdraw from "./pages/seller/my-wallet/RequestWithdraw";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
 
           <Route path="my-wallet">
             <Route index element={<MyWallet />} />
+            <Route path="request-withdraw" element={<RequestWithdraw />} />
           </Route>
 
 
