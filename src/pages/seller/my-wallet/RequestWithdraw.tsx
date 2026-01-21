@@ -11,7 +11,7 @@ import userIcon from "/icons/user.svg";
 
 export default function RequestWithdraw() {
   const rowClass =
-    "flex flex-col gap-2 lg:grid lg:grid-cols-[45fr_55fr] lg:flex-row lg:items-start lg:gap-10";
+    "flex flex-col gap-2 md:grid md:grid-cols-[45fr_55fr] lg:flex-row md:items-center lg:gap-10";
   const labelClass =
     "font-lexend text-sec-color shrink-0 text-sm font-semibold md:text-base";
 

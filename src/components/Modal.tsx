@@ -36,7 +36,7 @@ export default function Modal({
           <button
             popoverTarget={id}
             popoverTargetAction="hide"
-            className="text-white hover:opacity-70 transition-opacity"
+            className="text-white hover:opacity-70 transition-opacity cursor-pointer"
             aria-label="Close modal"
             type="button"
           >

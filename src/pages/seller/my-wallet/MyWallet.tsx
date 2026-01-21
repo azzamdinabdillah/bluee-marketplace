@@ -109,6 +109,7 @@ const WithdrawalRow = ({ amount, status }: (typeof withdrawals)[0]) => {
       {/* Details Button Section */}
       <div className="flex flex-1 justify-stretch md:justify-end">
         <Button
+          to="/backoffice-seller/my-wallet/details-withdrawal"
           variant="blue"
           icon="/icons/eye.svg"
           iconPosition="left"

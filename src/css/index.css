@@ -52,6 +52,10 @@ body:has(.sidebar.translate-x-0) {
   @apply mx-4 my-4 md:mx-8 md:my-8 lg:mx-[52px];
 }
 
+.border-dashed-custom {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23E8E8E8FF' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
 .max-w-1176 {
   max-width: 1176px;
 }
