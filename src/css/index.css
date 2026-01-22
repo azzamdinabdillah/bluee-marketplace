@@ -36,6 +36,10 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.flex-col-20{
+  @apply flex flex-col gap-3 md:gap-5;
+}
+
 .margin-top-navbar {
   @apply mt-[120px] md:mt-[100px] lg:mt-[121px];
 }

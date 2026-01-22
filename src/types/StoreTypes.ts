@@ -9,4 +9,5 @@ export interface StoreType {
   className?: string;
   href?: string;
   coverBackgroundColor?: string;
+  createdAt?: string | Date;
 }

@@ -9,6 +9,7 @@ import Cart from "./pages/buyer/landing/Cart";
 import ProductsPage from "./pages/buyer/landing/ProductsPage";
 import OverviewBuyer from "./pages/buyer/backoffice-buyer/Overview";
 import OverviewSeller from "./pages/seller/Overview";
+import OverviewManager from "./pages/manager/Overview";
 import MyTransactions from "./pages/buyer/backoffice-buyer/manage-transactions/MyTransactions";
 import DetailsTransaction from "./pages/buyer/backoffice-buyer/manage-transactions/DetailsTransaction";
 import Login from "./pages/auth/Login";
@@ -75,6 +76,10 @@ function App() {
             <Route path="details-withdrawal" element={<DetailsWithdrawal />} />
           </Route>
 
+        </Route>
+
+        <Route path="/backoffice-manager">
+          <Route path="overview" element={<OverviewManager />} />
         </Route>
       </Routes>
     </BrowserRouter>

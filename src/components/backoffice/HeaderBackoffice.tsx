@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@src/components/icons/SearchIcon";
 import Notification from "@src/components/icons/Notification";
 import crownIcon from "/icons/crown-black.svg";
@@ -83,9 +83,9 @@ export default function HeaderBackoffice({
 
           {/* Info */}
           <div className="flex flex-col gap-0.5 md:gap-1 lg:gap-1.5">
-            <div className="overflow-hidden w-full max-w-[100px]">
+            <div className="w-full max-w-[100px] overflow-hidden">
               <h3 className="font-lexend text-black-color truncate text-sm leading-tight font-semibold md:text-[15px] lg:text-base">
-                Bimore Waskdjashdad
+                Bimore Wask
               </h3>
             </div>
             <div className="text-sec-color flex flex-row items-center gap-1">
@@ -102,13 +102,15 @@ export default function HeaderBackoffice({
         </div>
 
         {/* Logout */}
-        <button className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-50 md:h-9 md:w-9 lg:h-10 lg:w-10">
-          <img
-            src={logoutIcon}
-            alt="Logout"
-            className="h-5 w-5 md:h-[22px] md:w-[22px] lg:h-6 lg:w-6"
-          />
-        </button>
+        <Link to={"/login"}>
+          <button className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-gray-50 md:h-9 md:w-9 lg:h-10 lg:w-10">
+            <img
+              src={logoutIcon}
+              alt="Logout"
+              className="h-5 w-5 md:h-[22px] md:w-[22px] lg:h-6 lg:w-6"
+            />
+          </button>
+        </Link>
       </div>
     </div>
   );

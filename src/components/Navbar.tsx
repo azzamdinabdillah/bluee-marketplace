@@ -64,26 +64,27 @@ export default function Navbar() {
     label: string;
     href: string;
   }[] = [
-      { icon: Home, label: "Homepage", href: "/" },
-      { icon: Flash, label: "Flash Sale", href: "" },
-      { icon: BoxSearch, label: "Products", href: "/products" },
-      { icon: Note, label: "Orders", href: "" },
-      { icon: Group, label: "Community", href: "" },
-      { icon: Buildings, label: "Wholesale", href: "" },
-      { icon: CustomerService, label: "Customer Service", href: "" },
-    ];
+    { icon: Home, label: "Homepage", href: "/" },
+    { icon: Flash, label: "Flash Sale", href: "" },
+    { icon: BoxSearch, label: "Products", href: "/products" },
+    { icon: Note, label: "Orders", href: "" },
+    { icon: Group, label: "Community", href: "" },
+    { icon: Buildings, label: "Wholesale", href: "" },
+    { icon: CustomerService, label: "Customer Service", href: "" },
+  ];
 
   return (
     <>
-      <div className={`border-stroke-color fixed top-0 left-0 z-50 w-full border-b bg-white transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
-        <div
-          className="min-[1700px]:max-w-[2000px] mx-auto"
-        >
+      <div
+        className={`border-stroke-color fixed top-0 left-0 z-50 w-full border-b bg-white transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      >
+        <div className="mx-auto min-[1700px]:max-w-[2000px]">
           <div
-            className={`grid p-4 min-[1700px]:px-0 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 md:p-6 lg:p-8 ${isCategoriesOpen
-              ? "grid-rows-[2fr] gap-4 md:gap-6"
-              : "grid-rows-[0fr] gap-0"
-              }`}
+            className={`grid p-4 transition-[grid-template-rows,gap] delay-[0s,150ms] duration-100 min-[1700px]:px-0 md:p-6 lg:p-8 ${
+              isCategoriesOpen
+                ? "grid-rows-[2fr] gap-4 md:gap-6"
+                : "grid-rows-[0fr] gap-0"
+            }`}
           >
             <div className="flex flex-col gap-2 md:gap-4">
               <div className="flex gap-4 md:gap-6">
@@ -117,8 +118,9 @@ export default function Navbar() {
                     <img
                       src={arrowDown}
                       alt=""
-                      className={`transition-transform duration-300 ${isCategoriesOpen ? "" : "rotate-180"
-                        }`}
+                      className={`transition-transform duration-300 ${
+                        isCategoriesOpen ? "" : "rotate-180"
+                      }`}
                     />
                   </div>
                 </div>
@@ -145,46 +147,76 @@ export default function Navbar() {
                   <div className="relative">
                     <button
                       popoverTarget="user-menu"
-                      className="anchor/--user-anchor rounded-full bg-yellow flex justify-center items-center w-9 h-9 md:w-14 md:h-14 overflow-hidden cursor-pointer"
+                      className="anchor/--user-anchor bg-yellow flex h-9 w-9 cursor-pointer items-center justify-center overflow-hidden rounded-full md:h-14 md:w-14"
                     >
-                      <img src={user} alt="" className="w-full h-full object-cover" />
+                      <img
+                        src={user}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
                     </button>
 
-                    <div popover="auto" id="user-menu" ref={popoverRef} className="anchored/--user-anchor anchored-bottom-span-left translate-y-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)] rounded-[20px_0px_20px_20px] bg-white">
-                      <div className="w-[201px] flex flex-col gap-[18px] py-6 px-4 z-50">
-                        <Link to={'/backoffice-buyer/overview'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                    <div
+                      popover="auto"
+                      id="user-menu"
+                      ref={popoverRef}
+                      className="anchored/--user-anchor anchored-bottom-span-left translate-y-3 rounded-[20px_0px_20px_20px] bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.09)]"
+                    >
+                      <div className="z-50 flex w-[201px] flex-col gap-[18px] px-4 py-6">
+                        <Link
+                          to={"/backoffice-buyer/overview"}
+                          className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80"
+                        >
+                          <p className="text-base leading-5 font-medium text-[#6A7686]">
                             Buyer Backoffice
                           </p>
                           <img className="h-6 w-6" src={profileCircle} alt="" />
                         </Link>
-                        <Link to={'/backoffice-seller/overview'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                        <Link
+                          to={"/backoffice-seller/overview"}
+                          className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80"
+                        >
+                          <p className="text-base leading-5 font-medium text-[#6A7686]">
                             Seller Backoffice
                           </p>
                           <img className="h-6 w-6" src={profileCircle} alt="" />
                         </Link>
-                        <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                        <Link
+                          to={"/backoffice-manager/overview"}
+                          className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80"
+                        >
+                          <p className="text-base leading-5 font-medium text-[#6A7686]">
+                            Manager Backoffice
+                          </p>
+                          <img className="h-6 w-6" src={profileCircle} alt="" />
+                        </Link>
+                        <div className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80">
+                          <p className="text-base leading-5 font-medium text-[#6A7686]">
                             My Profile
                           </p>
                           <img className="h-6 w-6" src={profileCircle} alt="" />
                         </div>
-                        <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <Link to={'/backoffice-buyer/manage-transactions'} className="text-[#6A7686] font-medium text-base leading-5">
+                        <div className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80">
+                          <Link
+                            to={"/backoffice-buyer/manage-transactions"}
+                            className="text-base leading-5 font-medium text-[#6A7686]"
+                          >
                             My Transactions
                           </Link>
                           <img className="h-6 w-6" src={stickyNote} alt="" />
                         </div>
-                        <div className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-[#6A7686] font-medium text-base leading-5">
+                        <div className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80">
+                          <p className="text-base leading-5 font-medium text-[#6A7686]">
                             Settings
                           </p>
                           <img className="h-6 w-6" src={setting2} alt="" />
                         </div>
                         <div className="h-px w-full bg-[#E8E8E8]"></div>
-                        <Link to={'/login'} className="flex items-center justify-between gap-2 cursor-pointer hover:opacity-80">
-                          <p className="text-red-color font-medium text-base leading-5">
+                        <Link
+                          to={"/login"}
+                          className="flex cursor-pointer items-center justify-between gap-2 hover:opacity-80"
+                        >
+                          <p className="text-red-color text-base leading-5 font-medium">
                             Log Out
                           </p>
                           <img className="h-6 w-6" src={logoutIcon} alt="" />
@@ -198,9 +230,7 @@ export default function Navbar() {
                   <span className="hidden lg:inline-block">Sign In/</span>
                   Register
                 </Button> */}
-
                 </div>
-
               </div>
 
               <div className="relative md:hidden">
@@ -214,8 +244,9 @@ export default function Navbar() {
             </div>
 
             <div
-              className={`hidden transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${isCategoriesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                }`}
+              className={`hidden transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${
+                isCategoriesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
             >
               <div className="overflow-hidden">
                 <ul className="scrollbar-hide flex items-center gap-6 overflow-x-auto whitespace-nowrap md:gap-8">
@@ -238,13 +269,13 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-
       </div>
       <div
-        className={`fixed inset-0 z-50 h-full bg-black/50 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen
-          ? "opacity-100"
-          : "pointer-events-none opacity-0 select-none"
-          }`}
+        className={`fixed inset-0 z-50 h-full bg-black/50 transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen
+            ? "opacity-100"
+            : "pointer-events-none opacity-0 select-none"
+        }`}
         onClick={handleMenuToggle}
       >
         <div
